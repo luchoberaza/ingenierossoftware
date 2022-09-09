@@ -148,8 +148,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
                     try
                     {
                         sql.EliminarMatPrim(id);
-                        dgvMatPrim.ReadOnly = false;
-                        dgvMatPrim.SelectedRows.Clear();
+                        MostrarProductos();
 
                     }
                     catch (Exception ex)
@@ -157,7 +156,6 @@ namespace Ingenieros_Commerce_Manager_v2._0
                         MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
-                MostrarProductos();
             }
             else if (dgvProductos.SelectedRows.Count > 0)
             {
@@ -168,15 +166,14 @@ namespace Ingenieros_Commerce_Manager_v2._0
                     try
                     {
                         sql.EliminarProd(id);
-                        dgvProductos.ReadOnly = false;
-                        dgvProductos.SelectedRows.Clear();
+                        MostrarProductos();
+
                     }
                     catch (Exception ex)
                     {
                         MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
-                MostrarProductos();
             }
             else
             {
