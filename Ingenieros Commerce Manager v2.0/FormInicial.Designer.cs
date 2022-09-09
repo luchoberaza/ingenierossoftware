@@ -154,7 +154,7 @@
             this.lblVolver.ForeColor = System.Drawing.Color.DarkBlue;
             this.lblVolver.Location = new System.Drawing.Point(95, 444);
             this.lblVolver.Name = "lblVolver";
-            this.lblVolver.Size = new System.Drawing.Size(55, 25);
+            this.lblVolver.Size = new System.Drawing.Size(43, 19);
             this.lblVolver.TabIndex = 8;
             this.lblVolver.Text = "Volver";
             this.lblVolver.Visible = false;
@@ -198,7 +198,7 @@
             this.txbConfirm.PasswordChar = true;
             this.txbConfirm.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txbConfirm.PlaceholderText = "Repetir contraseña";
-            this.txbConfirm.Size = new System.Drawing.Size(152, 45);
+            this.txbConfirm.Size = new System.Drawing.Size(152, 38);
             this.txbConfirm.TabIndex = 6;
             this.txbConfirm.TabStop = false;
             this.txbConfirm.Texts = "";
@@ -266,7 +266,7 @@
             this.txbPasswd.PasswordChar = true;
             this.txbPasswd.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txbPasswd.PlaceholderText = "Contraseña";
-            this.txbPasswd.Size = new System.Drawing.Size(152, 45);
+            this.txbPasswd.Size = new System.Drawing.Size(152, 38);
             this.txbPasswd.TabIndex = 2;
             this.txbPasswd.TabStop = false;
             this.txbPasswd.Texts = "";
@@ -292,7 +292,7 @@
             this.txbUsuario.PasswordChar = false;
             this.txbUsuario.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txbUsuario.PlaceholderText = "Usuario";
-            this.txbUsuario.Size = new System.Drawing.Size(191, 45);
+            this.txbUsuario.Size = new System.Drawing.Size(191, 38);
             this.txbUsuario.TabIndex = 1;
             this.txbUsuario.TabStop = false;
             this.txbUsuario.Texts = "";
@@ -309,7 +309,7 @@
             this.lblRegistrarse.ForeColor = System.Drawing.Color.DarkBlue;
             this.lblRegistrarse.Location = new System.Drawing.Point(27, 444);
             this.lblRegistrarse.Name = "lblRegistrarse";
-            this.lblRegistrarse.Size = new System.Drawing.Size(219, 25);
+            this.lblRegistrarse.Size = new System.Drawing.Size(174, 19);
             this.lblRegistrarse.TabIndex = 0;
             this.lblRegistrarse.Text = "¿No tienes cuenta? Regístrate";
             this.lblRegistrarse.Click += new System.EventHandler(this.lblRegistrarse_Click);
@@ -339,7 +339,6 @@
             this.LogoPrincipal.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.LogoPrincipal.TabIndex = 0;
             this.LogoPrincipal.TabStop = false;
-            this.LogoPrincipal.Click += new System.EventHandler(this.LogoPrincipal_Click);
             // 
             // RedondeoForm
             // 

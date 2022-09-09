@@ -244,10 +244,5 @@ namespace Ingenieros_Commerce_Manager_v2._0
             lblVolver.ForeColor = Color.DarkBlue;
         }
         #endregion
-
-        private void LogoPrincipal_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

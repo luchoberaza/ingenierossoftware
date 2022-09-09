@@ -161,6 +161,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
             btnVentas.ForeColor = Color.FromArgb(130, 136, 152);
             btnResumen.ForeColor = Color.FromArgb(130, 136, 152);
             #endregion
+            AbrirFormulario<FormInventario>();
         }
 
         private void btnResumen_Click(object sender, EventArgs e)
