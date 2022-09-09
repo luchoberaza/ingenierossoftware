@@ -28,6 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblTipo = new System.Windows.Forms.Label();
             this.btnIngresar = new System.Windows.Forms.Button();
             this.dgvProductos = new System.Windows.Forms.DataGridView();
@@ -48,12 +54,11 @@
             // 
             // lblTipo
             // 
-            this.lblTipo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblTipo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTipo.AutoSize = true;
             this.lblTipo.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTipo.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.lblTipo.Location = new System.Drawing.Point(514, 230);
+            this.lblTipo.Location = new System.Drawing.Point(519, 231);
             this.lblTipo.Margin = new System.Windows.Forms.Padding(0);
             this.lblTipo.Name = "lblTipo";
             this.lblTipo.Size = new System.Drawing.Size(35, 22);
@@ -62,8 +67,7 @@
             // 
             // btnIngresar
             // 
-            this.btnIngresar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnIngresar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnIngresar.BackColor = System.Drawing.Color.MediumSlateBlue;
             this.btnIngresar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnIngresar.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -72,7 +76,7 @@
             this.btnIngresar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnIngresar.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnIngresar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnIngresar.Location = new System.Drawing.Point(500, 280);
+            this.btnIngresar.Location = new System.Drawing.Point(505, 281);
             this.btnIngresar.Name = "btnIngresar";
             this.btnIngresar.Size = new System.Drawing.Size(250, 47);
             this.btnIngresar.TabIndex = 8;
@@ -84,30 +88,87 @@
             // 
             this.dgvProductos.AllowUserToOrderColumns = true;
             this.dgvProductos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvProductos.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
-            this.dgvProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProductos.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvProductos.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(223)))), ((int)(((byte)(248)))));
+            this.dgvProductos.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvProductos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dgvProductos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(154)))), ((int)(((byte)(233)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(94)))), ((int)(((byte)(220)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvProductos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvProductos.ColumnHeadersHeight = 25;
             this.dgvProductos.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvProductos.GridColor = System.Drawing.SystemColors.ControlLight;
-            this.dgvProductos.Location = new System.Drawing.Point(0, 18);
+            this.dgvProductos.EnableHeadersVisualStyles = false;
+            this.dgvProductos.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(94)))), ((int)(((byte)(220)))));
+            this.dgvProductos.Location = new System.Drawing.Point(0, 29);
             this.dgvProductos.Margin = new System.Windows.Forms.Padding(0);
             this.dgvProductos.Name = "dgvProductos";
             this.dgvProductos.ReadOnly = true;
-            this.dgvProductos.Size = new System.Drawing.Size(480, 286);
+            this.dgvProductos.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(154)))), ((int)(((byte)(233)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(94)))), ((int)(((byte)(220)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvProductos.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(223)))), ((int)(((byte)(248)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(94)))), ((int)(((byte)(220)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(249)))), ((int)(((byte)(254)))));
+            this.dgvProductos.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvProductos.ShowCellErrors = false;
+            this.dgvProductos.Size = new System.Drawing.Size(480, 265);
             this.dgvProductos.TabIndex = 0;
             // 
             // dgvMatPrim
             // 
             this.dgvMatPrim.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvMatPrim.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllHeaders;
-            this.dgvMatPrim.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
-            this.dgvMatPrim.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvMatPrim.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvMatPrim.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(223)))), ((int)(((byte)(248)))));
+            this.dgvMatPrim.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvMatPrim.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dgvMatPrim.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(154)))), ((int)(((byte)(233)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(94)))), ((int)(((byte)(220)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvMatPrim.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvMatPrim.ColumnHeadersHeight = 25;
             this.dgvMatPrim.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvMatPrim.GridColor = System.Drawing.SystemColors.ControlLight;
-            this.dgvMatPrim.Location = new System.Drawing.Point(0, 322);
+            this.dgvMatPrim.EnableHeadersVisualStyles = false;
+            this.dgvMatPrim.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(94)))), ((int)(((byte)(220)))));
+            this.dgvMatPrim.Location = new System.Drawing.Point(0, 323);
             this.dgvMatPrim.Margin = new System.Windows.Forms.Padding(0);
             this.dgvMatPrim.Name = "dgvMatPrim";
             this.dgvMatPrim.ReadOnly = true;
-            this.dgvMatPrim.Size = new System.Drawing.Size(480, 288);
+            this.dgvMatPrim.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(154)))), ((int)(((byte)(233)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(94)))), ((int)(((byte)(220)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvMatPrim.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(223)))), ((int)(((byte)(248)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(94)))), ((int)(((byte)(220)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(249)))), ((int)(((byte)(254)))));
+            this.dgvMatPrim.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            this.dgvMatPrim.ShowCellErrors = false;
+            this.dgvMatPrim.Size = new System.Drawing.Size(480, 267);
             this.dgvMatPrim.TabIndex = 9;
             // 
             // lblProds
@@ -116,12 +177,12 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblProds.AutoSize = true;
-            this.lblProds.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblProds.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblProds.ForeColor = System.Drawing.SystemColors.ControlDark;
             this.lblProds.Location = new System.Drawing.Point(10, 0);
             this.lblProds.Margin = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.lblProds.Name = "lblProds";
-            this.lblProds.Size = new System.Drawing.Size(470, 18);
+            this.lblProds.Size = new System.Drawing.Size(470, 29);
             this.lblProds.TabIndex = 11;
             this.lblProds.Text = "Productos de Venta";
             // 
@@ -131,38 +192,40 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblMatPrim.AutoSize = true;
-            this.lblMatPrim.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMatPrim.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMatPrim.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.lblMatPrim.Location = new System.Drawing.Point(10, 304);
+            this.lblMatPrim.Location = new System.Drawing.Point(10, 294);
             this.lblMatPrim.Margin = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.lblMatPrim.Name = "lblMatPrim";
-            this.lblMatPrim.Size = new System.Drawing.Size(470, 18);
+            this.lblMatPrim.Size = new System.Drawing.Size(470, 29);
             this.lblMatPrim.TabIndex = 10;
             this.lblMatPrim.Text = "Materias Primas";
             // 
             // panelDGVs
             // 
+            this.panelDGVs.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panelDGVs.ColumnCount = 1;
             this.panelDGVs.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.panelDGVs.Controls.Add(this.dgvProductos, 0, 1);
             this.panelDGVs.Controls.Add(this.lblMatPrim, 0, 2);
             this.panelDGVs.Controls.Add(this.dgvMatPrim, 0, 3);
             this.panelDGVs.Controls.Add(this.lblProds, 0, 0);
-            this.panelDGVs.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelDGVs.Location = new System.Drawing.Point(0, 0);
+            this.panelDGVs.Location = new System.Drawing.Point(10, 10);
+            this.panelDGVs.Margin = new System.Windows.Forms.Padding(0);
             this.panelDGVs.Name = "panelDGVs";
             this.panelDGVs.RowCount = 4;
-            this.panelDGVs.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3F));
-            this.panelDGVs.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 47F));
-            this.panelDGVs.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3F));
-            this.panelDGVs.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 47F));
-            this.panelDGVs.Size = new System.Drawing.Size(480, 610);
+            this.panelDGVs.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
+            this.panelDGVs.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 45F));
+            this.panelDGVs.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
+            this.panelDGVs.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 45F));
+            this.panelDGVs.Size = new System.Drawing.Size(480, 590);
             this.panelDGVs.TabIndex = 12;
             // 
             // btnEditar
             // 
-            this.btnEditar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEditar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnEditar.BackColor = System.Drawing.Color.MediumSlateBlue;
             this.btnEditar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnEditar.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -171,7 +234,7 @@
             this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEditar.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnEditar.Location = new System.Drawing.Point(500, 333);
+            this.btnEditar.Location = new System.Drawing.Point(505, 334);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(120, 47);
             this.btnEditar.TabIndex = 13;
@@ -181,8 +244,7 @@
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEliminar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnEliminar.BackColor = System.Drawing.Color.MediumSlateBlue;
             this.btnEliminar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnEliminar.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -191,7 +253,7 @@
             this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminar.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnEliminar.Location = new System.Drawing.Point(630, 333);
+            this.btnEliminar.Location = new System.Drawing.Point(635, 334);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(120, 47);
             this.btnEliminar.TabIndex = 14;
@@ -201,8 +263,7 @@
             // 
             // cmbTipo
             // 
-            this.cmbTipo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmbTipo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbTipo.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmbTipo.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbTipo.BackColor = System.Drawing.SystemColors.ControlLightLight;
@@ -217,7 +278,7 @@
             "Producto en Venta"});
             this.cmbTipo.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(228)))), ((int)(((byte)(245)))));
             this.cmbTipo.ListTextColor = System.Drawing.Color.DimGray;
-            this.cmbTipo.Location = new System.Drawing.Point(500, 240);
+            this.cmbTipo.Location = new System.Drawing.Point(505, 241);
             this.cmbTipo.MinimumSize = new System.Drawing.Size(200, 30);
             this.cmbTipo.Name = "cmbTipo";
             this.cmbTipo.Padding = new System.Windows.Forms.Padding(2);
@@ -227,15 +288,14 @@
             // 
             // txbDescrip
             // 
-            this.txbDescrip.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txbDescrip.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txbDescrip.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.txbDescrip.BorderColor = System.Drawing.Color.MediumSlateBlue;
             this.txbDescrip.BorderFocusColor = System.Drawing.Color.HotPink;
             this.txbDescrip.BorderRadius = 0;
             this.txbDescrip.BorderSize = 2;
             this.txbDescrip.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbDescrip.Location = new System.Drawing.Point(500, 112);
+            this.txbDescrip.Location = new System.Drawing.Point(505, 113);
             this.txbDescrip.Multiline = true;
             this.txbDescrip.Name = "txbDescrip";
             this.txbDescrip.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
@@ -249,15 +309,14 @@
             // 
             // txbStock
             // 
-            this.txbStock.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txbStock.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txbStock.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.txbStock.BorderColor = System.Drawing.Color.MediumSlateBlue;
             this.txbStock.BorderFocusColor = System.Drawing.Color.HotPink;
             this.txbStock.BorderRadius = 0;
             this.txbStock.BorderSize = 2;
             this.txbStock.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbStock.Location = new System.Drawing.Point(500, 69);
+            this.txbStock.Location = new System.Drawing.Point(505, 70);
             this.txbStock.Multiline = false;
             this.txbStock.Name = "txbStock";
             this.txbStock.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
@@ -271,15 +330,14 @@
             // 
             // txbPrecio
             // 
-            this.txbPrecio.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txbPrecio.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txbPrecio.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.txbPrecio.BorderColor = System.Drawing.Color.MediumSlateBlue;
             this.txbPrecio.BorderFocusColor = System.Drawing.Color.HotPink;
             this.txbPrecio.BorderRadius = 0;
             this.txbPrecio.BorderSize = 2;
             this.txbPrecio.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbPrecio.Location = new System.Drawing.Point(500, 26);
+            this.txbPrecio.Location = new System.Drawing.Point(505, 27);
             this.txbPrecio.Multiline = false;
             this.txbPrecio.Name = "txbPrecio";
             this.txbPrecio.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
