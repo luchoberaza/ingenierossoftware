@@ -43,6 +43,7 @@
             this.panelDGVs = new System.Windows.Forms.TableLayoutPanel();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnDeselect = new System.Windows.Forms.Button();
             this.cmbTipo = new CustomControls.RJControls.RJComboBox();
             this.txbDescrip = new Ingenieros_Commerce_Manager.CustomControls.CustomTextBox();
             this.txbStock = new Ingenieros_Commerce_Manager.CustomControls.CustomTextBox();
@@ -116,7 +117,7 @@
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(94)))), ((int)(((byte)(220)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvProductos.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(223)))), ((int)(((byte)(248)))));
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -127,6 +128,7 @@
             this.dgvProductos.ShowCellErrors = false;
             this.dgvProductos.Size = new System.Drawing.Size(480, 265);
             this.dgvProductos.TabIndex = 0;
+            this.dgvProductos.Click += new System.EventHandler(this.dgvProductos_Click);
             // 
             // dgvMatPrim
             // 
@@ -159,7 +161,7 @@
             dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(94)))), ((int)(((byte)(220)))));
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvMatPrim.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
             dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(223)))), ((int)(((byte)(248)))));
             dataGridViewCellStyle6.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -170,6 +172,7 @@
             this.dgvMatPrim.ShowCellErrors = false;
             this.dgvMatPrim.Size = new System.Drawing.Size(480, 267);
             this.dgvMatPrim.TabIndex = 9;
+            this.dgvMatPrim.Click += new System.EventHandler(this.dgvMatPrim_Click);
             // 
             // lblProds
             // 
@@ -234,7 +237,7 @@
             this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEditar.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnEditar.Location = new System.Drawing.Point(505, 334);
+            this.btnEditar.Location = new System.Drawing.Point(505, 335);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(120, 47);
             this.btnEditar.TabIndex = 13;
@@ -253,13 +256,32 @@
             this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminar.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnEliminar.Location = new System.Drawing.Point(635, 334);
+            this.btnEliminar.Location = new System.Drawing.Point(635, 335);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(120, 47);
             this.btnEliminar.TabIndex = 14;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = false;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            // 
+            // btnDeselect
+            // 
+            this.btnDeselect.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnDeselect.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.btnDeselect.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnDeselect.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDeselect.FlatAppearance.BorderSize = 0;
+            this.btnDeselect.FlatAppearance.MouseOverBackColor = System.Drawing.Color.HotPink;
+            this.btnDeselect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeselect.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeselect.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnDeselect.Location = new System.Drawing.Point(505, 390);
+            this.btnDeselect.Name = "btnDeselect";
+            this.btnDeselect.Size = new System.Drawing.Size(250, 47);
+            this.btnDeselect.TabIndex = 15;
+            this.btnDeselect.Text = "Borrar selección";
+            this.btnDeselect.UseVisualStyleBackColor = false;
+            this.btnDeselect.Click += new System.EventHandler(this.btnDeselect_Click);
             // 
             // cmbTipo
             // 
@@ -355,6 +377,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(770, 610);
+            this.Controls.Add(this.btnDeselect);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.panelDGVs);
@@ -391,5 +414,6 @@
         private System.Windows.Forms.TableLayoutPanel panelDGVs;
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.Button btnDeselect;
     }
 }

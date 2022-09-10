@@ -16,7 +16,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
         //Instancia de clase
         conexionsql sql = new conexionsql();
         //Variables
-        private string id = null;
+        private string idprod = null, idmat = null;
         private bool editar = false;
         public FormInventario()
         {
@@ -42,7 +42,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
                         {
                             if (editar == true)
                             {
-                                sql.UpdateProd(txbStock.Texts, txbDescrip.Texts, txbPrecio.Texts, id);
+                                sql.UpdateProd(txbStock.Texts, txbDescrip.Texts, txbPrecio.Texts, idprod);
                                 editar = false;
                             }
                             else
@@ -65,7 +65,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
                         {
                             if(editar == true)
                             {
-                                sql.UpdateMatPrim(txbStock.Texts, txbDescrip.Texts, txbPrecio.Texts, id);
+                                sql.UpdateMatPrim(txbStock.Texts, txbDescrip.Texts, txbPrecio.Texts, idmat);
                                 editar=false;
                             }
                             else
@@ -104,7 +104,6 @@ namespace Ingenieros_Commerce_Manager_v2._0
                 txbStock.Texts = dgvMatPrim.CurrentRow.Cells["Stock"].Value.ToString();
                 txbPrecio.Texts = dgvMatPrim.CurrentRow.Cells["Costo"].Value.ToString();
                 cmbTipo.Texts = "Materia Prima";
-                id = dgvMatPrim.CurrentRow.Cells["ID.Mat"].Value.ToString();
                 editar = true;
 
             } else if (dgvProductos.SelectedRows.Count > 0)
@@ -114,7 +113,6 @@ namespace Ingenieros_Commerce_Manager_v2._0
                 txbDescrip.Texts = dgvProductos.CurrentRow.Cells["Descripcion"].Value.ToString();
                 txbStock.Texts = dgvProductos.CurrentRow.Cells["Stock"].Value.ToString();
                 cmbTipo.Texts = "Producto en Venta";
-                id=dgvProductos.CurrentRow.Cells["ID.Prod"].Value.ToString();
                 editar = true;
 
             }
@@ -135,37 +133,41 @@ namespace Ingenieros_Commerce_Manager_v2._0
             txbPrecio.Texts = "";
             txbDescrip.Texts = "";
             cmbTipo.Texts = "";
+            dgvMatPrim.ClearSelection();
+            dgvProductos.ClearSelection();
+            idprod = null;
+            idmat = null;
         }
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             if (dgvMatPrim.SelectedRows.Count > 0)
             {
-                id = dgvMatPrim.CurrentRow.Cells["ID.Mat"].Value.ToString();
                 var respuesta = MessageBox.Show("¿Desea eliminar los elementos seleccionados? Esta acción no puede revertirse", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (respuesta == DialogResult.Yes)
                 {
 
                     try
                     {
-                        sql.EliminarMatPrim(id);
+                        sql.EliminarMatPrim(idmat);
                         MostrarProductos();
+
 
                     }
                     catch (Exception ex)
                     {
                         MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
+
                 }
             }
             else if (dgvProductos.SelectedRows.Count > 0)
             {
-                id = dgvProductos.CurrentRow.Cells["ID.Prod"].Value.ToString();
                 var respuesta = MessageBox.Show("¿Desea eliminar los elementos seleccionados? Esta acción no puede revertirse", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (respuesta == DialogResult.Yes)
                 {
                     try
                     {
-                        sql.EliminarProd(id);
+                        sql.EliminarProd(idprod);
                         MostrarProductos();
 
                     }
@@ -174,10 +176,55 @@ namespace Ingenieros_Commerce_Manager_v2._0
                         MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
+
             }
             else
             {
                 MessageBox.Show("Seleccione una fila.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            ClearTextBoxs();
+        }
+        private void dgvMatPrim_Click(object sender, EventArgs e)
+        {
+
+            if (dgvMatPrim.SelectedRows.Count > 0)
+            {
+                dgvProductos.ClearSelection();
+                if (idmat == null)
+                {
+                    idmat = dgvMatPrim.CurrentRow.Cells["ID.Mat"].Value.ToString();
+
+                }
+                else if (!(idmat.Contains(dgvMatPrim.CurrentRow.Cells["ID.Mat"].Value.ToString())))
+                {
+                    idmat = idmat + ", " + dgvMatPrim.CurrentRow.Cells["ID.Mat"].Value.ToString();
+                }
+
+            }
+        }
+
+        private void btnDeselect_Click(object sender, EventArgs e)
+        {
+            dgvProductos.ClearSelection();
+            dgvMatPrim.ClearSelection();
+            idmat = null;
+            idprod = null;
+        }
+
+        private void dgvProductos_Click(object sender, EventArgs e)
+        {
+            if(dgvProductos.SelectedRows.Count > 0)
+            {
+                dgvMatPrim.ClearSelection();
+                if(idprod == null)
+                {
+                    idprod = dgvProductos.CurrentRow.Cells["ID.Prod"].Value.ToString();
+                }
+                else if (!(idprod.Contains(dgvProductos.CurrentRow.Cells["ID.Prod"].Value.ToString())))
+                {
+                    idprod =idprod+", "+ dgvProductos.CurrentRow.Cells["ID.Prod"].Value.ToString();
+
+                }
             }
         }
     }

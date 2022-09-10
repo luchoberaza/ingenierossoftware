@@ -47,25 +47,25 @@ namespace Ingenieros_Commerce_Manager_v2._0
         public void UpdateMatPrim(string stock, string descrip, string costo, string id)
         {
             AbrirConexion();
-            comandos.CommandText = "UPDATE `materia_prima` SET `Costo` = '"+double.Parse(costo)+"', `Descripcion` = '"+descrip+"', `Stock` = '"+double.Parse(stock)+"' WHERE `materia_prima`.`ID.Mat` = "+int.Parse(id)+"";
+            comandos.CommandText = "UPDATE `materia_prima` SET `Costo` = '"+double.Parse(costo)+"', `Descripcion` = '"+descrip+"', `Stock` = '"+double.Parse(stock)+"' WHERE `materia_prima`.`ID.Mat` IN ("+id+") ;";
             comandos.ExecuteNonQuery();
         }
         public void UpdateProd(string stock, string descrip, string precio, string id)
         {
             AbrirConexion();
-            comandos.CommandText = "UPDATE `producto_venta` SET `PrecioUnitario` = '" + double.Parse(precio) + "', `Descripcion` = '" + descrip + "', `Stock` = '" + double.Parse(stock) + "' WHERE `producto_venta`.`ID.Prod` = " + int.Parse(id) + "";
+            comandos.CommandText = "UPDATE `producto_venta` SET `PrecioUnitario` = '" + double.Parse(precio) + "', `Descripcion` = '" + descrip + "', `Stock` = '" + double.Parse(stock) + "' WHERE `producto_venta`.`ID.Prod` IN (" + id + ") ;";
             comandos.ExecuteNonQuery();
         }
         public void EliminarProd(string id)
         {
             AbrirConexion();
-            comandos.CommandText = "DELETE FROM `producto_venta` WHERE `producto_venta`.`ID.Prod` = " + int.Parse(id) + " ;";
+            comandos.CommandText = "DELETE FROM `producto_venta` WHERE `producto_venta`.`ID.Prod` IN (" + id + ") ;";
             comandos.ExecuteNonQuery();
         }
         public void EliminarMatPrim(string id)
         {
             AbrirConexion();
-            comandos.CommandText = "DELETE FROM `materia_prima` WHERE `materia_prima`.`ID.Mat` = "+int.Parse(id)+" ;";
+            comandos.CommandText = "DELETE FROM `materia_prima` WHERE `materia_prima`.`ID.Mat` IN ("+id+") ;";
             comandos.ExecuteNonQuery();
 
         }
