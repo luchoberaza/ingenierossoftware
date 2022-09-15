@@ -73,6 +73,16 @@ namespace Ingenieros_Commerce_Manager_v2._0.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap gasto24 {
+            get {
+                object obj = ResourceManager.GetObject("gasto24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Hide {
             get {
                 object obj = ResourceManager.GetObject("Hide", resourceCulture);
@@ -93,6 +103,16 @@ namespace Ingenieros_Commerce_Manager_v2._0.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap inevntario24 {
+            get {
+                object obj = ResourceManager.GetObject("inevntario24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Logo_PNG {
             get {
                 object obj = ResourceManager.GetObject("Logo PNG", resourceCulture);
@@ -106,6 +126,26 @@ namespace Ingenieros_Commerce_Manager_v2._0.Properties {
         internal static System.Drawing.Bitmap Minimize_Maximize {
             get {
                 object obj = ResourceManager.GetObject("Minimize_Maximize", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pagos24 {
+            get {
+                object obj = ResourceManager.GetObject("pagos24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap resumen24 {
+            get {
+                object obj = ResourceManager.GetObject("resumen24", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -146,6 +186,26 @@ namespace Ingenieros_Commerce_Manager_v2._0.Properties {
         internal static System.Drawing.Bitmap user_circle {
             get {
                 object obj = ResourceManager.GetObject("user-circle", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap venta {
+            get {
+                object obj = ResourceManager.GetObject("venta", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap venta24 {
+            get {
+                object obj = ResourceManager.GetObject("venta24", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

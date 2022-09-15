@@ -29,9 +29,14 @@ namespace Ingenieros_Commerce_Manager_v2._0
         }
         private void MostrarProductos()
         {
-
+            dgvMatPrim.DataSource = null;
+            dgvProductos.DataSource = null;
+            dgvProductos.Refresh();
+            dgvMatPrim.Refresh();
             dgvProductos.DataSource = sql.MostrarDTProd();
             dgvMatPrim.DataSource = sql.MostrarDTMatPrim();
+            dgvProductos.Refresh();
+            dgvMatPrim.Refresh();
         }
         private void btnIngresar_Click(object sender, EventArgs e)
         {
@@ -203,7 +208,6 @@ namespace Ingenieros_Commerce_Manager_v2._0
 
             }
         }
-
         private void btnDeselect_Click(object sender, EventArgs e)
         {
             dgvProductos.ClearSelection();
@@ -211,7 +215,6 @@ namespace Ingenieros_Commerce_Manager_v2._0
             idmat = null;
             idprod = null;
         }
-
         private void dgvProductos_Click(object sender, EventArgs e)
         {
             if(dgvProductos.SelectedRows.Count > 0)
