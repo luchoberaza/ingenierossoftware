@@ -121,10 +121,11 @@ namespace Ingenieros_Commerce_Manager_v2._0
         {
             #region Coloreado de fuente
             btnVentas.ForeColor = Color.FromArgb(6, 22, 204);
-            btnGastos.ForeColor = Color.FromArgb(130, 136, 152);
-            btnPagos.ForeColor = Color.FromArgb(130, 136, 152);
-            btnInventario.ForeColor = Color.FromArgb(130, 136, 152);
-            btnResumen.ForeColor = Color.FromArgb(130, 136, 152);
+            btnGastos.ForeColor = Color.FromArgb(96, 98, 102);
+            btnPagos.ForeColor = Color.FromArgb(96, 98, 102);
+            btnInventario.ForeColor = Color.FromArgb(96, 98, 102);
+            btnResumen.ForeColor = Color.FromArgb(96, 98, 102);
+
             #endregion
             AbrirFormulario<FormVentas>();
 
@@ -134,10 +135,10 @@ namespace Ingenieros_Commerce_Manager_v2._0
         {
             #region Coloreado de fuente
             btnGastos.ForeColor = Color.FromArgb(6, 22, 204);
-            btnVentas.ForeColor = Color.FromArgb(130, 136, 152);
-            btnPagos.ForeColor = Color.FromArgb(130, 136, 152);
-            btnInventario.ForeColor = Color.FromArgb(130, 136, 152);
-            btnResumen.ForeColor = Color.FromArgb(130, 136, 152);
+            btnVentas.ForeColor = Color.FromArgb(96, 98, 102);
+            btnPagos.ForeColor = Color.FromArgb(96, 98, 102);
+            btnInventario.ForeColor = Color.FromArgb(96, 98, 102);
+            btnResumen.ForeColor = Color.FromArgb(96, 98, 102);
             #endregion
         }
 
@@ -145,10 +146,10 @@ namespace Ingenieros_Commerce_Manager_v2._0
         {
             #region Coloreado de fuente
             btnPagos.ForeColor = Color.FromArgb(6, 22, 204);
-            btnGastos.ForeColor = Color.FromArgb(130, 136, 152);
-            btnVentas.ForeColor = Color.FromArgb(130, 136, 152);
-            btnInventario.ForeColor = Color.FromArgb(130, 136, 152);
-            btnResumen.ForeColor = Color.FromArgb(130, 136, 152);
+            btnGastos.ForeColor = Color.FromArgb(96, 98, 102);
+            btnVentas.ForeColor = Color.FromArgb(96, 98, 102);
+            btnInventario.ForeColor = Color.FromArgb(96, 98, 102);
+            btnResumen.ForeColor = Color.FromArgb(96, 98, 102);
             #endregion
         }
 
@@ -156,10 +157,10 @@ namespace Ingenieros_Commerce_Manager_v2._0
         {
             #region Coloreado de fuente
             btnInventario.ForeColor = Color.FromArgb(6, 22, 204);
-            btnGastos.ForeColor = Color.FromArgb(130, 136, 152);
-            btnPagos.ForeColor = Color.FromArgb(130, 136, 152);
-            btnVentas.ForeColor = Color.FromArgb(130, 136, 152);
-            btnResumen.ForeColor = Color.FromArgb(130, 136, 152);
+            btnGastos.ForeColor = Color.FromArgb(96, 98, 102);
+            btnPagos.ForeColor = Color.FromArgb(96, 98, 102);
+            btnVentas.ForeColor = Color.FromArgb(96, 98, 102);
+            btnResumen.ForeColor = Color.FromArgb(96, 98, 102);
             #endregion
             AbrirFormulario<FormInventario>();
         }
@@ -168,10 +169,10 @@ namespace Ingenieros_Commerce_Manager_v2._0
         {
             #region Coloreado de fuente
             btnResumen.ForeColor = Color.FromArgb(6, 22, 204);
-            btnGastos.ForeColor = Color.FromArgb(130, 136, 152);
-            btnPagos.ForeColor = Color.FromArgb(130, 136, 152);
-            btnInventario.ForeColor = Color.FromArgb(130, 136, 152);
-            btnVentas.ForeColor = Color.FromArgb(130, 136, 152);
+            btnGastos.ForeColor = Color.FromArgb(96, 98, 102);
+            btnPagos.ForeColor = Color.FromArgb(96, 98, 102);
+            btnInventario.ForeColor = Color.FromArgb(96, 98, 102);
+            btnVentas.ForeColor = Color.FromArgb(96, 98, 102);
             #endregion
 
         }
