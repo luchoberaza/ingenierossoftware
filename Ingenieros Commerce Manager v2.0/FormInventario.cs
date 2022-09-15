@@ -29,6 +29,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
         }
         private void MostrarProductos()
         {
+
             dgvProductos.DataSource = sql.MostrarDTProd();
             dgvMatPrim.DataSource = sql.MostrarDTMatPrim();
         }

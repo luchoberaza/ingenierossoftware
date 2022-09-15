@@ -104,6 +104,7 @@
             this.dgvProductos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvProductos.ColumnHeadersHeight = 25;
             this.dgvProductos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvProductos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvProductos.EnableHeadersVisualStyles = false;
             this.dgvProductos.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(94)))), ((int)(((byte)(220)))));
             this.dgvProductos.Location = new System.Drawing.Point(0, 29);
@@ -148,6 +149,7 @@
             this.dgvMatPrim.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvMatPrim.ColumnHeadersHeight = 25;
             this.dgvMatPrim.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvMatPrim.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvMatPrim.EnableHeadersVisualStyles = false;
             this.dgvMatPrim.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(94)))), ((int)(((byte)(220)))));
             this.dgvMatPrim.Location = new System.Drawing.Point(0, 323);
