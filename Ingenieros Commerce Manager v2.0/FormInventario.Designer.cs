@@ -281,7 +281,7 @@
             this.btnDeselect.Name = "btnDeselect";
             this.btnDeselect.Size = new System.Drawing.Size(250, 47);
             this.btnDeselect.TabIndex = 15;
-            this.btnDeselect.Text = "Borrar selección";
+            this.btnDeselect.Text = "Deshacer selección";
             this.btnDeselect.UseVisualStyleBackColor = false;
             this.btnDeselect.Click += new System.EventHandler(this.btnDeselect_Click);
             // 

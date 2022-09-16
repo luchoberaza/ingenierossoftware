@@ -83,6 +83,16 @@ namespace Ingenieros_Commerce_Manager_v2._0.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap gasto24blue {
+            get {
+                object obj = ResourceManager.GetObject("gasto24blue", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Hide {
             get {
                 object obj = ResourceManager.GetObject("Hide", resourceCulture);
@@ -106,6 +116,16 @@ namespace Ingenieros_Commerce_Manager_v2._0.Properties {
         internal static System.Drawing.Bitmap inevntario24 {
             get {
                 object obj = ResourceManager.GetObject("inevntario24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap inevntario24blue {
+            get {
+                object obj = ResourceManager.GetObject("inevntario24blue", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -143,9 +163,29 @@ namespace Ingenieros_Commerce_Manager_v2._0.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap pagos24blue {
+            get {
+                object obj = ResourceManager.GetObject("pagos24blue", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap resumen24 {
             get {
                 object obj = ResourceManager.GetObject("resumen24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap resumen24blue {
+            get {
+                object obj = ResourceManager.GetObject("resumen24blue", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -193,9 +233,9 @@ namespace Ingenieros_Commerce_Manager_v2._0.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap venta {
+        internal static System.Drawing.Bitmap venta24 {
             get {
-                object obj = ResourceManager.GetObject("venta", resourceCulture);
+                object obj = ResourceManager.GetObject("venta24", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -203,9 +243,9 @@ namespace Ingenieros_Commerce_Manager_v2._0.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap venta24 {
+        internal static System.Drawing.Bitmap venta24blue {
             get {
-                object obj = ResourceManager.GetObject("venta24", resourceCulture);
+                object obj = ResourceManager.GetObject("venta24blue", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

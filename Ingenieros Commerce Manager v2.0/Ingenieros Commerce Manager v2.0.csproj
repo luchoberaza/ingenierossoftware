@@ -440,11 +440,19 @@
     <None Include="Resources\resumen24.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\gasto24blue.png" />
-    <Content Include="Resources\inevntario24blue.png" />
-    <Content Include="Resources\pagos24blue.png" />
-    <Content Include="Resources\resumen24blue.png" />
-    <Content Include="Resources\venta24blue.png" />
+    <None Include="Resources\inevntario24blue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pagos24blue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\resumen24blue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gasto24blue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\venta24blue.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -117,64 +117,81 @@ namespace Ingenieros_Commerce_Manager_v2._0
         }
 
         #region Menu lateral
+        private void colorearBoton(Button color, Button gris, Button gris2, Button gris3, Button gris4)
+        {
+            color.ForeColor = Color.FromArgb(6, 22, 204);
+            gris.ForeColor = Color.FromArgb(96, 98, 102);
+            gris2.ForeColor = Color.FromArgb(96, 98, 102);
+            gris3.ForeColor = Color.FromArgb(96, 98, 102);
+            gris4.ForeColor = Color.FromArgb(96, 98, 102);
+            if (color == btnVentas)
+            {
+                btnVentas.Image = Ingenieros_Commerce_Manager_v2._0.Properties.Resources.venta24blue;
+                btnGastos.Image = Ingenieros_Commerce_Manager_v2._0.Properties.Resources.gasto24;
+                btnPagos.Image = Ingenieros_Commerce_Manager_v2._0.Properties.Resources.pagos24;
+                btnInventario.Image = Ingenieros_Commerce_Manager_v2._0.Properties.Resources.inevntario24;
+                btnResumen.Image = Ingenieros_Commerce_Manager_v2._0.Properties.Resources.resumen24;
+            }
+            else if (color == btnGastos)
+            {
+
+                btnVentas.Image = Ingenieros_Commerce_Manager_v2._0.Properties.Resources.venta24;
+                btnGastos.Image = Ingenieros_Commerce_Manager_v2._0.Properties.Resources.gasto24blue;
+                btnPagos.Image = Ingenieros_Commerce_Manager_v2._0.Properties.Resources.pagos24;
+                btnInventario.Image = Ingenieros_Commerce_Manager_v2._0.Properties.Resources.inevntario24;
+                btnResumen.Image = Ingenieros_Commerce_Manager_v2._0.Properties.Resources.resumen24;
+            }
+            else if (color == btnPagos)
+            {
+                btnVentas.Image = Ingenieros_Commerce_Manager_v2._0.Properties.Resources.venta24;
+                btnGastos.Image = Ingenieros_Commerce_Manager_v2._0.Properties.Resources.gasto24;
+                btnPagos.Image = Ingenieros_Commerce_Manager_v2._0.Properties.Resources.pagos24blue;
+                btnInventario.Image = Ingenieros_Commerce_Manager_v2._0.Properties.Resources.inevntario24;
+                btnResumen.Image = Ingenieros_Commerce_Manager_v2._0.Properties.Resources.resumen24;
+            }
+            else if (color == btnInventario)
+            {
+                btnVentas.Image = Ingenieros_Commerce_Manager_v2._0.Properties.Resources.venta24;
+                btnGastos.Image = Ingenieros_Commerce_Manager_v2._0.Properties.Resources.gasto24;
+                btnPagos.Image = Ingenieros_Commerce_Manager_v2._0.Properties.Resources.pagos24;
+                btnInventario.Image = Ingenieros_Commerce_Manager_v2._0.Properties.Resources.inevntario24blue;
+                btnResumen.Image = Ingenieros_Commerce_Manager_v2._0.Properties.Resources.resumen24;
+            }
+            else if (color == btnResumen)
+            {
+                btnVentas.Image = Ingenieros_Commerce_Manager_v2._0.Properties.Resources.venta24;
+                btnGastos.Image = Ingenieros_Commerce_Manager_v2._0.Properties.Resources.gasto24;
+                btnPagos.Image = Ingenieros_Commerce_Manager_v2._0.Properties.Resources.pagos24;
+                btnInventario.Image = Ingenieros_Commerce_Manager_v2._0.Properties.Resources.inevntario24;
+                btnResumen.Image = Ingenieros_Commerce_Manager_v2._0.Properties.Resources.resumen24blue;
+            }
+        }
         private void btnVentas_Click(object sender, EventArgs e)
         {
-            #region Coloreado de fuente
-            btnVentas.ForeColor = Color.FromArgb(6, 22, 204);
-            btnGastos.ForeColor = Color.FromArgb(96, 98, 102);
-            btnPagos.ForeColor = Color.FromArgb(96, 98, 102);
-            btnInventario.ForeColor = Color.FromArgb(96, 98, 102);
-            btnResumen.ForeColor = Color.FromArgb(96, 98, 102);
-
-            #endregion
+            colorearBoton(btnVentas, btnPagos, btnGastos, btnInventario, btnResumen);
             AbrirFormulario<FormVentas>();
 
         }
 
         private void btnGastos_Click(object sender, EventArgs e)
         {
-            #region Coloreado de fuente
-            btnGastos.ForeColor = Color.FromArgb(6, 22, 204);
-            btnVentas.ForeColor = Color.FromArgb(96, 98, 102);
-            btnPagos.ForeColor = Color.FromArgb(96, 98, 102);
-            btnInventario.ForeColor = Color.FromArgb(96, 98, 102);
-            btnResumen.ForeColor = Color.FromArgb(96, 98, 102);
-            #endregion
+            colorearBoton(btnGastos, btnPagos, btnVentas, btnInventario, btnResumen);
         }
 
         private void btnPagos_Click(object sender, EventArgs e)
         {
-            #region Coloreado de fuente
-            btnPagos.ForeColor = Color.FromArgb(6, 22, 204);
-            btnGastos.ForeColor = Color.FromArgb(96, 98, 102);
-            btnVentas.ForeColor = Color.FromArgb(96, 98, 102);
-            btnInventario.ForeColor = Color.FromArgb(96, 98, 102);
-            btnResumen.ForeColor = Color.FromArgb(96, 98, 102);
-            #endregion
+            colorearBoton(btnPagos, btnVentas, btnGastos, btnInventario, btnResumen);
         }
 
         private void btnInventario_Click(object sender, EventArgs e)
         {
-            #region Coloreado de fuente
-            btnInventario.ForeColor = Color.FromArgb(6, 22, 204);
-            btnGastos.ForeColor = Color.FromArgb(96, 98, 102);
-            btnPagos.ForeColor = Color.FromArgb(96, 98, 102);
-            btnVentas.ForeColor = Color.FromArgb(96, 98, 102);
-            btnResumen.ForeColor = Color.FromArgb(96, 98, 102);
-            #endregion
+            colorearBoton(btnInventario, btnPagos, btnGastos, btnVentas, btnResumen);
             AbrirFormulario<FormInventario>();
         }
 
         private void btnResumen_Click(object sender, EventArgs e)
         {
-            #region Coloreado de fuente
-            btnResumen.ForeColor = Color.FromArgb(6, 22, 204);
-            btnGastos.ForeColor = Color.FromArgb(96, 98, 102);
-            btnPagos.ForeColor = Color.FromArgb(96, 98, 102);
-            btnInventario.ForeColor = Color.FromArgb(96, 98, 102);
-            btnVentas.ForeColor = Color.FromArgb(96, 98, 102);
-            #endregion
-
+            colorearBoton(btnResumen, btnPagos, btnGastos, btnVentas, btnInventario);
         }
         #endregion
     }

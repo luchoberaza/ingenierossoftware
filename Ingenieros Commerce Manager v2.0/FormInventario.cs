@@ -29,10 +29,6 @@ namespace Ingenieros_Commerce_Manager_v2._0
         }
         private void MostrarProductos()
         {
-            dgvMatPrim.DataSource = null;
-            dgvProductos.DataSource = null;
-            dgvProductos.Refresh();
-            dgvMatPrim.Refresh();
             dgvProductos.DataSource = sql.MostrarDTProd();
             dgvMatPrim.DataSource = sql.MostrarDTMatPrim();
             dgvProductos.Refresh();
@@ -124,7 +120,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
             }
             else
             {
-                MessageBox.Show("Seleccione una fila.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Seleccione una fila.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void RemovePlaceHolders()
@@ -138,7 +134,6 @@ namespace Ingenieros_Commerce_Manager_v2._0
             txbStock.Texts = "";
             txbPrecio.Texts = "";
             txbDescrip.Texts = "";
-            cmbTipo.Texts = "";
             dgvMatPrim.ClearSelection();
             dgvProductos.ClearSelection();
             idprod = null;
@@ -155,8 +150,6 @@ namespace Ingenieros_Commerce_Manager_v2._0
                     try
                     {
                         sql.EliminarMatPrim(idmat);
-                        MostrarProductos();
-
 
                     }
                     catch (Exception ex)
@@ -174,8 +167,6 @@ namespace Ingenieros_Commerce_Manager_v2._0
                     try
                     {
                         sql.EliminarProd(idprod);
-                        MostrarProductos();
-
                     }
                     catch (Exception ex)
                     {
@@ -188,6 +179,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
             {
                 MessageBox.Show("Seleccione una fila.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            MostrarProductos();
             ClearTextBoxs();
         }
         private void dgvMatPrim_Click(object sender, EventArgs e)

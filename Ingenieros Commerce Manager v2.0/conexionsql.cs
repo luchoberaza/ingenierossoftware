@@ -21,6 +21,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
             AbrirConexion();
             comandos.CommandText = "select * from producto_venta";
             EjecutarReader();
+            DTProd.Rows.Clear();
             DTProd.Load(datos);
             return DTProd;
         }
@@ -29,6 +30,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
             AbrirConexion();
             comandos.CommandText = "select * from materia_prima";
             EjecutarReader();
+            DTMatPrim.Rows.Clear();
             DTMatPrim.Load(datos);
             return DTMatPrim;
         }
