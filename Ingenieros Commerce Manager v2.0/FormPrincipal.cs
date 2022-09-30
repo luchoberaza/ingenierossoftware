@@ -23,6 +23,8 @@ namespace Ingenieros_Commerce_Manager_v2._0
         }
         //Instancia de clase
         conexionsql conexionsql = new conexionsql();
+        
+
 
 
         #region Controles y movimiento de ventana

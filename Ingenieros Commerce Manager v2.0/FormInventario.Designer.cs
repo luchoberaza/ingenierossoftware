@@ -87,6 +87,8 @@
             // 
             // dgvProductos
             // 
+            this.dgvProductos.AllowUserToAddRows = false;
+            this.dgvProductos.AllowUserToDeleteRows = false;
             this.dgvProductos.AllowUserToOrderColumns = true;
             this.dgvProductos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvProductos.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
@@ -126,6 +128,7 @@
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(94)))), ((int)(((byte)(220)))));
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(249)))), ((int)(((byte)(254)))));
             this.dgvProductos.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvProductos.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvProductos.ShowCellErrors = false;
             this.dgvProductos.Size = new System.Drawing.Size(480, 265);
             this.dgvProductos.TabIndex = 0;
@@ -133,6 +136,9 @@
             // 
             // dgvMatPrim
             // 
+            this.dgvMatPrim.AllowUserToAddRows = false;
+            this.dgvMatPrim.AllowUserToDeleteRows = false;
+            this.dgvMatPrim.AllowUserToOrderColumns = true;
             this.dgvMatPrim.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvMatPrim.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvMatPrim.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(223)))), ((int)(((byte)(248)))));
@@ -171,6 +177,7 @@
             dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(94)))), ((int)(((byte)(220)))));
             dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(249)))), ((int)(((byte)(254)))));
             this.dgvMatPrim.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            this.dgvMatPrim.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvMatPrim.ShowCellErrors = false;
             this.dgvMatPrim.Size = new System.Drawing.Size(480, 267);
             this.dgvMatPrim.TabIndex = 9;
