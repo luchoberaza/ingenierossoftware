@@ -121,6 +121,9 @@
   <data name="inevntario24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\inevntario24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="inevntario24blue" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\inevntario24blue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="hidepwd" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\hidepwd.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -130,14 +133,26 @@
   <data name="Logo PNG" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Logo PNG.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="pagos24blue" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pagos24blue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="T'itulo1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\T'itulo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="venta24blue" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\venta24blue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Minimize_Maximize" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Minimize_Maximize.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="T'itulo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\T'itulo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="resumen24blue" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\resumen24blue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="gasto24blue" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\gasto24blue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="resumen24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\resumen24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -163,19 +178,10 @@
   <data name="gasto24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\gasto24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="inevntario24blue" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\inevntario24blue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="usuario24blue" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\usuario24blue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="pagos24blue" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\pagos24blue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="resumen24blue" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\resumen24blue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="gasto24blue" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\gasto24blue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="venta24blue" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\venta24blue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="usuario24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\usuario24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

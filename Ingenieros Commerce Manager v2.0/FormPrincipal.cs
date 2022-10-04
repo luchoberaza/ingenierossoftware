@@ -119,13 +119,15 @@ namespace Ingenieros_Commerce_Manager_v2._0
         }
 
         #region Menu lateral
-        private void colorearBoton(Button color, Button gris, Button gris2, Button gris3, Button gris4)
+        private void colorearBoton(Button color, Button gris, Button gris2, Button gris3, Button gris4, Button gris5)
         {
             color.ForeColor = Color.FromArgb(6, 22, 204);
             gris.ForeColor = Color.FromArgb(96, 98, 102);
             gris2.ForeColor = Color.FromArgb(96, 98, 102);
             gris3.ForeColor = Color.FromArgb(96, 98, 102);
             gris4.ForeColor = Color.FromArgb(96, 98, 102);
+            gris5.ForeColor = Color.FromArgb(96, 98, 102);
+
             if (color == btnVentas)
             {
                 btnVentas.Image = Ingenieros_Commerce_Manager_v2._0.Properties.Resources.venta24blue;
@@ -133,6 +135,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
                 btnPagos.Image = Ingenieros_Commerce_Manager_v2._0.Properties.Resources.pagos24;
                 btnInventario.Image = Ingenieros_Commerce_Manager_v2._0.Properties.Resources.inevntario24;
                 btnResumen.Image = Ingenieros_Commerce_Manager_v2._0.Properties.Resources.resumen24;
+                btnUsuario.Image = Ingenieros_Commerce_Manager_v2._0.Properties.Resources.usuario24;
             }
             else if (color == btnGastos)
             {
@@ -142,6 +145,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
                 btnPagos.Image = Ingenieros_Commerce_Manager_v2._0.Properties.Resources.pagos24;
                 btnInventario.Image = Ingenieros_Commerce_Manager_v2._0.Properties.Resources.inevntario24;
                 btnResumen.Image = Ingenieros_Commerce_Manager_v2._0.Properties.Resources.resumen24;
+                btnUsuario.Image = Ingenieros_Commerce_Manager_v2._0.Properties.Resources.usuario24;
             }
             else if (color == btnPagos)
             {
@@ -150,6 +154,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
                 btnPagos.Image = Ingenieros_Commerce_Manager_v2._0.Properties.Resources.pagos24blue;
                 btnInventario.Image = Ingenieros_Commerce_Manager_v2._0.Properties.Resources.inevntario24;
                 btnResumen.Image = Ingenieros_Commerce_Manager_v2._0.Properties.Resources.resumen24;
+                btnUsuario.Image = Ingenieros_Commerce_Manager_v2._0.Properties.Resources.usuario24;
             }
             else if (color == btnInventario)
             {
@@ -158,6 +163,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
                 btnPagos.Image = Ingenieros_Commerce_Manager_v2._0.Properties.Resources.pagos24;
                 btnInventario.Image = Ingenieros_Commerce_Manager_v2._0.Properties.Resources.inevntario24blue;
                 btnResumen.Image = Ingenieros_Commerce_Manager_v2._0.Properties.Resources.resumen24;
+                btnUsuario.Image = Ingenieros_Commerce_Manager_v2._0.Properties.Resources.usuario24;
             }
             else if (color == btnResumen)
             {
@@ -166,35 +172,52 @@ namespace Ingenieros_Commerce_Manager_v2._0
                 btnPagos.Image = Ingenieros_Commerce_Manager_v2._0.Properties.Resources.pagos24;
                 btnInventario.Image = Ingenieros_Commerce_Manager_v2._0.Properties.Resources.inevntario24;
                 btnResumen.Image = Ingenieros_Commerce_Manager_v2._0.Properties.Resources.resumen24blue;
+                btnUsuario.Image = Ingenieros_Commerce_Manager_v2._0.Properties.Resources.usuario24;
+            }
+            else if (color == btnUsuario)
+            {
+                btnVentas.Image = Ingenieros_Commerce_Manager_v2._0.Properties.Resources.venta24;
+                btnGastos.Image = Ingenieros_Commerce_Manager_v2._0.Properties.Resources.gasto24;
+                btnPagos.Image = Ingenieros_Commerce_Manager_v2._0.Properties.Resources.pagos24;
+                btnInventario.Image = Ingenieros_Commerce_Manager_v2._0.Properties.Resources.inevntario24;
+                btnResumen.Image = Ingenieros_Commerce_Manager_v2._0.Properties.Resources.resumen24;
+                btnUsuario.Image = Ingenieros_Commerce_Manager_v2._0.Properties.Resources.usuario24blue;
             }
         }
         private void btnVentas_Click(object sender, EventArgs e)
         {
-            colorearBoton(btnVentas, btnPagos, btnGastos, btnInventario, btnResumen);
+            colorearBoton(btnVentas, btnPagos, btnGastos, btnInventario, btnResumen, btnUsuario);
             AbrirFormulario<FormVentas>();
 
         }
 
         private void btnGastos_Click(object sender, EventArgs e)
         {
-            colorearBoton(btnGastos, btnPagos, btnVentas, btnInventario, btnResumen);
+            colorearBoton(btnGastos, btnPagos, btnVentas, btnInventario, btnResumen, btnUsuario);
         }
 
         private void btnPagos_Click(object sender, EventArgs e)
         {
-            colorearBoton(btnPagos, btnVentas, btnGastos, btnInventario, btnResumen);
+            colorearBoton(btnPagos, btnVentas, btnGastos, btnInventario, btnResumen, btnUsuario);
         }
 
         private void btnInventario_Click(object sender, EventArgs e)
         {
-            colorearBoton(btnInventario, btnPagos, btnGastos, btnVentas, btnResumen);
+            colorearBoton(btnInventario, btnPagos, btnGastos, btnVentas, btnResumen, btnUsuario);
             AbrirFormulario<FormInventario>();
         }
 
         private void btnResumen_Click(object sender, EventArgs e)
         {
-            colorearBoton(btnResumen, btnPagos, btnGastos, btnVentas, btnInventario);
+            colorearBoton(btnResumen, btnPagos, btnGastos, btnVentas, btnInventario, btnUsuario);
+        }
+
+        private void btnUsuario_Click(object sender, EventArgs e)
+        {
+            colorearBoton(btnUsuario, btnPagos, btnGastos, btnVentas, btnInventario, btnResumen);
+
         }
         #endregion
+
     }
 }

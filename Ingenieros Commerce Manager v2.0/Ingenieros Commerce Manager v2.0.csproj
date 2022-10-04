@@ -454,6 +454,12 @@
   <ItemGroup>
     <None Include="Resources\venta24blue.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\usuario24blue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\usuario24.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
