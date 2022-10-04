@@ -297,7 +297,7 @@
             this.cmbTipo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbTipo.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmbTipo.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cmbTipo.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.cmbTipo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(254)))));
             this.cmbTipo.BorderColor = System.Drawing.Color.MediumSlateBlue;
             this.cmbTipo.BorderSize = 2;
             this.cmbTipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
@@ -320,7 +320,7 @@
             // txbDescrip
             // 
             this.txbDescrip.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txbDescrip.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.txbDescrip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(254)))));
             this.txbDescrip.BorderColor = System.Drawing.Color.MediumSlateBlue;
             this.txbDescrip.BorderFocusColor = System.Drawing.Color.HotPink;
             this.txbDescrip.BorderRadius = 0;
@@ -341,7 +341,7 @@
             // txbStock
             // 
             this.txbStock.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txbStock.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.txbStock.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(254)))));
             this.txbStock.BorderColor = System.Drawing.Color.MediumSlateBlue;
             this.txbStock.BorderFocusColor = System.Drawing.Color.HotPink;
             this.txbStock.BorderRadius = 0;
@@ -362,7 +362,7 @@
             // txbPrecio
             // 
             this.txbPrecio.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txbPrecio.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.txbPrecio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(254)))));
             this.txbPrecio.BorderColor = System.Drawing.Color.MediumSlateBlue;
             this.txbPrecio.BorderFocusColor = System.Drawing.Color.HotPink;
             this.txbPrecio.BorderRadius = 0;
@@ -384,7 +384,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(254)))));
             this.ClientSize = new System.Drawing.Size(770, 610);
             this.Controls.Add(this.btnDeselect);
             this.Controls.Add(this.btnEliminar);
