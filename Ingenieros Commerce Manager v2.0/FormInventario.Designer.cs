@@ -300,7 +300,7 @@
             this.cmbTipo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(254)))));
             this.cmbTipo.BorderColor = System.Drawing.Color.MediumSlateBlue;
             this.cmbTipo.BorderSize = 2;
-            this.cmbTipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
+            this.cmbTipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbTipo.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbTipo.ForeColor = System.Drawing.Color.DimGray;
             this.cmbTipo.IconColor = System.Drawing.Color.MediumSlateBlue;
