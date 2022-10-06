@@ -73,6 +73,16 @@ namespace Ingenieros_Commerce_Manager_v2._0.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap galeria {
+            get {
+                object obj = ResourceManager.GetObject("galeria", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap gasto24 {
             get {
                 object obj = ResourceManager.GetObject("gasto24", resourceCulture);
@@ -126,6 +136,16 @@ namespace Ingenieros_Commerce_Manager_v2._0.Properties {
         internal static System.Drawing.Bitmap inevntario24blue {
             get {
                 object obj = ResourceManager.GetObject("inevntario24blue", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap info {
+            get {
+                object obj = ResourceManager.GetObject("info", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace Ingenieros_Commerce_Manager_v2._0
 {
@@ -15,6 +16,18 @@ namespace Ingenieros_Commerce_Manager_v2._0
         public FormUsuario()
         {
             InitializeComponent();
+        }
+
+        private void btnInfo_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Esta información sera incluida en la facturación generada por el sistema.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            ImgSelect.ShowDialog();
+            byte[] imagen = File.ReadAllBytes(ImgSelect.FileName);
+
         }
     }
 }
