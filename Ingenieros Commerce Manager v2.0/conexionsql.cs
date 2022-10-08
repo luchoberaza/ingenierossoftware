@@ -15,7 +15,35 @@ namespace Ingenieros_Commerce_Manager_v2._0
         public MySqlDataReader datos;
         DataTable DTProd = new DataTable();
         DataTable DTMatPrim = new DataTable();
+        int IDUser;
+        DataTable UserData = new DataTable();
+        public int GetIDUser(string username)
+        {
+            AbrirConexion();
+            comandos.CommandText = "SELECT `ID.Usuario` FROM `usuario` WHERE Username = '"+username+"';";
+            EjecutarReader();
+            datos.Read();
+            IDUser = datos.GetInt32("ID.Usuario");
+            return IDUser;
+        }
+        public void SetUserData(int id)
+        {
+            AbrirConexion();
+            comandos.CommandText = "select * from usuario where `usuario`.`ID.Usuario` = '"+id+"';";
+            EjecutarReader();
+            UserData.Load(datos);
+        }
+        public DataTable GetUserData()
+        {
+            return UserData;
+        }
+        public void UpdateUser(string user, string pwrd, string denom, string RUT, string dir, string tel, byte[] foto, int id)
+        {
+            AbrirConexion();
+            comandos.CommandText = "UPDATE `usuario` SET `Username` = '"+user+"', `Contraseña` = '"+pwrd+"', `Denominacion` = '"+denom+"', `RUT` = '"+RUT+"', `Direccion` = '"+dir+"', `Telefono` = '"+tel+"', `Foto` = " + foto +" WHERE `usuario`.`ID.Usuario` = "+id.ToString()+";";
+        }
 
+        #region Inventario
         public DataTable MostrarDTProd()
         {
             AbrirConexion();
@@ -71,6 +99,9 @@ namespace Ingenieros_Commerce_Manager_v2._0
             comandos.ExecuteNonQuery();
 
         }
+        #endregion
+
+        #region Gestor de conexion
         public void AbrirConexion()
         {
             if (conexion.State == ConnectionState.Closed)
@@ -98,5 +129,6 @@ namespace Ingenieros_Commerce_Manager_v2._0
                 conexion.Close();
             }
         }
+        #endregion
     }
 }

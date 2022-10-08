@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using MySql.Data.MySqlClient;
+using Ingenieros_Commerce_Manager_v2._0.Entities;
 
 namespace Ingenieros_Commerce_Manager_v2._0
 {
@@ -153,7 +154,15 @@ namespace Ingenieros_Commerce_Manager_v2._0
                     conexionsql.EjecutarReader();
                     if (conexionsql.datos.Read())
                     {
-                        MessageBox.Show("Bienvenido " + txbUsuario.Texts, "Ingenieros Commerce Manager", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                        Usuario.Id = conexionsql.GetIDUser(txbUsuario.Texts);
+                        conexionsql.SetUserData(Usuario.Id);
+                        Usuario.Username = conexionsql.GetUserData().Rows[0][1].ToString();
+                        Usuario.Password = conexionsql.GetUserData().Rows[0][2].ToString();
+                        Usuario.Denominacion = conexionsql.GetUserData().Rows[0][3].ToString();
+                        Usuario.RUT = conexionsql.GetUserData().Rows[0][4].ToString();
+                        Usuario.Direccion = conexionsql.GetUserData().Rows[0][5].ToString();
+                        Usuario.Telefono = conexionsql.GetUserData().Rows[0][6].ToString();
+                        MessageBox.Show("Bienvenido " + Usuario.Username, "Ingenieros Commerce Manager", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                         Form1 formPrincipal = new Form1();
                         formPrincipal.Show();
                         this.Hide();

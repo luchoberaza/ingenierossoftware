@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using Ingenieros_Commerce_Manager_v2._0.Entities;
 
 namespace Ingenieros_Commerce_Manager_v2._0
 {
@@ -17,7 +18,6 @@ namespace Ingenieros_Commerce_Manager_v2._0
         {
             InitializeComponent();
         }
-
         private void btnInfo_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Esta información sera incluida en la facturación generada por el sistema.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -26,7 +26,23 @@ namespace Ingenieros_Commerce_Manager_v2._0
         private void btnModificar_Click(object sender, EventArgs e)
         {
             ImgSelect.ShowDialog();
-            byte[] imagen = File.ReadAllBytes(ImgSelect.FileName);
+            if(ImgSelect.ShowDialog() == DialogResult.OK)
+            {
+                byte[] imagen = File.ReadAllBytes(ImgSelect.FileName);
+
+            }
+
+        }
+
+        private void FormUsuario_Load(object sender, EventArgs e)
+        {
+
+            lblUserID.Text = lblUserID.Text + " " + Usuario.Id;
+            txbUsername.Texts = Usuario.Username;
+            txbDenom.Texts = Usuario.Denominacion;
+            txbRUT.Texts = Usuario.RUT;
+            txbTel.Texts = Usuario.Telefono;
+            txbDir.Texts = Usuario.Telefono;
 
         }
     }

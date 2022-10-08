@@ -318,6 +318,7 @@
     <Compile Include="Controls\RJToggleButton.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Entities\Usuario.cs" />
     <Compile Include="FormInventario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -469,9 +470,7 @@
   <ItemGroup>
     <None Include="Resources\usuario24.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Entities\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Resources\info.png" />
   </ItemGroup>
