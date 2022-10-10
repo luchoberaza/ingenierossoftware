@@ -5,43 +5,74 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
+using MySql.Data;
+using Ingenieros_Commerce_Manager_v2._0.Entities;
+using Google.Protobuf.WellKnownTypes;
+using System.Windows.Documents;
+using System.IO;
 
 namespace Ingenieros_Commerce_Manager_v2._0
 {
     public class conexionsql
     {
+        #region MySQLResources
         MySqlConnection conexion = new MySqlConnection("Server=localhost; Database=proyecto; Uid=usuario; Pwd=user;");
         MySqlCommand comandos = new MySqlCommand();
         public MySqlDataReader datos;
+        protected MySqlDataAdapter adapter;
+        #endregion
+
+        #region DataTables
         DataTable DTProd = new DataTable();
         DataTable DTMatPrim = new DataTable();
-        int IDUser;
         DataTable UserData = new DataTable();
-        public int GetIDUser(string username)
+        #endregion
+
+        #region Usuario
+        public int GetUserID(string username)
         {
             AbrirConexion();
             comandos.CommandText = "SELECT `ID.Usuario` FROM `usuario` WHERE Username = '"+username+"';";
             EjecutarReader();
             datos.Read();
-            IDUser = datos.GetInt32("ID.Usuario");
-            return IDUser;
+            Usuario.Id = datos.GetInt32("ID.Usuario");
+            return Usuario.Id;
         }
         public void SetUserData(int id)
         {
             AbrirConexion();
-            comandos.CommandText = "select * from usuario where `usuario`.`ID.Usuario` = '"+id+"';";
-            EjecutarReader();
-            UserData.Load(datos);
+            CerrarReader();
+            adapter = new MySqlDataAdapter("select * from usuario where `usuario`.`ID.Usuario` = '" + id + "';", conexion);
+            adapter.Fill(UserData);
+            Usuario.Username = UserData.Rows[0][1].ToString();
+            Usuario.Password = UserData.Rows[0][2].ToString();
+            Usuario.Denominacion = UserData.Rows[0][3].ToString();
+            Usuario.RUT = UserData.Rows[0][4].ToString();
+            Usuario.Direccion = UserData.Rows[0][5].ToString();
+            Usuario.Telefono = UserData.Rows[0][6].ToString();
+            if (UserData.Rows[0][7] != DBNull.Value)
+            {
+                Usuario.Foto = (UserData.Rows[0][7]) as byte[];
+            }
+            adapter.Dispose();
         }
-        public DataTable GetUserData()
-        {
-            return UserData;
-        }
-        public void UpdateUser(string user, string pwrd, string denom, string RUT, string dir, string tel, byte[] foto, int id)
+        public void SetUserImg(byte[] img, int id)
         {
             AbrirConexion();
-            comandos.CommandText = "UPDATE `usuario` SET `Username` = '"+user+"', `Contraseña` = '"+pwrd+"', `Denominacion` = '"+denom+"', `RUT` = '"+RUT+"', `Direccion` = '"+dir+"', `Telefono` = '"+tel+"', `Foto` = " + foto +" WHERE `usuario`.`ID.Usuario` = "+id.ToString()+";";
+            string cadena = "UPDATE `usuario` SET Foto=@imagen WHERE `ID.Usuario`= '"+id.ToString()+"';";
+            MySqlCommand comando = new MySqlCommand(cadena, conexion);
+            comando.Parameters.AddWithValue("@imagen", img);
+            comando.ExecuteNonQuery();
+            SetUserData(id);
         }
+        public void UpdateUser(string user, string pwrd, string denom, string RUT, string dir, string tel, int id)
+        {
+            AbrirConexion();
+            comandos.CommandText = "UPDATE `usuario` SET `Username` = '"+user+"', `Contraseña` = '"+pwrd+"', `Denominacion` = '"+denom+"', `RUT` = '"+RUT+"', `Direccion` = '"+dir+"', `Telefono` = '"+tel+"' WHERE `usuario`.`ID.Usuario` = "+id.ToString()+";";
+            comandos.ExecuteNonQuery();
+            SetUserData(id);
+        }
+        #endregion
 
         #region Inventario
         public DataTable MostrarDTProd()
@@ -116,11 +147,15 @@ namespace Ingenieros_Commerce_Manager_v2._0
         }
         public void EjecutarReader()
         {
+            CerrarReader();
+            datos = comandos.ExecuteReader();
+        }
+        public void CerrarReader()
+        {
             if (datos != null)
             {
                 datos.Close();
             }
-            datos = comandos.ExecuteReader();
         }
         public void CerrarConexion()
         {

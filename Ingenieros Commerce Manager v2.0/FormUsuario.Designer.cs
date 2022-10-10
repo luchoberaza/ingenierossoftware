@@ -118,7 +118,8 @@
             // 
             // ImgSelect
             // 
-            this.ImgSelect.Filter = "Image Files|*.JPG;*.PNG;*.BMP";
+            this.ImgSelect.AddExtension = false;
+            this.ImgSelect.Filter = "Image Files *.JPG;*.PNG;*.BMP|*.JPG;*.PNG;*.BMP";
             this.ImgSelect.Title = "Seleccione una imagen";
             // 
             // btnInfo

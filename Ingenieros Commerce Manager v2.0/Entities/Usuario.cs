@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Drawing.Imaging;
 
 namespace Ingenieros_Commerce_Manager_v2._0.Entities
 {
@@ -17,6 +20,30 @@ namespace Ingenieros_Commerce_Manager_v2._0.Entities
         public static string RUT { get; set; }
         public static byte[] Foto { get; set; }
 
-       
+
+        public static MemoryStream ByteToImage(byte[] img)
+        {
+            MemoryStream ms = new MemoryStream(img);
+            return ms;
+        }
+        public static byte[] ImageToByte(Image img)
+        {
+            MemoryStream ms = new MemoryStream();
+            if (img.RawFormat == ImageFormat.Jpeg)
+            {
+                img.Save(ms, ImageFormat.Jpeg);
+            }
+            else if (img.RawFormat == ImageFormat.Png)
+            {
+                img.Save(ms, ImageFormat.Png);
+            }
+            else if (img.RawFormat == ImageFormat.Bmp)
+            {
+                img.Save(ms, ImageFormat.Bmp);
+            }
+            return ms.ToArray();
+        }
+
+
     }
 }
