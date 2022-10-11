@@ -470,12 +470,17 @@
   <ItemGroup>
     <None Include="Resources\usuario24.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\RoundPanelAspect.png" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\info.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\galeria.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RoundPanelAspect1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -213,6 +213,26 @@ namespace Ingenieros_Commerce_Manager_v2._0.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap RoundPanelAspect {
+            get {
+                object obj = ResourceManager.GetObject("RoundPanelAspect", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap RoundPanelAspect1 {
+            get {
+                object obj = ResourceManager.GetObject("RoundPanelAspect1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap showpwd {
             get {
                 object obj = ResourceManager.GetObject("showpwd", resourceCulture);

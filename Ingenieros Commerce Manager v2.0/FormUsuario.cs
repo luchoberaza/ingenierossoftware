@@ -41,6 +41,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
                     byte[] img = File.ReadAllBytes(ImgSelect.FileName);
                     sql.SetUserImg(img, Usuario.Id);
                     MessageBox.Show("Logo modificado correctamente.", "Acción completada", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    UpdateForm();
                 }
                 catch(Exception ex)
                 {
@@ -51,7 +52,6 @@ namespace Ingenieros_Commerce_Manager_v2._0
         }
         private void UpdateForm()
         {
-            lblUserID.Text = lblUserID.Text + " " + Usuario.Id;
             txbUsername.Texts = Usuario.Username;
             txbDenom.Texts = Usuario.Denominacion;
             txbRUT.Texts = Usuario.RUT;
@@ -61,12 +61,111 @@ namespace Ingenieros_Commerce_Manager_v2._0
             {
                 ImgUser.Image = Image.FromStream(Usuario.ByteToImage(Usuario.Foto));
             }
+            txbClaveActual.Texts = "";
+            txbClaveNueva.Texts = "";
 
         }
 
         private void FormUsuario_Load(object sender, EventArgs e)
         {
             UpdateForm();
+            lblUserID.Text = lblUserID.Text + " " + Usuario.Id;
+        }
+
+        private void tbtnCambioClave_CheckedChanged(object sender, EventArgs e)
+        {
+            if (tbtnCambioClave.Checked == true)
+            {
+                label6.Visible = true;
+                txbClaveNueva.Visible = true;
+            }
+            else if (tbtnCambioClave.Checked == false)
+            {
+                label6.Visible = false;
+                txbClaveNueva.Visible = false;
+            }
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            sql.CerrarConexion();
+
+        }
+
+        private void btnSaveChanges_Click(object sender, EventArgs e)
+        {
+
+            if(txbClaveActual.Texts.Length == 0)
+            {
+                MessageBox.Show("Ingrese su contraseña para validar los cambios.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                if(txbClaveActual.Texts != Usuario.Password)
+                {
+                    MessageBox.Show("Contraseña incorrecta.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    try
+                    {
+                        if (tbtnCambioClave.Checked == true && txbClaveNueva.Texts.Trim() != "")
+                        {
+                            sql.UpdateUser(
+                                txbUsername.Texts,
+                                txbClaveNueva.Texts,
+                                txbDenom.Texts,
+                                txbRUT.Texts,
+                                txbDir.Texts,
+                                txbTel.Texts,
+                                Usuario.Id
+                                );
+                            sql.SetUserData(Usuario.Id);
+                            MessageBox.Show("Datos actualizados correctamente.", "Acción realizada", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            UpdateForm();
+                        }
+                        else if (tbtnCambioClave.Checked == false)
+                        {
+                            sql.UpdateUser(
+                                txbUsername.Texts,
+                                Usuario.Password,
+                                txbDenom.Texts,
+                                txbRUT.Texts,
+                                txbDir.Texts,
+                                txbTel.Texts,
+                                Usuario.Id
+                                );
+                            sql.SetUserData(Usuario.Id);
+                            MessageBox.Show("Datos actualizados correctamente.", "Acción realizada", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            UpdateForm();
+                        }
+                        else if (txbClaveNueva.Texts.Trim() == "")
+                        {
+                            MessageBox.Show("Complete los campos de contraseña.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
+
+        private void btnPWDChar_Click(object sender, EventArgs e)
+        {
+            if(txbClaveActual.PasswordChar == true && txbClaveNueva.PasswordChar == true)
+            {
+                txbClaveActual.PasswordChar = false;
+                txbClaveNueva.PasswordChar = false;
+                btnPWDChar.Image = Ingenieros_Commerce_Manager_v2._0.Properties.Resources.hidepwd;
+            }
+            else
+            {
+                txbClaveActual.PasswordChar = true;
+                txbClaveNueva.PasswordChar = true;
+                btnPWDChar.Image = Ingenieros_Commerce_Manager_v2._0.Properties.Resources.showpwd;
+            }
         }
     }
 }

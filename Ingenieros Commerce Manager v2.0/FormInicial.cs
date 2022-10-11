@@ -29,6 +29,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
         private void BotonCerrar_Click(object sender, EventArgs e)
         {
             Application.Exit();
+            conexionsql.CerrarConexion();
         }
         private void BotonMinMax_Click(object sender, EventArgs e)
         {
