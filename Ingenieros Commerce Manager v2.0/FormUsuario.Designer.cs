@@ -30,7 +30,6 @@
         {
             this.lblUserControl = new System.Windows.Forms.Label();
             this.ImgSelect = new System.Windows.Forms.OpenFileDialog();
-            this.btnModificar = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.lblLogo = new System.Windows.Forms.Label();
             this.lblUserID = new System.Windows.Forms.Label();
@@ -42,8 +41,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.btnSaveChanges = new System.Windows.Forms.Button();
             this.btnPWDChar = new System.Windows.Forms.PictureBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.btnLogout = new CustomControls.RJControls.RJButton();
             this.tbtnCambioClave = new CustomControls.RJControls.RJToggleButton();
             this.txbRUT = new Ingenieros_Commerce_Manager.CustomControls.CustomTextBox();
@@ -54,7 +53,8 @@
             this.txbDir = new Ingenieros_Commerce_Manager.CustomControls.CustomTextBox();
             this.btnInfo = new CustomControls.RJControls.RJCircularPictureBox();
             this.txbTel = new Ingenieros_Commerce_Manager.CustomControls.CustomTextBox();
-            this.label9 = new System.Windows.Forms.Label();
+            this.btnSaveChange = new CustomControls.RJControls.RJButton();
+            this.btnModify = new CustomControls.RJControls.RJButton();
             ((System.ComponentModel.ISupportInitialize)(this.ImgUser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnPWDChar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnInfo)).BeginInit();
@@ -78,24 +78,6 @@
             this.ImgSelect.Filter = "Image Files *.JPG;*.PNG;*.BMP|*.JPG;*.PNG;*.BMP";
             this.ImgSelect.Title = "Seleccione una imagen";
             // 
-            // btnModificar
-            // 
-            this.btnModificar.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this.btnModificar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnModificar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnModificar.FlatAppearance.BorderSize = 0;
-            this.btnModificar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.HotPink;
-            this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnModificar.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModificar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnModificar.Location = new System.Drawing.Point(24, 569);
-            this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(92, 29);
-            this.btnModificar.TabIndex = 20;
-            this.btnModificar.Text = "Modificar...";
-            this.btnModificar.UseVisualStyleBackColor = false;
-            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -114,7 +96,7 @@
             this.lblLogo.AutoSize = true;
             this.lblLogo.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLogo.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.lblLogo.Location = new System.Drawing.Point(19, 396);
+            this.lblLogo.Location = new System.Drawing.Point(19, 342);
             this.lblLogo.Margin = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.lblLogo.Name = "lblLogo";
             this.lblLogo.Size = new System.Drawing.Size(168, 28);
@@ -136,7 +118,7 @@
             // ImgUser
             // 
             this.ImgUser.Image = global::Ingenieros_Commerce_Manager_v2._0.Properties.Resources.galeria;
-            this.ImgUser.Location = new System.Drawing.Point(24, 427);
+            this.ImgUser.Location = new System.Drawing.Point(24, 373);
             this.ImgUser.Name = "ImgUser";
             this.ImgUser.Size = new System.Drawing.Size(137, 136);
             this.ImgUser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -227,24 +209,6 @@
             this.label8.TabIndex = 31;
             this.label8.Text = "Cambio de contraseña";
             // 
-            // btnSaveChanges
-            // 
-            this.btnSaveChanges.BackColor = System.Drawing.Color.MediumAquamarine;
-            this.btnSaveChanges.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnSaveChanges.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSaveChanges.FlatAppearance.BorderSize = 0;
-            this.btnSaveChanges.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Aquamarine;
-            this.btnSaveChanges.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSaveChanges.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSaveChanges.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnSaveChanges.Location = new System.Drawing.Point(349, 345);
-            this.btnSaveChanges.Name = "btnSaveChanges";
-            this.btnSaveChanges.Size = new System.Drawing.Size(250, 37);
-            this.btnSaveChanges.TabIndex = 34;
-            this.btnSaveChanges.Text = "Guardar cambios";
-            this.btnSaveChanges.UseVisualStyleBackColor = false;
-            this.btnSaveChanges.Click += new System.EventHandler(this.btnSaveChanges_Click);
-            // 
             // btnPWDChar
             // 
             this.btnPWDChar.Image = global::Ingenieros_Commerce_Manager_v2._0.Properties.Resources.showpwd;
@@ -256,6 +220,19 @@
             this.btnPWDChar.TabStop = false;
             this.btnPWDChar.Click += new System.EventHandler(this.btnPWDChar_Click);
             // 
+            // label9
+            // 
+            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.label9.Location = new System.Drawing.Point(489, 579);
+            this.label9.Margin = new System.Windows.Forms.Padding(0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(272, 22);
+            this.label9.TabIndex = 37;
+            this.label9.Text = "Ingenieros Commerce Manager versión 1.0.0";
+            // 
             // btnLogout
             // 
             this.btnLogout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(154)))), ((int)(((byte)(234)))));
@@ -263,6 +240,7 @@
             this.btnLogout.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.btnLogout.BorderRadius = 10;
             this.btnLogout.BorderSize = 0;
+            this.btnLogout.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLogout.FlatAppearance.BorderSize = 0;
             this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogout.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -449,18 +427,47 @@
             this.txbTel.Texts = "";
             this.txbTel.UnderlinedStyle = false;
             // 
-            // label9
+            // btnSaveChange
             // 
-            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.label9.Location = new System.Drawing.Point(489, 579);
-            this.label9.Margin = new System.Windows.Forms.Padding(0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(272, 22);
-            this.label9.TabIndex = 37;
-            this.label9.Text = "Ingenieros Commerce Manager versión 1.0.0";
+            this.btnSaveChange.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(154)))), ((int)(((byte)(234)))));
+            this.btnSaveChange.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(154)))), ((int)(((byte)(234)))));
+            this.btnSaveChange.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnSaveChange.BorderRadius = 10;
+            this.btnSaveChange.BorderSize = 0;
+            this.btnSaveChange.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSaveChange.FlatAppearance.BorderSize = 0;
+            this.btnSaveChange.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSaveChange.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSaveChange.ForeColor = System.Drawing.Color.White;
+            this.btnSaveChange.Location = new System.Drawing.Point(317, 9);
+            this.btnSaveChange.Name = "btnSaveChange";
+            this.btnSaveChange.Size = new System.Drawing.Size(138, 28);
+            this.btnSaveChange.TabIndex = 38;
+            this.btnSaveChange.Text = "Guardar cambios";
+            this.btnSaveChange.TextColor = System.Drawing.Color.White;
+            this.btnSaveChange.UseVisualStyleBackColor = false;
+            this.btnSaveChange.Click += new System.EventHandler(this.btnSaveChange_Click);
+            // 
+            // btnModify
+            // 
+            this.btnModify.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(154)))), ((int)(((byte)(234)))));
+            this.btnModify.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(154)))), ((int)(((byte)(234)))));
+            this.btnModify.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnModify.BorderRadius = 10;
+            this.btnModify.BorderSize = 0;
+            this.btnModify.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnModify.FlatAppearance.BorderSize = 0;
+            this.btnModify.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnModify.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModify.ForeColor = System.Drawing.Color.White;
+            this.btnModify.Location = new System.Drawing.Point(24, 515);
+            this.btnModify.Name = "btnModify";
+            this.btnModify.Size = new System.Drawing.Size(109, 28);
+            this.btnModify.TabIndex = 39;
+            this.btnModify.Text = "Modificar...";
+            this.btnModify.TextColor = System.Drawing.Color.White;
+            this.btnModify.UseVisualStyleBackColor = false;
+            this.btnModify.Click += new System.EventHandler(this.btnModify_Click);
             // 
             // FormUsuario
             // 
@@ -468,10 +475,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(254)))));
             this.ClientSize = new System.Drawing.Size(770, 610);
+            this.Controls.Add(this.btnModify);
+            this.Controls.Add(this.btnSaveChange);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.btnPWDChar);
             this.Controls.Add(this.btnLogout);
-            this.Controls.Add(this.btnSaveChanges);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.tbtnCambioClave);
             this.Controls.Add(this.label2);
@@ -481,7 +489,6 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txbRUT);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.lblUserID);
             this.Controls.Add(this.lblUserControl);
             this.Controls.Add(this.label7);
@@ -519,7 +526,6 @@
         private CustomControls.RJControls.RJCircularPictureBox btnInfo;
         private System.Windows.Forms.PictureBox ImgUser;
         private System.Windows.Forms.Label lblLogo;
-        private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.OpenFileDialog ImgSelect;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
@@ -532,9 +538,10 @@
         private Ingenieros_Commerce_Manager.CustomControls.CustomTextBox txbClaveActual;
         private CustomControls.RJControls.RJToggleButton tbtnCambioClave;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button btnSaveChanges;
         private CustomControls.RJControls.RJButton btnLogout;
         private System.Windows.Forms.PictureBox btnPWDChar;
         private System.Windows.Forms.Label label9;
+        private CustomControls.RJControls.RJButton btnSaveChange;
+        private CustomControls.RJControls.RJButton btnModify;
     }
 }

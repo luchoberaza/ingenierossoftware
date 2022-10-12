@@ -28,28 +28,6 @@ namespace Ingenieros_Commerce_Manager_v2._0
         {
             MessageBox.Show("Esta información sera incluida en la facturación generada por el sistema.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
-
-        private void btnModificar_Click(object sender, EventArgs e)
-        {
-            ImgSelect.ShowDialog();
-            if(ImgSelect.ShowDialog() == DialogResult.OK)
-            {
-                try
-                {
-                    Image image = Image.FromFile(ImgSelect.FileName);
-                    ImgUser.Image = image;
-                    byte[] img = File.ReadAllBytes(ImgSelect.FileName);
-                    sql.SetUserImg(img, Usuario.Id);
-                    MessageBox.Show("Logo modificado correctamente.", "Acción completada", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    UpdateForm();
-                }
-                catch(Exception ex)
-                {
-                    MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-
-        }
         private void UpdateForm()
         {
             txbUsername.Texts = Usuario.Username;
@@ -92,16 +70,31 @@ namespace Ingenieros_Commerce_Manager_v2._0
 
         }
 
-        private void btnSaveChanges_Click(object sender, EventArgs e)
+        private void btnPWDChar_Click(object sender, EventArgs e)
         {
+            if(txbClaveActual.PasswordChar == true && txbClaveNueva.PasswordChar == true)
+            {
+                txbClaveActual.PasswordChar = false;
+                txbClaveNueva.PasswordChar = false;
+                btnPWDChar.Image = Ingenieros_Commerce_Manager_v2._0.Properties.Resources.hidepwd;
+            }
+            else
+            {
+                txbClaveActual.PasswordChar = true;
+                txbClaveNueva.PasswordChar = true;
+                btnPWDChar.Image = Ingenieros_Commerce_Manager_v2._0.Properties.Resources.showpwd;
+            }
+        }
 
-            if(txbClaveActual.Texts.Length == 0)
+        private void btnSaveChange_Click(object sender, EventArgs e)
+        {
+            if (txbClaveActual.Texts.Length == 0)
             {
                 MessageBox.Show("Ingrese su contraseña para validar los cambios.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                if(txbClaveActual.Texts != Usuario.Password)
+                if (txbClaveActual.Texts != Usuario.Password)
                 {
                     MessageBox.Show("Contraseña incorrecta.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
@@ -152,19 +145,23 @@ namespace Ingenieros_Commerce_Manager_v2._0
             }
         }
 
-        private void btnPWDChar_Click(object sender, EventArgs e)
+        private void btnModify_Click(object sender, EventArgs e)
         {
-            if(txbClaveActual.PasswordChar == true && txbClaveNueva.PasswordChar == true)
+            ImgSelect.ShowDialog();
+            if (ImgSelect.ShowDialog() == DialogResult.OK)
             {
-                txbClaveActual.PasswordChar = false;
-                txbClaveNueva.PasswordChar = false;
-                btnPWDChar.Image = Ingenieros_Commerce_Manager_v2._0.Properties.Resources.hidepwd;
-            }
-            else
-            {
-                txbClaveActual.PasswordChar = true;
-                txbClaveNueva.PasswordChar = true;
-                btnPWDChar.Image = Ingenieros_Commerce_Manager_v2._0.Properties.Resources.showpwd;
+                try
+                {
+                    byte[] img = File.ReadAllBytes(ImgSelect.FileName);
+                    sql.SetUserImg(img, Usuario.Id);
+                    ImgUser.Image = Image.FromStream(Usuario.ByteToImage(img));
+                    Usuario.Foto = img;
+                    MessageBox.Show("Logo modificado correctamente.", "Acción completada", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
     }
