@@ -59,6 +59,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
+            RedondeoForm.CornerRadius = 30;
         }
 
         private int tolerance = 12;
