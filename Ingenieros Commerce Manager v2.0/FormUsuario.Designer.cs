@@ -43,6 +43,8 @@
             this.label8 = new System.Windows.Forms.Label();
             this.btnPWDChar = new System.Windows.Forms.PictureBox();
             this.label9 = new System.Windows.Forms.Label();
+            this.btnModify = new CustomControls.RJControls.RJButton();
+            this.btnSaveChange = new CustomControls.RJControls.RJButton();
             this.btnLogout = new CustomControls.RJControls.RJButton();
             this.tbtnCambioClave = new CustomControls.RJControls.RJToggleButton();
             this.txbRUT = new Ingenieros_Commerce_Manager.CustomControls.CustomTextBox();
@@ -53,8 +55,6 @@
             this.txbDir = new Ingenieros_Commerce_Manager.CustomControls.CustomTextBox();
             this.btnInfo = new CustomControls.RJControls.RJCircularPictureBox();
             this.txbTel = new Ingenieros_Commerce_Manager.CustomControls.CustomTextBox();
-            this.btnSaveChange = new CustomControls.RJControls.RJButton();
-            this.btnModify = new CustomControls.RJControls.RJButton();
             ((System.ComponentModel.ISupportInitialize)(this.ImgUser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnPWDChar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnInfo)).BeginInit();
@@ -233,6 +233,48 @@
             this.label9.TabIndex = 37;
             this.label9.Text = "Ingenieros Commerce Manager versión 1.0.0";
             // 
+            // btnModify
+            // 
+            this.btnModify.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(154)))), ((int)(((byte)(234)))));
+            this.btnModify.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(154)))), ((int)(((byte)(234)))));
+            this.btnModify.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnModify.BorderRadius = 10;
+            this.btnModify.BorderSize = 0;
+            this.btnModify.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnModify.FlatAppearance.BorderSize = 0;
+            this.btnModify.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnModify.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModify.ForeColor = System.Drawing.Color.White;
+            this.btnModify.Location = new System.Drawing.Point(24, 515);
+            this.btnModify.Name = "btnModify";
+            this.btnModify.Size = new System.Drawing.Size(109, 28);
+            this.btnModify.TabIndex = 39;
+            this.btnModify.Text = "Modificar...";
+            this.btnModify.TextColor = System.Drawing.Color.White;
+            this.btnModify.UseVisualStyleBackColor = false;
+            this.btnModify.Click += new System.EventHandler(this.btnModify_Click);
+            // 
+            // btnSaveChange
+            // 
+            this.btnSaveChange.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(154)))), ((int)(((byte)(234)))));
+            this.btnSaveChange.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(154)))), ((int)(((byte)(234)))));
+            this.btnSaveChange.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnSaveChange.BorderRadius = 10;
+            this.btnSaveChange.BorderSize = 0;
+            this.btnSaveChange.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSaveChange.FlatAppearance.BorderSize = 0;
+            this.btnSaveChange.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSaveChange.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSaveChange.ForeColor = System.Drawing.Color.White;
+            this.btnSaveChange.Location = new System.Drawing.Point(317, 9);
+            this.btnSaveChange.Name = "btnSaveChange";
+            this.btnSaveChange.Size = new System.Drawing.Size(138, 28);
+            this.btnSaveChange.TabIndex = 38;
+            this.btnSaveChange.Text = "Guardar cambios";
+            this.btnSaveChange.TextColor = System.Drawing.Color.White;
+            this.btnSaveChange.UseVisualStyleBackColor = false;
+            this.btnSaveChange.Click += new System.EventHandler(this.btnSaveChange_Click);
+            // 
             // btnLogout
             // 
             this.btnLogout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(154)))), ((int)(((byte)(234)))));
@@ -278,6 +320,7 @@
             this.txbRUT.BorderSize = 2;
             this.txbRUT.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbRUT.Location = new System.Drawing.Point(349, 160);
+            this.txbRUT.Maxlength = 12;
             this.txbRUT.Multiline = false;
             this.txbRUT.Name = "txbRUT";
             this.txbRUT.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
@@ -298,6 +341,7 @@
             this.txbUsername.BorderSize = 2;
             this.txbUsername.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbUsername.Location = new System.Drawing.Point(24, 100);
+            this.txbUsername.Maxlength = 32767;
             this.txbUsername.Multiline = false;
             this.txbUsername.Name = "txbUsername";
             this.txbUsername.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
@@ -318,6 +362,7 @@
             this.txbClaveNueva.BorderSize = 2;
             this.txbClaveNueva.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbClaveNueva.Location = new System.Drawing.Point(24, 220);
+            this.txbClaveNueva.Maxlength = 32767;
             this.txbClaveNueva.Multiline = false;
             this.txbClaveNueva.Name = "txbClaveNueva";
             this.txbClaveNueva.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
@@ -339,6 +384,7 @@
             this.txbDenom.BorderSize = 2;
             this.txbDenom.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbDenom.Location = new System.Drawing.Point(349, 100);
+            this.txbDenom.Maxlength = 32767;
             this.txbDenom.Multiline = false;
             this.txbDenom.Name = "txbDenom";
             this.txbDenom.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
@@ -359,6 +405,7 @@
             this.txbClaveActual.BorderSize = 2;
             this.txbClaveActual.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbClaveActual.Location = new System.Drawing.Point(24, 160);
+            this.txbClaveActual.Maxlength = 32767;
             this.txbClaveActual.Multiline = false;
             this.txbClaveActual.Name = "txbClaveActual";
             this.txbClaveActual.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
@@ -379,6 +426,7 @@
             this.txbDir.BorderSize = 2;
             this.txbDir.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbDir.Location = new System.Drawing.Point(349, 220);
+            this.txbDir.Maxlength = 32767;
             this.txbDir.Multiline = false;
             this.txbDir.Name = "txbDir";
             this.txbDir.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
@@ -416,6 +464,7 @@
             this.txbTel.BorderSize = 2;
             this.txbTel.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbTel.Location = new System.Drawing.Point(349, 280);
+            this.txbTel.Maxlength = 32767;
             this.txbTel.Multiline = false;
             this.txbTel.Name = "txbTel";
             this.txbTel.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
@@ -426,48 +475,6 @@
             this.txbTel.TabIndex = 16;
             this.txbTel.Texts = "";
             this.txbTel.UnderlinedStyle = false;
-            // 
-            // btnSaveChange
-            // 
-            this.btnSaveChange.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(154)))), ((int)(((byte)(234)))));
-            this.btnSaveChange.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(154)))), ((int)(((byte)(234)))));
-            this.btnSaveChange.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnSaveChange.BorderRadius = 10;
-            this.btnSaveChange.BorderSize = 0;
-            this.btnSaveChange.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSaveChange.FlatAppearance.BorderSize = 0;
-            this.btnSaveChange.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSaveChange.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSaveChange.ForeColor = System.Drawing.Color.White;
-            this.btnSaveChange.Location = new System.Drawing.Point(317, 9);
-            this.btnSaveChange.Name = "btnSaveChange";
-            this.btnSaveChange.Size = new System.Drawing.Size(138, 28);
-            this.btnSaveChange.TabIndex = 38;
-            this.btnSaveChange.Text = "Guardar cambios";
-            this.btnSaveChange.TextColor = System.Drawing.Color.White;
-            this.btnSaveChange.UseVisualStyleBackColor = false;
-            this.btnSaveChange.Click += new System.EventHandler(this.btnSaveChange_Click);
-            // 
-            // btnModify
-            // 
-            this.btnModify.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(154)))), ((int)(((byte)(234)))));
-            this.btnModify.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(154)))), ((int)(((byte)(234)))));
-            this.btnModify.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnModify.BorderRadius = 10;
-            this.btnModify.BorderSize = 0;
-            this.btnModify.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnModify.FlatAppearance.BorderSize = 0;
-            this.btnModify.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnModify.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModify.ForeColor = System.Drawing.Color.White;
-            this.btnModify.Location = new System.Drawing.Point(24, 515);
-            this.btnModify.Name = "btnModify";
-            this.btnModify.Size = new System.Drawing.Size(109, 28);
-            this.btnModify.TabIndex = 39;
-            this.btnModify.Text = "Modificar...";
-            this.btnModify.TextColor = System.Drawing.Color.White;
-            this.btnModify.UseVisualStyleBackColor = false;
-            this.btnModify.Click += new System.EventHandler(this.btnModify_Click);
             // 
             // FormUsuario
             // 

@@ -117,6 +117,15 @@ namespace Ingenieros_Commerce_Manager.CustomControls
                     UpdateControlHeight();
             }
         }
+        public int Maxlength 
+        { get 
+            { 
+                return textBox1.MaxLength; 
+            } set 
+            { 
+                textBox1.MaxLength = value;
+            } 
+        }
 
         [Category(V)]
         public string Texts
