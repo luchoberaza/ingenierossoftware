@@ -74,6 +74,9 @@ namespace Ingenieros_Commerce_Manager_v2._0
         }
         #endregion
 
+        #region Clientes
+        #endregion
+
         #region Inventario
         public DataTable MostrarDTProd()
         {

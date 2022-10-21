@@ -19,11 +19,9 @@ namespace Ingenieros_Commerce_Manager_v2._0
         {
             InitializeComponent();
         }
+
         //Instancia de clase
         conexionsql sql = new conexionsql();
-
-
-
         private void btnInfo_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Esta información sera incluida en la facturación generada por el sistema.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -39,6 +37,10 @@ namespace Ingenieros_Commerce_Manager_v2._0
             {
                 ImgUser.Image = Image.FromStream(Usuario.ByteToImage(Usuario.Foto));
             }
+            else
+            {
+                ImgUser.Image = Ingenieros_Commerce_Manager_v2._0.Properties.Resources.galeria;
+            }
             txbClaveActual.Texts = "";
             txbClaveNueva.Texts = "";
 
@@ -46,6 +48,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
 
         private void FormUsuario_Load(object sender, EventArgs e)
         {
+            sql.SetUserData(Usuario.Id);
             UpdateForm();
             lblUserID.Text = lblUserID.Text + " " + Usuario.Id;
         }
@@ -66,7 +69,11 @@ namespace Ingenieros_Commerce_Manager_v2._0
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
+            Usuario.ClearData();
+            UpdateForm();
             sql.CerrarConexion();
+            Module.formInicio.Show();
+            Module.formContenedor.Hide();
 
         }
 
@@ -147,7 +154,6 @@ namespace Ingenieros_Commerce_Manager_v2._0
 
         private void btnModify_Click(object sender, EventArgs e)
         {
-            ImgSelect.ShowDialog();
             if (ImgSelect.ShowDialog() == DialogResult.OK)
             {
                 try

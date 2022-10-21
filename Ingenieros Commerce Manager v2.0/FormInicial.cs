@@ -151,13 +151,14 @@ namespace Ingenieros_Commerce_Manager_v2._0
                 {
                     conexionsql.AbrirConexion();
                     string login = "SELECT Username, Contraseña FROM usuario WHERE Username = '" + txbUsuario.Texts + "' AND Contraseña = '" + txbPasswd.Texts + "';";
+                    Usuario.Id = conexionsql.GetUserID(txbUsuario.Texts);
+                    conexionsql.SetUserData(Usuario.Id);
                     conexionsql.setComandos(login);
                     conexionsql.EjecutarReader();
                     if (conexionsql.datos.Read())
                     {
-                        Usuario.Id = conexionsql.GetUserID(txbUsuario.Texts);
-                        conexionsql.SetUserData(Usuario.Id);
-                        MessageBox.Show("Bienvenido " + Usuario.Username, "Ingenieros Commerce Manager", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                        MessageBox.Show("Bienvenido " + txbUsuario.Texts, "Ingenieros Commerce Manager", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                        Module.formInicio = this;
                         Form1 formPrincipal = new Form1();
                         formPrincipal.Show();
                         this.Hide();
@@ -248,5 +249,10 @@ namespace Ingenieros_Commerce_Manager_v2._0
             lblVolver.ForeColor = Color.DarkBlue;
         }
         #endregion
+
+        private void FormInicial_Load(object sender, EventArgs e)
+        {
+            Usuario.ClearData();
+        }
     }
 }

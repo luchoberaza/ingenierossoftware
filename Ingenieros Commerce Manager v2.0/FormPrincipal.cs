@@ -20,6 +20,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
             //Estas lineas eliminan los parpadeos del formulario o controles en la interfaz grafica (Pero no en un 100%)
             this.SetStyle(ControlStyles.ResizeRedraw, true);
             this.DoubleBuffered = true;
+            Module.formContenedor = this;
         }
         //Instancia de clase
         conexionsql conexionsql = new conexionsql();

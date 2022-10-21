@@ -349,6 +349,7 @@
     <Compile Include="FormVentas.Designer.cs">
       <DependentUpon>FormVentas.cs</DependentUpon>
     </Compile>
+    <Compile Include="Module.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Controls\CustomTextBox.resx">

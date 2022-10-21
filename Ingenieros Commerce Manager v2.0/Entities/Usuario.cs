@@ -43,7 +43,17 @@ namespace Ingenieros_Commerce_Manager_v2._0.Entities
             }
             return ms.ToArray();
         }
-
+        public static void ClearData()
+        {
+            Id = 0;
+            Username = null;
+            Password = null;
+            Direccion = null;
+            Denominacion = null;
+            Telefono = null;
+            RUT = null;
+            Foto = null;
+        }
 
     }
 }
