@@ -26,6 +26,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
         DataTable DTProd = new DataTable();
         DataTable DTMatPrim = new DataTable();
         DataTable UserData = new DataTable();
+        DataTable DTClientes = new DataTable();
         #endregion
 
         #region Usuario
@@ -75,6 +76,38 @@ namespace Ingenieros_Commerce_Manager_v2._0
         #endregion
 
         #region Clientes
+
+        public DataTable GetClientes()
+        {
+            AbrirConexion();
+            comandos.CommandText = "SELECT * from cliente;";
+            EjecutarReader();
+            DTClientes.Rows.Clear();
+            DTClientes.Load(datos);
+            return DTClientes;
+        }
+        public void InsertarCliente(string Nombre, string Direccion, string Telefono, float Saldo)
+        {
+            AbrirConexion();
+            comandos.CommandText = "INSERT INTO `cliente` (`ID.CLI`, `Nombre`, `Direccion`, `Telefono`, `Saldo`) VALUES (NULL, '" +Nombre+ "', '" +Direccion+ "', '" +Telefono+ "', '" +Saldo+ "');";
+            comandos.ExecuteNonQuery();
+        }
+
+        public void EliminarCliente(int id)
+        {
+            AbrirConexion();
+            comandos.CommandText = "DELETE FROM `cliente` WHERE `cliente`.`ID.CLI` IN (" + id + ") ;";
+            comandos.ExecuteNonQuery();
+
+        }
+
+        public void ActualizarCliente(string Nombre, string Direccion, string Telefono, float Saldo, string id)
+        {
+            AbrirConexion();
+            comandos.CommandText = "UPDATE `cliente` SET `Nombre` = '" + Nombre + "', `Direccion` = '" + Direccion + "', `Telefono` = '" + Telefono + "', `Saldo` = '" + Saldo + "' WHERE `cliente`.`ID.CLI` IN (" + id + ") ;";
+            comandos.ExecuteNonQuery();
+        }
+
         #endregion
 
         #region Inventario

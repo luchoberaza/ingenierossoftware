@@ -319,6 +319,12 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Entities\Usuario.cs" />
+    <Compile Include="FormClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormClientes.Designer.cs">
+      <DependentUpon>FormClientes.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormInventario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -356,6 +362,9 @@
       <DependentUpon>CustomTextBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\RJTextBox.resx" />
+    <EmbeddedResource Include="FormClientes.resx">
+      <DependentUpon>FormClientes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormInventario.resx">
       <DependentUpon>FormInventario.cs</DependentUpon>
     </EmbeddedResource>

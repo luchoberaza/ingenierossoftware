@@ -202,6 +202,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
         private void btnPagos_Click(object sender, EventArgs e)
         {
             colorearBoton(btnPagos, btnVentas, btnGastos, btnInventario, btnResumen, btnUsuario);
+            AbrirFormulario<FormClientes>();
         }
 
         private void btnInventario_Click(object sender, EventArgs e)
