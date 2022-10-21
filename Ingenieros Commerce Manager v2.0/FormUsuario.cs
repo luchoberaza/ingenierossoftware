@@ -73,7 +73,8 @@ namespace Ingenieros_Commerce_Manager_v2._0
             UpdateForm();
             sql.CerrarConexion();
             Module.formInicio.Show();
-            Module.formContenedor.Hide();
+            Module.formContenedor.Dispose();
+            this.Dispose();
 
         }
 
