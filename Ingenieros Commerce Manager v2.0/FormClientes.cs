@@ -16,7 +16,10 @@ namespace Ingenieros_Commerce_Manager_v2._0
         {
             InitializeComponent();
         }
+
+        //Instancia de clase
         conexionsql sql = new conexionsql();
+        //Variables;
         bool editar;
         string id;
         public void ClearTextBoxs()
@@ -26,21 +29,6 @@ namespace Ingenieros_Commerce_Manager_v2._0
             customTextBoxTelefono.Texts = "";
             customTextBoxSaldo.Texts = "";
         }
-        private void rjTextBox1__TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelNombre_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void customTextBox1__TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void FormClientes_Load(object sender, EventArgs e)
         {
             dgvClientes.DataSource = sql.GetClientes();
@@ -142,5 +130,6 @@ namespace Ingenieros_Commerce_Manager_v2._0
             ClearTextBoxs();
 
         }
+
     }
 }

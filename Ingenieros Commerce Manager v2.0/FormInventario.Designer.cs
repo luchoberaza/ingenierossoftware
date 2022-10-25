@@ -35,19 +35,19 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblTipo = new System.Windows.Forms.Label();
-            this.btnIngresar = new System.Windows.Forms.Button();
             this.dgvProductos = new System.Windows.Forms.DataGridView();
             this.dgvMatPrim = new System.Windows.Forms.DataGridView();
             this.lblProds = new System.Windows.Forms.Label();
             this.lblMatPrim = new System.Windows.Forms.Label();
             this.panelDGVs = new System.Windows.Forms.TableLayoutPanel();
-            this.btnEditar = new System.Windows.Forms.Button();
-            this.btnEliminar = new System.Windows.Forms.Button();
-            this.btnDeselect = new System.Windows.Forms.Button();
             this.cmbTipo = new CustomControls.RJControls.RJComboBox();
             this.txbDescrip = new Ingenieros_Commerce_Manager.CustomControls.CustomTextBox();
             this.txbStock = new Ingenieros_Commerce_Manager.CustomControls.CustomTextBox();
             this.txbPrecio = new Ingenieros_Commerce_Manager.CustomControls.CustomTextBox();
+            this.btnIngreso = new CustomControls.RJControls.RJButton();
+            this.btnElimina = new CustomControls.RJControls.RJButton();
+            this.btnDeseleccionar = new CustomControls.RJControls.RJButton();
+            this.btnEdit = new CustomControls.RJControls.RJButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMatPrim)).BeginInit();
             this.panelDGVs.SuspendLayout();
@@ -65,25 +65,6 @@
             this.lblTipo.Size = new System.Drawing.Size(35, 22);
             this.lblTipo.TabIndex = 5;
             this.lblTipo.Text = "Tipo";
-            // 
-            // btnIngresar
-            // 
-            this.btnIngresar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnIngresar.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this.btnIngresar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnIngresar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnIngresar.FlatAppearance.BorderSize = 0;
-            this.btnIngresar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.HotPink;
-            this.btnIngresar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnIngresar.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnIngresar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnIngresar.Location = new System.Drawing.Point(505, 281);
-            this.btnIngresar.Name = "btnIngresar";
-            this.btnIngresar.Size = new System.Drawing.Size(250, 47);
-            this.btnIngresar.TabIndex = 8;
-            this.btnIngresar.Text = "Ingresar";
-            this.btnIngresar.UseVisualStyleBackColor = false;
-            this.btnIngresar.Click += new System.EventHandler(this.btnIngresar_Click);
             // 
             // dgvProductos
             // 
@@ -235,63 +216,6 @@
             this.panelDGVs.Size = new System.Drawing.Size(480, 590);
             this.panelDGVs.TabIndex = 12;
             // 
-            // btnEditar
-            // 
-            this.btnEditar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnEditar.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this.btnEditar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnEditar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEditar.FlatAppearance.BorderSize = 0;
-            this.btnEditar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.HotPink;
-            this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEditar.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnEditar.Location = new System.Drawing.Point(505, 335);
-            this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(120, 47);
-            this.btnEditar.TabIndex = 13;
-            this.btnEditar.Text = "Editar";
-            this.btnEditar.UseVisualStyleBackColor = false;
-            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
-            // 
-            // btnEliminar
-            // 
-            this.btnEliminar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnEliminar.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this.btnEliminar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnEliminar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEliminar.FlatAppearance.BorderSize = 0;
-            this.btnEliminar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.HotPink;
-            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEliminar.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnEliminar.Location = new System.Drawing.Point(635, 335);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(120, 47);
-            this.btnEliminar.TabIndex = 14;
-            this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.UseVisualStyleBackColor = false;
-            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
-            // 
-            // btnDeselect
-            // 
-            this.btnDeselect.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDeselect.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this.btnDeselect.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnDeselect.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDeselect.FlatAppearance.BorderSize = 0;
-            this.btnDeselect.FlatAppearance.MouseOverBackColor = System.Drawing.Color.HotPink;
-            this.btnDeselect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDeselect.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeselect.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnDeselect.Location = new System.Drawing.Point(505, 390);
-            this.btnDeselect.Name = "btnDeselect";
-            this.btnDeselect.Size = new System.Drawing.Size(250, 47);
-            this.btnDeselect.TabIndex = 15;
-            this.btnDeselect.Text = "Deshacer selección";
-            this.btnDeselect.UseVisualStyleBackColor = false;
-            this.btnDeselect.Click += new System.EventHandler(this.btnDeselect_Click);
-            // 
             // cmbTipo
             // 
             this.cmbTipo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -327,6 +251,7 @@
             this.txbDescrip.BorderSize = 2;
             this.txbDescrip.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbDescrip.Location = new System.Drawing.Point(505, 113);
+            this.txbDescrip.Maxlength = 32767;
             this.txbDescrip.Multiline = true;
             this.txbDescrip.Name = "txbDescrip";
             this.txbDescrip.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
@@ -348,6 +273,7 @@
             this.txbStock.BorderSize = 2;
             this.txbStock.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbStock.Location = new System.Drawing.Point(505, 70);
+            this.txbStock.Maxlength = 32767;
             this.txbStock.Multiline = false;
             this.txbStock.Name = "txbStock";
             this.txbStock.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
@@ -369,6 +295,7 @@
             this.txbPrecio.BorderSize = 2;
             this.txbPrecio.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbPrecio.Location = new System.Drawing.Point(505, 27);
+            this.txbPrecio.Maxlength = 32767;
             this.txbPrecio.Multiline = false;
             this.txbPrecio.Name = "txbPrecio";
             this.txbPrecio.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
@@ -380,17 +307,101 @@
             this.txbPrecio.Texts = "";
             this.txbPrecio.UnderlinedStyle = false;
             // 
+            // btnIngreso
+            // 
+            this.btnIngreso.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnIngreso.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(154)))), ((int)(((byte)(234)))));
+            this.btnIngreso.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(154)))), ((int)(((byte)(234)))));
+            this.btnIngreso.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnIngreso.BorderRadius = 15;
+            this.btnIngreso.BorderSize = 0;
+            this.btnIngreso.FlatAppearance.BorderSize = 0;
+            this.btnIngreso.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnIngreso.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnIngreso.ForeColor = System.Drawing.Color.White;
+            this.btnIngreso.Location = new System.Drawing.Point(505, 290);
+            this.btnIngreso.Name = "btnIngreso";
+            this.btnIngreso.Size = new System.Drawing.Size(250, 37);
+            this.btnIngreso.TabIndex = 16;
+            this.btnIngreso.Text = "Ingresar";
+            this.btnIngreso.TextColor = System.Drawing.Color.White;
+            this.btnIngreso.UseVisualStyleBackColor = false;
+            this.btnIngreso.Click += new System.EventHandler(this.btnIngreso_Click);
+            // 
+            // btnElimina
+            // 
+            this.btnElimina.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnElimina.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(154)))), ((int)(((byte)(234)))));
+            this.btnElimina.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(154)))), ((int)(((byte)(234)))));
+            this.btnElimina.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnElimina.BorderRadius = 15;
+            this.btnElimina.BorderSize = 0;
+            this.btnElimina.FlatAppearance.BorderSize = 0;
+            this.btnElimina.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnElimina.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnElimina.ForeColor = System.Drawing.Color.White;
+            this.btnElimina.Location = new System.Drawing.Point(505, 333);
+            this.btnElimina.Name = "btnElimina";
+            this.btnElimina.Size = new System.Drawing.Size(250, 37);
+            this.btnElimina.TabIndex = 17;
+            this.btnElimina.Text = "Eliminar";
+            this.btnElimina.TextColor = System.Drawing.Color.White;
+            this.btnElimina.UseVisualStyleBackColor = false;
+            this.btnElimina.Click += new System.EventHandler(this.btnElimina_Click);
+            // 
+            // btnDeseleccionar
+            // 
+            this.btnDeseleccionar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnDeseleccionar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(154)))), ((int)(((byte)(234)))));
+            this.btnDeseleccionar.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(154)))), ((int)(((byte)(234)))));
+            this.btnDeseleccionar.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnDeseleccionar.BorderRadius = 15;
+            this.btnDeseleccionar.BorderSize = 0;
+            this.btnDeseleccionar.FlatAppearance.BorderSize = 0;
+            this.btnDeseleccionar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeseleccionar.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeseleccionar.ForeColor = System.Drawing.Color.White;
+            this.btnDeseleccionar.Location = new System.Drawing.Point(508, 561);
+            this.btnDeseleccionar.Name = "btnDeseleccionar";
+            this.btnDeseleccionar.Size = new System.Drawing.Size(250, 37);
+            this.btnDeseleccionar.TabIndex = 18;
+            this.btnDeseleccionar.Text = "Deseleccionar";
+            this.btnDeseleccionar.TextColor = System.Drawing.Color.White;
+            this.btnDeseleccionar.UseVisualStyleBackColor = false;
+            this.btnDeseleccionar.Click += new System.EventHandler(this.btnDeseleccionar_Click);
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEdit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(154)))), ((int)(((byte)(234)))));
+            this.btnEdit.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(154)))), ((int)(((byte)(234)))));
+            this.btnEdit.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnEdit.BorderRadius = 15;
+            this.btnEdit.BorderSize = 0;
+            this.btnEdit.FlatAppearance.BorderSize = 0;
+            this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEdit.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEdit.ForeColor = System.Drawing.Color.White;
+            this.btnEdit.Location = new System.Drawing.Point(508, 518);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(250, 37);
+            this.btnEdit.TabIndex = 19;
+            this.btnEdit.Text = "Editar";
+            this.btnEdit.TextColor = System.Drawing.Color.White;
+            this.btnEdit.UseVisualStyleBackColor = false;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
+            // 
             // FormInventario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(254)))));
             this.ClientSize = new System.Drawing.Size(770, 610);
-            this.Controls.Add(this.btnDeselect);
-            this.Controls.Add(this.btnEliminar);
-            this.Controls.Add(this.btnEditar);
+            this.Controls.Add(this.btnEdit);
+            this.Controls.Add(this.btnDeseleccionar);
+            this.Controls.Add(this.btnElimina);
+            this.Controls.Add(this.btnIngreso);
             this.Controls.Add(this.panelDGVs);
-            this.Controls.Add(this.btnIngresar);
             this.Controls.Add(this.lblTipo);
             this.Controls.Add(this.cmbTipo);
             this.Controls.Add(this.txbDescrip);
@@ -415,14 +426,14 @@
         private Ingenieros_Commerce_Manager.CustomControls.CustomTextBox txbDescrip;
         private CustomControls.RJControls.RJComboBox cmbTipo;
         private System.Windows.Forms.Label lblTipo;
-        private System.Windows.Forms.Button btnIngresar;
         private System.Windows.Forms.DataGridView dgvProductos;
         private System.Windows.Forms.DataGridView dgvMatPrim;
         private System.Windows.Forms.Label lblProds;
         private System.Windows.Forms.Label lblMatPrim;
         private System.Windows.Forms.TableLayoutPanel panelDGVs;
-        private System.Windows.Forms.Button btnEditar;
-        private System.Windows.Forms.Button btnEliminar;
-        private System.Windows.Forms.Button btnDeselect;
+        private CustomControls.RJControls.RJButton btnIngreso;
+        private CustomControls.RJControls.RJButton btnElimina;
+        private CustomControls.RJControls.RJButton btnDeseleccionar;
+        private CustomControls.RJControls.RJButton btnEdit;
     }
 }
