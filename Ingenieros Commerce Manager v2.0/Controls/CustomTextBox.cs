@@ -126,6 +126,17 @@ namespace Ingenieros_Commerce_Manager.CustomControls
                 textBox1.MaxLength = value;
             } 
         }
+        public bool ReadOnly
+        {
+            get
+            {
+                return textBox1.ReadOnly;
+            }
+            set
+            {
+                textBox1.ReadOnly = value;
+            }
+        }
 
         [Category(V)]
         public string Texts

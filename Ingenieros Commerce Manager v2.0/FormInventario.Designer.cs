@@ -258,6 +258,7 @@
             this.txbDescrip.PasswordChar = false;
             this.txbDescrip.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txbDescrip.PlaceholderText = "Descripción";
+            this.txbDescrip.ReadOnly = false;
             this.txbDescrip.Size = new System.Drawing.Size(250, 118);
             this.txbDescrip.TabIndex = 3;
             this.txbDescrip.Texts = "";
@@ -280,6 +281,7 @@
             this.txbStock.PasswordChar = false;
             this.txbStock.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txbStock.PlaceholderText = "Stock";
+            this.txbStock.ReadOnly = false;
             this.txbStock.Size = new System.Drawing.Size(250, 37);
             this.txbStock.TabIndex = 2;
             this.txbStock.Texts = "";
@@ -302,6 +304,7 @@
             this.txbPrecio.PasswordChar = false;
             this.txbPrecio.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txbPrecio.PlaceholderText = "Precio";
+            this.txbPrecio.ReadOnly = false;
             this.txbPrecio.Size = new System.Drawing.Size(250, 37);
             this.txbPrecio.TabIndex = 1;
             this.txbPrecio.Texts = "";

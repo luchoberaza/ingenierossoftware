@@ -183,6 +183,7 @@
             this.customTextBoxSaldo.PasswordChar = false;
             this.customTextBoxSaldo.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.customTextBoxSaldo.PlaceholderText = "";
+            this.customTextBoxSaldo.ReadOnly = false;
             this.customTextBoxSaldo.Size = new System.Drawing.Size(250, 37);
             this.customTextBoxSaldo.TabIndex = 10;
             this.customTextBoxSaldo.Texts = "";
@@ -205,6 +206,7 @@
             this.customTextBoxTelefono.PasswordChar = false;
             this.customTextBoxTelefono.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.customTextBoxTelefono.PlaceholderText = "";
+            this.customTextBoxTelefono.ReadOnly = false;
             this.customTextBoxTelefono.Size = new System.Drawing.Size(250, 37);
             this.customTextBoxTelefono.TabIndex = 8;
             this.customTextBoxTelefono.Texts = "";
@@ -227,6 +229,7 @@
             this.customTextBoxDireccion.PasswordChar = false;
             this.customTextBoxDireccion.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.customTextBoxDireccion.PlaceholderText = "";
+            this.customTextBoxDireccion.ReadOnly = false;
             this.customTextBoxDireccion.Size = new System.Drawing.Size(250, 37);
             this.customTextBoxDireccion.TabIndex = 6;
             this.customTextBoxDireccion.Texts = "";
@@ -249,6 +252,7 @@
             this.customTextBoxNombre.PasswordChar = false;
             this.customTextBoxNombre.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.customTextBoxNombre.PlaceholderText = "";
+            this.customTextBoxNombre.ReadOnly = false;
             this.customTextBoxNombre.Size = new System.Drawing.Size(250, 37);
             this.customTextBoxNombre.TabIndex = 4;
             this.customTextBoxNombre.Texts = "";

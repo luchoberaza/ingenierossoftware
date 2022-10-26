@@ -492,6 +492,24 @@
   <ItemGroup>
     <None Include="Resources\RoundPanelAspect1.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tags.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\shopping-cart-check.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\minus24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plus 24.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
