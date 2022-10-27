@@ -318,7 +318,14 @@
     <Compile Include="Controls\RJToggleButton.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Entities\Cliente.cs" />
     <Compile Include="Entities\Usuario.cs" />
+    <Compile Include="FormBuscarCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormBuscarCliente.Designer.cs">
+      <DependentUpon>FormBuscarCliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormClientes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -362,6 +369,9 @@
       <DependentUpon>CustomTextBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\RJTextBox.resx" />
+    <EmbeddedResource Include="FormBuscarCliente.resx">
+      <DependentUpon>FormBuscarCliente.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormClientes.resx">
       <DependentUpon>FormClientes.cs</DependentUpon>
     </EmbeddedResource>
