@@ -16,6 +16,22 @@ namespace Ingenieros_Commerce_Manager_v2._0
         {
             InitializeComponent();
         }
-        
+
+        private void FormVentas_Load(object sender, EventArgs e)
+        {
+            txbFecha.Texts = DateTime.Now.ToString("dd/MM/yyyy");
+            txbCantidad.Texts = "0";
+        }
+
+        private void btnUp_Click(object sender, EventArgs e)
+        {
+            txbCantidad.Texts = (int.Parse(txbCantidad.Texts) + 1).ToString();
+        }
+
+        private void btnDown_Click(object sender, EventArgs e)
+        {
+            txbCantidad.Texts = (int.Parse(txbCantidad.Texts) - 1).ToString();
+
+        }
     }
 }
