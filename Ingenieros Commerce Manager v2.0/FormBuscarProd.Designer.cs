@@ -1,6 +1,6 @@
 ﻿namespace Ingenieros_Commerce_Manager_v2._0
 {
-    partial class FormBuscarCliente
+    partial class FormBuscarProd
     {
         /// <summary>
         /// Required designer variable.
@@ -31,88 +31,36 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormBuscarCliente));
-            this.dgvCliente = new System.Windows.Forms.DataGridView();
-            this.gboxClientes = new System.Windows.Forms.GroupBox();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormBuscarProd));
+            this.gboxProd = new System.Windows.Forms.GroupBox();
             this.btnClear = new CustomControls.RJControls.RJButton();
             this.txbBuscar = new Ingenieros_Commerce_Manager.CustomControls.CustomTextBox();
             this.lblBusqueda = new System.Windows.Forms.Label();
             this.cmbBusqueda = new CustomControls.RJControls.RJComboBox();
             this.btnCancel = new CustomControls.RJControls.RJButton();
             this.btnSelect = new CustomControls.RJControls.RJButton();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCliente)).BeginInit();
-            this.gboxClientes.SuspendLayout();
+            this.dgvProducto = new System.Windows.Forms.DataGridView();
+            this.gboxProd.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProducto)).BeginInit();
             this.SuspendLayout();
             // 
-            // dgvCliente
+            // gboxProd
             // 
-            this.dgvCliente.AllowUserToAddRows = false;
-            this.dgvCliente.AllowUserToDeleteRows = false;
-            this.dgvCliente.AllowUserToOrderColumns = true;
-            this.dgvCliente.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.gboxProd.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvCliente.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvCliente.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dgvCliente.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(223)))), ((int)(((byte)(248)))));
-            this.dgvCliente.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvCliente.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dgvCliente.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(154)))), ((int)(((byte)(233)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(94)))), ((int)(((byte)(220)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvCliente.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvCliente.ColumnHeadersHeight = 25;
-            this.dgvCliente.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgvCliente.EnableHeadersVisualStyles = false;
-            this.dgvCliente.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(94)))), ((int)(((byte)(220)))));
-            this.dgvCliente.Location = new System.Drawing.Point(7, 115);
-            this.dgvCliente.Margin = new System.Windows.Forms.Padding(0);
-            this.dgvCliente.Name = "dgvCliente";
-            this.dgvCliente.ReadOnly = true;
-            this.dgvCliente.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(154)))), ((int)(((byte)(233)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(94)))), ((int)(((byte)(220)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvCliente.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvCliente.RowHeadersWidth = 51;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(223)))), ((int)(((byte)(248)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(94)))), ((int)(((byte)(220)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(249)))), ((int)(((byte)(254)))));
-            this.dgvCliente.RowsDefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvCliente.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvCliente.ShowCellErrors = false;
-            this.dgvCliente.Size = new System.Drawing.Size(589, 240);
-            this.dgvCliente.TabIndex = 3;
-            this.dgvCliente.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCliente_CellDoubleClick);
-            // 
-            // gboxClientes
-            // 
-            this.gboxClientes.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.gboxClientes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(254)))));
-            this.gboxClientes.Controls.Add(this.btnClear);
-            this.gboxClientes.Controls.Add(this.txbBuscar);
-            this.gboxClientes.Controls.Add(this.lblBusqueda);
-            this.gboxClientes.Controls.Add(this.cmbBusqueda);
-            this.gboxClientes.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gboxClientes.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.gboxClientes.Location = new System.Drawing.Point(7, 5);
-            this.gboxClientes.Name = "gboxClientes";
-            this.gboxClientes.Size = new System.Drawing.Size(589, 107);
-            this.gboxClientes.TabIndex = 41;
-            this.gboxClientes.TabStop = false;
-            this.gboxClientes.Text = "Buscar cliente";
+            this.gboxProd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(254)))));
+            this.gboxProd.Controls.Add(this.btnClear);
+            this.gboxProd.Controls.Add(this.txbBuscar);
+            this.gboxProd.Controls.Add(this.lblBusqueda);
+            this.gboxProd.Controls.Add(this.cmbBusqueda);
+            this.gboxProd.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gboxProd.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.gboxProd.Location = new System.Drawing.Point(7, 8);
+            this.gboxProd.Name = "gboxProd";
+            this.gboxProd.Size = new System.Drawing.Size(589, 107);
+            this.gboxProd.TabIndex = 45;
+            this.gboxProd.TabStop = false;
+            this.gboxProd.Text = "Buscar producto";
             // 
             // btnClear
             // 
@@ -128,7 +76,7 @@
             this.btnClear.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClear.ForeColor = System.Drawing.Color.White;
             this.btnClear.Image = global::Ingenieros_Commerce_Manager_v2._0.Properties.Resources.clean24;
-            this.btnClear.Location = new System.Drawing.Point(515, 44);
+            this.btnClear.Location = new System.Drawing.Point(514, 44);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(39, 37);
             this.btnClear.TabIndex = 18;
@@ -148,7 +96,7 @@
             this.txbBuscar.BorderRadius = 0;
             this.txbBuscar.BorderSize = 2;
             this.txbBuscar.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbBuscar.Location = new System.Drawing.Point(274, 45);
+            this.txbBuscar.Location = new System.Drawing.Point(274, 44);
             this.txbBuscar.Maxlength = 32767;
             this.txbBuscar.Multiline = false;
             this.txbBuscar.Name = "txbBuscar";
@@ -157,7 +105,7 @@
             this.txbBuscar.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txbBuscar.PlaceholderText = "";
             this.txbBuscar.ReadOnly = false;
-            this.txbBuscar.Size = new System.Drawing.Size(235, 37);
+            this.txbBuscar.Size = new System.Drawing.Size(234, 37);
             this.txbBuscar.TabIndex = 16;
             this.txbBuscar.Texts = "";
             this.txbBuscar.UnderlinedStyle = false;
@@ -212,10 +160,10 @@
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.ForeColor = System.Drawing.Color.White;
-            this.btnCancel.Location = new System.Drawing.Point(311, 370);
+            this.btnCancel.Location = new System.Drawing.Point(311, 373);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(138, 28);
-            this.btnCancel.TabIndex = 40;
+            this.btnCancel.TabIndex = 44;
             this.btnCancel.Text = "Cancelar";
             this.btnCancel.TextColor = System.Drawing.Color.White;
             this.btnCancel.UseVisualStyleBackColor = false;
@@ -234,47 +182,97 @@
             this.btnSelect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSelect.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSelect.ForeColor = System.Drawing.Color.White;
-            this.btnSelect.Location = new System.Drawing.Point(455, 370);
+            this.btnSelect.Location = new System.Drawing.Point(455, 373);
             this.btnSelect.Name = "btnSelect";
             this.btnSelect.Size = new System.Drawing.Size(138, 28);
-            this.btnSelect.TabIndex = 39;
+            this.btnSelect.TabIndex = 43;
             this.btnSelect.Text = "Seleccionar";
             this.btnSelect.TextColor = System.Drawing.Color.White;
             this.btnSelect.UseVisualStyleBackColor = false;
             this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
             // 
-            // FormBuscarCliente
+            // dgvProducto
+            // 
+            this.dgvProducto.AllowUserToAddRows = false;
+            this.dgvProducto.AllowUserToDeleteRows = false;
+            this.dgvProducto.AllowUserToOrderColumns = true;
+            this.dgvProducto.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvProducto.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvProducto.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvProducto.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(223)))), ((int)(((byte)(248)))));
+            this.dgvProducto.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvProducto.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dgvProducto.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(154)))), ((int)(((byte)(233)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(94)))), ((int)(((byte)(220)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvProducto.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvProducto.ColumnHeadersHeight = 25;
+            this.dgvProducto.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dgvProducto.EnableHeadersVisualStyles = false;
+            this.dgvProducto.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(94)))), ((int)(((byte)(220)))));
+            this.dgvProducto.Location = new System.Drawing.Point(7, 118);
+            this.dgvProducto.Margin = new System.Windows.Forms.Padding(0);
+            this.dgvProducto.Name = "dgvProducto";
+            this.dgvProducto.ReadOnly = true;
+            this.dgvProducto.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(154)))), ((int)(((byte)(233)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(94)))), ((int)(((byte)(220)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvProducto.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvProducto.RowHeadersWidth = 51;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(223)))), ((int)(((byte)(248)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(94)))), ((int)(((byte)(220)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(249)))), ((int)(((byte)(254)))));
+            this.dgvProducto.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvProducto.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvProducto.ShowCellErrors = false;
+            this.dgvProducto.Size = new System.Drawing.Size(589, 240);
+            this.dgvProducto.TabIndex = 42;
+            this.dgvProducto.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProducto_CellDoubleClick);
+            // 
+            // FormBuscarProd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(254)))));
             this.ClientSize = new System.Drawing.Size(603, 409);
-            this.Controls.Add(this.gboxClientes);
+            this.Controls.Add(this.gboxProd);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSelect);
-            this.Controls.Add(this.dgvCliente);
+            this.Controls.Add(this.dgvProducto);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "FormBuscarCliente";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Buscar cliente";
-            this.Load += new System.EventHandler(this.FormBuscarCliente_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCliente)).EndInit();
-            this.gboxClientes.ResumeLayout(false);
-            this.gboxClientes.PerformLayout();
+            this.Name = "FormBuscarProd";
+            this.Text = "Buscar producto";
+            this.Load += new System.EventHandler(this.FormBuscarProd_Load);
+            this.gboxProd.ResumeLayout(false);
+            this.gboxProd.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProducto)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dgvCliente;
-        private CustomControls.RJControls.RJButton btnSelect;
-        private CustomControls.RJControls.RJButton btnCancel;
-        private System.Windows.Forms.GroupBox gboxClientes;
+        private System.Windows.Forms.GroupBox gboxProd;
+        private CustomControls.RJControls.RJButton btnClear;
+        private Ingenieros_Commerce_Manager.CustomControls.CustomTextBox txbBuscar;
         private System.Windows.Forms.Label lblBusqueda;
         private CustomControls.RJControls.RJComboBox cmbBusqueda;
-        private Ingenieros_Commerce_Manager.CustomControls.CustomTextBox txbBuscar;
-        private CustomControls.RJControls.RJButton btnClear;
+        private CustomControls.RJControls.RJButton btnCancel;
+        private CustomControls.RJControls.RJButton btnSelect;
+        private System.Windows.Forms.DataGridView dgvProducto;
     }
 }

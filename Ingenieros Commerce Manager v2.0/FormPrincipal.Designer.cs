@@ -28,28 +28,29 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panelHeader = new System.Windows.Forms.Panel();
+            this.BotonHide = new System.Windows.Forms.PictureBox();
+            this.BotonMinMax = new System.Windows.Forms.PictureBox();
+            this.BotonCerrar = new System.Windows.Forms.PictureBox();
+            this.Titulo = new System.Windows.Forms.PictureBox();
             this.panelMenu = new System.Windows.Forms.Panel();
-            this.panelPrincipal = new System.Windows.Forms.Panel();
-            this.RedondeoForm = new Ingenieros_Commerce_Manager_v2._0.Components.EllipseComponent();
-            this.panelContenedor = new System.Windows.Forms.Panel();
             this.btnUsuario = new System.Windows.Forms.Button();
             this.btnPagos = new System.Windows.Forms.Button();
             this.btnResumen = new System.Windows.Forms.Button();
             this.btnGastos = new System.Windows.Forms.Button();
             this.btnInventario = new System.Windows.Forms.Button();
             this.btnVentas = new System.Windows.Forms.Button();
-            this.BotonHide = new System.Windows.Forms.PictureBox();
-            this.BotonMinMax = new System.Windows.Forms.PictureBox();
-            this.BotonCerrar = new System.Windows.Forms.PictureBox();
-            this.Titulo = new System.Windows.Forms.PictureBox();
+            this.panelPrincipal = new System.Windows.Forms.Panel();
+            this.RedondeoForm = new Ingenieros_Commerce_Manager_v2._0.Components.EllipseComponent();
+            this.panelContenedor = new System.Windows.Forms.Panel();
             this.panelHeader.SuspendLayout();
-            this.panelMenu.SuspendLayout();
-            this.panelContenedor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BotonHide)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BotonMinMax)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BotonCerrar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Titulo)).BeginInit();
+            this.panelMenu.SuspendLayout();
+            this.panelContenedor.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelHeader
@@ -66,6 +67,55 @@
             this.panelHeader.Size = new System.Drawing.Size(1000, 40);
             this.panelHeader.TabIndex = 0;
             this.panelHeader.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelHeader_MouseDown);
+            // 
+            // BotonHide
+            // 
+            this.BotonHide.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.BotonHide.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BotonHide.Image = global::Ingenieros_Commerce_Manager_v2._0.Properties.Resources.Hide;
+            this.BotonHide.Location = new System.Drawing.Point(894, 23);
+            this.BotonHide.Name = "BotonHide";
+            this.BotonHide.Size = new System.Drawing.Size(25, 10);
+            this.BotonHide.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.BotonHide.TabIndex = 3;
+            this.BotonHide.TabStop = false;
+            this.BotonHide.Click += new System.EventHandler(this.BotonHide_Click);
+            // 
+            // BotonMinMax
+            // 
+            this.BotonMinMax.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.BotonMinMax.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BotonMinMax.Image = global::Ingenieros_Commerce_Manager_v2._0.Properties.Resources.Minimize_Maximize;
+            this.BotonMinMax.Location = new System.Drawing.Point(926, 8);
+            this.BotonMinMax.Name = "BotonMinMax";
+            this.BotonMinMax.Size = new System.Drawing.Size(25, 25);
+            this.BotonMinMax.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.BotonMinMax.TabIndex = 2;
+            this.BotonMinMax.TabStop = false;
+            this.BotonMinMax.Click += new System.EventHandler(this.BotonMinMax_Click);
+            // 
+            // BotonCerrar
+            // 
+            this.BotonCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.BotonCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BotonCerrar.Image = global::Ingenieros_Commerce_Manager_v2._0.Properties.Resources.Cerrar;
+            this.BotonCerrar.Location = new System.Drawing.Point(961, 8);
+            this.BotonCerrar.Name = "BotonCerrar";
+            this.BotonCerrar.Size = new System.Drawing.Size(25, 25);
+            this.BotonCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.BotonCerrar.TabIndex = 1;
+            this.BotonCerrar.TabStop = false;
+            this.BotonCerrar.Click += new System.EventHandler(this.BotonCerrar_Click);
+            // 
+            // Titulo
+            // 
+            this.Titulo.Image = global::Ingenieros_Commerce_Manager_v2._0.Properties.Resources.T_itulo;
+            this.Titulo.Location = new System.Drawing.Point(8, 2);
+            this.Titulo.Name = "Titulo";
+            this.Titulo.Size = new System.Drawing.Size(370, 37);
+            this.Titulo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Titulo.TabIndex = 0;
+            this.Titulo.TabStop = false;
             // 
             // panelMenu
             // 
@@ -84,35 +134,6 @@
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Size = new System.Drawing.Size(230, 610);
             this.panelMenu.TabIndex = 1;
-            // 
-            // panelPrincipal
-            // 
-            this.panelPrincipal.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelPrincipal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(254)))));
-            this.panelPrincipal.Location = new System.Drawing.Point(230, 40);
-            this.panelPrincipal.Margin = new System.Windows.Forms.Padding(0);
-            this.panelPrincipal.Name = "panelPrincipal";
-            this.panelPrincipal.Size = new System.Drawing.Size(770, 610);
-            this.panelPrincipal.TabIndex = 2;
-            // 
-            // RedondeoForm
-            // 
-            this.RedondeoForm.CornerRadius = 30;
-            this.RedondeoForm.TargetControl = this;
-            // 
-            // panelContenedor
-            // 
-            this.panelContenedor.Controls.Add(this.panelPrincipal);
-            this.panelContenedor.Controls.Add(this.panelMenu);
-            this.panelContenedor.Controls.Add(this.panelHeader);
-            this.panelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelContenedor.Location = new System.Drawing.Point(0, 0);
-            this.panelContenedor.Margin = new System.Windows.Forms.Padding(0);
-            this.panelContenedor.Name = "panelContenedor";
-            this.panelContenedor.Size = new System.Drawing.Size(1000, 650);
-            this.panelContenedor.TabIndex = 3;
             // 
             // btnUsuario
             // 
@@ -240,54 +261,34 @@
             this.btnVentas.UseVisualStyleBackColor = false;
             this.btnVentas.Click += new System.EventHandler(this.btnVentas_Click);
             // 
-            // BotonHide
+            // panelPrincipal
             // 
-            this.BotonHide.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.BotonHide.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BotonHide.Image = global::Ingenieros_Commerce_Manager_v2._0.Properties.Resources.Hide;
-            this.BotonHide.Location = new System.Drawing.Point(894, 23);
-            this.BotonHide.Name = "BotonHide";
-            this.BotonHide.Size = new System.Drawing.Size(25, 10);
-            this.BotonHide.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.BotonHide.TabIndex = 3;
-            this.BotonHide.TabStop = false;
-            this.BotonHide.Click += new System.EventHandler(this.BotonHide_Click);
+            this.panelPrincipal.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelPrincipal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(254)))));
+            this.panelPrincipal.Location = new System.Drawing.Point(230, 40);
+            this.panelPrincipal.Margin = new System.Windows.Forms.Padding(0);
+            this.panelPrincipal.Name = "panelPrincipal";
+            this.panelPrincipal.Size = new System.Drawing.Size(770, 610);
+            this.panelPrincipal.TabIndex = 2;
             // 
-            // BotonMinMax
+            // RedondeoForm
             // 
-            this.BotonMinMax.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.BotonMinMax.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BotonMinMax.Image = global::Ingenieros_Commerce_Manager_v2._0.Properties.Resources.Minimize_Maximize;
-            this.BotonMinMax.Location = new System.Drawing.Point(926, 8);
-            this.BotonMinMax.Name = "BotonMinMax";
-            this.BotonMinMax.Size = new System.Drawing.Size(25, 25);
-            this.BotonMinMax.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.BotonMinMax.TabIndex = 2;
-            this.BotonMinMax.TabStop = false;
-            this.BotonMinMax.Click += new System.EventHandler(this.BotonMinMax_Click);
+            this.RedondeoForm.CornerRadius = 30;
+            this.RedondeoForm.TargetControl = this;
             // 
-            // BotonCerrar
+            // panelContenedor
             // 
-            this.BotonCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.BotonCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BotonCerrar.Image = global::Ingenieros_Commerce_Manager_v2._0.Properties.Resources.Cerrar;
-            this.BotonCerrar.Location = new System.Drawing.Point(961, 8);
-            this.BotonCerrar.Name = "BotonCerrar";
-            this.BotonCerrar.Size = new System.Drawing.Size(25, 25);
-            this.BotonCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.BotonCerrar.TabIndex = 1;
-            this.BotonCerrar.TabStop = false;
-            this.BotonCerrar.Click += new System.EventHandler(this.BotonCerrar_Click);
-            // 
-            // Titulo
-            // 
-            this.Titulo.Image = global::Ingenieros_Commerce_Manager_v2._0.Properties.Resources.T_itulo;
-            this.Titulo.Location = new System.Drawing.Point(8, 2);
-            this.Titulo.Name = "Titulo";
-            this.Titulo.Size = new System.Drawing.Size(370, 37);
-            this.Titulo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.Titulo.TabIndex = 0;
-            this.Titulo.TabStop = false;
+            this.panelContenedor.Controls.Add(this.panelPrincipal);
+            this.panelContenedor.Controls.Add(this.panelMenu);
+            this.panelContenedor.Controls.Add(this.panelHeader);
+            this.panelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelContenedor.Location = new System.Drawing.Point(0, 0);
+            this.panelContenedor.Margin = new System.Windows.Forms.Padding(0);
+            this.panelContenedor.Name = "panelContenedor";
+            this.panelContenedor.Size = new System.Drawing.Size(1000, 650);
+            this.panelContenedor.TabIndex = 3;
             // 
             // Form1
             // 
@@ -295,17 +296,18 @@
             this.ClientSize = new System.Drawing.Size(1000, 650);
             this.Controls.Add(this.panelContenedor);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(600, 400);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.panelHeader.ResumeLayout(false);
-            this.panelMenu.ResumeLayout(false);
-            this.panelContenedor.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.BotonHide)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BotonMinMax)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BotonCerrar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Titulo)).EndInit();
+            this.panelMenu.ResumeLayout(false);
+            this.panelContenedor.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

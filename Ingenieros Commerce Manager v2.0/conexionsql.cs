@@ -10,6 +10,7 @@ using Ingenieros_Commerce_Manager_v2._0.Entities;
 using Google.Protobuf.WellKnownTypes;
 using System.Windows.Documents;
 using System.IO;
+using System.Windows;
 
 namespace Ingenieros_Commerce_Manager_v2._0
 {
@@ -119,6 +120,26 @@ namespace Ingenieros_Commerce_Manager_v2._0
             DTProd.Rows.Clear();
             DTProd.Load(datos);
             return DTProd;
+        }
+        public void SetProduct(int id)
+        {
+            AbrirConexion();
+            comandos.CommandText = "select * from producto_venta where `ID.Prod` = " + id + ";";
+            EjecutarReader();
+            DataTable producto = new DataTable();
+            producto.Load(datos);
+            Producto.ClearProductData();
+            if(producto.Rows.Count > 0)
+            {
+                Producto.IDPROD = int.Parse(producto.Rows[0][0].ToString());
+                Producto.Descripcion = producto.Rows[0][2].ToString();
+                Producto.PrecioUnitario = int.Parse(producto.Rows[0][3].ToString());
+                Producto.Stock = int.Parse(producto.Rows[0][1].ToString());
+            }
+            else
+            {
+                MessageBox.Show("No se encontraron datos.", "Error", MessageBoxButton.OK, MessageBoxImage.Asterisk);
+            }
         }
         public DataTable MostrarDTMatPrim()
         {

@@ -319,12 +319,19 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Entities\Cliente.cs" />
+    <Compile Include="Entities\Producto.cs" />
     <Compile Include="Entities\Usuario.cs" />
     <Compile Include="FormBuscarCliente.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormBuscarCliente.Designer.cs">
       <DependentUpon>FormBuscarCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormBuscarProd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormBuscarProd.Designer.cs">
+      <DependentUpon>FormBuscarProd.cs</DependentUpon>
     </Compile>
     <Compile Include="FormClientes.cs">
       <SubType>Form</SubType>
@@ -371,6 +378,9 @@
     <EmbeddedResource Include="Controls\RJTextBox.resx" />
     <EmbeddedResource Include="FormBuscarCliente.resx">
       <DependentUpon>FormBuscarCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormBuscarProd.resx">
+      <DependentUpon>FormBuscarProd.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormClientes.resx">
       <DependentUpon>FormClientes.cs</DependentUpon>
@@ -525,6 +535,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\clean24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\check.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Ingenieros_Commerce_Manager_v2._0.Entities;
 
@@ -17,6 +10,8 @@ namespace Ingenieros_Commerce_Manager_v2._0
         {
             InitializeComponent();
         }
+        //Instancia de clase
+        conexionsql sql = new conexionsql();
 
         private void FormVentas_Load(object sender, EventArgs e)
         {
@@ -40,6 +35,41 @@ namespace Ingenieros_Commerce_Manager_v2._0
             FormBuscarCliente cliente = new FormBuscarCliente();
             cliente.ShowDialog();
             txbNombre.Texts = Cliente.Nombre;
+        }
+
+        private void btnBuscarProd_Click(object sender, EventArgs e)
+        {
+            FormBuscarProd prod = new FormBuscarProd();
+            prod.ShowDialog();
+            FillProductInfo();
+
+        }
+        private void FillProductInfo()
+        {
+            txbIDProd.Texts = Producto.IDPROD.ToString();
+            txbProd.Texts = Producto.Descripcion;
+            txbPrecio.Texts = Producto.PrecioUnitario.ToString();
+            txbStock.Texts = Producto.Stock.ToString();
+            txbCantidad.Select();
+        }
+
+        private void btnID_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                sql.SetProduct(int.Parse(txbIDProd.Texts));
+                FillProductInfo();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

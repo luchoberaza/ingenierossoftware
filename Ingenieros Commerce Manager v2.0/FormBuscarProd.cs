@@ -12,48 +12,46 @@ using Microsoft.VisualStudio.Utilities.Internal;
 
 namespace Ingenieros_Commerce_Manager_v2._0
 {
-    public partial class FormBuscarCliente : Form
+    public partial class FormBuscarProd : Form
     {
-        public FormBuscarCliente()
+        public FormBuscarProd()
         {
             InitializeComponent();
-
         }
         //Instancia de clase
         conexionsql sql = new conexionsql();
 
-        private void FormBuscarCliente_Load(object sender, EventArgs e)
+        private void SetProducto()
+        {
+            Producto.IDPROD = int.Parse(dgvProducto.CurrentRow.Cells["ID.Prod"].Value.ToString());
+            Producto.Descripcion = dgvProducto.CurrentRow.Cells["Descripcion"].Value.ToString();
+            Producto.PrecioUnitario = int.Parse(dgvProducto.CurrentRow.Cells["PrecioUnitario"].Value.ToString());
+            Producto.Stock = int.Parse(dgvProducto.CurrentRow.Cells["Stock"].Value.ToString());
+        }
+        private void FormBuscarProd_Load(object sender, EventArgs e)
         {
             try
             {
-                dgvCliente.DataSource = sql.GetClientes();
+                dgvProducto.DataSource = sql.MostrarDTProd();
 
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error al conectar", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-            foreach(DataGridViewColumn column in dgvCliente.Columns)
+            foreach (DataGridViewColumn column in dgvProducto.Columns)
             {
                 cmbBusqueda.Items.Add(column.HeaderText);
             }
-            cmbBusqueda.Texts = "Nombre";
-        }
-        private void SetCliente()
-        {
-            Cliente.IDCLI = int.Parse(dgvCliente.CurrentRow.Cells["ID.CLI"].Value.ToString());
-            Cliente.Saldo = float.Parse(dgvCliente.CurrentRow.Cells["Saldo"].Value.ToString());
-            Cliente.Telefono = dgvCliente.CurrentRow.Cells["Telefono"].Value.ToString();
-            Cliente.Direccion = dgvCliente.CurrentRow.Cells["Direccion"].Value.ToString();
-            Cliente.Nombre = dgvCliente.CurrentRow.Cells["Nombre"].Value.ToString();
+            cmbBusqueda.Texts = "Descripcion";
         }
 
-        private void dgvCliente_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvProducto_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
             {
-                SetCliente();
+                SetProducto();
                 this.Close();
             }
             else
@@ -64,9 +62,9 @@ namespace Ingenieros_Commerce_Manager_v2._0
 
         private void btnSelect_Click(object sender, EventArgs e)
         {
-            if(dgvCliente.SelectedRows.Count > 0)
+            if (dgvProducto.SelectedRows.Count > 0)
             {
-                SetCliente();
+                SetProducto();
                 this.Close();
             }
             else
@@ -77,14 +75,14 @@ namespace Ingenieros_Commerce_Manager_v2._0
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            Cliente.ClearClientData();
+            Producto.ClearProductData();
             this.Close();
         }
 
         private void btnClear_Click(object sender, EventArgs e)
         {
             txbBuscar.Texts = "";
-            foreach (DataGridViewRow row in dgvCliente.Rows)
+            foreach (DataGridViewRow row in dgvProducto.Rows)
             {
                 row.Visible = true;
             }
@@ -93,10 +91,10 @@ namespace Ingenieros_Commerce_Manager_v2._0
 
         private void txbBuscar__TextChanged(object sender, EventArgs e)
         {
-            CurrencyManager manager = (CurrencyManager)dgvCliente.BindingContext[dgvCliente.DataSource];
+            CurrencyManager manager = (CurrencyManager)dgvProducto.BindingContext[dgvProducto.DataSource];
             manager.SuspendBinding();
             string Filter = cmbBusqueda.Texts;
-            if (dgvCliente.Rows.Count > 0)
+            if (dgvProducto.Rows.Count > 0)
             {
                 if (Filter.IsNullOrWhiteSpace() == true)
                 {
@@ -104,7 +102,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
                 }
                 else
                 {
-                    foreach (DataGridViewRow row in dgvCliente.Rows)
+                    foreach (DataGridViewRow row in dgvProducto.Rows)
                     {
                         if (row.Cells[Filter].Value.ToString().Trim().ToLower().Contains(txbBuscar.Texts.Trim().ToLower()))
                         {

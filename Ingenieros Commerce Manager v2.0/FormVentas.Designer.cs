@@ -46,16 +46,22 @@
             this.lblTotal = new System.Windows.Forms.Label();
             this.lblPaga = new System.Windows.Forms.Label();
             this.lblCambio = new System.Windows.Forms.Label();
+            this.IDProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Detalle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PrecioUnitario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PrecioTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnCrearVenta = new CustomControls.RJControls.RJButton();
             this.txbCambio = new Ingenieros_Commerce_Manager.CustomControls.CustomTextBox();
             this.txbPaga = new Ingenieros_Commerce_Manager.CustomControls.CustomTextBox();
             this.txbTotal = new Ingenieros_Commerce_Manager.CustomControls.CustomTextBox();
+            this.btnID = new CustomControls.RJControls.RJButton();
             this.btnUp = new CustomControls.RJControls.RJButton();
             this.btnDown = new CustomControls.RJControls.RJButton();
             this.txbCantidad = new Ingenieros_Commerce_Manager.CustomControls.CustomTextBox();
             this.txbStock = new Ingenieros_Commerce_Manager.CustomControls.CustomTextBox();
             this.txbPrecio = new Ingenieros_Commerce_Manager.CustomControls.CustomTextBox();
-            this.rjButton1 = new CustomControls.RJControls.RJButton();
+            this.btnBuscarProd = new CustomControls.RJControls.RJButton();
             this.txbProd = new Ingenieros_Commerce_Manager.CustomControls.CustomTextBox();
             this.btnAgregar = new CustomControls.RJControls.RJButton();
             this.txbIDProd = new Ingenieros_Commerce_Manager.CustomControls.CustomTextBox();
@@ -146,6 +152,7 @@
             this.gboxInfoProductos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gboxInfoProductos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(254)))));
+            this.gboxInfoProductos.Controls.Add(this.btnID);
             this.gboxInfoProductos.Controls.Add(this.btnUp);
             this.gboxInfoProductos.Controls.Add(this.btnDown);
             this.gboxInfoProductos.Controls.Add(this.lblCantidad);
@@ -155,7 +162,7 @@
             this.gboxInfoProductos.Controls.Add(this.lblPrecio);
             this.gboxInfoProductos.Controls.Add(this.txbPrecio);
             this.gboxInfoProductos.Controls.Add(this.lblProd);
-            this.gboxInfoProductos.Controls.Add(this.rjButton1);
+            this.gboxInfoProductos.Controls.Add(this.btnBuscarProd);
             this.gboxInfoProductos.Controls.Add(this.txbProd);
             this.gboxInfoProductos.Controls.Add(this.lblIDProd);
             this.gboxInfoProductos.Controls.Add(this.btnAgregar);
@@ -228,7 +235,7 @@
             this.lblIDProd.AutoSize = true;
             this.lblIDProd.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblIDProd.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.lblIDProd.Location = new System.Drawing.Point(33, 22);
+            this.lblIDProd.Location = new System.Drawing.Point(28, 22);
             this.lblIDProd.Name = "lblIDProd";
             this.lblIDProd.Size = new System.Drawing.Size(81, 22);
             this.lblIDProd.TabIndex = 15;
@@ -257,6 +264,12 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvVenta.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvVenta.ColumnHeadersHeight = 25;
+            this.dgvVenta.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.IDProducto,
+            this.Detalle,
+            this.Cantidad,
+            this.PrecioUnitario,
+            this.PrecioTotal});
             this.dgvVenta.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvVenta.EnableHeadersVisualStyles = false;
             this.dgvVenta.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(94)))), ((int)(((byte)(220)))));
@@ -320,6 +333,36 @@
             this.lblCambio.Size = new System.Drawing.Size(61, 22);
             this.lblCambio.TabIndex = 8;
             this.lblCambio.Text = "Cambio:";
+            // 
+            // IDProducto
+            // 
+            this.IDProducto.HeaderText = "ID Producto";
+            this.IDProducto.Name = "IDProducto";
+            this.IDProducto.ReadOnly = true;
+            // 
+            // Detalle
+            // 
+            this.Detalle.HeaderText = "Detalle";
+            this.Detalle.Name = "Detalle";
+            this.Detalle.ReadOnly = true;
+            // 
+            // Cantidad
+            // 
+            this.Cantidad.HeaderText = "Cantidad";
+            this.Cantidad.Name = "Cantidad";
+            this.Cantidad.ReadOnly = true;
+            // 
+            // PrecioUnitario
+            // 
+            this.PrecioUnitario.HeaderText = "Precio Unitario";
+            this.PrecioUnitario.Name = "PrecioUnitario";
+            this.PrecioUnitario.ReadOnly = true;
+            // 
+            // PrecioTotal
+            // 
+            this.PrecioTotal.HeaderText = "Precio Total";
+            this.PrecioTotal.Name = "PrecioTotal";
+            this.PrecioTotal.ReadOnly = true;
             // 
             // btnCrearVenta
             // 
@@ -412,6 +455,30 @@
             this.txbTotal.TabIndex = 3;
             this.txbTotal.Texts = "";
             this.txbTotal.UnderlinedStyle = false;
+            // 
+            // btnID
+            // 
+            this.btnID.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnID.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(154)))), ((int)(((byte)(234)))));
+            this.btnID.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(154)))), ((int)(((byte)(234)))));
+            this.btnID.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnID.BorderRadius = 15;
+            this.btnID.BorderSize = 0;
+            this.btnID.FlatAppearance.BorderSize = 0;
+            this.btnID.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnID.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnID.ForeColor = System.Drawing.Color.White;
+            this.btnID.Image = global::Ingenieros_Commerce_Manager_v2._0.Properties.Resources.check;
+            this.btnID.Location = new System.Drawing.Point(131, 36);
+            this.btnID.Name = "btnID";
+            this.btnID.Size = new System.Drawing.Size(42, 37);
+            this.btnID.TabIndex = 24;
+            this.btnID.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnID.TextColor = System.Drawing.Color.White;
+            this.btnID.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnID.UseVisualStyleBackColor = false;
+            this.btnID.Click += new System.EventHandler(this.btnID_Click);
             // 
             // btnUp
             // 
@@ -528,35 +595,36 @@
             this.txbPrecio.PasswordChar = false;
             this.txbPrecio.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txbPrecio.PlaceholderText = "";
-            this.txbPrecio.ReadOnly = true;
+            this.txbPrecio.ReadOnly = false;
             this.txbPrecio.Size = new System.Drawing.Size(137, 37);
             this.txbPrecio.TabIndex = 18;
             this.txbPrecio.Texts = "";
             this.txbPrecio.UnderlinedStyle = false;
             // 
-            // rjButton1
+            // btnBuscarProd
             // 
-            this.rjButton1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.btnBuscarProd.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.rjButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(154)))), ((int)(((byte)(234)))));
-            this.rjButton1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(154)))), ((int)(((byte)(234)))));
-            this.rjButton1.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.rjButton1.BorderRadius = 15;
-            this.rjButton1.BorderSize = 0;
-            this.rjButton1.FlatAppearance.BorderSize = 0;
-            this.rjButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton1.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rjButton1.ForeColor = System.Drawing.Color.White;
-            this.rjButton1.Image = global::Ingenieros_Commerce_Manager_v2._0.Properties.Resources.search;
-            this.rjButton1.Location = new System.Drawing.Point(23, 79);
-            this.rjButton1.Name = "rjButton1";
-            this.rjButton1.Size = new System.Drawing.Size(150, 55);
-            this.rjButton1.TabIndex = 15;
-            this.rjButton1.Text = "Buscar";
-            this.rjButton1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.rjButton1.TextColor = System.Drawing.Color.White;
-            this.rjButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.rjButton1.UseVisualStyleBackColor = false;
+            this.btnBuscarProd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(154)))), ((int)(((byte)(234)))));
+            this.btnBuscarProd.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(154)))), ((int)(((byte)(234)))));
+            this.btnBuscarProd.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnBuscarProd.BorderRadius = 15;
+            this.btnBuscarProd.BorderSize = 0;
+            this.btnBuscarProd.FlatAppearance.BorderSize = 0;
+            this.btnBuscarProd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscarProd.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscarProd.ForeColor = System.Drawing.Color.White;
+            this.btnBuscarProd.Image = global::Ingenieros_Commerce_Manager_v2._0.Properties.Resources.search;
+            this.btnBuscarProd.Location = new System.Drawing.Point(23, 79);
+            this.btnBuscarProd.Name = "btnBuscarProd";
+            this.btnBuscarProd.Size = new System.Drawing.Size(150, 55);
+            this.btnBuscarProd.TabIndex = 15;
+            this.btnBuscarProd.Text = "Buscar";
+            this.btnBuscarProd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnBuscarProd.TextColor = System.Drawing.Color.White;
+            this.btnBuscarProd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnBuscarProd.UseVisualStyleBackColor = false;
+            this.btnBuscarProd.Click += new System.EventHandler(this.btnBuscarProd_Click);
             // 
             // txbProd
             // 
@@ -604,6 +672,7 @@
             this.btnAgregar.TextColor = System.Drawing.Color.White;
             this.btnAgregar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnAgregar.UseVisualStyleBackColor = false;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // txbIDProd
             // 
@@ -624,7 +693,7 @@
             this.txbIDProd.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txbIDProd.PlaceholderText = "";
             this.txbIDProd.ReadOnly = false;
-            this.txbIDProd.Size = new System.Drawing.Size(150, 37);
+            this.txbIDProd.Size = new System.Drawing.Size(102, 37);
             this.txbIDProd.TabIndex = 16;
             this.txbIDProd.Texts = "";
             this.txbIDProd.UnderlinedStyle = false;
@@ -783,7 +852,7 @@
         private CustomControls.RJControls.RJButton btnBuscarCli;
         private System.Windows.Forms.Label lblNombre;
         private Ingenieros_Commerce_Manager.CustomControls.CustomTextBox txbNombre;
-        private CustomControls.RJControls.RJButton rjButton1;
+        private CustomControls.RJControls.RJButton btnBuscarProd;
         private System.Windows.Forms.Label lblIDProd;
         private Ingenieros_Commerce_Manager.CustomControls.CustomTextBox txbIDProd;
         private System.Windows.Forms.Label lblStock;
@@ -796,5 +865,11 @@
         private Ingenieros_Commerce_Manager.CustomControls.CustomTextBox txbCantidad;
         private CustomControls.RJControls.RJButton btnDown;
         private CustomControls.RJControls.RJButton btnUp;
+        private CustomControls.RJControls.RJButton btnID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IDProducto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Detalle;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PrecioUnitario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PrecioTotal;
     }
 }

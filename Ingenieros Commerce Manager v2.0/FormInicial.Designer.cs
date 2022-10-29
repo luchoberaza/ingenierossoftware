@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormInicial));
             this.panelHeader = new System.Windows.Forms.Panel();
             this.BotonHide = new System.Windows.Forms.PictureBox();
             this.BotonMinMax = new System.Windows.Forms.PictureBox();
@@ -154,7 +155,7 @@
             this.lblVolver.ForeColor = System.Drawing.Color.DarkBlue;
             this.lblVolver.Location = new System.Drawing.Point(95, 444);
             this.lblVolver.Name = "lblVolver";
-            this.lblVolver.Size = new System.Drawing.Size(55, 25);
+            this.lblVolver.Size = new System.Drawing.Size(43, 19);
             this.lblVolver.TabIndex = 8;
             this.lblVolver.Text = "Volver";
             this.lblVolver.Visible = false;
@@ -199,7 +200,8 @@
             this.txbConfirm.PasswordChar = true;
             this.txbConfirm.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txbConfirm.PlaceholderText = "Repetir contraseña";
-            this.txbConfirm.Size = new System.Drawing.Size(152, 45);
+            this.txbConfirm.ReadOnly = false;
+            this.txbConfirm.Size = new System.Drawing.Size(152, 38);
             this.txbConfirm.TabIndex = 6;
             this.txbConfirm.TabStop = false;
             this.txbConfirm.Texts = "";
@@ -268,7 +270,8 @@
             this.txbPasswd.PasswordChar = true;
             this.txbPasswd.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txbPasswd.PlaceholderText = "Contraseña";
-            this.txbPasswd.Size = new System.Drawing.Size(152, 45);
+            this.txbPasswd.ReadOnly = false;
+            this.txbPasswd.Size = new System.Drawing.Size(152, 38);
             this.txbPasswd.TabIndex = 2;
             this.txbPasswd.TabStop = false;
             this.txbPasswd.Texts = "";
@@ -295,7 +298,8 @@
             this.txbUsuario.PasswordChar = false;
             this.txbUsuario.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txbUsuario.PlaceholderText = "Usuario";
-            this.txbUsuario.Size = new System.Drawing.Size(191, 45);
+            this.txbUsuario.ReadOnly = false;
+            this.txbUsuario.Size = new System.Drawing.Size(191, 38);
             this.txbUsuario.TabIndex = 1;
             this.txbUsuario.TabStop = false;
             this.txbUsuario.Texts = "";
@@ -312,7 +316,7 @@
             this.lblRegistrarse.ForeColor = System.Drawing.Color.DarkBlue;
             this.lblRegistrarse.Location = new System.Drawing.Point(27, 444);
             this.lblRegistrarse.Name = "lblRegistrarse";
-            this.lblRegistrarse.Size = new System.Drawing.Size(219, 25);
+            this.lblRegistrarse.Size = new System.Drawing.Size(174, 19);
             this.lblRegistrarse.TabIndex = 0;
             this.lblRegistrarse.Text = "¿No tienes cuenta? Regístrate";
             this.lblRegistrarse.Click += new System.EventHandler(this.lblRegistrarse_Click);
@@ -366,6 +370,7 @@
             this.ClientSize = new System.Drawing.Size(1000, 650);
             this.Controls.Add(this.panelContenedor);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(600, 400);
             this.Name = "FormInicial";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
