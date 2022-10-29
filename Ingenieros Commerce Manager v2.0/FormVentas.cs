@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Ingenieros_Commerce_Manager_v2._0.Entities;
 
 namespace Ingenieros_Commerce_Manager_v2._0
 {
@@ -32,6 +33,13 @@ namespace Ingenieros_Commerce_Manager_v2._0
         {
             txbCantidad.Texts = (int.Parse(txbCantidad.Texts) - 1).ToString();
 
+        }
+
+        private void btnBuscarCli_Click(object sender, EventArgs e)
+        {
+            FormBuscarCliente cliente = new FormBuscarCliente();
+            cliente.ShowDialog();
+            txbNombre.Texts = Cliente.Nombre;
         }
     }
 }

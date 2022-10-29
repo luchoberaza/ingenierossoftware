@@ -13,5 +13,14 @@ namespace Ingenieros_Commerce_Manager_v2._0.Entities
         public static string Direccion { get; set; }
         public static string Telefono { get; set; }
         public static float Saldo { get; set; }
+
+        public static void ClearClientData()
+        {
+            IDCLI = -1;
+            Nombre = null;
+            Direccion = null;
+            Telefono = null;
+            Saldo = 0;
+        }
     }
 }
