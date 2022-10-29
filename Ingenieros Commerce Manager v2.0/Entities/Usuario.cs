@@ -45,7 +45,7 @@ namespace Ingenieros_Commerce_Manager_v2._0.Entities
         }
         public static void ClearData()
         {
-            Id = -1;
+            Id = 0;
             Username = null;
             Password = null;
             Direccion = null;

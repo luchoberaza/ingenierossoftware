@@ -16,7 +16,7 @@ namespace Ingenieros_Commerce_Manager_v2._0.Entities
 
         public static void ClearClientData()
         {
-            IDCLI = -1;
+            IDCLI = 0;
             Nombre = null;
             Direccion = null;
             Telefono = null;

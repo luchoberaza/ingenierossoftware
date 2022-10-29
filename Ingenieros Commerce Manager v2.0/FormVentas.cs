@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Drawing;
+using System.Drawing.Text;
+using System.Runtime.Remoting.Messaging;
 using System.Windows.Forms;
 using Ingenieros_Commerce_Manager_v2._0.Entities;
 
@@ -69,7 +72,111 @@ namespace Ingenieros_Commerce_Manager_v2._0
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
+            int precio;
+            bool prodexiste = false; 
+            if (float.Parse(txbCantidad.Texts) > float.Parse(txbStock.Texts))
+            {
+                MessageBox.Show("La cantidad no puede ser mayor al stock.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                txbCantidad.Select();
+                return;
+            }
+            if (!int.TryParse(txbPrecio.Texts, out precio))
+            {
+                MessageBox.Show("Formato de precio incorrecto.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                txbPrecio.Select();
+                return;
+            }
+            if (int.Parse(txbIDProd.Texts) == 0)
+            {
+                MessageBox.Show("Seleccione un producto.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                txbIDProd.Select();
+                return;
+            }
+            foreach(DataGridViewRow row in dgvVenta.Rows)
+            {
+                if (row.Cells["IDProducto"].Value.ToString() == txbIDProd.Texts)
+                {
+                    prodexiste = true;
+                    break;
+                }
+            }
+            if (!prodexiste)
+            {
+                dgvVenta.Rows.Add(
+                    new object[] 
+                    {
+                        txbIDProd.Texts,
+                        txbProd.Texts,
+                        txbCantidad.Texts,
+                        precio.ToString(),
+                        (float.Parse(txbCantidad.Texts)*precio).ToString()
+                    });
+            }
+            CalcularTotal();
+            ClearProducts();
+            txbIDProd.Select();
+        }
 
+        private void CalcularTotal()
+        {
+            if(dgvVenta.Rows.Count > 0)
+            {
+                float total = 0;
+                foreach(DataGridViewRow row in dgvVenta.Rows)
+                {
+                    total = total + float.Parse(row.Cells["SubTotal"].Value.ToString());
+                }
+                txbTotal.Texts = total.ToString("0.00");
+            }
+        }
+        private void ClearProducts()
+        {
+            txbIDProd.Texts = "";
+            txbProd.Texts = "";
+            txbPrecio.Texts = "";
+            txbStock.Texts = "";
+            txbCantidad.Texts = "0";
+        }
+
+        private void dgvVenta_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+            if (e.RowIndex < 0)
+                return;
+            if(e.ColumnIndex == 5)
+            {
+                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
+                var w = Properties.Resources.trash24.Width;
+                var h = Properties.Resources.trash24.Height;
+                var x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2;
+                var y = e.CellBounds.Top + (e.CellBounds.Height - h) / 2;
+
+                e.Graphics.DrawImage(Properties.Resources.trash24, new Rectangle(x, y, w, h));
+                e.Handled = true;
+
+            }
+        }
+
+        private void dgvVenta_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvVenta.Columns[e.ColumnIndex].Name == "Eliminar")
+            {
+                if(e.RowIndex >= 0)
+                {
+                    dgvVenta.Rows.RemoveAt(e.RowIndex);
+                    CalcularTotal();
+                }
+            }
+        }
+
+        private void txbPaga__TextChanged(object sender, EventArgs e)
+        {
+            int pago;
+            if (!int.TryParse(txbPaga.Texts, out pago))
+            {
+                MessageBox.Show("Formato incorrecto.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            txbCambio.Texts = (pago-float.Parse(txbTotal.Texts)).ToString();
         }
     }
 }

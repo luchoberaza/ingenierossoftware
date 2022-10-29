@@ -15,7 +15,7 @@ namespace Ingenieros_Commerce_Manager_v2._0.Entities
 
         public static void ClearProductData()
         {
-            IDPROD = -1;
+            IDPROD = 0;
             Descripcion = null;
             Stock = -1;
             PrecioUnitario = -1;
