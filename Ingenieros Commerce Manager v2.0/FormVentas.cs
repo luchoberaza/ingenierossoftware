@@ -15,21 +15,25 @@ namespace Ingenieros_Commerce_Manager_v2._0
         }
         //Instancia de clase
         conexionsql sql = new conexionsql();
+        //Variables 
+        int pago;
+
 
         private void FormVentas_Load(object sender, EventArgs e)
         {
             txbFecha.Texts = DateTime.Now.ToString("dd/MM/yyyy");
             txbCantidad.Texts = "0";
+            txbIDProd.Texts = "0";
         }
 
         private void btnUp_Click(object sender, EventArgs e)
         {
-            txbCantidad.Texts = (int.Parse(txbCantidad.Texts) + 1).ToString();
+            txbCantidad.Texts = (float.Parse(txbCantidad.Texts) + 1).ToString();
         }
 
         private void btnDown_Click(object sender, EventArgs e)
         {
-            txbCantidad.Texts = (int.Parse(txbCantidad.Texts) - 1).ToString();
+            txbCantidad.Texts = (float.Parse(txbCantidad.Texts) - 1).ToString();
 
         }
 
@@ -74,6 +78,12 @@ namespace Ingenieros_Commerce_Manager_v2._0
         {
             int precio;
             bool prodexiste = false; 
+            if(txbIDProd.Texts.Trim() == "" | txbProd.Texts.Trim() == "" | txbCantidad.Texts.Trim() == "" | txbPrecio.Texts.Trim() == "")
+            {
+                MessageBox.Show("Seleccione un producto.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                txbIDProd.Select();
+                return;
+            }
             if (float.Parse(txbCantidad.Texts) > float.Parse(txbStock.Texts))
             {
                 MessageBox.Show("La cantidad no puede ser mayor al stock.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -112,8 +122,14 @@ namespace Ingenieros_Commerce_Manager_v2._0
                         (float.Parse(txbCantidad.Texts)*precio).ToString()
                     });
             }
+            else
+            {
+                MessageBox.Show("El producto ya ha sido seleccionado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                txbIDProd.Select();
+            }
             CalcularTotal();
             ClearProducts();
+            txbIDProd.Texts = "0";
             txbIDProd.Select();
         }
 
@@ -167,16 +183,34 @@ namespace Ingenieros_Commerce_Manager_v2._0
                 }
             }
         }
-
-        private void txbPaga__TextChanged(object sender, EventArgs e)
+        private void CalcularCambio()
         {
-            int pago;
+            if(txbPaga.Texts.Length == 0)
+            {
+                return;
+            }
             if (!int.TryParse(txbPaga.Texts, out pago))
             {
                 MessageBox.Show("Formato incorrecto.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
-            txbCambio.Texts = (pago-float.Parse(txbTotal.Texts)).ToString();
+            if (txbTotal.Texts.Trim() == "")
+            {
+                MessageBox.Show("No existen productos en la venta.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            txbCambio.Texts = (pago - float.Parse(txbTotal.Texts)).ToString();
         }
+
+        private void txbPaga__TextChanged(object sender, EventArgs e)
+        {
+            CalcularCambio();
+        }
+
+        private void txbTotal__TextChanged(object sender, EventArgs e)
+        {
+            CalcularCambio();
+        }
+
     }
 }
