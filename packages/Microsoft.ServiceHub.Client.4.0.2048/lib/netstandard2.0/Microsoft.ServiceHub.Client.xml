@@ -1,0 +1,1877 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Microsoft.ServiceHub.Client</name>
+    </assembly>
+    <members>
+        <member name="T:Microsoft.ServiceHub.Client.ControllerConnectionConfigurationErrorException">
+            <summary>
+            This exception is to be used when the Client is unable to connect to the Controller when the Controller exits prematurely
+            because of an invalid servicehub.config.json file.
+            </summary>
+        </member>
+        <member name="T:Microsoft.ServiceHub.Client.ControllerConnectionException">
+            <summary>
+            Base class for all exceptions that are thrown when a Client fails to connect to a Controller process.
+            </summary>
+        </member>
+        <member name="T:Microsoft.ServiceHub.Client.ControllerConnectionInvalidArgumentException">
+            <summary>
+            This exception is to be used when the Client is unable to connect to the Controller when the Controller exits prematurely
+            because of an invalid command line.
+            </summary>
+        </member>
+        <member name="T:Microsoft.ServiceHub.Client.ControllerConnectionRefusedException">
+            <summary>
+            This exception is to be used when the Client is unable to connect to the Controller, not because the  Controller exited unexpectedly,
+            but because the connection was refused by the Controller process.
+            </summary>
+        </member>
+        <member name="T:Microsoft.ServiceHub.Client.ControllerConnectionTimeoutException">
+            <summary>
+            This exception is to be used when the Client is unable to connect to the Controller because the Controller shutdown gracefully before
+            the connection could be established.
+            </summary>
+        </member>
+        <member name="T:Microsoft.ServiceHub.Client.ControllerConnectionWindowsShutdownException">
+            <summary>
+            This exception is to be used when the Client is unable to connect to the Controller when the Controller exits prematurely
+            because Windows is in the process of shutting down.
+            </summary>
+        </member>
+        <member name="F:Microsoft.ServiceHub.Client.ControllerConnectionWindowsShutdownException.ExitCode">
+            <summary>
+            This maps to the error code STATUS_DLL_INIT_FAILED_LOGOFF (0xC000026B).
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Client.DevHubConfig.ConfigFileDir">
+            <summary>
+            Gets the directory that contains the servicehub.config.json file.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ServiceHub.Client.DevHubConfigResolver.ResolveAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Find the config file starting with the given directory and going up.
+            Return the default config if the file is not found.
+            </summary>
+        </member>
+        <member name="T:Microsoft.ServiceHub.Client.HostGroup">
+            <summary>
+            Host group.
+            </summary>
+            <remarks>
+            Host groups in Service Hub allow clients to:
+            * Simultaneously run the same service on multiple hosts.
+            * Ensure that each client process can run services on a dedicated host.
+            </remarks>
+        </member>
+        <member name="M:Microsoft.ServiceHub.Client.HostGroup.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.ServiceHub.Client.HostGroup" /> class
+            with a random id.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ServiceHub.Client.HostGroup.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.ServiceHub.Client.HostGroup" /> class.
+            </summary>
+            <param name="id">Host group id. Not null or whitespace.</param>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Client.HostGroup.Id">
+            <summary>
+            Gets or sets the host group id.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ServiceHub.Client.HostGroup.Equals(Microsoft.ServiceHub.Client.HostGroup)">
+            <summary>
+            Indicates whether the current object is equal to another object of the same type.
+            </summary>
+            <param name="other">An object to compare with this object.</param>
+            <returns>true if the current object is equal to the other parameter; otherwise, false.</returns>
+        </member>
+        <member name="M:Microsoft.ServiceHub.Client.HostGroup.Equals(System.Object)">
+            <summary>
+            Determines whether the specified object is equal to the current object.
+            </summary>
+            <param name="obj">The object to compare with the current object.</param>
+            <returns>true if the specified object is equal to the current object; otherwise, false.</returns>
+        </member>
+        <member name="M:Microsoft.ServiceHub.Client.HostGroup.GetHashCode">
+            <summary>
+            Get object's hash code.
+            </summary>
+            <returns>The hash code.</returns>
+        </member>
+        <member name="M:Microsoft.ServiceHub.Client.HostGroup.ToString">
+            <summary>
+            Returns a string that represents the current object.
+            </summary>
+            <returns>A string that represents the current object.</returns>
+        </member>
+        <member name="T:Microsoft.ServiceHub.Client.HubClient">
+            <summary>
+            This class allows Service Hub clients to find the location and start Service hub services.
+            </summary>
+        </member>
+        <member name="F:Microsoft.ServiceHub.Client.HubClient.config">
+            <summary>
+            The Function that returns a configuration. May be null if we have never tried to get this before.
+            </summary>
+        </member>
+        <member name="F:Microsoft.ServiceHub.Client.HubClient.clientConfiguration">
+            <summary>
+            Configuration information sent to the Client from the Controller when the Client connects.
+            </summary>
+        </member>
+        <member name="E:Microsoft.ServiceHub.Client.HubClient.Microsoft#ServiceHub#Framework#IServiceBroker#AvailabilityChanged">
+            <inheritdoc />
+            <remarks>
+            This event is not raised in the current version.
+            </remarks>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Client.HubClient.ClientName">
+            <summary>
+            Gets the name of the client as it was provided to the <see cref="T:Microsoft.ServiceHub.Client.HubClient" /> constructor.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Client.HubClient.Logger">
+            <summary>
+            Gets the logger associated with this client.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Client.HubClient.DisposeToken">
+            <summary>
+            Gets a cancellation token that signals when this object has been disposed.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ServiceHub.Client.HubClient.RequestServiceAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Locate and start a service module on Service Hub.
+            </summary>
+            <param name="serviceName">Service name.</param>
+            <param name="cancellationToken">A cancellation token.</param>
+            <returns>
+            A stream to the service, not null. The client must dispose of it when done communicating with the service module.
+            </returns>
+        </member>
+        <member name="M:Microsoft.ServiceHub.Client.HubClient.RequestServiceAsync(Microsoft.ServiceHub.Client.ServiceDescriptor,System.Threading.CancellationToken)">
+            <summary>
+            Locate and start a service module on Service Hub.
+            </summary>
+            <param name="serviceDescriptor">Service descriptor, not null.</param>
+            <param name="cancellationToken">A cancellation token.</param>
+            <returns>
+            A stream to the service, not null. The client must dispose of it when done communicating with the service module.
+            </returns>
+        </member>
+        <member name="M:Microsoft.ServiceHub.Client.HubClient.GetSessionIdAsync(System.Threading.CancellationToken)">
+            <summary>
+            Get session id.
+            Session ID is a unique string that stays the same during dev hub session (life time of hub controller)
+            and is different for different sessions.
+            </summary>
+            <param name="cancellationToken">A cancellation token.</param>
+        </member>
+        <member name="M:Microsoft.ServiceHub.Client.HubClient.GetProxyAsync``1(Microsoft.ServiceHub.Framework.ServiceRpcDescriptor,Microsoft.ServiceHub.Framework.ServiceActivationOptions,System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.ServiceHub.Client.HubClient.GetPipeAsync(Microsoft.ServiceHub.Framework.ServiceMoniker,Microsoft.ServiceHub.Framework.ServiceActivationOptions,System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.ServiceHub.Client.HubClient.GetHostProcessIdsAsync(System.Threading.CancellationToken)">
+            <summary>
+            Gets the set of process ids that the Controller process has spawned.
+            </summary>
+            <param name="cancellationToken">A token to signal cancellation.</param>
+            <returns>The set of ids for the processes that the Controller has spawned.</returns>
+        </member>
+        <member name="M:Microsoft.ServiceHub.Client.HubClient.RegisterService(Microsoft.ServiceHub.Framework.ServiceMoniker,Microsoft.ServiceHub.Utility.ServiceModuleInfo)">
+            <summary>
+            Register a service with an in memory <see cref="T:Microsoft.ServiceHub.Utility.ServiceModuleInfo" /> so that it can be requested via this <see cref="T:Microsoft.ServiceHub.Client.HubClient" /> object later.
+            </summary>
+            <param name="moniker">The moniker of the service to register.</param>
+            <param name="serviceModuleInfo">The information related to the service being registered.</param>
+        </member>
+        <member name="M:Microsoft.ServiceHub.Client.HubClient.UnregisterService(Microsoft.ServiceHub.Framework.ServiceMoniker)">
+            <summary>
+            Unregister a service so that future requests for this service will not use the previously registered <see cref="T:Microsoft.ServiceHub.Utility.ServiceModuleInfo" />.
+            Attempting to unregister a service that had not previously been registered will result in a no-op.
+            </summary>
+            <param name="moniker">The moniker of the service to unregister.</param>
+        </member>
+        <member name="M:Microsoft.ServiceHub.Client.HubClient.ExitAsync(System.Threading.CancellationToken)">
+            <summary>
+            Stop the location service and terminate all service module host processes it has spawned.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ServiceHub.Client.HubClient.GetHubControllerPidAsync">
+            <summary>
+            Instrumentation API: get hub controller process id.
+            </summary>
+            <remarks>
+            It is used by the ShutdownTestClient and shutdown test.
+            </remarks>
+            <returns>Hub controller process id.</returns>
+        </member>
+        <member name="M:Microsoft.ServiceHub.Client.HubClient.GetRemoteServiceBrokerForServiceAsync(Microsoft.ServiceHub.Framework.ServiceMoniker,System.Collections.Generic.IReadOnlyDictionary{System.String,System.String},System.Threading.CancellationToken)">
+            <summary>
+            Gets an <see cref="T:Microsoft.ServiceHub.Framework.IRemoteServiceBroker" /> relevant to the service that is asking for it.
+            </summary>
+            <param name="consumingService">The <see cref="T:Microsoft.ServiceHub.Framework.ServiceMoniker" /> of the service that is requesting the <see cref="T:Microsoft.ServiceHub.Framework.IRemoteServiceBroker" />.</param>
+            <param name="userCredentials">The credentials of the user to be used to filter the ServiceBroker that is returned.</param>
+            <param name="cancellationToken">Cancellation token.</param>
+            <returns>An <see cref="T:Microsoft.ServiceHub.Framework.IRemoteServiceBroker" /> relevant to the service that is asking for it.</returns>
+            <remarks>
+            The returned object is disposed (if it implements IDisposable) when the service disposes of its connection to it.
+            The default implementation returns a new object every time, but the new object is just a wrapper for the same IRemoteServiceBroker proxy.
+            The returned object should also not be a JsonRpc proxy since it will be attached to a <see cref="T:System.IO.Stream" /> via JsonRpc.
+            </remarks>
+        </member>
+        <member name="T:Microsoft.ServiceHub.Client.HubClient.RemoteServiceBrokerWrapper">
+            <summary>
+            This class is a wrapper for the proxy by which a client communicates with the Microsoft.ServiceHub.Controller process.
+            HandshakeAsync needs to be intercepted in order to avoid modifying the state of client information of the RemoteServiceBroker
+            by multiple clients since this will be the target object for potentially multiple different service's RemoteServiceBrokers.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ServiceHub.Client.HubClient.RemoteServiceBrokerWrapper.HandshakeAsync(Microsoft.ServiceHub.Framework.ServiceBrokerClientMetadata,System.Threading.CancellationToken)">
+            <summary>
+            HandshakeAsync needs to be intercepted in order to avoid modifying the state of client information of the RemoteServiceBroker
+            by multiple clients since this will be the target object for potentially multiple different service's RemoteServiceBrokers.
+            </summary>
+        </member>
+        <member name="F:Microsoft.ServiceHub.Client.HubControllerClient.sem">
+            <summary>
+            This semaphore is to prevent multiple clients from trying to start the controller at the same time,
+            which can cause multiple ServiceHub.Node.Host.exe processes to start and causes VS to take a perf hit.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ServiceHub.Client.HubControllerClient.StartAsync(Microsoft.ServiceHub.Client.DevHubConfig,System.String,System.Threading.CancellationToken)">
+            <summary>
+            Start Node.js hub controller and wait for it to start listening on the pipe server.
+            </summary>
+            <returns>Controller process if it was started by us. Null if is already running.</returns>
+        </member>
+        <member name="M:Microsoft.ServiceHub.Client.HubControllerClient.IsControllerRunningAsync(Microsoft.ServiceHub.Client.DevHubConfig,System.Threading.CancellationToken)">
+            <summary>
+            Detects whether a controller is already running by trying to open a pipe to it.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ServiceHub.Client.HubControllerClient.IsControllerRunningAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Detects whether a controller is already running by trying to open a pipe to it.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ServiceHub.Client.HubControllerClient.SetProcessStartInfoEnvironment(System.Diagnostics.ProcessStartInfo,System.Collections.Generic.IReadOnlyDictionary{System.String,System.String},System.Diagnostics.TraceSource)">
+            <summary>
+            Adds  environment variables to the <see cref="T:System.Diagnostics.ProcessStartInfo" />.
+            </summary>
+            <param name="processStartInfo">The process start info to add the controller environment variables to.</param>
+            <param name="controllerEnvironment">The controller environment variables.</param>
+            <param name="logger">A logger to log the variabels and their values to.</param>
+            <remarks>
+            The process start info's environment variables already contains the process' environment variables.
+            </remarks>
+        </member>
+        <member name="T:Microsoft.ServiceHub.Client.ServiceDescriptor">
+            <summary>
+            Service Hub service descriptor.
+            This class identifies a service hub service to run.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ServiceHub.Client.ServiceDescriptor.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.ServiceHub.Client.ServiceDescriptor" /> class
+            with the given service name.
+            </summary>
+            <param name="name">Service name. Not null or empty.</param>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Client.ServiceDescriptor.Name">
+            <summary>
+            Gets the service name.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Client.ServiceDescriptor.HostGroup">
+            <summary>
+            Gets or sets a host group for the service.
+            Same service with different host groups will be hosted on different hosts.
+            Same service with the same host group (or no host group at all) will be hosted on the same host.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Client.ServiceDescriptor.ServiceLocation">
+            <summary>
+            Gets or sets the location of the service config. This includes the path to the config file as well as the name of the file itself.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Client.ServiceDescriptor.Version">
+            <summary>
+            Gets or sets the version of the service or the version expected by the client.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Client.ServiceDescriptor.IsServiceNameOnly">
+            <summary>
+            Gets a value indicating whether service name only is enougth to request the service.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ServiceHub.Client.ServiceDescriptor.ToString">
+            <summary>
+            Gets the string representation of the service descriptor.
+            </summary>
+            <returns>String representation of the service descriptor.</returns>
+        </member>
+        <member name="M:Microsoft.ServiceHub.Client.ServiceDescriptor.Equals(Microsoft.ServiceHub.Client.ServiceDescriptor)">
+            <summary>
+            Indicates whether the current object is equal to another object of the same type.
+            </summary>
+            <param name="other">An object to compare with this object.</param>
+            <returns>true if the current object is equal to the other parameter; otherwise, false.</returns>
+        </member>
+        <member name="M:Microsoft.ServiceHub.Client.ServiceDescriptor.Equals(System.Object)">
+            <summary>
+            Determines whether the specified object is equal to the current object.
+            </summary>
+            <param name="obj">The object to compare with the current object.</param>
+            <returns>true if the specified object is equal to the current object; otherwise, false.</returns>
+        </member>
+        <member name="M:Microsoft.ServiceHub.Client.ServiceDescriptor.GetHashCode">
+            <summary>
+            Get object's hash code.
+            </summary>
+            <returns>The hash code.</returns>
+        </member>
+        <member name="M:Microsoft.ServiceHub.Utility.ChannelFactory.CreateClientAsync(System.String,System.String,System.Threading.CancellationToken)">
+            <summary>
+            Creates a full-duplex, asynchronous <see cref="T:System.IO.Stream" /> to communicate over some IPC channel.
+            </summary>
+            <param name="channelName">The name of the pipe or unix domain socket to connect to.</param>
+            <param name="locationServiceChannelName">The name of the pipe or unix domain socket of location service.</param>
+            <param name="cancellationToken">A cancellation token.</param>
+            <returns>A task whose result is the established stream.</returns>
+        </member>
+        <member name="M:Microsoft.ServiceHub.Utility.ChannelFactory.CheckForResponsiveChannelAsync(System.String,System.String,Microsoft.ServiceHub.Utility.ChannelConnectionFlags,System.Threading.CancellationToken)">
+            <summary>
+            Checks whether the specified IPC channel is responding to incoming connections.
+            </summary>
+            <param name="channelName">The name of the pipe or unix domain socket.</param>
+            <param name="locationServiceChannelName">The name of the pipe or unix domain socket of location service.</param>
+            <param name="flags">Modifiers in the connection process.</param>
+            <param name="cancellationToken">A cancellation token.</param>
+            <returns><c>true</c> if the channel exists; <c>false</c> otherwise.</returns>
+            <exception cref="T:System.OperationCanceledException">Thrown when the attempt is aborted due to <paramref name="cancellationToken" /> being cancelled.</exception>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Utility.Shared.ServiceHubRetryConfiguration`1.RetryCount">
+            <summary>
+            Gets or sets a value indicating how many times it should retry action.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Utility.Shared.ServiceHubRetryConfiguration`1.DelayBetweenRetries">
+            <summary>
+            Gets or sets a value indicating how much delay should be added between two executions in ms.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Utility.Shared.ServiceHubRetryConfiguration`1.DefaultResponse">
+            <summary>
+            Gets or sets a value indicating the default response that should be returned if HandleException is set to true.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Utility.Shared.ServiceHubRetryConfiguration`1.LogExceptionForEachRetry">
+            <summary>
+            Gets or sets a value indicating whether exceptions should be logged for each retry or not.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Utility.Shared.ServiceHubRetryConfiguration`1.RetryCondition">
+            <summary>
+            Gets or sets a value indicating whether the retry method should be executed.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Utility.Shared.ServiceHubRetryConfiguration`1.HandleException">
+            <summary>
+            Gets or sets a value indicating whether to return the DefaultResponse even if retry fails.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Utility.Shared.ServiceHubRetryConfiguration`1.RetriedCount">
+            <summary>
+            Gets or sets a value indicating how many times the retry method has been executed.
+            </summary>
+        </member>
+        <member name="T:Microsoft.ServiceHub.Utility.Shared.SharedUtilities">
+            <summary>
+            Utility methods for Microsoft.ServiceHub.Framework.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ServiceHub.Utility.Shared.SharedUtilities.DeserializeServiceActivationOptions(System.String)">
+            <summary>
+            Deserializes a string representing a serialized <see cref="T:Microsoft.ServiceHub.Framework.ServiceActivationOptions" /> object.
+            </summary>
+            <param name="serializedServiceActivationOptions">Serialized <see cref="T:Microsoft.ServiceHub.Framework.ServiceActivationOptions" />.</param>
+            <returns>The deserialized <see cref="T:Microsoft.ServiceHub.Framework.ServiceActivationOptions" />.</returns>
+            <remarks>
+            This method is invoked through reflection from Microsoft.ServiceHub.HostStub.ServiceManager.StartService.
+            Having a method specifically for this avoids us having to load Newtonsoft.Json explicitly through reflection.
+            </remarks>
+        </member>
+        <member name="M:Microsoft.ServiceHub.Utility.Shared.SharedUtilities.RemoveServiceBrokerPipeNameFromServiceActivationOptions(Microsoft.ServiceHub.Framework.ServiceActivationOptions)">
+            <summary>
+            Removes the <see cref="F:Microsoft.ServiceHub.Utility.Constants.ServiceHubRemoteServiceBrokerPipeNameActivationArgument" /> from the ActivationArguments of
+            a <see cref="T:Microsoft.ServiceHub.Framework.ServiceActivationOptions" />.
+            </summary>
+            <param name="options">The <see cref="T:Microsoft.ServiceHub.Framework.ServiceActivationOptions" /> to remove the service broker pipe name from.</param>
+            <returns>The updated <see cref="T:Microsoft.ServiceHub.Framework.ServiceActivationOptions" />.</returns>
+        </member>
+        <member name="M:Microsoft.ServiceHub.Utility.Shared.SharedUtilities.GetServiceBrokerServerPipeName(Microsoft.ServiceHub.Framework.ServiceActivationOptions)">
+            <summary>
+            Gets the pipe name that the <see cref="T:Microsoft.ServiceHub.Framework.IRemoteServiceBroker" /> is available over from the <see cref="T:Microsoft.ServiceHub.Framework.ServiceActivationOptions" />.
+            </summary>
+            <param name="options">The <see cref="T:Microsoft.ServiceHub.Framework.ServiceActivationOptions" /> to get the pipe name from.</param>
+            <returns>The pipe name or an empty string if there isn't one.</returns>
+        </member>
+        <member name="M:Microsoft.ServiceHub.Utility.Shared.SharedUtilities.AddEntryToActivationArguments(System.String,System.String,Microsoft.ServiceHub.Framework.ServiceActivationOptions)">
+            <summary>
+            Adds the key and value to the ActivationArguments of a <see cref="T:Microsoft.ServiceHub.Framework.ServiceActivationOptions" /> provided the key does not already exist within the ActivationArguments.
+            </summary>
+            <param name="key">The key of the argument being added to the dictionary.</param>
+            <param name="value">The value of the argument being added to the dictionary.</param>
+            <param name="options">The <see cref="T:Microsoft.ServiceHub.Framework.ServiceActivationOptions" /> object that the key and value are being added to.</param>
+            <returns>The updated <see cref="T:Microsoft.ServiceHub.Framework.ServiceActivationOptions" />.</returns>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Utility.ControllerConfig.ClientRoot">
+            <summary>
+            Gets or sets a property that is used to set the directory that should be considered the "root" of the application, to be used
+            when doing security checks when named pipes are being connected to.
+            This property is primarily used during Unit Tests to allow for an unorthodox ServiceHub program structure,
+            but Storage Explorer also has a dependency on using this property although Visual Studio does not.
+            </summary>
+        </member>
+        <member name="T:Microsoft.ServiceHub.Utility.Constants">
+            <summary>
+            Contains various utility constants.
+            </summary>
+        </member>
+        <member name="F:Microsoft.ServiceHub.Utility.Constants.ServiceHubServiceLocationActivationArgument">
+            <summary>
+            String used to access the ServiceHubServiceLocation <see cref="T:Microsoft.ServiceHub.Framework.ServiceActivationOptions" /> activation argument.
+            </summary>
+        </member>
+        <member name="F:Microsoft.ServiceHub.Utility.Constants.ServiceHubHostGroupActivationArgument">
+            <summary>
+            String used to access the ServiceHubHostGroup <see cref="T:Microsoft.ServiceHub.Framework.ServiceActivationOptions" /> activation argument.
+            </summary>
+        </member>
+        <member name="F:Microsoft.ServiceHub.Utility.Constants.ServiceHubServiceModuleInfoActivationArgument">
+            <summary>
+            String used to access the ServiceModuleInfo <see cref="T:Microsoft.ServiceHub.Framework.ServiceActivationOptions" /> activation argument.
+            </summary>
+        </member>
+        <member name="F:Microsoft.ServiceHub.Utility.Constants.ServiceHubRemoteServiceBrokerPipeNameActivationArgument">
+            <summary>
+            String used to access the ServiceHubRemoteServiceBrokerPipeName <see cref="T:Microsoft.ServiceHub.Framework.ServiceActivationOptions" /> activation argument.
+            </summary>
+        </member>
+        <member name="F:Microsoft.ServiceHub.Utility.Constants.ServiceHubVersionActivationArgument">
+            <summary>
+            String used to access the requested <see cref="T:System.Version" /> information from <see cref="T:Microsoft.ServiceHub.Framework.ServiceActivationOptions" /> activation argument.
+            </summary>
+        </member>
+        <member name="F:Microsoft.ServiceHub.Utility.Constants.ServiceHubFriendServiceModuleInfoFormatter">
+            <summary>
+            String used to access the ServiceModuleInfo files of Friend services from <see cref="T:Microsoft.ServiceHub.Framework.ServiceActivationOptions" /> activation argument.
+            </summary>
+        </member>
+        <member name="F:Microsoft.ServiceHub.Utility.Constants.ServiceHubHostProcessId">
+            <summary>
+            String used to access the ServiceHubHostProcessId <see cref="T:Microsoft.ServiceHub.Framework.ServiceActivationOptions" /> activation argument. The constant is used by the VS repo indirectly
+            in src\Platform\Utilities\Impl\ServiceBroker\RemoteServiceBrokerWrapper.cs.
+            </summary>
+        </member>
+        <member name="F:Microsoft.ServiceHub.Utility.Constants.ServiceHubHostVariableActivationArgumentPrefix">
+            <summary>
+            String used to get variables to replace in host arguments. These are provided in ServiceActivationOptions as a hint to host that
+            would host the service. Their use is optional by the host.
+            </summary>
+        </member>
+        <member name="T:Microsoft.ServiceHub.Utility.ExitCode">
+            <summary>
+            Exit code from a Node ServiceHub process.
+            Range 1-19 and 128+ is used by Node itself.
+            Range 20 - 127 is used by ServiceHub.
+            Non-node ServiceHub hosts are supposed to use the same ServiceHub exit codes in ServiceHub range 20-127.
+            </summary>
+            <remarks>
+            Keep in sync with ..\..\Node\exitCode.ts.
+            </remarks>
+        </member>
+        <member name="F:Microsoft.ServiceHub.Utility.ExitCode.InvalidArgument">
+            <summary> Invalid command line argument for ServiceHub process </summary>
+        </member>
+        <member name="F:Microsoft.ServiceHub.Utility.ExitCode.ErrorStartingServerPipeInUse">
+            <summary>
+            Cannot start a new pipe server because the supplied pipe address is already in use.
+            This may happen when starting a controller where there is already a controller running
+            </summary>
+        </member>
+        <member name="F:Microsoft.ServiceHub.Utility.ExitCode.ErrorStartingServer">
+            <summary>
+            Cannot start a new pipe server due to some error
+            </summary>
+        </member>
+        <member name="F:Microsoft.ServiceHub.Utility.ExitCode.ShutdownError">
+            <summary> Error shutting down. </summary>
+        </member>
+        <member name="F:Microsoft.ServiceHub.Utility.ExitCode.ConfigurationError">
+            <summary> Configuration error in servicehub.config.json. </summary>
+        </member>
+        <member name="F:Microsoft.ServiceHub.Utility.ExitCode.ControllerAlreadyRunning">
+            <summary>
+            Cannot start a new controller process because one is already running.
+            </summary>
+        </member>
+        <member name="T:Microsoft.ServiceHub.Utility.HostRemoteException">
+            <summary>
+            Exception provided as the InnerException of an exception originating from a ServiceHub Host process.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ServiceHub.Utility.HostRemoteException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.ServiceHub.Utility.HostRemoteException" /> class.
+            </summary>
+            <param name="message">The exception message. This should contain the Exception type, Message and Call Stack from
+            an exception that was thrown from a ServiceHub Host process.</param>
+        </member>
+        <member name="T:Microsoft.ServiceHub.Utility.HostStartUpException">
+            <summary>
+            Exception that is thrown when a ServiceHub Host process fails to start properly.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Utility.HostStartUpException.HostExitCode">
+            <summary>
+            Gets the exit code of the host process if it has exited.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Utility.HostStartUpException.StandardError">
+            <summary>
+            Gets the text written to the Host process's standard error stream.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ServiceHub.Utility.HostStartUpException.#ctor(System.String,System.Nullable{System.Int32},System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.ServiceHub.Utility.HostStartUpException" /> class.
+            </summary>
+            <param name="message">The exception message.</param>
+            <param name="hostExitCode">The exit code of the host process if it has exited.</param>
+            <param name="standardError">The output of the Host's standard error stream.</param>
+            <remarks>
+            The <paramref name="standardError" /> is set as the message of the InnerException to allow that data to be provided
+            to the remote client in the case of this being wrapped in a <see cref="T:StreamJsonRpc.RemoteInvocationException" />.
+            </remarks>
+        </member>
+        <member name="T:Microsoft.ServiceHub.Utility.NamedPipeClientStreamExtensions">
+            <summary>
+            Extension methods for the <see cref="T:System.IO.Pipes.NamedPipeClientStream" /> class.
+            </summary>
+        </member>
+        <member name="F:Microsoft.ServiceHub.Utility.NamedPipeClientStreamExtensions.NMPWAIT_NOWAIT">
+            <summary>
+            Does not wait for the named pipe. If the named pipe is not available, the function returns an error.
+            </summary>
+        </member>
+        <member name="F:Microsoft.ServiceHub.Utility.NamedPipeClientStreamExtensions.ERROR_SEM_TIMEOUT_HRESULT">
+            <summary>
+            An HRESULT indicating a timeout after which we might retry.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ServiceHub.Utility.NamedPipeClientStreamExtensions.ConnectWithRetryAsync(System.IO.Pipes.NamedPipeClientStream,System.Threading.CancellationToken,System.Int32,System.Boolean)">
+            <summary>
+            Connects to a named pipe without spinning the CPU as <see cref="M:System.IO.Pipes.NamedPipeClientStream.Connect(System.Int32)" /> or <see cref="M:System.IO.Pipes.NamedPipeClientStream.ConnectAsync(System.Threading.CancellationToken)" /> would do.
+            </summary>
+            <param name="npcs">The named pipe client stream to connect.</param>
+            <param name="cancellationToken">A cancellation token.</param>
+            <param name="maxRetries">The maximum number of retries to attempt.</param>
+            <param name="withSpinningWait">Whether or not the connect should be attempted with a spinning wait.
+            If the pipe being connected to is known to exist, it is safe to use a spinning wait to avoid potentially throwing exceptions for retries.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task" /> that tracks the asynchronous connection attempt.</returns>
+        </member>
+        <member name="T:Microsoft.ServiceHub.Utility.NamedPipeClientStreamExtensions2">
+            <summary>
+            Extension methods for the <see cref="T:System.IO.Pipes.NamedPipeClientStream" /> class.
+            </summary>
+        </member>
+        <member name="T:Microsoft.ServiceHub.Utility.ServiceHubException">
+            <summary>
+            Exception type that this thrown when a ServiceHub error occurs.
+            </summary>
+        </member>
+        <member name="T:Microsoft.ServiceHub.Utility.ServiceHubException.ErrorKind">
+            <summary>
+            An enum to indicate the type of <see cref="T:Microsoft.ServiceHub.Utility.ServiceHubException" /> that occurred.
+            </summary>
+        </member>
+        <member name="F:Microsoft.ServiceHub.Utility.ServiceHubException.ErrorKind.Error">
+            <summary>
+            Generic or unspecified error.
+            </summary>
+        </member>
+        <member name="F:Microsoft.ServiceHub.Utility.ServiceHubException.ErrorKind.InvalidArgument">
+            <summary>
+            Invalid argument passed used.
+            </summary>
+        </member>
+        <member name="F:Microsoft.ServiceHub.Utility.ServiceHubException.ErrorKind.InvalidOperation">
+            <summary>
+            Object state is invalid for the operation.
+            </summary>
+        </member>
+        <member name="F:Microsoft.ServiceHub.Utility.ServiceHubException.ErrorKind.ConfigurationError">
+            <summary>
+            Error in servicehub.config.json.
+            </summary>
+        </member>
+        <member name="F:Microsoft.ServiceHub.Utility.ServiceHubException.ErrorKind.HostGroupsNotSupported">
+            <summary>
+            Client requests to start a service in a host group but the service doesn't support host groups.
+            </summary>
+        </member>
+        <member name="F:Microsoft.ServiceHub.Utility.ServiceHubException.ErrorKind.ControllerShutdown">
+            <summary>
+            The Controller process is shutting down.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Utility.ServiceHubException.ErrorType">
+            <summary>
+            Gets the type of error that occurred.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ServiceHub.Utility.ServiceHubException.#ctor(Microsoft.ServiceHub.Utility.ServiceHubException.ErrorKind,System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.ServiceHub.Utility.ServiceHubException" /> class.
+            </summary>
+            <param name="error">The type of error that occurred.</param>
+            <param name="message">The exception message.</param>
+            <param name="innerException">The inner exception.</param>
+        </member>
+        <member name="M:Microsoft.ServiceHub.Utility.StringFormatter.CurrentCulture(System.FormattableString)">
+            <summary>
+            Format the given object in the current culture. This static method may be
+            imported in C# by.
+            <code>
+            using static Microsoft.ServiceHub.Utility.StringFormatter
+            </code>.
+            Within the scope
+            of that import directive an interpolated string may be formatted in the
+            current culture by writing, for example.
+            <code>
+            CurrentCulture($"{{ lat = {latitude}; lon = {longitude} }}")
+            </code>
+            </summary>
+        </member>
+        <member name="M:Microsoft.ServiceHub.Utility.TelemetryLogger.DisposeCurrentTelemetrySession">
+            <summary>
+            Dispose only when current telemetry session is available.
+            </summary>
+        </member>
+        <member name="T:Microsoft.ServiceHub.Utility.VersionRange">
+            <summary>
+            Represents a version range with inclusive or exclusive minimum or maximum bounds.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ServiceHub.Utility.VersionRange.#ctor(System.Version,System.Boolean,System.Version,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.ServiceHub.Utility.VersionRange" /> class.
+            </summary>
+            <param name="min">minimum version.</param>
+            <param name="isMinInclusive">true, if minimum is inclusive bound, false if exclusive.</param>
+            <param name="max">maximum version.</param>
+            <param name="isMaxInclusive">true, if maximum is inclusive bound, false if exclusive.</param>
+        </member>
+        <member name="M:Microsoft.ServiceHub.Utility.VersionRange.#ctor(System.Version)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.ServiceHub.Utility.VersionRange" /> class containing only a
+            single version.
+            </summary>
+            <param name="value">the version.</param>
+        </member>
+        <member name="M:Microsoft.ServiceHub.Utility.VersionRange.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.ServiceHub.Utility.VersionRange" /> class.
+            Creates a version range containing all versions.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ServiceHub.Utility.VersionRange.TryParse(System.Version,Microsoft.ServiceHub.Utility.VersionRange@)">
+            <summary>
+            Parses the Version into a VersionRange object.
+            </summary>
+            <param name="version">string representing version range.</param>
+            <param name="versionRange">representing version range.</param>
+            <returns>True if the version was parsed successfully, false otherwise.</returns>
+        </member>
+        <member name="M:Microsoft.ServiceHub.Utility.VersionRange.TryParse(System.String,Microsoft.ServiceHub.Utility.VersionRange@)">
+            <summary>
+            Parses the string into a VersionRange object.
+            </summary>
+            <param name="version">string representing version range.</param>
+            <param name="versionRange">representing version range.</param>
+            <returns>True if the version was parsed successfully, false otherwise.</returns>
+        </member>
+        <member name="M:Microsoft.ServiceHub.Utility.VersionRange.Contains(System.String)">
+            <summary>
+            Determines if the given version is contained in this version range.
+            </summary>
+            <param name="value">the version to check for inclusion.</param>
+            <returns>true, if this version range contains the version, false otherwise.</returns>
+        </member>
+        <member name="M:Microsoft.ServiceHub.Utility.VersionRange.Contains(System.Version)">
+            <summary>
+            Determines if the given version is contained in this version range.
+            </summary>
+            <param name="value">the version to check for inclusion.</param>
+            <returns>true, if this version range contains the version, false otherwise.</returns>
+        </member>
+        <member name="M:Microsoft.ServiceHub.Utility.VersionRange.IsSupportedVersion(System.String,System.Version)">
+            <summary>
+            Determines if the given version is supported in this version range.
+            </summary>
+            <param name="supportedVersion">the version that is supported..</param>
+            <param name="requestedVersion">the version to check for inclusion.</param>
+            <returns>true, if this version range is supported the version, false otherwise.</returns>
+        </member>
+        <member name="M:Microsoft.ServiceHub.Utility.VersionRange.Parse(System.String)">
+            <summary>
+            Parses the string into a VersionRange object.
+            </summary>
+            <param name="version">string representing version range.</param>
+            <returns>A vrsionRange object.</returns>
+        </member>
+        <member name="T:Microsoft.ServiceHub.Utility.ChannelConnectionFlags">
+            <summary>
+            Flags that can modify how an IPC channel connection is made.
+            </summary>
+        </member>
+        <member name="F:Microsoft.ServiceHub.Utility.ChannelConnectionFlags.None">
+            <summary>
+            No modifier flags.
+            </summary>
+        </member>
+        <member name="F:Microsoft.ServiceHub.Utility.ChannelConnectionFlags.WaitForServerToConnect">
+            <summary>
+            Continuously retry or wait for the server to listen for and respond to connection requests
+            until it is canceled.
+            Without this flag, the connection will be attempted only once and immediately fail if the
+            server is not online and responsive.
+            </summary>
+        </member>
+        <member name="F:Microsoft.ServiceHub.Utility.EnvUtils.LocationServicePipeNameEnvVar">
+            <summary>
+            The name of the environment variable that may be present to override the name
+            of the pipe used to discover the controller.
+            </summary>
+            <devremarks>
+            This must be in sync with locationService.ts.
+            </devremarks>
+        </member>
+        <member name="F:Microsoft.ServiceHub.Utility.EnvUtils.ServiceHubControllerDebugEnvVar">
+            <summary>
+            The name of the environment variable that may be present to disable the ServiceHub Controller from shutting down due to inactivity.
+            </summary>
+        </member>
+        <member name="F:Microsoft.ServiceHub.Utility.EnvUtils.SessionLogKeyEnvVarName">
+            <summary>
+            A unique hash that is shared among all ServiceHub processes sharing the same root client process.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ServiceHub.Utility.EnvUtils.ValidateNamedPipeClientConnection(System.Runtime.InteropServices.SafeHandle,System.Diagnostics.TraceSource,System.Boolean,System.UInt32@,System.String[])">
+            <summary>
+            Validates whether or not the client who connected to a named pipe exists in the child directory of a given directory.
+            </summary>
+            <param name="pipeHandle">The handle of the PipeStream to validate.</param>
+            <param name="traceSource">TraceSource to log errors to.</param>
+            <param name="logErrors">Indicates whether or not errors should be logged to the TraceSource provided.</param>
+            <param name="clientProcessId">The PID of the process connecitng to the pipe.</param>
+            <param name="allowedParentPaths">The paths that the process who connected to the pipe must be a child of.</param>
+            <returns>True if the process who connected to the pipe is a child of the provided directory.</returns>
+        </member>
+        <member name="M:Microsoft.ServiceHub.Utility.EnvUtils.ValidateNamedPipeServerConnection(System.Runtime.InteropServices.SafeHandle,System.Diagnostics.TraceSource,System.Boolean,System.String[])">
+            <summary>
+            Validates whether or not the named pipe that was connected to exists in the child directory of a given directory.
+            </summary>
+            <param name="pipeHandle">The handle of the PipeStream to validate.</param>
+            <param name="traceSource">TraceSource to log errors to.</param>
+            <param name="logErrors">Indicates whether or not errors should be logged to the TraceSource provided.</param>
+            <param name="allowedParentPaths">The paths that the process who connected to the pipe must be a child of.</param>
+            <returns>True if the process who created the pipe that was connected to is a child of the provided directory.</returns>
+        </member>
+        <member name="M:Microsoft.ServiceHub.Utility.EnvUtils.TranslateReparsePointIfApplicable(System.String,System.Diagnostics.TraceSource)">
+            <remarks>
+            On Windows, users could have setup a Reparse Point (Directory Junction, SymLink) where the defined expected paths
+            that processes are running from are different than the actual. This method translates the Reparse Point paths into the real actual path so we can
+            do a fair comparison.
+            </remarks>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Utility.HostConfiguration.AllowedServiceClients">
+            <summary>
+            Gets the list of paths where client processes connecting to services in a Host process are allowed to live in. If a process from outside of any
+            of these directories connects to a named pipe hosted in a Host process, an exception will be thrown.
+            </summary>
+        </member>
+        <member name="T:Microsoft.ServiceHub.Utility.IsolatedUtilities">
+            <summary>
+            Contains various utility methods without any non-framework dependencies.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ServiceHub.Utility.IsolatedUtilities.RequiresNotNull(System.Object,System.String)">
+            <summary>
+            Throws an exception if the specified parameter's value is null.
+            </summary>
+            <param name="obj">The value of the argument.</param>
+            <param name="name">The name of the parameter to include in any thrown exception.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="obj" /> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Microsoft.ServiceHub.Utility.IsolatedUtilities.RequiresNotNullOrEmpty(System.String,System.String)">
+            <summary>
+            Throws an exception if the specified parameter's value is null,
+            has no elements or has an element with a null value.
+            </summary>
+            <param name="obj">The value of the argument.</param>
+            <param name="name">The name of the parameter to include in any thrown exception.</param>
+            <exception cref="T:System.ArgumentException">Thrown if the tested condition is false.</exception>
+        </member>
+        <member name="M:Microsoft.ServiceHub.Utility.IsolatedUtilities.RequiresNotNullOrWhiteSpace(System.String,System.String)">
+            <summary>
+            Throws an exception if the specified parameter's value is null, empty, or whitespace.
+            </summary>
+            <param name="obj">The value of the argument.</param>
+            <param name="name">The name of the parameter to include in any thrown exception.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="obj" /> is <c>null</c>.</exception>
+            <exception cref="T:System.ArgumentException">Thrown if <paramref name="obj" /> is empty.</exception>
+        </member>
+        <member name="M:Microsoft.ServiceHub.Utility.IsolatedUtilities.RequiresRange(System.Boolean,System.String,System.String)">
+            <summary>
+            Throws an <see cref="T:System.ArgumentOutOfRangeException" /> if a condition does not evaluate to true.
+            </summary>
+            <param name="range">A conditional statement indicating whether a range is valid.</param>
+            <param name="name">The name of the parameter to include in any thrown exception.</param>
+            <param name="errorMessage">The error message to us if the condition is false.</param>
+        </member>
+        <member name="M:Microsoft.ServiceHub.Utility.IsolatedUtilities.GetSHA256Hash(System.String)">
+            <summary>
+            Given an input calculates the SHA256 hash of it.
+            </summary>
+            <param name="input">The string to hash.</param>
+            <returns>A hash of the input string.</returns>
+        </member>
+        <member name="M:Microsoft.ServiceHub.Utility.Linux.NativeMethods.getuid">
+            <summary>
+            Get the real user ID of the calling process.
+            </summary>
+            <returns>the real user ID of the calling process.</returns>
+        </member>
+        <member name="M:Microsoft.ServiceHub.Utility.DevHubTraceSource.TraceStreamIfEnabled(System.IO.Stream,System.String)">
+            <summary>
+            Start logging all reads and writes to the <paramref name="stream" /> as debug info
+            if tracing is enabled for <paramref name="source" />.
+            assuming these are text in UTF8 encoding.
+            </summary>
+            <param name="stream">Stream to trace. Not null or empty.</param>
+            <param name="source">Tracing source of the stream. Not null or empty.</param>
+            <returns>
+            A wrapper stream if tracing is enabled, or the original <paramref name="stream" /> if not.
+            If the wrapper is returned, it'll propogate dispose to the <paramref name="stream" />.
+            </returns>
+        </member>
+        <member name="M:Microsoft.ServiceHub.Utility.DevHubTraceSource.TraceStreamIfEnabled(System.IO.Stream,System.String,System.Text.Encoding)">
+            <summary>
+            Start logging all reads and writes to the <paramref name="stream" /> as debug info
+            if tracing is enabled for <paramref name="source" />.
+            assuming these are text in the specified <paramref name="encoding" />.
+            </summary>
+            <param name="stream">Stream to trace. Not null or empty.</param>
+            <param name="source">Tracing source of the stream. Not null or empty.</param>
+            <param name="encoding">Stream encoding.</param>
+            <returns>
+            A wrapper stream if tracing is enabled, or the original <paramref name="stream" /> if not.
+            If the wrapper is returned, it'll propogate dispose to the <paramref name="stream" />.
+            </returns>
+        </member>
+        <member name="M:Microsoft.ServiceHub.Utility.DevHubTraceSource.TraceStream(System.IO.Stream,System.Text.Encoding,System.String,System.String)">
+            <summary>
+            Start logging all reads and writes to the <paramref name="stream" /> as debug info
+            assuming these are all text in the specified <paramref name="encoding" />.
+            </summary>
+            <param name="stream">Stream to trace. Not null or empty.</param>
+            <param name="encoding">Stream encoding.</param>
+            <param name="readPrefix">Prefix to add before eash read entry in the log.</param>
+            <param name="writePrefix">Prefix to add before each write entry in the log.</param>
+            <returns>
+            Stream tracer inteface. Disposing of it will stop tracing but won't dispose the <paramref name="stream" />.
+            </returns>
+        </member>
+        <member name="M:Microsoft.ServiceHub.Utility.DevHubTraceSource.TraceStreamIfEnabled(Microsoft.ServiceHub.Utility.WrappedStream,System.String)">
+            <summary>
+            Start logging all reads and writes to the <paramref name="stream" /> as debug info
+            if tracing is enabled for <paramref name="source" />.
+            assuming these are text in UTF8 encoding.
+            </summary>
+            <param name="stream">Stream to trace. Not null or empty.</param>
+            <param name="source">Tracing source of the stream. Not null or empty.</param>
+            <returns>
+            A wrapper stream if tracing is enabled, or the original <paramref name="stream" /> if not.
+            If the wrapper is returned, it'll propogate dispose to the <paramref name="stream" />.
+            </returns>
+        </member>
+        <member name="M:Microsoft.ServiceHub.Utility.DevHubTraceSource.TraceStreamIfEnabled(Microsoft.ServiceHub.Utility.WrappedStream,System.String,System.Text.Encoding)">
+            <summary>
+            Start logging all reads and writes to the <paramref name="stream" /> as debug info
+            if tracing is enabled for <paramref name="source" />.
+            assuming these are text in the specified <paramref name="encoding" />.
+            </summary>
+            <param name="stream">Stream to trace. Not null or empty.</param>
+            <param name="source">Tracing source of the stream. Not null or empty.</param>
+            <param name="encoding">Stream encoding.</param>
+            <returns>
+            A wrapper stream if tracing is enabled, or the original <paramref name="stream" /> if not.
+            If the wrapper is returned, it'll propogate dispose to the <paramref name="stream" />.
+            </returns>
+        </member>
+        <member name="M:Microsoft.ServiceHub.Utility.DevHubTraceSource.TraceStream(Microsoft.ServiceHub.Utility.WrappedStream,System.Text.Encoding,System.String,System.String)">
+            <summary>
+            Start logging all reads and writes to the <paramref name="stream" /> as debug info
+            assuming these are all text in the specified <paramref name="encoding" />.
+            </summary>
+            <param name="stream">Stream to trace. Not null or empty.</param>
+            <param name="encoding">Stream encoding.</param>
+            <param name="readPrefix">Prefix to add before eash read entry in the log.</param>
+            <param name="writePrefix">Prefix to add before each write entry in the log.</param>
+            <returns>
+            Stream tracer inteface. Disposing of it will stop tracing but won't dispose the <paramref name="stream" />.
+            </returns>
+        </member>
+        <member name="T:Microsoft.ServiceHub.Utility.TraceEventId">
+            <summary>
+            Class containing trace event ID constants.
+            We use a class with int members instead of an enum
+            because then we don't have to typecast the enum to
+            an int everytime we want to trace an event.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ServiceHub.Utility.OSX.NativeMethods.getuid">
+            <summary>
+            Get the real user ID of the calling process.
+            </summary>
+            <returns>the real user ID of the calling process.</returns>
+        </member>
+        <member name="F:Microsoft.ServiceHub.Utility.NamedPipeServer.TransmissionMode">
+            <summary>
+            The transmission mode used for the named pipes.
+            </summary>
+            <remarks>
+            We use <see cref="F:System.IO.Pipes.PipeTransmissionMode.Byte" /> rather than <see cref="F:System.IO.Pipes.PipeTransmissionMode.Message" />
+            because our goal is to hide the transport from the clients and services, and <see cref="F:System.IO.Pipes.PipeTransmissionMode.Message" />
+            behavior is a named pipe specific behavior. Unix domain sockets cannot emulate it, so if any service or client were to
+            depend on the message boundaries that named pipes offered, they might malfunction on *nix platforms.
+            So instead, we simply don't offer that unique behavior.
+            </remarks>
+        </member>
+        <member name="F:Microsoft.ServiceHub.Utility.Server.Disposed">
+            <summary>
+            Used for Unit Testing.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ServiceHub.Utility.ServerFactory.Create(System.String,System.Diagnostics.TraceSource,System.Func{System.IO.Stream,System.Threading.Tasks.Task},System.Boolean)">
+            <summary>
+            Creates a named pipe server.
+            </summary>
+            <param name="pipeName">The name of the server.</param>
+            <param name="logger">The logger for the server.</param>
+            <param name="createAndConfigureService">Callback function to be run whenever a client connects to the server.</param>
+            <param name="setLowIntegrity">This property no longer does anything and will be removed in future versions of the API.</param>
+            <returns>
+            A disposable server that should be disposed of when it is no longer needed.
+            This object is also castable to <see cref="T:System.IAsyncDisposable" /> except if this method is referenced from Microsoft.ServiceHub.HostStub.dll.
+            </returns>
+            <remarks>This method should only ever be used on Windows platforms.</remarks>
+        </member>
+        <member name="M:Microsoft.ServiceHub.Utility.ServerFactory.CreateOnNonWindowsAsync(System.String,System.String,System.Diagnostics.TraceSource,System.Func{System.IO.Stream,System.Threading.Tasks.Task})">
+            <summary>
+            Creates a named pipe server on a linux or mac machine.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Utility.ServiceEntryPoint.AssemblyPath">
+            <summary>
+            Gets or sets the path of the assembly in which the service end point class is located.
+            If this path is not an absolute path then if <see cref="P:Microsoft.ServiceHub.Utility.ServiceModuleInfo.ServiceBaseDirectory" /> is set, it'll be combined with file name.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Utility.ServiceEntryPoint.FullClassName">
+            <summary>
+            Gets or sets the name of the service end point class that will be instantiated for each new client connection.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Utility.ServiceEntryPoint.IsNodeService">
+            <summary>
+            Gets a value indicating whether or not this service will run on a Node host.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Utility.ServiceEntryPoint.ConfigPath">
+            <summary>
+            Gets or sets the path of the config file. If specified, this config file will be used to initialize the service AppDomain.
+            May be omitted if the config file has the same name (+.config) as the assembly, and resides in the same directory.
+            It is also possible to have the service without the config file. Not applicable for services running inside dotnet Host processes.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Utility.ServiceEntryPoint.AppBasePath">
+            <summary>
+            Gets or sets the path of the app base directory. If specified, the app domain created for the service will use this as the app base.
+            If not specified, the assembly's directory will be the app base. Not applicable for services running inside dotnet Host processes.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Utility.ServiceEntryPoint.AssemblySearchPathsConfig">
+            <summary>
+            Gets or sets the path to a config JSON file used for adding additonal assembly search paths.
+            </summary>
+            <remarks>
+            This file should contain an array of paths that are to be used to resolve assemblies if neither this service's AssemblyLoadContext,
+            or one of its friends can resolve the assembly. The paths can either be relative to the location of this file, or absolute. This property is only applicable for services
+            running inside dotnet Host processes.
+            </remarks>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Utility.ServiceModuleInfo.Name">
+            <summary>
+            Gets or sets the service module name; e.g., 'Organization.ModuleName'.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Utility.ServiceModuleInfo.Host">
+            <summary>
+            Gets or sets the service module host type.
+            </summary>
+            <remarks>
+            The Host tells dev hub where to find the hub host info.
+            To find the hub host info, ServiceHub will look for case-sensitive {host}.servicehub.host.json in the following places:
+            1. hosts folder as specified in servicehub.config.json.
+            2. host folder in devhub module.
+            </remarks>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Utility.ServiceModuleInfo.HostId">
+            <summary>
+            Gets or sets the service module host id.
+            </summary>
+            <remarks>
+            If defined, dev hub will load the service module into the host with that id.
+            All service modules with the same host type and host id will share that host.
+            If not defined or empty, dev hub will load the service module into its own exclusive host process.
+            </remarks>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Utility.ServiceModuleInfo.ServiceBaseDirectory">
+            <summary>
+            Gets or sets the path of the directory containing the service module.
+            If set, it may be the base directory for <see cref="P:Microsoft.ServiceHub.Utility.ServiceEntryPoint.AssemblyPath" />.
+            If not set, it's up to the host how the service file is resolved.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Utility.ServiceModuleInfo.EntryPoint">
+            <summary>
+            Gets or sets the service entry point containing name of the assembly along with the class name representing this service module.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Utility.ServiceModuleInfo.HostGroupAllowed">
+            <summary>
+            Gets or sets a value indicating whether this service module is allowed to have a host group.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Utility.ServiceModuleInfo.HostGroupId">
+            <summary>
+            Gets or sets the host group that should be used for this service, use of this property requires
+            <see cref="P:Microsoft.ServiceHub.Utility.ServiceModuleInfo.HostGroupAllowed" /> to be set to true.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Utility.ServiceModuleInfo.SingleDomainLoaderOptimization">
+            <summary>
+            Gets or sets a value indicating whether this service module should load in an AppDomain with its LoaderOptimization set to SingleDomain.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Utility.ServiceModuleInfo.VersionRange">
+            <summary>
+            Gets or sets the versions of the service or the version expected by the client.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Utility.ServiceModuleInfo.FriendServices">
+            <summary>
+            Gets or sets a collection of services, that if running inside of the same host as this service, whose AssemblyLoadContext will be used for resolving dependencies.
+            These AssemblyLoadContexts will be queried in the order that appear, stopping when/if the assembly is successfully loaded. The additional AssemblyLoadContexts
+            will only be searched if the assembly fails to resolve first by searching the directory that the service assembly is in.
+            This property is only applicable to services running inside of dotnet Host processes.
+            </summary>
+        </member>
+        <member name="T:Microsoft.ServiceHub.Utility.SocketClient">
+            <summary>
+            Provides socket client services at a higher level
+            of abstraction than the <see cref="T:System.Net.Sockets.Socket" /> class.
+            </summary>
+        </member>
+        <member name="F:Microsoft.ServiceHub.Utility.SocketClient.ConnectionRetryInterval">
+            <summary>
+            The time to wait between repeat attempts at connecting to the server.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ServiceHub.Utility.SocketClient.ConnectAsync(System.String,Microsoft.ServiceHub.Utility.ChannelConnectionFlags,System.Threading.CancellationToken)">
+            <summary>
+            Opens a connection to a socket.
+            </summary>
+            <param name="path">The endpoint of the socket to connect to.</param>
+            <param name="flags">The <see cref="T:Microsoft.ServiceHub.Utility.ChannelConnectionFlags" /> used for the connection.</param>
+            <param name="cancellationToken">A token whose cancellation will terminate a connection request.</param>
+            <returns>A task whose result is a duplex pipe created to access the <see cref="T:System.Net.Sockets.Socket" />.</returns>
+            <exception cref="T:System.Net.Sockets.SocketException">Thrown when the connection attempt fails.</exception>
+        </member>
+        <member name="M:Microsoft.ServiceHub.Utility.SocketClient.ConnectAsync(System.Net.EndPoint,System.Net.Sockets.SocketType,System.Net.Sockets.ProtocolType,Microsoft.ServiceHub.Utility.ChannelConnectionFlags,System.TimeSpan,System.Threading.CancellationToken)">
+            <summary>
+            Opens a connection to a socket.
+            </summary>
+            <param name="endPoint">The endpoint of the socket to connect to.</param>
+            <param name="socketType">The type of socket to connect to.</param>
+            <param name="protocolType">The type of protocol that will be used.</param>
+            <param name="flags">Modifiers in the connection process.</param>
+            <param name="connectionRetryInterval">The time to wait between repeat attempts at connecting to the socket.</param>
+            <param name="cancellationToken">A token whose cancellation will terminate a connection request.</param>
+            <returns>A task whose result is the created <see cref="T:System.Net.Sockets.Socket" />.</returns>
+            <exception cref="T:System.Net.Sockets.SocketException">Thrown when the connection attempt fails.</exception>
+        </member>
+        <member name="T:Microsoft.ServiceHub.Utility.SocketServer">
+            <summary>
+            Implements the connection logic for the socket server.
+            After accepting a connection, clientConnected event is fired.
+            Code taken from <see href="https://msdn.microsoft.com/en-us/library/system.net.sockets.socketasynceventargs.aspx" />.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ServiceHub.Utility.SocketServer.StartAcceptAsync(System.Net.Sockets.SocketAsyncEventArgs)">
+            <summary>
+            Begin an operation to accept a connection request from the client.
+            </summary>
+            <param name="acceptEventArg">
+            The context object to use when issuing the accept operation on the server's listening socket.
+            </param>
+        </member>
+        <member name="T:Microsoft.ServiceHub.Utility.UnixDomainSocketEndPoint">
+            <summary>
+            An <see cref="T:System.Net.EndPoint" /> used to represent a Unix domain socket (i.e. a OSX/Linux equivalent of named pipes in Windows).
+            </summary>
+        </member>
+        <member name="F:Microsoft.ServiceHub.Utility.UnixDomainSocketEndPoint.MaxPathLength">
+            <summary>
+            The maximum path allowed for an endpoint.
+            </summary>
+            <seealso href="http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/sys_un.h.html">sockaddr_un.sun_path</seealso>
+        </member>
+        <member name="F:Microsoft.ServiceHub.Utility.UnixDomainSocketEndPoint.Stream">
+            <summary>
+            The <see cref="T:System.Net.Sockets.SocketType" /> to use for this endpoint.
+            </summary>
+        </member>
+        <member name="F:Microsoft.ServiceHub.Utility.UnixDomainSocketEndPoint.Protocol">
+            <summary>
+            The <see cref="T:System.Net.Sockets.ProtocolType" /> to use for this endpoint.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ServiceHub.Utility.UnixDomainSocketEndPoint.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.ServiceHub.Utility.UnixDomainSocketEndPoint" /> class.
+            </summary>
+            <param name="path">The path to the file that represents the socket.</param>
+        </member>
+        <member name="M:Microsoft.ServiceHub.Utility.UnixDomainSocketEndPoint.#ctor(System.Net.SocketAddress)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.ServiceHub.Utility.UnixDomainSocketEndPoint" /> class.
+            </summary>
+            <param name="socketAddress">The address of the socket.</param>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Utility.UnixDomainSocketEndPoint.AddressFamily">
+            <inheritdoc />
+        </member>
+        <member name="P:Microsoft.ServiceHub.Utility.UnixDomainSocketEndPoint.IsSupported">
+            <summary>
+            Gets a value indicating whether unix domain sockets are supported on the current operating system.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Utility.UnixDomainSocketEndPoint.Path">
+            <summary>
+            Gets the path to this socket.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ServiceHub.Utility.UnixDomainSocketEndPoint.Serialize">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.ServiceHub.Utility.UnixDomainSocketEndPoint.Create(System.Net.SocketAddress)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.ServiceHub.Utility.UnixDomainSocketEndPoint.ToString">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.ServiceHub.Utility.StreamExtensions.TryGetHandle(System.IO.Stream,Microsoft.Win32.SafeHandles.SafePipeHandle@)">
+            <summary>
+            Attempts to get the handle of ServiceHub stream.
+            </summary>
+            <param name="stream">The stream to get the handle of.</param>
+            <param name="handle">The handle of the stream if it exists, null otherweise.</param>
+            <returns>True if the stream has a <see cref="T:Microsoft.Win32.SafeHandles.SafePipeHandle" />, false otherwise.</returns>
+        </member>
+        <member name="T:Windows.Win32.Foundation.PCWSTR">
+            <summary>
+            A pointer to a constant character string.
+            </summary>
+        </member>
+        <member name="F:Windows.Win32.Foundation.PCWSTR.Value">
+            <summary>
+            A pointer to the first character in the string. The content should be considered readonly, as it was typed as constant in the SDK.
+            </summary>
+        </member>
+        <member name="P:Windows.Win32.Foundation.PCWSTR.Length">
+            <summary>
+            Gets the number of characters up to the first null character (exclusive).
+            </summary>
+        </member>
+        <member name="M:Windows.Win32.Foundation.PCWSTR.ToString">
+            <summary>
+            Returns a <see langword="string" /> with a copy of this character array.
+            </summary>
+            <returns>A <see langword="string" />, or <see langword="null" /> if <see cref="F:Windows.Win32.Foundation.PCWSTR.Value" /> is <see langword="null" />.</returns>
+        </member>
+        <member name="M:Windows.Win32.Foundation.PCWSTR.AsSpan">
+            <summary>
+            Returns a span of the characters in this string.
+            </summary>
+        </member>
+        <member name="M:Windows.Win32.Foundation.PWSTR.AsSpan">
+            <summary>
+            Returns a span of the characters in this string.
+            </summary>
+        </member>
+        <member name="T:Windows.Win32.PInvoke">
+            <content>
+            Contains extern methods from "AdvApi32.dll".
+            </content>
+            <content>
+            Contains extern methods from "Kernel32.dll".
+            </content>
+            <content>
+            Contains extern methods from "ShlwApi.dll".
+            </content>
+        </member>
+        <member name="M:Windows.Win32.PInvoke.GetSidSubAuthority(Windows.Win32.Foundation.PSID,System.UInt32)">
+            <summary>Returns a pointer to a specified subauthority in a security identifier (SID). The subauthority value is a relative identifier (RID).</summary>
+            <param name="pSid">
+            <para>A pointer to the <a href="https://docs.microsoft.com/windows/desktop/api/winnt/ns-winnt-sid">SID</a> structure from which a pointer to a subauthority is to be returned. This function does not handle <a href="https://docs.microsoft.com/windows/desktop/api/winnt/ns-winnt-sid">SID</a> structures that are not valid. Call the <a href="https://docs.microsoft.com/windows/desktop/api/securitybaseapi/nf-securitybaseapi-isvalidsid">IsValidSid</a> function to verify that the <b>SID</b> structure is valid before you call this function.</para>
+            <para><see href="https://docs.microsoft.com/windows/win32/api//securitybaseapi/nf-securitybaseapi-getsidsubauthority#parameters">Read more on docs.microsoft.com</see>.</para>
+            </param>
+            <param name="nSubAuthority">Specifies an index value identifying the subauthority array element whose address the function will return. The function performs no validation tests on this value. An application can call the <a href="https://docs.microsoft.com/windows/desktop/api/securitybaseapi/nf-securitybaseapi-getsidsubauthoritycount">GetSidSubAuthorityCount</a> function to discover the range of acceptable values.</param>
+            <returns>
+            <para>If the function succeeds, the return value is a pointer to the specified <a href="/windows/desktop/api/winnt/ns-winnt-sid">SID</a> subauthority. To get extended error information, call <a href="/windows/desktop/api/errhandlingapi/nf-errhandlingapi-getlasterror">GetLastError</a>. If the function fails, the return value is undefined. The function fails if the specified <a href="/windows/desktop/api/winnt/ns-winnt-sid">SID</a> structure is not valid or if the index value specified by the <i>nSubAuthority</i> parameter is out of bounds.</para>
+            </returns>
+            <remarks>
+            <para><see href="https://docs.microsoft.com/windows/win32/api//securitybaseapi/nf-securitybaseapi-getsidsubauthority">Learn more about this API from docs.microsoft.com</see>.</para>
+            </remarks>
+        </member>
+        <member name="M:Windows.Win32.PInvoke.GetTokenInformation(System.Runtime.InteropServices.SafeHandle,Windows.Win32.Security.TOKEN_INFORMATION_CLASS,System.Void*,System.UInt32,System.UInt32@)">
+            <inheritdoc cref="M:Windows.Win32.PInvoke.GetTokenInformation(Windows.Win32.Foundation.HANDLE,Windows.Win32.Security.TOKEN_INFORMATION_CLASS,System.Void*,System.UInt32,System.UInt32*)" />
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:Windows.Win32.PInvoke.GetTokenInformation(Windows.Win32.Foundation.HANDLE,Windows.Win32.Security.TOKEN_INFORMATION_CLASS,System.Void*,System.UInt32,System.UInt32*)" -->
+        <member name="M:Windows.Win32.PInvoke.OpenProcessToken(System.Runtime.InteropServices.SafeHandle,Windows.Win32.Security.TOKEN_ACCESS_MASK,Microsoft.Win32.SafeHandles.SafeFileHandle@)">
+            <inheritdoc cref="M:Windows.Win32.PInvoke.OpenProcessToken(Windows.Win32.Foundation.HANDLE,Windows.Win32.Security.TOKEN_ACCESS_MASK,Windows.Win32.Foundation.HANDLE*)" />
+        </member>
+        <member name="M:Windows.Win32.PInvoke.OpenProcessToken(Windows.Win32.Foundation.HANDLE,Windows.Win32.Security.TOKEN_ACCESS_MASK,Windows.Win32.Foundation.HANDLE*)">
+            <summary>Opens the access token associated with a process.</summary>
+            <param name="ProcessHandle">A handle to the process whose access token is opened. The process must have the PROCESS_QUERY_INFORMATION access permission.</param>
+            <param name="DesiredAccess">
+            <para>Specifies an <a href="https://docs.microsoft.com/windows/desktop/SecGloss/a-gly">access mask</a> that specifies the requested types of access to the access token. These requested access types are compared with the <a href="https://docs.microsoft.com/windows/desktop/SecGloss/d-gly">discretionary access control list</a> (DACL) of the token to determine which accesses are granted or denied.</para>
+            <para>For a list of access rights for access tokens, see <a href="https://docs.microsoft.com/windows/desktop/SecAuthZ/access-rights-for-access-token-objects">Access Rights for Access-Token Objects</a>.</para>
+            <para><see href="https://docs.microsoft.com/windows/win32/api//processthreadsapi/nf-processthreadsapi-openprocesstoken#parameters">Read more on docs.microsoft.com</see>.</para>
+            </param>
+            <param name="TokenHandle">A pointer to a handle that identifies the newly opened access token when the function returns.</param>
+            <returns>
+            <para>If the function succeeds, the return value is nonzero. If the function fails, the return value is zero. To get extended error information, call <a href="/windows/desktop/api/errhandlingapi/nf-errhandlingapi-getlasterror">GetLastError</a>.</para>
+            </returns>
+            <remarks>
+            <para><see href="https://docs.microsoft.com/windows/win32/api//processthreadsapi/nf-processthreadsapi-openprocesstoken">Learn more about this API from docs.microsoft.com</see>.</para>
+            </remarks>
+        </member>
+        <member name="M:Windows.Win32.PInvoke.CloseHandle(Windows.Win32.Foundation.HANDLE)">
+            <summary>Closes an open object handle.</summary>
+            <param name="hObject">A valid handle to an open object.</param>
+            <returns>
+            <para>If the function succeeds, the return value is nonzero. If the function fails, the return value is zero. To get extended error information, call <a href="/windows/desktop/api/errhandlingapi/nf-errhandlingapi-getlasterror">GetLastError</a>. If the application is running under a debugger,  the function will throw an exception if it receives either a  handle value that is not valid  or a pseudo-handle value. This can happen if you close a handle twice, or if you  call <b>CloseHandle</b> on a handle returned by the <a href="/windows/desktop/api/fileapi/nf-fileapi-findfirstfilea">FindFirstFile</a> function instead of calling the <a href="/windows/desktop/api/fileapi/nf-fileapi-findclose">FindClose</a> function.</para>
+            </returns>
+            <remarks>
+            <para><see href="https://docs.microsoft.com/windows/win32/api//handleapi/nf-handleapi-closehandle">Learn more about this API from docs.microsoft.com</see>.</para>
+            </remarks>
+        </member>
+        <member name="M:Windows.Win32.PInvoke.CreateFile(System.String,Windows.Win32.Storage.FileSystem.FILE_ACCESS_FLAGS,Windows.Win32.Storage.FileSystem.FILE_SHARE_MODE,System.Nullable{Windows.Win32.Security.SECURITY_ATTRIBUTES},Windows.Win32.Storage.FileSystem.FILE_CREATION_DISPOSITION,Windows.Win32.Storage.FileSystem.FILE_FLAGS_AND_ATTRIBUTES,System.Runtime.InteropServices.SafeHandle)">
+            <inheritdoc cref="M:Windows.Win32.PInvoke.CreateFile(Windows.Win32.Foundation.PCWSTR,Windows.Win32.Storage.FileSystem.FILE_ACCESS_FLAGS,Windows.Win32.Storage.FileSystem.FILE_SHARE_MODE,Windows.Win32.Security.SECURITY_ATTRIBUTES*,Windows.Win32.Storage.FileSystem.FILE_CREATION_DISPOSITION,Windows.Win32.Storage.FileSystem.FILE_FLAGS_AND_ATTRIBUTES,Windows.Win32.Foundation.HANDLE)" />
+        </member>
+        <member name="M:Windows.Win32.PInvoke.CreateFile(Windows.Win32.Foundation.PCWSTR,Windows.Win32.Storage.FileSystem.FILE_ACCESS_FLAGS,Windows.Win32.Storage.FileSystem.FILE_SHARE_MODE,Windows.Win32.Security.SECURITY_ATTRIBUTES*,Windows.Win32.Storage.FileSystem.FILE_CREATION_DISPOSITION,Windows.Win32.Storage.FileSystem.FILE_FLAGS_AND_ATTRIBUTES,Windows.Win32.Foundation.HANDLE)">
+            <summary>Creates or opens a file or I/O device. The most commonly used I/O devices are as follows:\_file, file stream, directory, physical disk, volume, console buffer, tape drive, communications resource, mailslot, and pipe.</summary>
+            <param name="lpFileName">
+            <para>The name of the file or device to be created or opened. You may use either forward slashes (/) or backslashes (\\) in this name. In the ANSI version of this function, the name is limited to <b>MAX_PATH</b> characters. To extend this limit to 32,767 wide characters, use this Unicode version of the function and prepend "\\\\?\\" to the path. For more information, see <a href="https://docs.microsoft.com/windows/desktop/FileIO/naming-a-file">Naming Files, Paths, and Namespaces</a>. For information on special device names, see <a href="https://docs.microsoft.com/windows/desktop/FileIO/defining-an-ms-dos-device-name">Defining an MS-DOS Device Name</a>. To create a file stream, specify the name of the file, a colon, and then the name of the stream. For more information, see <a href="https://docs.microsoft.com/windows/desktop/FileIO/file-streams">File Streams</a>. <div class="alert"><b>Tip</b>  Starting with Windows 10, version 1607, for the unicode version of this function (<b>CreateFileW</b>), you can opt-in to remove the <b>MAX_PATH</b> limitation without prepending "\\?\". See the "Maximum Path Length Limitation" section of <a href="https://docs.microsoft.com/windows/desktop/FileIO/naming-a-file">Naming Files, Paths, and Namespaces</a> for details.</div> <div> </div></para>
+            <para><see href="https://docs.microsoft.com/windows/win32/api//fileapi/nf-fileapi-createfilew#parameters">Read more on docs.microsoft.com</see>.</para>
+            </param>
+            <param name="dwDesiredAccess">
+            <para>The requested access to the file or device, which can be summarized as read, write, both or neither zero). The most commonly used values are <b>GENERIC_READ</b>, <b>GENERIC_WRITE</b>, or both (<c>GENERIC_READ | GENERIC_WRITE</c>). For more information, see <a href="https://docs.microsoft.com/windows/desktop/SecAuthZ/generic-access-rights">Generic Access Rights</a>, <a href="https://docs.microsoft.com/windows/desktop/FileIO/file-security-and-access-rights">File Security and Access Rights</a>, <a href="https://docs.microsoft.com/windows/desktop/FileIO/file-access-rights-constants">File Access Rights Constants</a>, and <a href="https://docs.microsoft.com/windows/desktop/SecAuthZ/access-mask">ACCESS_MASK</a>. If this parameter is zero, the application can query certain metadata such as file, directory, or device attributes without accessing that file or device, even if <b>GENERIC_READ</b> access would have been denied. You cannot request an access mode that conflicts with the sharing mode that is specified by the <i>dwShareMode</i> parameter in an open request that already has an open handle. For more information, see the Remarks section of this topic and <a href="https://docs.microsoft.com/windows/desktop/FileIO/creating-and-opening-files">Creating and Opening Files</a>.</para>
+            <para><see href="https://docs.microsoft.com/windows/win32/api//fileapi/nf-fileapi-createfilew#parameters">Read more on docs.microsoft.com</see>.</para>
+            </param>
+            <param name="dwShareMode">
+            <para>The requested sharing mode of the file or device, which can be read, write, both, delete, all of these, or none (refer to the following table). Access requests to attributes or extended attributes are not affected by this flag. If this parameter is zero and <b>CreateFile</b> succeeds, the file or device cannot be shared and cannot be opened again until the handle to the file or device is closed. For more information, see the Remarks section. You cannot request a sharing mode that conflicts with the access mode that is specified in an existing request that has an open handle. <b>CreateFile</b> would fail and the <a href="https://docs.microsoft.com/windows/desktop/api/errhandlingapi/nf-errhandlingapi-getlasterror">GetLastError</a> function would return <b>ERROR_SHARING_VIOLATION</b>. To enable a process to share a file or device while another process has the file or device open, use a</para>
+            <para><see href="https://docs.microsoft.com/windows/win32/api//fileapi/nf-fileapi-createfilew#parameters">Read more on docs.microsoft.com</see>.</para>
+            </param>
+            <param name="lpSecurityAttributes">
+            <para>A pointer to a <a href="https://docs.microsoft.com/previous-versions/windows/desktop/legacy/aa379560(v=vs.85)">SECURITY_ATTRIBUTES</a> structure that contains two separate but related data members: an optional security descriptor, and a Boolean value that determines whether the returned handle can be inherited by child processes. This parameter can be <b>NULL</b>. If this parameter is <b>NULL</b>, the handle returned by <b>CreateFile</b> cannot be inherited by any child processes the application may create and the file or device associated with the returned handle gets a default security descriptor. The <b>lpSecurityDescriptor</b> member of the structure specifies a <a href="https://docs.microsoft.com/windows/desktop/api/winnt/ns-winnt-security_descriptor">SECURITY_DESCRIPTOR</a> for a file or device. If this member is <b>NULL</b>, the file or device associated with the returned handle is assigned a default security descriptor. <b>CreateFile</b> ignores the <b>lpSecurityDescriptor</b> member when opening an existing file or device, but continues to use the <b>bInheritHandle</b> member. The <b>bInheritHandle</b>member of the structure specifies whether the returned handle can be inherited. For more information, see the Remarks section.</para>
+            <para><see href="https://docs.microsoft.com/windows/win32/api//fileapi/nf-fileapi-createfilew#parameters">Read more on docs.microsoft.com</see>.</para>
+            </param>
+            <param name="dwCreationDisposition">
+            <para>An action to take on a file or device that exists or does not exist. For devices other than files, this parameter is usually set to <b>OPEN_EXISTING</b>. For more information, see the Remarks section.</para>
+            <para><see href="https://docs.microsoft.com/windows/win32/api//fileapi/nf-fileapi-createfilew#parameters">Read more on docs.microsoft.com</see>.</para>
+            </param>
+            <param name="dwFlagsAndAttributes">
+            <para>The file or device attributes and flags, <b>FILE_ATTRIBUTE_NORMAL</b> being the most common default value for files. This parameter can include any combination of the available file attributes (<b>FILE_ATTRIBUTE_*</b>). All other file attributes override <b>FILE_ATTRIBUTE_NORMAL</b>. This parameter can also contain combinations of flags (<b>FILE_FLAG_*</b>) for control of file or device caching behavior, access modes, and other special-purpose flags. These combine with any <b>FILE_ATTRIBUTE_*</b> values. This parameter can also contain Security Quality of Service (SQOS) information by specifying the <b>SECURITY_SQOS_PRESENT</b> flag. Additional SQOS-related flags information is presented in the table following the attributes and flags tables. <div class="alert"><b>Note</b>  When <b>CreateFile</b> opens an existing file, it generally combines the file flags with the file attributes of the existing file, and ignores any file attributes supplied as part of <i>dwFlagsAndAttributes</i>. Special cases are detailed in <a href="https://docs.microsoft.com/windows/desktop/FileIO/creating-and-opening-files">Creating and Opening Files</a>.</div> <div> </div> Some of the following file attributes and flags may only apply to files and not necessarily all other types of devices that <b>CreateFile</b> can open. For additional information, see the Remarks section of this topic and <a href="https://docs.microsoft.com/windows/desktop/FileIO/creating-and-opening-files">Creating and Opening Files</a>. For more advanced access to file attributes, see <a href="https://docs.microsoft.com/windows/desktop/api/fileapi/nf-fileapi-setfileattributesa">SetFileAttributes</a>. For a complete list of all file attributes with their values and descriptions, see <a href="https://docs.microsoft.com/windows/desktop/FileIO/file-attribute-constants">File Attribute Constants</a>. </para>
+            <para>This doc was truncated.</para>
+            <para><see href="https://docs.microsoft.com/windows/win32/api//fileapi/nf-fileapi-createfilew#parameters">Read more on docs.microsoft.com</see>.</para>
+            </param>
+            <param name="hTemplateFile">
+            <para>A valid handle to a template file with the <b>GENERIC_READ</b> access right. The template file supplies file attributes and extended attributes for the file that is being created. This parameter can be <b>NULL</b>. When opening an existing file, <b>CreateFile</b> ignores this parameter. When opening a new encrypted file, the file inherits the discretionary access control list from its parent directory. For additional information, see <a href="https://docs.microsoft.com/windows/desktop/FileIO/file-encryption">File Encryption</a>.</para>
+            <para><see href="https://docs.microsoft.com/windows/win32/api//fileapi/nf-fileapi-createfilew#parameters">Read more on docs.microsoft.com</see>.</para>
+            </param>
+            <returns>
+            <para>If the function succeeds, the return value is an open handle to the specified file, device, named pipe, or mail slot. If the function fails, the return value is <b>INVALID_HANDLE_VALUE</b>. To get extended error information, call <a href="/windows/desktop/api/errhandlingapi/nf-errhandlingapi-getlasterror">GetLastError</a>.</para>
+            </returns>
+            <remarks>
+            <para><see href="https://docs.microsoft.com/windows/win32/api//fileapi/nf-fileapi-createfilew">Learn more about this API from docs.microsoft.com</see>.</para>
+            </remarks>
+        </member>
+        <member name="M:Windows.Win32.PInvoke.CreateProcess(System.String,System.Span{System.Char}@,System.Nullable{Windows.Win32.Security.SECURITY_ATTRIBUTES},System.Nullable{Windows.Win32.Security.SECURITY_ATTRIBUTES},Windows.Win32.Foundation.BOOL,Windows.Win32.System.Threading.PROCESS_CREATION_FLAGS,System.Void*,System.String,Windows.Win32.System.Threading.STARTUPINFOW@,Windows.Win32.System.Threading.PROCESS_INFORMATION@)">
+            <inheritdoc cref="M:Windows.Win32.PInvoke.CreateProcess(Windows.Win32.Foundation.PCWSTR,Windows.Win32.Foundation.PWSTR,Windows.Win32.Security.SECURITY_ATTRIBUTES*,Windows.Win32.Security.SECURITY_ATTRIBUTES*,Windows.Win32.Foundation.BOOL,Windows.Win32.System.Threading.PROCESS_CREATION_FLAGS,System.Void*,Windows.Win32.Foundation.PCWSTR,Windows.Win32.System.Threading.STARTUPINFOW*,Windows.Win32.System.Threading.PROCESS_INFORMATION*)" />
+        </member>
+        <member name="M:Windows.Win32.PInvoke.CreateProcess(Windows.Win32.Foundation.PCWSTR,Windows.Win32.Foundation.PWSTR,Windows.Win32.Security.SECURITY_ATTRIBUTES*,Windows.Win32.Security.SECURITY_ATTRIBUTES*,Windows.Win32.Foundation.BOOL,Windows.Win32.System.Threading.PROCESS_CREATION_FLAGS,System.Void*,Windows.Win32.Foundation.PCWSTR,Windows.Win32.System.Threading.STARTUPINFOW*,Windows.Win32.System.Threading.PROCESS_INFORMATION*)">
+            <summary>Creates a new process and its primary thread. The new process runs in the security context of the calling process.</summary>
+            <param name="lpApplicationName">
+            <para>The name of the module to be executed. This module can be a Windows-based application. It can be some other type of module (for example, MS-DOS or OS/2) if the appropriate subsystem is available on the local computer.</para>
+            <para>The string can specify the full path and file name of the module to execute or it can specify a partial name. In the case of a partial name, the function uses the current drive and current directory to complete the specification. The function will not use the search path. This parameter must include the file name extension; no default extension is assumed. The <i>lpApplicationName</i> parameter can be <b>NULL</b>. In that case, the module name must be the first white space–delimited token in the <i>lpCommandLine</i> string. If you are using a long file name that contains a space, use quoted strings to indicate where the file name ends and the arguments begin; otherwise, the file name is ambiguous. For example, consider the string "c:\program files\sub dir\program name". This string can be interpreted in a number of ways. The system tries to interpret the possibilities in the following order: 1. **c:\program.exe** 1. **c:\program files\sub.exe** 1. **c:\program files\sub dir\program.exe** 1. **c:\program files\sub dir\program name.exe** If the executable module is a 16-bit application, <i>lpApplicationName</i> should be <b>NULL</b>, and the string pointed to by <i>lpCommandLine</i> should specify the executable module as well as its arguments. To run a batch file, you must start the command interpreter; set <i>lpApplicationName</i> to cmd.exe and set <i>lpCommandLine</i> to the following arguments: /c plus the name of the batch file.</para>
+            <para><see href="https://docs.microsoft.com/windows/win32/api//processthreadsapi/nf-processthreadsapi-createprocessw#parameters">Read more on docs.microsoft.com</see>.</para>
+            </param>
+            <param name="lpCommandLine">
+            <para>The command line to be executed.</para>
+            <para>The maximum length of this string is 32,767 characters, including the Unicode terminating null character. If <i>lpApplicationName</i> is <b>NULL</b>, the module name portion of <i>lpCommandLine</i> is limited to <b>MAX_PATH</b> characters. The Unicode version of this function, <b>CreateProcessW</b>, can modify the contents of this string. Therefore, this parameter cannot be a pointer to read-only memory (such as a <b>const</b> variable or a literal string). If this parameter is a constant string, the function may cause an access violation. The <i>lpCommandLine</i> parameter can be NULL. In that case, the function uses the string pointed to by <i>lpApplicationName</i> as the command line. If both <i>lpApplicationName</i> and <i>lpCommandLine</i> are non-<b>NULL</b>,  the null-terminated string pointed to by <i>lpApplicationName</i> specifies the module to execute, and the null-terminated string pointed to by  <i>lpCommandLine</i> specifies the command line. The new process can use <a href="https://docs.microsoft.com/windows/desktop/api/processenv/nf-processenv-getcommandlinea">GetCommandLine</a> to retrieve the entire command line. Console processes written in C can use the <i>argc</i> and <i>argv</i> arguments to parse the command line. Because argv[0] is the module name, C programmers generally repeat the module name as the first token in the command line. If <i>lpApplicationName</i> is NULL, the first white space–delimited token of the command line specifies the module name. If you are using a long file name that contains a space, use quoted strings to indicate where the file name ends and the arguments begin (see the explanation for the <i>lpApplicationName</i> parameter). If the file name does not contain an extension, .exe is appended. Therefore, if the file name extension is .com, this parameter must include the .com extension. If the file name ends in a period (.) with no extension, or if the file name contains a path, .exe is not appended. If the file name does not contain a directory path, the system searches for the executable file in the following sequence: </para>
+            <para>This doc was truncated.</para>
+            <para><see href="https://docs.microsoft.com/windows/win32/api//processthreadsapi/nf-processthreadsapi-createprocessw#parameters">Read more on docs.microsoft.com</see>.</para>
+            </param>
+            <param name="lpProcessAttributes">
+            <para>A pointer to a <a href="https://docs.microsoft.com/previous-versions/windows/desktop/legacy/aa379560(v=vs.85)">SECURITY_ATTRIBUTES</a> structure that determines whether the returned handle to the new process object can be inherited by child processes. If <i>lpProcessAttributes</i> is <b>NULL</b>, the handle cannot be inherited.</para>
+            <para>The <b>lpSecurityDescriptor</b> member of the structure specifies a security descriptor for the new process. If <i>lpProcessAttributes</i> is NULL or <b>lpSecurityDescriptor</b> is <b>NULL</b>, the process gets a default security descriptor. The ACLs in the default security descriptor for a process come from the primary token of the creator.<b>Windows XP:  </b>The ACLs in the default security descriptor for a process come from the primary or impersonation token of the creator. This behavior changed with Windows XP with SP2 and Windows Server 2003.</para>
+            <para><see href="https://docs.microsoft.com/windows/win32/api//processthreadsapi/nf-processthreadsapi-createprocessw#parameters">Read more on docs.microsoft.com</see>.</para>
+            </param>
+            <param name="lpThreadAttributes">
+            <para>A pointer to a <a href="https://docs.microsoft.com/previous-versions/windows/desktop/legacy/aa379560(v=vs.85)">SECURITY_ATTRIBUTES</a> structure that determines whether the returned handle to the new thread object can be inherited by child processes. If <i>lpThreadAttributes</i> is NULL, the handle cannot be inherited.</para>
+            <para>The <b>lpSecurityDescriptor</b> member of the structure specifies a security descriptor for the main thread. If <i>lpThreadAttributes</i> is NULL or <b>lpSecurityDescriptor</b> is NULL, the thread gets a default security descriptor. The ACLs in the default security descriptor for a thread come from the process token.<b>Windows XP:  </b>The ACLs in the default security descriptor for a thread come from the primary or impersonation token of the creator. This behavior changed with Windows XP with SP2 and Windows Server 2003.</para>
+            <para><see href="https://docs.microsoft.com/windows/win32/api//processthreadsapi/nf-processthreadsapi-createprocessw#parameters">Read more on docs.microsoft.com</see>.</para>
+            </param>
+            <param name="bInheritHandles">
+            <para>If this parameter is TRUE, each inheritable handle in the calling process is inherited by the new process. If the parameter is FALSE, the handles are not inherited. Note that inherited handles have the same value and access rights as the original handles. For additional discussion of inheritable handles, see Remarks. <b>Terminal Services:  </b>You cannot inherit handles across sessions. Additionally, if this parameter is TRUE, you must create the process in the same session as the caller. <b>Protected Process Light (PPL) processes:  </b>The generic handle inheritance is blocked when a PPL process creates a non-PPL process since PROCESS_DUP_HANDLE is not allowed from a non-PPL process to a PPL process. See <a href="https://docs.microsoft.com/windows/desktop/ProcThread/process-security-and-access-rights">Process Security and Access Rights</a></para>
+            <para><see href="https://docs.microsoft.com/windows/win32/api//processthreadsapi/nf-processthreadsapi-createprocessw#parameters">Read more on docs.microsoft.com</see>.</para>
+            </param>
+            <param name="dwCreationFlags">
+            <para>The flags that control the priority class and the creation of the process. For a list of values, see <a href="https://docs.microsoft.com/windows/desktop/ProcThread/process-creation-flags">Process Creation Flags</a>.</para>
+            <para>This parameter also controls the new process's priority class, which is used to determine the scheduling priorities of the process's threads. For a list of values, see <a href="https://docs.microsoft.com/windows/desktop/api/processthreadsapi/nf-processthreadsapi-getpriorityclass">GetPriorityClass</a>. If none of the priority class flags is specified, the priority class defaults to <b>NORMAL_PRIORITY_CLASS</b> unless the priority class of the creating process is <b>IDLE_PRIORITY_CLASS</b> or <b>BELOW_NORMAL_PRIORITY_CLASS</b>. In this case, the child process receives the default priority class of the calling process.</para>
+            <para>If the dwCreationFlags parameter has a value of 0: - The process inherits both the error mode of the caller and the parent's console. - The environment block for the new process is assumed to contain ANSI characters (see *lpEnvironment* parameter for additional information). - A 16-bit Windows-based application runs in a shared Virtual DOS machine (VDM).</para>
+            <para><see href="https://docs.microsoft.com/windows/win32/api//processthreadsapi/nf-processthreadsapi-createprocessw#parameters">Read more on docs.microsoft.com</see>.</para>
+            </param>
+            <param name="lpEnvironment">
+            <para>A pointer to the environment block for the new process. If this parameter is <b>NULL</b>, the new process uses the environment of the calling process. An environment block consists of a null-terminated block of null-terminated strings. Each string is in the following form: <i>name</i>=<i>value</i>\0 Because the equal sign is used as a separator, it must not be used in the name of an environment variable. An environment block can contain either Unicode or ANSI characters. If the environment block pointed to by <i>lpEnvironment</i> contains Unicode characters, be sure that <i>dwCreationFlags</i> includes <b>CREATE_UNICODE_ENVIRONMENT</b>. If this parameter is <b>NULL</b> and the environment block of the parent process contains Unicode characters, you must also ensure that <i>dwCreationFlags</i> includes <b>CREATE_UNICODE_ENVIRONMENT</b>. The ANSI version of this function, <b>CreateProcessA</b> fails if the total size of the environment block for the process exceeds 32,767 characters. Note that an ANSI environment block is terminated by two zero bytes: one for the last string, one more to terminate the block. A Unicode environment block is terminated by four zero bytes: two for the last string, two more to terminate the block.</para>
+            <para><see href="https://docs.microsoft.com/windows/win32/api//processthreadsapi/nf-processthreadsapi-createprocessw#parameters">Read more on docs.microsoft.com</see>.</para>
+            </param>
+            <param name="lpCurrentDirectory">
+            <para>The full path to the current directory for the process. The string can also specify a UNC path. If this parameter is <b>NULL</b>, the new process will have the same current drive and directory as the calling process. (This feature is provided primarily for shells that need to start an application and specify its initial drive and working directory.)</para>
+            <para><see href="https://docs.microsoft.com/windows/win32/api//processthreadsapi/nf-processthreadsapi-createprocessw#parameters">Read more on docs.microsoft.com</see>.</para>
+            </param>
+            <param name="lpStartupInfo">
+            <para>A pointer to a <a href="https://docs.microsoft.com/windows/desktop/api/processthreadsapi/ns-processthreadsapi-startupinfoa">STARTUPINFO</a> or <a href="https://docs.microsoft.com/windows/desktop/api/winbase/ns-winbase-startupinfoexa">STARTUPINFOEX</a> structure. To set extended attributes, use a <a href="https://docs.microsoft.com/windows/desktop/api/winbase/ns-winbase-startupinfoexa">STARTUPINFOEX</a> structure and specify EXTENDED_STARTUPINFO_PRESENT in the <i>dwCreationFlags</i> parameter. Handles in <a href="https://docs.microsoft.com/windows/desktop/api/processthreadsapi/ns-processthreadsapi-startupinfoa">STARTUPINFO</a> or <a href="https://docs.microsoft.com/windows/desktop/api/winbase/ns-winbase-startupinfoexa">STARTUPINFOEX</a> must be closed with <a href="https://docs.microsoft.com/windows/desktop/api/handleapi/nf-handleapi-closehandle">CloseHandle</a> when they are no longer needed. <div class="alert"><b>Important</b>  The caller is responsible for ensuring that the standard handle fields in <a href="https://docs.microsoft.com/windows/desktop/api/processthreadsapi/ns-processthreadsapi-startupinfoa">STARTUPINFO</a>  contain valid handle values. These fields are copied unchanged to the child process without validation, even when the <b>dwFlags</b> member specifies <b>STARTF_USESTDHANDLES</b>. Incorrect values can cause the child process to misbehave or crash. Use the <a href="https://docs.microsoft.com/windows-hardware/drivers/devtest/application-verifier">Application Verifier</a> runtime verification tool to detect invalid handles. </div> <div> </div></para>
+            <para><see href="https://docs.microsoft.com/windows/win32/api//processthreadsapi/nf-processthreadsapi-createprocessw#parameters">Read more on docs.microsoft.com</see>.</para>
+            </param>
+            <param name="lpProcessInformation">
+            <para>A pointer to a <a href="https://docs.microsoft.com/windows/desktop/api/processthreadsapi/ns-processthreadsapi-process_information">PROCESS_INFORMATION</a> structure that receives identification information about the new process.</para>
+            <para>Handles in <a href="https://docs.microsoft.com/windows/desktop/api/processthreadsapi/ns-processthreadsapi-process_information">PROCESS_INFORMATION</a> must be closed with <a href="https://docs.microsoft.com/windows/desktop/api/handleapi/nf-handleapi-closehandle">CloseHandle</a> when they are no longer needed.</para>
+            <para><see href="https://docs.microsoft.com/windows/win32/api//processthreadsapi/nf-processthreadsapi-createprocessw#parameters">Read more on docs.microsoft.com</see>.</para>
+            </param>
+            <returns>
+            <para>If the function succeeds, the return value is nonzero. If the function fails, the return value is zero. To get extended error information, call <a href="/windows/desktop/api/errhandlingapi/nf-errhandlingapi-getlasterror">GetLastError</a>. Note that the function returns before the process has finished initialization. If a required DLL cannot be located or fails to initialize, the process is terminated. To get the termination status of a process, call <a href="/windows/desktop/api/processthreadsapi/nf-processthreadsapi-getexitcodeprocess">GetExitCodeProcess</a>.</para>
+            </returns>
+            <remarks>
+            <para><see href="https://docs.microsoft.com/windows/win32/api//processthreadsapi/nf-processthreadsapi-createprocessw">Learn more about this API from docs.microsoft.com</see>.</para>
+            </remarks>
+        </member>
+        <member name="M:Windows.Win32.PInvoke.GetFinalPathNameByHandle(System.Runtime.InteropServices.SafeHandle,Windows.Win32.Foundation.PWSTR,System.UInt32,Windows.Win32.Storage.FileSystem.FILE_NAME)">
+            <inheritdoc cref="M:Windows.Win32.PInvoke.GetFinalPathNameByHandle(Windows.Win32.Foundation.HANDLE,Windows.Win32.Foundation.PWSTR,System.UInt32,Windows.Win32.Storage.FileSystem.FILE_NAME)" />
+        </member>
+        <member name="M:Windows.Win32.PInvoke.GetFinalPathNameByHandle(Windows.Win32.Foundation.HANDLE,Windows.Win32.Foundation.PWSTR,System.UInt32,Windows.Win32.Storage.FileSystem.FILE_NAME)">
+            <summary>Retrieves the final path for the specified file.</summary>
+            <param name="hFile">A handle to a file or directory.</param>
+            <param name="lpszFilePath">A pointer to a buffer that receives the path of <i>hFile</i>.</param>
+            <param name="cchFilePath">The size of <i>lpszFilePath</i>, in <b>TCHAR</b>s. This value must include a <b>NULL</b> termination character.</param>
+            <param name="dwFlags"></param>
+            <returns>
+            <para>If the function succeeds, the return value is the length of the string received by <i>lpszFilePath</i>, in <b>TCHAR</b>s. This value does not include the size of the terminating null character. <b>Windows Server 2008 and Windows Vista:  </b>For the ANSI version of this function, <b>GetFinalPathNameByHandleA</b>, the return value includes the size of the terminating null character. If the function fails because <i>lpszFilePath</i> is too small to hold the string plus the terminating null character, the return value is the required buffer size, in <b>TCHAR</b>s. This value includes the size of the terminating null character. If the function fails for any other reason, the return value is zero. To get extended error information, call <a href="/windows/desktop/api/errhandlingapi/nf-errhandlingapi-getlasterror">GetLastError</a>. </para>
+            <para>This doc was truncated.</para>
+            </returns>
+            <remarks>
+            <para><see href="https://docs.microsoft.com/windows/win32/api//fileapi/nf-fileapi-getfinalpathnamebyhandlew">Learn more about this API from docs.microsoft.com</see>.</para>
+            </remarks>
+        </member>
+        <member name="M:Windows.Win32.PInvoke.GetNamedPipeClientProcessId(System.Runtime.InteropServices.SafeHandle,System.UInt32@)">
+            <inheritdoc cref="M:Windows.Win32.PInvoke.GetNamedPipeClientProcessId(Windows.Win32.Foundation.HANDLE,System.UInt32*)" />
+        </member>
+        <member name="M:Windows.Win32.PInvoke.GetNamedPipeClientProcessId(Windows.Win32.Foundation.HANDLE,System.UInt32*)">
+            <summary>Retrieves the client process identifier for the specified named pipe.</summary>
+            <param name="Pipe">
+            <para>A handle to an instance of a named pipe. This handle must be created by the <a href="https://docs.microsoft.com/windows/desktop/api/winbase/nf-winbase-createnamedpipea">CreateNamedPipe</a> function.</para>
+            <para><see href="https://docs.microsoft.com/windows/win32/api//winbase/nf-winbase-getnamedpipeclientprocessid#parameters">Read more on docs.microsoft.com</see>.</para>
+            </param>
+            <param name="ClientProcessId">The process identifier.</param>
+            <returns>
+            <para>If the function succeeds, the return value is nonzero. If the function fails, the return value is zero. To get extended error information, call the <a href="/windows/desktop/api/errhandlingapi/nf-errhandlingapi-getlasterror">GetLastError</a> function.</para>
+            </returns>
+            <remarks>
+            <para><see href="https://docs.microsoft.com/windows/win32/api//winbase/nf-winbase-getnamedpipeclientprocessid">Learn more about this API from docs.microsoft.com</see>.</para>
+            </remarks>
+        </member>
+        <member name="M:Windows.Win32.PInvoke.GetNamedPipeServerProcessId(System.Runtime.InteropServices.SafeHandle,System.UInt32@)">
+            <inheritdoc cref="M:Windows.Win32.PInvoke.GetNamedPipeServerProcessId(Windows.Win32.Foundation.HANDLE,System.UInt32*)" />
+        </member>
+        <member name="M:Windows.Win32.PInvoke.GetNamedPipeServerProcessId(Windows.Win32.Foundation.HANDLE,System.UInt32*)">
+            <summary>Retrieves the server process identifier for the specified named pipe.</summary>
+            <param name="Pipe">
+            <para>A handle to an instance of a named pipe. This handle must be created by the <a href="https://docs.microsoft.com/windows/desktop/api/winbase/nf-winbase-createnamedpipea">CreateNamedPipe</a> function.</para>
+            <para><see href="https://docs.microsoft.com/windows/win32/api//winbase/nf-winbase-getnamedpipeserverprocessid#parameters">Read more on docs.microsoft.com</see>.</para>
+            </param>
+            <param name="ServerProcessId">The process identifier.</param>
+            <returns>
+            <para>If the function succeeds, the return value is nonzero. If the function fails, the return value is zero. To get extended error information, call the <a href="/windows/desktop/api/errhandlingapi/nf-errhandlingapi-getlasterror">GetLastError</a> function.</para>
+            </returns>
+            <remarks>
+            <para><see href="https://docs.microsoft.com/windows/win32/api//winbase/nf-winbase-getnamedpipeserverprocessid">Learn more about this API from docs.microsoft.com</see>.</para>
+            </remarks>
+        </member>
+        <member name="M:Windows.Win32.PInvoke.OpenProcess_SafeHandle(Windows.Win32.System.Threading.PROCESS_ACCESS_RIGHTS,Windows.Win32.Foundation.BOOL,System.UInt32)">
+            <inheritdoc cref="M:Windows.Win32.PInvoke.OpenProcess(Windows.Win32.System.Threading.PROCESS_ACCESS_RIGHTS,Windows.Win32.Foundation.BOOL,System.UInt32)" />
+        </member>
+        <member name="M:Windows.Win32.PInvoke.OpenProcess(Windows.Win32.System.Threading.PROCESS_ACCESS_RIGHTS,Windows.Win32.Foundation.BOOL,System.UInt32)">
+            <summary>Opens an existing local process object.</summary>
+            <param name="dwDesiredAccess">
+            <para>The access to the process object. This access right is checked against the  security descriptor for the process. This parameter can be one or more of the <a href="https://docs.microsoft.com/windows/desktop/ProcThread/process-security-and-access-rights">process access rights</a>. If the caller has enabled the SeDebugPrivilege privilege, the requested access is  granted regardless of the contents of the security descriptor.</para>
+            <para><see href="https://docs.microsoft.com/windows/win32/api//processthreadsapi/nf-processthreadsapi-openprocess#parameters">Read more on docs.microsoft.com</see>.</para>
+            </param>
+            <param name="bInheritHandle">If this value is TRUE, processes created by this process will inherit the handle. Otherwise, the processes do not inherit this handle.</param>
+            <param name="dwProcessId">
+            <para>The identifier of the local process to be opened. If the specified process is the System Idle Process (0x00000000), the function fails and the last error code is `ERROR_INVALID_PARAMETER`. If the specified process is the System process or one of the Client Server Run-Time Subsystem (CSRSS) processes, this function fails and the last error code is `ERROR_ACCESS_DENIED` because their access restrictions prevent user-level code from opening them. If you are using <a href="https://docs.microsoft.com/windows/desktop/api/processthreadsapi/nf-processthreadsapi-getcurrentprocessid">GetCurrentProcessId</a> as an argument to this function, consider using <a href="https://docs.microsoft.com/windows/desktop/api/processthreadsapi/nf-processthreadsapi-getcurrentprocess">GetCurrentProcess</a> instead of OpenProcess, for improved performance.</para>
+            <para><see href="https://docs.microsoft.com/windows/win32/api//processthreadsapi/nf-processthreadsapi-openprocess#parameters">Read more on docs.microsoft.com</see>.</para>
+            </param>
+            <returns>
+            <para>If the function succeeds, the return value is an open handle to the specified process. If the function fails, the return value is NULL. To get extended error information, call <a href="/windows/desktop/api/errhandlingapi/nf-errhandlingapi-getlasterror">GetLastError</a>.</para>
+            </returns>
+            <remarks>
+            <para><see href="https://docs.microsoft.com/windows/win32/api//processthreadsapi/nf-processthreadsapi-openprocess">Learn more about this API from docs.microsoft.com</see>.</para>
+            </remarks>
+        </member>
+        <member name="M:Windows.Win32.PInvoke.QueryFullProcessImageName(System.Runtime.InteropServices.SafeHandle,Windows.Win32.System.Threading.PROCESS_NAME_FORMAT,Windows.Win32.Foundation.PWSTR,System.UInt32@)">
+            <inheritdoc cref="M:Windows.Win32.PInvoke.QueryFullProcessImageName(Windows.Win32.Foundation.HANDLE,Windows.Win32.System.Threading.PROCESS_NAME_FORMAT,Windows.Win32.Foundation.PWSTR,System.UInt32*)" />
+        </member>
+        <member name="M:Windows.Win32.PInvoke.QueryFullProcessImageName(Windows.Win32.Foundation.HANDLE,Windows.Win32.System.Threading.PROCESS_NAME_FORMAT,Windows.Win32.Foundation.PWSTR,System.UInt32*)">
+            <summary>Retrieves the full name of the executable image for the specified process.</summary>
+            <param name="hProcess">
+            <para>A handle to the process. This handle must be created with the PROCESS_QUERY_INFORMATION or PROCESS_QUERY_LIMITED_INFORMATION access right. For more information, see <a href="https://docs.microsoft.com/windows/desktop/ProcThread/process-security-and-access-rights">Process Security and Access Rights</a>.</para>
+            <para><see href="https://docs.microsoft.com/windows/win32/api//winbase/nf-winbase-queryfullprocessimagenamew#parameters">Read more on docs.microsoft.com</see>.</para>
+            </param>
+            <param name="dwFlags"></param>
+            <param name="lpExeName">The path to the executable image. If the function succeeds, this string is null-terminated.</param>
+            <param name="lpdwSize">On input, specifies the size of the <i>lpExeName</i> buffer, in characters. On success, receives the number of characters written to the buffer, not including the null-terminating character.</param>
+            <returns>
+            <para>If the function succeeds, the return value is nonzero. If the function fails, the return value is zero. To get extended error information, call <a href="/windows/desktop/api/errhandlingapi/nf-errhandlingapi-getlasterror">GetLastError</a>.</para>
+            </returns>
+            <remarks>
+            <para><see href="https://docs.microsoft.com/windows/win32/api//winbase/nf-winbase-queryfullprocessimagenamew">Learn more about this API from docs.microsoft.com</see>.</para>
+            </remarks>
+        </member>
+        <member name="M:Windows.Win32.PInvoke.ResumeThread(System.Runtime.InteropServices.SafeHandle)">
+            <inheritdoc cref="M:Windows.Win32.PInvoke.ResumeThread(Windows.Win32.Foundation.HANDLE)" />
+        </member>
+        <member name="M:Windows.Win32.PInvoke.ResumeThread(Windows.Win32.Foundation.HANDLE)">
+            <summary>Decrements a thread's suspend count. When the suspend count is decremented to zero, the execution of the thread is resumed.</summary>
+            <param name="hThread">
+            <para>A handle to the thread to be restarted.</para>
+            <para>This handle must have the THREAD_SUSPEND_RESUME access right. For more information, see <a href="https://docs.microsoft.com/windows/desktop/ProcThread/thread-security-and-access-rights">Thread Security and Access Rights</a>.</para>
+            <para><see href="https://docs.microsoft.com/windows/win32/api//processthreadsapi/nf-processthreadsapi-resumethread#parameters">Read more on docs.microsoft.com</see>.</para>
+            </param>
+            <returns>
+            <para>If the function succeeds, the return value is the thread's previous suspend count. If the function fails, the return value is (DWORD) -1. To get extended error information, call <a href="/windows/desktop/api/errhandlingapi/nf-errhandlingapi-getlasterror">GetLastError</a>.</para>
+            </returns>
+            <remarks>
+            <para><see href="https://docs.microsoft.com/windows/win32/api//processthreadsapi/nf-processthreadsapi-resumethread">Learn more about this API from docs.microsoft.com</see>.</para>
+            </remarks>
+        </member>
+        <member name="M:Windows.Win32.PInvoke.PathIsPrefix(System.String,System.String)">
+            <inheritdoc cref="M:Windows.Win32.PInvoke.PathIsPrefix(Windows.Win32.Foundation.PCWSTR,Windows.Win32.Foundation.PCWSTR)" />
+        </member>
+        <member name="M:Windows.Win32.PInvoke.PathIsPrefix(Windows.Win32.Foundation.PCWSTR,Windows.Win32.Foundation.PCWSTR)">
+            <summary>Searches a path to determine if it contains a valid prefix of the type passed by pszPrefix. A prefix is one of these types:\_"C:\\", ".", "..", "..\\".</summary>
+            <param name="pszPrefix">
+            <para>Type: <b>IN LPCTSTR</b> A pointer to a null-terminated string of maximum length MAX_PATH that contains the prefix for which to search.</para>
+            <para><see href="https://docs.microsoft.com/windows/win32/api//shlwapi/nf-shlwapi-pathisprefixw#parameters">Read more on docs.microsoft.com</see>.</para>
+            </param>
+            <param name="pszPath">
+            <para>Type: <b>IN LPCTSTR</b> A pointer to a null-terminated string of maximum length MAX_PATH that contains the path to be searched.</para>
+            <para><see href="https://docs.microsoft.com/windows/win32/api//shlwapi/nf-shlwapi-pathisprefixw#parameters">Read more on docs.microsoft.com</see>.</para>
+            </param>
+            <returns>
+            <para>Type: <b>BOOL</b> Returns <b>TRUE</b> if the compared path is the full prefix for the path, or <b>FALSE</b> otherwise.</para>
+            </returns>
+            <remarks>
+            <para><see href="https://docs.microsoft.com/windows/win32/api//shlwapi/nf-shlwapi-pathisprefixw">Learn more about this API from docs.microsoft.com</see>.</para>
+            </remarks>
+        </member>
+        <member name="T:Windows.Win32.System.Threading.PROCESS_INFORMATION">
+            <summary>Contains information about a newly created process and its primary thread. It is used with the CreateProcess, CreateProcessAsUser, CreateProcessWithLogonW, or CreateProcessWithTokenW function.</summary>
+            <remarks>
+            <para>If the function succeeds, be sure to call the <a href="https://docs.microsoft.com/windows/desktop/api/handleapi/nf-handleapi-closehandle">CloseHandle</a> function to close the <b>hProcess</b> and <b>hThread</b> handles when you are finished with them. Otherwise, when the child process exits, the system cannot clean up the process structures for the child process because the parent process still has open handles to the child process. However, the system will close these handles when the parent process terminates, so the structures related to the child process object would be cleaned up at this point.</para>
+            <para><see href="https://docs.microsoft.com/windows/win32/api//processthreadsapi/ns-processthreadsapi-process_information#">Read more on docs.microsoft.com</see>.</para>
+            </remarks>
+        </member>
+        <member name="F:Windows.Win32.System.Threading.PROCESS_INFORMATION.hProcess">
+            <summary>A handle to the newly created process. The handle is used to specify the process in all functions that perform operations on the process object.</summary>
+        </member>
+        <member name="F:Windows.Win32.System.Threading.PROCESS_INFORMATION.hThread">
+            <summary>A handle to the primary thread of the newly created process. The handle is used to specify the thread in all functions that perform operations on the thread object.</summary>
+        </member>
+        <member name="F:Windows.Win32.System.Threading.PROCESS_INFORMATION.dwProcessId">
+            <summary>A value that can be used to identify a process. The value is valid from the time the process is created until all handles to the process are closed and the process object is freed; at this point, the identifier may be reused.</summary>
+        </member>
+        <member name="F:Windows.Win32.System.Threading.PROCESS_INFORMATION.dwThreadId">
+            <summary>A value that can be used to identify a thread. The value is valid from the time the thread is created until all handles to the thread are closed and the thread object is freed; at this point, the identifier may be reused.</summary>
+        </member>
+        <member name="T:Windows.Win32.System.Threading.STARTUPINFOW">
+            <summary>Specifies the window station, desktop, standard handles, and appearance of the main window for a process at creation time.</summary>
+            <remarks>
+            <para>For graphical user interface (GUI) processes, this information affects the first window created by the <a href="https://docs.microsoft.com/windows/desktop/api/winuser/nf-winuser-createwindowa">CreateWindow</a> function and shown by the <a href="https://docs.microsoft.com/windows/desktop/api/winuser/nf-winuser-showwindow">ShowWindow</a> function. For console processes, this information affects the console window if a new console is created for the process. A process can use the [GetStartupInfo](./nf-processthreadsapi-getstartupinfow.md) function to retrieve the <b>STARTUPINFO</b> structure specified when the process was created. If a GUI process is being started and neither STARTF_FORCEONFEEDBACK or STARTF_FORCEOFFFEEDBACK is specified, the process feedback cursor is used. A GUI process is one whose subsystem is specified as "windows." If a process is launched from the taskbar or jump list, the system sets [GetStartupInfo](./nf-processthreadsapi-getstartupinfow.md) to retrieve the <b>STARTUPINFO</b> structure and check that <b>hStdOutput</b> is set. If so, use <a href="https://docs.microsoft.com/windows/desktop/api/winuser/nf-winuser-getmonitorinfoa">GetMonitorInfo</a> to check whether <b>hStdOutput</b> is a valid monitor handle (HMONITOR). The process can then use the handle to position its windows. If the [GetStartupInfo](./nf-processthreadsapi-getstartupinfow.md) function, then applications should be aware that the command line is untrusted. If this flag is set, applications should disable potentially dangerous features such as macros, downloaded content, and automatic printing. This flag is optional. Applications that call <a href="https://docs.microsoft.com/windows/desktop/api/processthreadsapi/nf-processthreadsapi-createprocessa">CreateProcess</a> are encouraged to set this flag when launching a program with a untrusted command line so that the created process can apply appropriate policy. The <b>STARTF_UNTRUSTEDSOURCE</b> flag is supported starting in Windows Vista, but it is not defined in the SDK header files prior to the Windows 10 SDK. To use the flag in versions prior to Windows 10, you can define it manually in your program.</para>
+            <para><see href="https://docs.microsoft.com/windows/win32/api//processthreadsapi/ns-processthreadsapi-startupinfow#">Read more on docs.microsoft.com</see>.</para>
+            </remarks>
+        </member>
+        <member name="F:Windows.Win32.System.Threading.STARTUPINFOW.cb">
+            <summary>The size of the structure, in bytes.</summary>
+        </member>
+        <member name="F:Windows.Win32.System.Threading.STARTUPINFOW.lpReserved">
+            <summary>Reserved; must be NULL.</summary>
+        </member>
+        <member name="F:Windows.Win32.System.Threading.STARTUPINFOW.lpDesktop">
+            <summary>
+            <para>The name of the desktop, or the name of both the desktop and window station for this process. A backslash in the string indicates that the string includes both the desktop and window station names. For more information, see [Thread Connection to a Desktop](/windows/desktop/winstation/thread-connection-to-a-desktop).</para>
+            <para><see href="https://docs.microsoft.com/windows/win32/api//processthreadsapi/ns-processthreadsapi-startupinfow#members">Read more on docs.microsoft.com</see>.</para>
+            </summary>
+        </member>
+        <member name="F:Windows.Win32.System.Threading.STARTUPINFOW.lpTitle">
+            <summary>For console processes, this is the title displayed in the title bar if a new console window is created. If NULL, the name of the executable file is used as the window title instead. This parameter must be NULL for GUI or console processes that do not create a new console window.</summary>
+        </member>
+        <member name="F:Windows.Win32.System.Threading.STARTUPINFOW.dwX">
+            <summary>
+            <para>If <b>dwFlags</b> specifies STARTF_USEPOSITION, this member is the x offset of the upper left corner of a window if a new window is created, in pixels. Otherwise, this member is ignored.</para>
+            <para>The offset is from the upper left corner of the screen. For GUI processes, the specified position is used the first time the new process calls <a href="https://docs.microsoft.com/windows/desktop/api/winuser/nf-winuser-createwindowa">CreateWindow</a> to create an overlapped window if the <i>x</i> parameter of <b>CreateWindow</b> is CW_USEDEFAULT.</para>
+            <para><see href="https://docs.microsoft.com/windows/win32/api//processthreadsapi/ns-processthreadsapi-startupinfow#members">Read more on docs.microsoft.com</see>.</para>
+            </summary>
+        </member>
+        <member name="F:Windows.Win32.System.Threading.STARTUPINFOW.dwY">
+            <summary>
+            <para>If <b>dwFlags</b> specifies STARTF_USEPOSITION, this member is the y offset of the upper left corner of a window if a new window is created, in pixels. Otherwise, this member is ignored.</para>
+            <para>The offset is from the upper left corner of the screen. For GUI processes, the specified position is used the first time the new process calls <a href="https://docs.microsoft.com/windows/desktop/api/winuser/nf-winuser-createwindowa">CreateWindow</a> to create an overlapped window if the <i>y</i> parameter of <b>CreateWindow</b> is CW_USEDEFAULT.</para>
+            <para><see href="https://docs.microsoft.com/windows/win32/api//processthreadsapi/ns-processthreadsapi-startupinfow#members">Read more on docs.microsoft.com</see>.</para>
+            </summary>
+        </member>
+        <member name="F:Windows.Win32.System.Threading.STARTUPINFOW.dwXSize">
+            <summary>
+            <para>If <b>dwFlags</b> specifies STARTF_USESIZE, this member is the width of the window if a new window is created, in pixels. Otherwise, this member is ignored.</para>
+            <para>For GUI processes, this is used only the first time the new process calls <a href="https://docs.microsoft.com/windows/desktop/api/winuser/nf-winuser-createwindowa">CreateWindow</a> to create an overlapped window if the <i>nWidth</i> parameter of <b>CreateWindow</b> is CW_USEDEFAULT.</para>
+            <para><see href="https://docs.microsoft.com/windows/win32/api//processthreadsapi/ns-processthreadsapi-startupinfow#members">Read more on docs.microsoft.com</see>.</para>
+            </summary>
+        </member>
+        <member name="F:Windows.Win32.System.Threading.STARTUPINFOW.dwYSize">
+            <summary>
+            <para>If <b>dwFlags</b> specifies STARTF_USESIZE, this member is the height of the window if a new window is created, in pixels. Otherwise, this member is ignored.</para>
+            <para>For GUI processes, this is used only the first time the new process calls <a href="https://docs.microsoft.com/windows/desktop/api/winuser/nf-winuser-createwindowa">CreateWindow</a> to create an overlapped window if the <i>nHeight</i> parameter of <b>CreateWindow</b> is CW_USEDEFAULT.</para>
+            <para><see href="https://docs.microsoft.com/windows/win32/api//processthreadsapi/ns-processthreadsapi-startupinfow#members">Read more on docs.microsoft.com</see>.</para>
+            </summary>
+        </member>
+        <member name="F:Windows.Win32.System.Threading.STARTUPINFOW.dwXCountChars">
+            <summary>If <b>dwFlags</b> specifies STARTF_USECOUNTCHARS, if a new console window is created in a console process, this member specifies the screen buffer width, in character columns. Otherwise, this member is ignored.</summary>
+        </member>
+        <member name="F:Windows.Win32.System.Threading.STARTUPINFOW.dwYCountChars">
+            <summary>If <b>dwFlags</b> specifies STARTF_USECOUNTCHARS, if a new console window is created in a console process, this member specifies the screen buffer height, in character rows. Otherwise, this member is ignored.</summary>
+        </member>
+        <member name="F:Windows.Win32.System.Threading.STARTUPINFOW.dwFillAttribute">
+            <summary>If <b>dwFlags</b> specifies STARTF_USEFILLATTRIBUTE, this member is the initial text and background colors if a new console window is created in a console application. Otherwise, this member is ignored.</summary>
+        </member>
+        <member name="F:Windows.Win32.System.Threading.STARTUPINFOW.dwFlags">
+            <summary>A bitfield that determines whether certain</summary>
+        </member>
+        <member name="F:Windows.Win32.System.Threading.STARTUPINFOW.wShowWindow">
+            <summary>
+            <para>If <b>dwFlags</b> specifies STARTF_USESHOWWINDOW, this member can be any of the values that can be specified in the <i>nCmdShow</i> parameter for the <a href="https://docs.microsoft.com/windows/desktop/api/winuser/nf-winuser-showwindow">ShowWindow</a> function, except for SW_SHOWDEFAULT. Otherwise, this member is ignored.</para>
+            <para>For GUI processes, the first time <a href="https://docs.microsoft.com/windows/desktop/api/winuser/nf-winuser-showwindow">ShowWindow</a> is called, its <i>nCmdShow</i> parameter is ignored <b>wShowWindow</b> specifies the default value. In subsequent calls to <a href="https://docs.microsoft.com/windows/desktop/api/winuser/nf-winuser-showwindow">ShowWindow</a>, the <b>wShowWindow</b> member is used if the <i>nCmdShow</i> parameter of <b>ShowWindow</b> is set to SW_SHOWDEFAULT.</para>
+            <para><see href="https://docs.microsoft.com/windows/win32/api//processthreadsapi/ns-processthreadsapi-startupinfow#members">Read more on docs.microsoft.com</see>.</para>
+            </summary>
+        </member>
+        <member name="F:Windows.Win32.System.Threading.STARTUPINFOW.cbReserved2">
+            <summary>Reserved for use by the C Run-time; must be zero.</summary>
+        </member>
+        <member name="F:Windows.Win32.System.Threading.STARTUPINFOW.lpReserved2">
+            <summary>Reserved for use by the C Run-time; must be NULL.</summary>
+        </member>
+        <member name="F:Windows.Win32.System.Threading.STARTUPINFOW.hStdInput">
+            <summary>
+            <para>If <b>dwFlags</b> specifies STARTF_USESTDHANDLES, this member is the standard input handle for the process. If STARTF_USESTDHANDLES is not specified, the default for standard input is the keyboard buffer. If <b>dwFlags</b> specifies STARTF_USEHOTKEY, this member specifies a hotkey value that is sent as the <i>wParam</i> parameter of a <a href="https://docs.microsoft.com/windows/win32/inputdev/wm-sethotkey">WM_SETHOTKEY</a> message to the first  eligible top-level window created by the application that owns the process. If the window is created with the WS_POPUP window style, it is not eligible unless the WS_EX_APPWINDOW extended window style is also set. For more information, see <a href="https://docs.microsoft.com/windows/win32/api/winuser/nf-winuser-createwindowexa">CreateWindowEx</a>. Otherwise, this member is ignored.</para>
+            <para><see href="https://docs.microsoft.com/windows/win32/api//processthreadsapi/ns-processthreadsapi-startupinfow#members">Read more on docs.microsoft.com</see>.</para>
+            </summary>
+        </member>
+        <member name="F:Windows.Win32.System.Threading.STARTUPINFOW.hStdOutput">
+            <summary>
+            <para>If <b>dwFlags</b> specifies STARTF_USESTDHANDLES, this member is the standard output handle for the process. Otherwise, this member is ignored and the default for standard output is the console window's buffer. If a process is launched from the taskbar or jump list, the system sets <b>hStdOutput</b> to a handle to the monitor that contains the taskbar or jump list used to launch the process. For more information, see Remarks.<b>Windows 7, Windows Server 2008 R2, Windows Vista, Windows Server 2008, Windows XP and Windows Server 2003:  </b>This behavior was introduced in Windows 8 and Windows Server 2012.</para>
+            <para><see href="https://docs.microsoft.com/windows/win32/api//processthreadsapi/ns-processthreadsapi-startupinfow#members">Read more on docs.microsoft.com</see>.</para>
+            </summary>
+        </member>
+        <member name="F:Windows.Win32.System.Threading.STARTUPINFOW.hStdError">
+            <summary>If <b>dwFlags</b> specifies STARTF_USESTDHANDLES, this member is the standard error handle for the process. Otherwise, this member is ignored and the default for standard error is the console window's buffer.</summary>
+        </member>
+        <member name="T:Windows.Win32.Security.SECURITY_ATTRIBUTES">
+            <summary>The SECURITY_ATTRIBUTES structure contains the security descriptor for an object and specifies whether the handle retrieved by specifying this structure is inheritable.</summary>
+            <remarks>
+            <para><see href="https://docs.microsoft.com/windows/win32/api//wtypesbase/ns-wtypesbase-security_attributes#">Read more on docs.microsoft.com</see>.</para>
+            </remarks>
+        </member>
+        <member name="F:Windows.Win32.Security.SECURITY_ATTRIBUTES.nLength">
+            <summary>The size, in bytes, of this structure. Set this value to the size of the **SECURITY\_ATTRIBUTES** structure.</summary>
+        </member>
+        <member name="F:Windows.Win32.Security.SECURITY_ATTRIBUTES.lpSecurityDescriptor">
+            <summary>
+            <para>A pointer to a [**SECURITY\_DESCRIPTOR**](../winnt/ns-winnt-security_descriptor.md) structure that controls access to the object. If the value of this member is **NULL**, the object is assigned the default security descriptor associated with the [*access token*](/windows/win32/secauthz/access-tokens) of the calling process. This is not the same as granting access to everyone by assigning a **NULL** [*discretionary access control list*](/windows/win32/secauthz/dacls-and-aces) (DACL). By default, the default DACL in the access token of a process allows access only to the user represented by the access token. For information about creating a security descriptor, see [Creating a Security Descriptor](/windows/win32/secauthz/creating-a-security-descriptor-for-a-new-object-in-c--).</para>
+            <para><see href="https://docs.microsoft.com/windows/win32/api//wtypesbase/ns-wtypesbase-security_attributes#members">Read more on docs.microsoft.com</see>.</para>
+            </summary>
+        </member>
+        <member name="F:Windows.Win32.Security.SECURITY_ATTRIBUTES.bInheritHandle">
+            <summary>A Boolean value that specifies whether the returned handle is inherited when a new process is created. If this member is **TRUE**, the new process inherits the handle.</summary>
+        </member>
+        <member name="T:Windows.Win32.Security.SID_AND_ATTRIBUTES">
+            <summary>Represents a security identifier (SID) and its attributes.</summary>
+            <remarks>
+            <para>A group is represented by a SID. SIDs have attributes that indicate whether they are currently enabled, disabled, or mandatory. SIDs also indicate how these attributes are used. A <b>SID_AND_ATTRIBUTES</b> structure can represent a SID whose attributes change frequently. For example, <b>SID_AND_ATTRIBUTES</b> is used to represent groups in the <a href="https://docs.microsoft.com/windows/desktop/api/winnt/ns-winnt-token_groups">TOKEN_GROUPS</a> structure.</para>
+            <para><see href="https://docs.microsoft.com/windows/win32/api//winnt/ns-winnt-sid_and_attributes#">Read more on docs.microsoft.com</see>.</para>
+            </remarks>
+        </member>
+        <member name="F:Windows.Win32.Security.SID_AND_ATTRIBUTES.Sid">
+            <summary>A pointer to a <a href="https://docs.microsoft.com/windows/desktop/api/winnt/ns-winnt-sid">SID</a> structure.</summary>
+        </member>
+        <member name="F:Windows.Win32.Security.SID_AND_ATTRIBUTES.Attributes">
+            <summary>Specifies attributes of the SID. This value contains up to 32 one-bit flags. Its meaning depends on the definition and use of the SID.</summary>
+        </member>
+        <member name="T:Windows.Win32.Security.TOKEN_ELEVATION">
+            <summary>Indicates whether a token has elevated privileges.</summary>
+            <remarks>
+            <para><see href="https://docs.microsoft.com/windows/win32/api//winnt/ns-winnt-token_elevation">Learn more about this API from docs.microsoft.com</see>.</para>
+            </remarks>
+        </member>
+        <member name="F:Windows.Win32.Security.TOKEN_ELEVATION.TokenIsElevated">
+            <summary>A nonzero value if the token has elevated privileges; otherwise, a zero value.</summary>
+        </member>
+        <member name="T:Windows.Win32.Security.TOKEN_INFORMATION_CLASS">
+            <summary>Contains values that specify the type of information being assigned to or retrieved from an access token.</summary>
+            <remarks>
+            <para><see href="https://docs.microsoft.com/windows/win32/api//winnt/ne-winnt-token_information_class">Learn more about this API from docs.microsoft.com</see>.</para>
+            </remarks>
+        </member>
+        <member name="F:Windows.Win32.Security.TOKEN_INFORMATION_CLASS.TokenUser">
+            <summary>
+            <para>The buffer receives a <a href="https://docs.microsoft.com/windows/desktop/api/winnt/ns-winnt-token_user">TOKEN_USER</a> structure that contains the user account of the token.</para>
+            <para><see href="https://docs.microsoft.com/windows/win32/api//winnt/ne-winnt-token_information_class#members">Read more on docs.microsoft.com</see>.</para>
+            </summary>
+        </member>
+        <member name="F:Windows.Win32.Security.TOKEN_INFORMATION_CLASS.TokenGroups">
+            <summary>
+            <para>The buffer receives a <a href="https://docs.microsoft.com/windows/desktop/api/winnt/ns-winnt-token_groups">TOKEN_GROUPS</a> structure that contains the group accounts associated with the token.</para>
+            <para><see href="https://docs.microsoft.com/windows/win32/api//winnt/ne-winnt-token_information_class#members">Read more on docs.microsoft.com</see>.</para>
+            </summary>
+        </member>
+        <member name="F:Windows.Win32.Security.TOKEN_INFORMATION_CLASS.TokenPrivileges">
+            <summary>
+            <para>The buffer receives a <a href="https://docs.microsoft.com/windows/desktop/api/winnt/ns-winnt-token_privileges">TOKEN_PRIVILEGES</a> structure that contains the privileges of the token.</para>
+            <para><see href="https://docs.microsoft.com/windows/win32/api//winnt/ne-winnt-token_information_class#members">Read more on docs.microsoft.com</see>.</para>
+            </summary>
+        </member>
+        <member name="F:Windows.Win32.Security.TOKEN_INFORMATION_CLASS.TokenOwner">
+            <summary>
+            <para>The buffer receives a <a href="https://docs.microsoft.com/windows/desktop/api/winnt/ns-winnt-token_owner">TOKEN_OWNER</a> structure that contains the default owner <a href="https://docs.microsoft.com/windows/desktop/SecGloss/s-gly">security identifier</a> (SID) for newly created objects.</para>
+            <para><see href="https://docs.microsoft.com/windows/win32/api//winnt/ne-winnt-token_information_class#members">Read more on docs.microsoft.com</see>.</para>
+            </summary>
+        </member>
+        <member name="F:Windows.Win32.Security.TOKEN_INFORMATION_CLASS.TokenPrimaryGroup">
+            <summary>
+            <para>The buffer receives a <a href="https://docs.microsoft.com/windows/desktop/api/winnt/ns-winnt-token_primary_group">TOKEN_PRIMARY_GROUP</a> structure that contains the default primary group SID for newly created objects.</para>
+            <para><see href="https://docs.microsoft.com/windows/win32/api//winnt/ne-winnt-token_information_class#members">Read more on docs.microsoft.com</see>.</para>
+            </summary>
+        </member>
+        <member name="F:Windows.Win32.Security.TOKEN_INFORMATION_CLASS.TokenDefaultDacl">
+            <summary>
+            <para>The buffer receives a <a href="https://docs.microsoft.com/windows/desktop/api/winnt/ns-winnt-token_default_dacl">TOKEN_DEFAULT_DACL</a> structure that contains the default DACL for newly created objects.</para>
+            <para><see href="https://docs.microsoft.com/windows/win32/api//winnt/ne-winnt-token_information_class#members">Read more on docs.microsoft.com</see>.</para>
+            </summary>
+        </member>
+        <member name="F:Windows.Win32.Security.TOKEN_INFORMATION_CLASS.TokenSource">
+            <summary>
+            <para>The buffer receives a <a href="https://docs.microsoft.com/windows/desktop/api/winnt/ns-winnt-token_source">TOKEN_SOURCE</a> structure that contains the source of the token. <b>TOKEN_QUERY_SOURCE</b> access is needed to retrieve this information.</para>
+            <para><see href="https://docs.microsoft.com/windows/win32/api//winnt/ne-winnt-token_information_class#members">Read more on docs.microsoft.com</see>.</para>
+            </summary>
+        </member>
+        <member name="F:Windows.Win32.Security.TOKEN_INFORMATION_CLASS.TokenType">
+            <summary>
+            <para>The buffer receives a <a href="https://docs.microsoft.com/windows/desktop/api/winnt/ne-winnt-token_type">TOKEN_TYPE</a> value that indicates whether the token is a <a href="https://docs.microsoft.com/windows/desktop/SecGloss/p-gly">primary</a> or <a href="https://docs.microsoft.com/windows/desktop/SecGloss/i-gly">impersonation token</a>.</para>
+            <para><see href="https://docs.microsoft.com/windows/win32/api//winnt/ne-winnt-token_information_class#members">Read more on docs.microsoft.com</see>.</para>
+            </summary>
+        </member>
+        <member name="F:Windows.Win32.Security.TOKEN_INFORMATION_CLASS.TokenImpersonationLevel">
+            <summary>
+            <para>The buffer receives a <a href="https://docs.microsoft.com/windows/desktop/api/winnt/ne-winnt-security_impersonation_level">SECURITY_IMPERSONATION_LEVEL</a> value that indicates the impersonation level of the token. If the access token is not an <a href="https://docs.microsoft.com/windows/desktop/SecGloss/i-gly">impersonation token</a>, the function fails.</para>
+            <para><see href="https://docs.microsoft.com/windows/win32/api//winnt/ne-winnt-token_information_class#members">Read more on docs.microsoft.com</see>.</para>
+            </summary>
+        </member>
+        <member name="F:Windows.Win32.Security.TOKEN_INFORMATION_CLASS.TokenStatistics">
+            <summary>
+            <para>The buffer receives a <a href="https://docs.microsoft.com/windows/desktop/api/winnt/ns-winnt-token_statistics">TOKEN_STATISTICS</a> structure that contains various token statistics.</para>
+            <para><see href="https://docs.microsoft.com/windows/win32/api//winnt/ne-winnt-token_information_class#members">Read more on docs.microsoft.com</see>.</para>
+            </summary>
+        </member>
+        <member name="F:Windows.Win32.Security.TOKEN_INFORMATION_CLASS.TokenRestrictedSids">
+            <summary>
+            <para>The buffer receives a <a href="https://docs.microsoft.com/windows/desktop/api/winnt/ns-winnt-token_groups">TOKEN_GROUPS</a> structure that contains the list of restricting SIDs in a <a href="https://docs.microsoft.com/windows/desktop/SecAuthZ/restricted-tokens">restricted token</a>.</para>
+            <para><see href="https://docs.microsoft.com/windows/win32/api//winnt/ne-winnt-token_information_class#members">Read more on docs.microsoft.com</see>.</para>
+            </summary>
+        </member>
+        <member name="F:Windows.Win32.Security.TOKEN_INFORMATION_CLASS.TokenSessionId">
+            <summary>
+            <para>The buffer receives a <b>DWORD</b> value that indicates the Terminal Services session identifier that is associated with the token. If the token is associated with the terminal server client session, the session identifier is nonzero. <b>Windows Server 2003 and Windows XP:  </b>If the token is associated with the terminal server console session, the session identifier is zero. In a non-Terminal Services environment, the session identifier is zero. If <b>TokenSessionId</b> is set with <a href="https://docs.microsoft.com/windows/desktop/api/securitybaseapi/nf-securitybaseapi-settokeninformation">SetTokenInformation</a>, the application must have the <b>Act As Part Of the Operating System</b> privilege, and the application must be enabled to set the session ID in a token.</para>
+            <para><see href="https://docs.microsoft.com/windows/win32/api//winnt/ne-winnt-token_information_class#members">Read more on docs.microsoft.com</see>.</para>
+            </summary>
+        </member>
+        <member name="F:Windows.Win32.Security.TOKEN_INFORMATION_CLASS.TokenGroupsAndPrivileges">
+            <summary>The buffer receives a <a href="https://docs.microsoft.com/windows/desktop/api/winnt/ns-winnt-token_groups_and_privileges">TOKEN_GROUPS_AND_PRIVILEGES</a> structure that contains the user SID, the group accounts, the restricted SIDs, and the authentication ID associated with the token.</summary>
+        </member>
+        <member name="F:Windows.Win32.Security.TOKEN_INFORMATION_CLASS.TokenSessionReference">
+            <summary>Reserved.</summary>
+        </member>
+        <member name="F:Windows.Win32.Security.TOKEN_INFORMATION_CLASS.TokenSandBoxInert">
+            <summary>The buffer receives a <b>DWORD</b> value that is nonzero if the token includes the <b>SANDBOX_INERT</b> flag.</summary>
+        </member>
+        <member name="F:Windows.Win32.Security.TOKEN_INFORMATION_CLASS.TokenAuditPolicy">
+            <summary>Reserved.</summary>
+        </member>
+        <member name="F:Windows.Win32.Security.TOKEN_INFORMATION_CLASS.TokenOrigin">
+            <summary>
+            <para>The buffer receives a <a href="https://docs.microsoft.com/windows/desktop/api/winnt/ns-winnt-token_origin">TOKEN_ORIGIN</a> value. If the token  resulted from a logon that used explicit credentials, such as passing a name, domain, and password to the  <a href="https://docs.microsoft.com/windows/desktop/api/winbase/nf-winbase-logonusera">LogonUser</a> function, then the <a href="https://docs.microsoft.com/windows/desktop/api/winnt/ns-winnt-token_origin">TOKEN_ORIGIN</a> structure will contain the ID of the <a href="https://docs.microsoft.com/windows/desktop/SecGloss/l-gly">logon session</a> that created it. If the token resulted from  network authentication, such as a call to <a href="https://docs.microsoft.com/windows/desktop/api/sspi/nf-sspi-acceptsecuritycontext">AcceptSecurityContext</a>  or a call to <a href="https://docs.microsoft.com/windows/desktop/api/winbase/nf-winbase-logonusera">LogonUser</a> with <i>dwLogonType</i> set to <b>LOGON32_LOGON_NETWORK</b> or <b>LOGON32_LOGON_NETWORK_CLEARTEXT</b>, then this value will be zero.</para>
+            <para><see href="https://docs.microsoft.com/windows/win32/api//winnt/ne-winnt-token_information_class#members">Read more on docs.microsoft.com</see>.</para>
+            </summary>
+        </member>
+        <member name="F:Windows.Win32.Security.TOKEN_INFORMATION_CLASS.TokenElevationType">
+            <summary>The buffer receives a <a href="https://docs.microsoft.com/windows/desktop/api/winnt/ne-winnt-token_elevation_type">TOKEN_ELEVATION_TYPE</a> value that specifies the elevation level of the token.</summary>
+        </member>
+        <member name="F:Windows.Win32.Security.TOKEN_INFORMATION_CLASS.TokenLinkedToken">
+            <summary>The buffer receives a <a href="https://docs.microsoft.com/windows/desktop/api/winnt/ns-winnt-token_linked_token">TOKEN_LINKED_TOKEN</a> structure that contains a handle to another token that is linked to this token.</summary>
+        </member>
+        <member name="F:Windows.Win32.Security.TOKEN_INFORMATION_CLASS.TokenElevation">
+            <summary>The buffer receives a <a href="https://docs.microsoft.com/windows/desktop/api/winnt/ns-winnt-token_elevation">TOKEN_ELEVATION</a> structure that specifies whether the token is elevated.</summary>
+        </member>
+        <member name="F:Windows.Win32.Security.TOKEN_INFORMATION_CLASS.TokenHasRestrictions">
+            <summary>The buffer receives a <b>DWORD</b> value that is nonzero if the token has ever been filtered.</summary>
+        </member>
+        <member name="F:Windows.Win32.Security.TOKEN_INFORMATION_CLASS.TokenAccessInformation">
+            <summary>The buffer receives a <a href="https://docs.microsoft.com/windows/desktop/api/winnt/ns-winnt-token_access_information">TOKEN_ACCESS_INFORMATION</a> structure that specifies  security information contained in the token.</summary>
+        </member>
+        <member name="F:Windows.Win32.Security.TOKEN_INFORMATION_CLASS.TokenVirtualizationAllowed">
+            <summary>The buffer receives a <b>DWORD</b> value that is nonzero if  <a href="https://docs.microsoft.com/windows/desktop/SecGloss/v-gly">virtualization</a> is allowed for the token.</summary>
+        </member>
+        <member name="F:Windows.Win32.Security.TOKEN_INFORMATION_CLASS.TokenVirtualizationEnabled">
+            <summary>The buffer receives a <b>DWORD</b> value that is nonzero if  <a href="https://docs.microsoft.com/windows/desktop/SecGloss/v-gly">virtualization</a> is enabled for the token.</summary>
+        </member>
+        <member name="F:Windows.Win32.Security.TOKEN_INFORMATION_CLASS.TokenIntegrityLevel">
+            <summary>The buffer receives a <a href="https://docs.microsoft.com/windows/desktop/api/winnt/ns-winnt-token_mandatory_label">TOKEN_MANDATORY_LABEL</a> structure that specifies the token's integrity level.</summary>
+        </member>
+        <member name="F:Windows.Win32.Security.TOKEN_INFORMATION_CLASS.TokenUIAccess">
+            <summary>The buffer receives a <b>DWORD</b> value that is nonzero if  the token has the UIAccess flag set.</summary>
+        </member>
+        <member name="F:Windows.Win32.Security.TOKEN_INFORMATION_CLASS.TokenMandatoryPolicy">
+            <summary>The buffer receives a <a href="https://docs.microsoft.com/windows/desktop/api/winnt/ns-winnt-token_mandatory_policy">TOKEN_MANDATORY_POLICY</a> structure that specifies the token's mandatory integrity policy.</summary>
+        </member>
+        <member name="F:Windows.Win32.Security.TOKEN_INFORMATION_CLASS.TokenLogonSid">
+            <summary>The buffer receives a <a href="https://docs.microsoft.com/windows/desktop/api/winnt/ns-winnt-token_groups">TOKEN_GROUPS</a> structure that specifies the token's logon SID.</summary>
+        </member>
+        <member name="F:Windows.Win32.Security.TOKEN_INFORMATION_CLASS.TokenIsAppContainer">
+            <summary>The buffer receives a <b>DWORD</b> value that is nonzero if the token is an app container token. Any callers who check the <b>TokenIsAppContainer</b> and have it return 0 should also verify that the caller token is not an identify level impersonation token. If the current token is not an app container but is an identity level token, you should return <b>AccessDenied</b>.</summary>
+        </member>
+        <member name="F:Windows.Win32.Security.TOKEN_INFORMATION_CLASS.TokenCapabilities">
+            <summary>The buffer receives a <a href="https://docs.microsoft.com/windows/desktop/api/winnt/ns-winnt-token_groups">TOKEN_GROUPS</a> structure that contains the capabilities associated with the token.</summary>
+        </member>
+        <member name="F:Windows.Win32.Security.TOKEN_INFORMATION_CLASS.TokenAppContainerSid">
+            <summary>The buffer receives a <a href="https://docs.microsoft.com/windows/desktop/api/winnt/ns-winnt-token_appcontainer_information">TOKEN_APPCONTAINER_INFORMATION</a> structure that contains the AppContainerSid associated with the token. If the token is not associated with an app container, the <b>TokenAppContainer</b> member of the <b>TOKEN_APPCONTAINER_INFORMATION</b> structure points to <b>NULL</b>.</summary>
+        </member>
+        <member name="F:Windows.Win32.Security.TOKEN_INFORMATION_CLASS.TokenAppContainerNumber">
+            <summary>The buffer receives a <b>DWORD</b> value that includes the   app container number for the token. For tokens that are not app container tokens, this value is zero.</summary>
+        </member>
+        <member name="F:Windows.Win32.Security.TOKEN_INFORMATION_CLASS.TokenUserClaimAttributes">
+            <summary>The buffer receives a <a href="https://docs.microsoft.com/windows/desktop/api/winnt/ns-winnt-claim_security_attributes_information">CLAIM_SECURITY_ATTRIBUTES_INFORMATION</a> structure that contains the user claims associated with the token.</summary>
+        </member>
+        <member name="F:Windows.Win32.Security.TOKEN_INFORMATION_CLASS.TokenDeviceClaimAttributes">
+            <summary>The buffer receives  a <a href="https://docs.microsoft.com/windows/desktop/api/winnt/ns-winnt-claim_security_attributes_information">CLAIM_SECURITY_ATTRIBUTES_INFORMATION</a> structure that contains the  device claims associated with the token.</summary>
+        </member>
+        <member name="F:Windows.Win32.Security.TOKEN_INFORMATION_CLASS.TokenRestrictedUserClaimAttributes">
+            <summary>This value is reserved.</summary>
+        </member>
+        <member name="F:Windows.Win32.Security.TOKEN_INFORMATION_CLASS.TokenRestrictedDeviceClaimAttributes">
+            <summary>This value is reserved.</summary>
+        </member>
+        <member name="F:Windows.Win32.Security.TOKEN_INFORMATION_CLASS.TokenDeviceGroups">
+            <summary>The buffer receives a <a href="https://docs.microsoft.com/windows/desktop/api/winnt/ns-winnt-token_groups">TOKEN_GROUPS</a> structure that contains the device groups that are associated with the token.</summary>
+        </member>
+        <member name="F:Windows.Win32.Security.TOKEN_INFORMATION_CLASS.TokenRestrictedDeviceGroups">
+            <summary>The buffer receives a <a href="https://docs.microsoft.com/windows/desktop/api/winnt/ns-winnt-token_groups">TOKEN_GROUPS</a> structure that contains the restricted device groups that are associated with the token.</summary>
+        </member>
+        <member name="F:Windows.Win32.Security.TOKEN_INFORMATION_CLASS.TokenSecurityAttributes">
+            <summary>This value is reserved.</summary>
+        </member>
+        <member name="F:Windows.Win32.Security.TOKEN_INFORMATION_CLASS.TokenIsRestricted">
+            <summary>This value is reserved.</summary>
+        </member>
+        <member name="F:Windows.Win32.Security.TOKEN_INFORMATION_CLASS.TokenProcessTrustLevel">
+            <summary></summary>
+        </member>
+        <member name="F:Windows.Win32.Security.TOKEN_INFORMATION_CLASS.TokenPrivateNameSpace">
+            <summary></summary>
+        </member>
+        <member name="F:Windows.Win32.Security.TOKEN_INFORMATION_CLASS.TokenSingletonAttributes">
+            <summary></summary>
+        </member>
+        <member name="F:Windows.Win32.Security.TOKEN_INFORMATION_CLASS.TokenBnoIsolation">
+            <summary></summary>
+        </member>
+        <member name="F:Windows.Win32.Security.TOKEN_INFORMATION_CLASS.TokenChildProcessFlags">
+            <summary></summary>
+        </member>
+        <member name="F:Windows.Win32.Security.TOKEN_INFORMATION_CLASS.TokenIsLessPrivilegedAppContainer">
+            <summary></summary>
+        </member>
+        <member name="F:Windows.Win32.Security.TOKEN_INFORMATION_CLASS.MaxTokenInfoClass">
+            <summary>The maximum value for this enumeration.</summary>
+        </member>
+        <member name="T:Windows.Win32.Security.TOKEN_MANDATORY_LABEL">
+            <summary>Specifies the mandatory integrity level for a token.</summary>
+            <remarks>
+            <para><see href="https://docs.microsoft.com/windows/win32/api//winnt/ns-winnt-token_mandatory_label">Learn more about this API from docs.microsoft.com</see>.</para>
+            </remarks>
+        </member>
+        <member name="F:Windows.Win32.Security.TOKEN_MANDATORY_LABEL.Label">
+            <summary>A <a href="https://docs.microsoft.com/windows/desktop/api/winnt/ns-winnt-sid_and_attributes">SID_AND_ATTRIBUTES</a> structure that specifies the mandatory integrity level of the token.</summary>
+        </member>
+    </members>
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315" /><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256" /><DigestValue>Gxuyd12EkottWqka1JuVP62sP7AEov4ppoZngo5JH2Y=</DigestValue></Reference></SignedInfo><SignatureValue>sjyImKrypA0TqU9st0DiIKENMYEwoxYbtgDwazE2tKW9dEv48WmzLHLJ8CdmHec4t8mFQK6Xfi5wMZ+9IFveeeSVhR6QoCOdwaKlfKztRomJU/FbjheI+EZrfrmTz43Z8XzsZPbsbRn01dIFvQ2xA0yVEWI63LPQv4wRsrFU+sIrhyOqiXiuYEswZ5YCEIgS62QVT3h5W7dDVWCgNE3Hvds3L/1QyXWfdc9tdXhuWhHkkihN0GTMya51f9DpgqFV+7w052lzYUZ6TqafuuQ5rpsCv3pfvKCc4JVLS3R+LWpjN5cpktrzDwk/4OGwdL5RNb9wRtS3NvVTccMhO08+6Q==</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>0OTPj7P1+wTbr+Qf9COrqA8I9DSTqNSq1UKju4IEV3HJJck61i+MTEoYyKLtiLG2Jxeu8F81QKuTpuKHvi380gzs43G+prNNIAaNDkGqsENQYo8iezbw3/NCNX1vTi++irdFqXNs6xoc3B3W+7qT678b0jTVL8St7IMO2E7d9eNdL6RKfMnwRJf4XfGcwL+OwwoCeY9c5tvebNUVWRzaejKIkBVThApuAMCtpdvIvmBEdSTuCKZUx+OLr81/aEZyR2jL1s2RKaMz8uIzTtgw6m3DbOM4ewFjIRNT1hVQPghyPxJ+ZwErwry5rkf7fKuG3PF0fECGSUEqftlOptpXTQ==</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>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</X509Certificate><X509Certificate>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</X509Certificate><X509Certificate>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</X509Certificate></X509Data></KeyInfo><Object Id="ts-countersig"><X509Data><X509Certificate>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</X509Certificate><X509Certificate>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</X509Certificate></X509Data><CounterSignature ts-format="cms-timestamp-message" xmlns="http://schemas.microsoft.com/xmldsig/timestamp/2003">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</CounterSignature></Object></Signature></doc>

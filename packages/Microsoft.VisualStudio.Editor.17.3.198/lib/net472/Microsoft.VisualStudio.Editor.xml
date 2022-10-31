@@ -1,0 +1,1303 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Microsoft.VisualStudio.Editor</name>
+    </assembly>
+    <members>
+        <member name="T:Microsoft.VisualStudio.Editor.CodeCleanup.IVsHierarchyCodeCleanupScope">
+            <summary>
+            Code cleanup context for a IvsHierarchy
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Editor.CodeCleanup.IVsHierarchyCodeCleanupScope.Hierarchy">
+            <summary>
+            Gets the hierarchy to apply code cleanup changes upon.
+            Hierarchy can be null if selected item is the sln node
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Editor.CodeCleanup.IVsHierarchyCodeCleanupScope.ItemId">
+            <summary>
+            Gets the item id for the hierarchy item to apply cleanup changes to
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Editor.Commanding.CommandBindingAttribute">
+            <summary>
+            Identifies a Visual Studio command binding.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Editor.Commanding.CommandBindingDefinition">
+            <summary>
+            Defines a command binding.
+            </summary>
+            <remarks> 
+            Command binding is inherently host specific so actual metadata attributes
+            exported with this class are specific to each host.
+            In Visual Studio you would use Microsoft.VisualStudio.Editor.CommandBindingAttribute.
+            </remarks>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Editor.Commanding.OleCommandExecutionArgs">
+            <summary>
+            Encapsulates nCmdexecopt, pvaIn and pvaOut arguments passed to <see cref="M:Microsoft.VisualStudio.OLE.Interop.IOleCommandTarget.Exec(System.Guid@,System.UInt32,System.UInt32,System.IntPtr,System.IntPtr)" />.
+            </summary>
+            <remarks>
+            This allows command handlers (when running in Visual Studio) access raw Visual Studio command input:
+            <code>
+            commandExecutionContext.Properties.TryGetProperty(typeof(OleCommandExecutionArgs), out OleCommandExecutionArgs vsInputArgs)
+            </code>
+            </remarks>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Editor.Commanding.OleCommandExecutionArgs.CmdExecOpt">
+            <summary>
+            nCmdexecopt parameter of the <see cref="M:Microsoft.VisualStudio.OLE.Interop.IOleCommandTarget.Exec(System.Guid@,System.UInt32,System.UInt32,System.IntPtr,System.IntPtr)" />.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Editor.Commanding.OleCommandExecutionArgs.PVaIn">
+            <summary>
+            pvaIn parameter of the <see cref="M:Microsoft.VisualStudio.OLE.Interop.IOleCommandTarget.Exec(System.Guid@,System.UInt32,System.UInt32,System.IntPtr,System.IntPtr)" />.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Editor.Commanding.OleCommandExecutionArgs.PVaOut">
+            <summary>
+            pvaOut parameter of the <see cref="M:Microsoft.VisualStudio.OLE.Interop.IOleCommandTarget.Exec(System.Guid@,System.UInt32,System.UInt32,System.IntPtr,System.IntPtr)" />.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Editor.Commanding.OleCommandExecutionArgs.PguidCmdGroup">
+            <summary>
+            pguidCmdGroup parameter of the <see cref="M:Microsoft.VisualStudio.OLE.Interop.IOleCommandTarget.Exec(System.Guid@,System.UInt32,System.UInt32,System.IntPtr,System.IntPtr)" />.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Editor.Commanding.OleCommandExecutionArgs.NCmdID">
+            <summary>
+            nCmdID parameter of the <see cref="M:Microsoft.VisualStudio.OLE.Interop.IOleCommandTarget.Exec(System.Guid@,System.UInt32,System.UInt32,System.IntPtr,System.IntPtr)" />.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Editor.IVsCommandHandlerServiceAdapter">
+            <summary>
+            An adapter that exposes <see cref="T:Microsoft.VisualStudio.Text.Editor.Commanding.IEditorCommandHandlerService" />s for a given text view via <see cref="T:Microsoft.VisualStudio.OLE.Interop.IOleCommandTarget" /> interface.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Editor.IVsCommandHandlerServiceAdapter.TextView">
+            <summary>
+            The text view this adapter was created for.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Editor.IVsCommandHandlerServiceAdapter.NextCommandTarget">
+            <summary>
+            A next <see cref="T:Microsoft.VisualStudio.OLE.Interop.IOleCommandTarget" /> in a command handling chain.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Editor.IVsCommandHandlerServiceAdapterFactory">
+            <summary>
+            A factory service for creating <see cref="T:Microsoft.VisualStudio.Editor.IVsCommandHandlerServiceAdapter" />s. Such adapters are used to
+            expose <see cref="T:Microsoft.VisualStudio.Text.Editor.Commanding.IEditorCommandHandlerService" />s for a given text view in <see cref="T:Microsoft.VisualStudio.OLE.Interop.IOleCommandTarget" /> based
+            commanding intefaces, such as <see cref="T:Microsoft.VisualStudio.TextManager.Interop.IVsContainedLanguage" />.
+            </summary>
+            <remarks>This is a MEF Component, and should be exported with the following attribute:
+            [Export(typeof(IVsCommandHandlerServiceAdapterFactory))]
+            </remarks>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Editor.IVsCommandHandlerServiceAdapterFactory.Create(Microsoft.VisualStudio.Text.Editor.ITextView,Microsoft.VisualStudio.OLE.Interop.IOleCommandTarget)">
+            <summary>
+            Creates an <see cref="T:Microsoft.VisualStudio.Editor.IVsCommandHandlerServiceAdapter" /> instance wrapping <see cref="T:Microsoft.VisualStudio.Text.Editor.Commanding.IEditorCommandHandlerService" /> for
+            a given <see cref="T:Microsoft.VisualStudio.Text.Editor.ITextView" />.
+            </summary>
+            <param name="textView">A text view to create <see cref="T:Microsoft.VisualStudio.Editor.IVsCommandHandlerServiceAdapter" /> for.</param>
+            <param name="nextCmdTarget">A next command target to delegate unhandled commands.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Editor.IVsCommandHandlerServiceAdapterFactory.Create(Microsoft.VisualStudio.Text.Editor.ITextView,Microsoft.VisualStudio.Text.ITextBuffer,Microsoft.VisualStudio.OLE.Interop.IOleCommandTarget)">
+            <summary>
+            Creates an <see cref="T:Microsoft.VisualStudio.Editor.IVsCommandHandlerServiceAdapter" /> instance wrapping <see cref="T:Microsoft.VisualStudio.Text.Editor.Commanding.IEditorCommandHandlerService" /> for
+            a given <see cref="T:Microsoft.VisualStudio.Text.Editor.ITextView" /> and <see cref="T:Microsoft.VisualStudio.TextManager.Interop.IVsTextBuffer" />.
+            </summary>
+            <param name="textView">A text view to create <see cref="T:Microsoft.VisualStudio.Editor.IVsCommandHandlerServiceAdapter" /> for.</param>
+            <param name="subjectBuffer">A subject text buffer to create <see cref="T:Microsoft.VisualStudio.Editor.IVsCommandHandlerServiceAdapter" /> for.</param>
+            <param name="nextCmdTarget">A next command target to delegate unhandled commands.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Editor.IVsCommandHandlerServiceAdapterFactory.GetCurrentOleCommandExecutionInput(Microsoft.VisualStudio.Text.Editor.ITextView)">
+            <summary>
+            Returns <see cref="T:Microsoft.VisualStudio.Editor.Commanding.OleCommandExecutionArgs" /> instance representing raw
+            (as passed to <see cref="M:Microsoft.VisualStudio.OLE.Interop.IOleCommandTarget.Exec(System.Guid@,System.UInt32,System.UInt32,System.IntPtr,System.IntPtr)" /> input arguments
+            for the currently executing command.
+            </summary>
+            <param name="textView">A <see cref="T:Microsoft.VisualStudio.Text.Editor.ITextView" /> on which the command is being executed.</param>
+            <returns><see cref="T:Microsoft.VisualStudio.Editor.Commanding.OleCommandExecutionArgs" /> instance representing raw
+            (as passed to <see cref="M:Microsoft.VisualStudio.OLE.Interop.IOleCommandTarget.Exec(System.Guid@,System.UInt32,System.UInt32,System.IntPtr,System.IntPtr)" />) input.</returns>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Editor.CommandRouting.InterceptsCommandRouting">
+            <summary>
+            If <c>true</c>, prevents Visual Studio commands to be routed to the active command target and instead 
+            causes raw WPF input to be routed to the element itself. Otherwise, commands executed in the Shell will follow
+            their regular routing process.
+            </summary>
+            <remarks>
+            This property affects behavior only when the owning element has keyboard focus.
+            </remarks>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Editor.CommandRouting.SetInterceptsCommandRouting(System.Windows.DependencyObject,System.Boolean)">
+            <summary>
+            Sets the value of the <see cref="F:Microsoft.VisualStudio.Editor.CommandRouting.InterceptsCommandRouting" /> on a <see cref="T:System.Windows.DependencyObject" />.
+            </summary>
+            <param name="element">The element on which the property is to be set.</param>
+            <param name="value">The value of the property to be set.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Editor.CommandRouting.GetInterceptsCommandRouting(System.Windows.DependencyObject)">
+            <summary>
+            Gets the value of the <see cref="F:Microsoft.VisualStudio.Editor.CommandRouting.InterceptsCommandRouting" /> on a <see cref="T:System.Windows.DependencyObject" />.
+            </summary>
+            <param name="element">The element to read the property value from.</param>
+            <returns>The value of the <see cref="F:Microsoft.VisualStudio.Editor.CommandRouting.InterceptsCommandRouting" />.</returns>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Editor.EditorConstants">
+            <summary>
+            Contains common constants used in Editor code.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Editor.EditorConstants.EditorCommandSetString">
+            <summary>
+            The guid used to refer to commands in the Editor command set.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Editor.EditorConstants.EditorCommandSet">
+            <summary>
+            The guid used to refer to commands in the Editor command set.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Editor.EditorConstants.IDM_CTXT_NAVIGATE">
+            <summary>
+            The ID of the Navigate context menu.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Editor.EditorConstants.IDM_VS_CTXT_FIND_REGEX">
+            <summary>
+            The ID of the find regex helper context menu.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Editor.EditorConstants.IDM_VS_CTXT_REPLACE_REGEX">
+            <summary>
+            The ID of the replace regex helper context menu.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Editor.EditorConstants.IDM_CTXT_FILE_HEALTH_INDICATOR">
+            <summary>
+            The ID of the File Health Indicator context menu.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Editor.EditorConstants.RoslynCommandSetString">
+            <summary>
+            The guid used to refer to commands in the Roslyn command set.
+            The goal is to move these commands to Editor. For now, we are reusing Roslyn command so that we don't duplicate menu items.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Editor.EditorConstants.EditorCommandID">
+            <summary>
+            IDs of commands in the Editor command set.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Editor.EditorConstants.EditorCommandID.DuplicateSelection">
+            <summary>
+            The command used to duplicate the current selection without touching the clipboard.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Editor.EditorConstants.EditorCommandID.NavigateToNextIssue">
+            <summary>
+            Moves the caret to the next error or highlighted region.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Editor.EditorConstants.EditorCommandID.NavigateToPreviousIssue">
+            <summary>
+            Moves the caret to the next error or highlighted region.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Editor.EditorConstants.EditorCommandID.RemoveLastSecondaryCaret">
+            <summary>
+            Treats the primary caret as the first in a wrap-around search through the view,
+            and removes the last one. This will either be the caret immediately before the primary
+            one if the primary is not the first in the document, or it will be the secondary caret
+            in the document if the primary is first.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Editor.EditorConstants.EditorCommandID.MoveLastCaretDown">
+            <summary>
+            This combines the behaviors of insert next matching caret, and remove last secondary caret.
+            The last secondary caret is defined as in in <see cref="F:Microsoft.VisualStudio.Editor.EditorConstants.EditorCommandID.RemoveLastSecondaryCaret" />. It is then
+            moved so it will be where <see cref="F:Microsoft.VisualStudio.Editor.EditorConstants.EditorCommandID.InsertNextMatchingCaret" /> would insert a new caret.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Editor.EditorConstants.EditorCommandID.GoToLastEditLocation">
+            <summary>
+            Navigates to the last edit location in a solution.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Editor.EditorConstants.EditorCommandID.ShowClipboardHistory">
+            <summary>
+            Shows clipboard history
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Editor.EditorConstants.EditorCommandID.ToggleLineComments">
+            <summary>
+            Toggle line comments
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Editor.EditorConstants.EditorCommandID.ToggleBlockComments">
+            <summary>
+            Toggle block comments
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Editor.EditorConstants.EditorCommandID.NewlineFormattingMenu">
+            <summary>
+            Contains commands that perform formatting newlines (corresponds to IDM_CTX_NEWLINE_FORMATTING).
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Editor.EditorConstants.EditorCommandID.NormalizeNewlineGroup">
+            <summary>
+            Contains commands that perform formatting on newlines (corresponds to IDG_CTX_NORMALIZE_NEWLINES)
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Editor.EditorConstants.EditorCommandID.SetNewlinesToCRLF">
+            <summary>
+            Convert all newlines in a document to CRLF.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Editor.EditorConstants.EditorCommandID.SetNewlinesToLF">
+            <summary>
+            Convert all newlines in a document to LF.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Editor.EditorConstants.EditorCommandID.SetNewlinesToCR">
+            <summary>
+            Convert all newlines in a document to CR.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Editor.EditorConstants.EditorCommandID.GoToBase">
+            <summary>
+            Navigates to the base definition.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Editor.EditorConstants.EditorCommandID.SetLeadingWhitespaceToSpaces">
+            <summary>
+            Convert all leading whitespace to spaces.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Editor.EditorConstants.EditorCommandID.SetLeadingWhitespaceToTabs">
+            <summary>
+            Convert all leading whitespace to tabs.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Editor.EditorConstants.EditorCommandID.WhitespaceFormattingMenu">
+            <summary>
+            Contains commands that perform formatting leading whitespace (corresponds to IDM_CTX_WHITESPACE_FORMATTING)
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Editor.EditorConstants.EditorCommandID.WhitespaceFormattingGroup">
+            <summary>
+            Contains commands that perform formatting leading whitespace (corresponds to IDG_CTX_NORMALIZE_NEWLINES)
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Editor.EditorConstants.EditorCommandID.ConfigureCodeCleanup">
+            <summary>
+            One click code cleanup - configuration, Editor command
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Editor.EditorConstants.EditorCommandID.CodeCleanUpDefault">
+            <summary>
+            One click code cleanup - default profile, Editor command
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Editor.EditorConstants.EditorCommandID.CodeCleanUpCustom">
+            <summary>
+            One click code cleanup - custom profile, Editor command
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Editor.EditorConstants.EditorCommandID.SolutionExplorerCodeCleanUpDefault">
+            <summary>
+            One click code cleanup - default profile, Solution explorer command
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Editor.EditorConstants.EditorCommandID.SolutionExplorerCodeCleanUpCustom">
+            <summary>
+            Initial ID for the dynamic Code Cleanup commands in the Editor
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Editor.EditorConstants.EditorCommandID.WholeSolutionConfigureCodeCleanup">
+            <summary>
+            One click code cleanup - configuration clean up for the whole solution
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Editor.EditorConstants.EditorCommandID.WholeSolutionCodeCleanUpDefault">
+            <summary>
+            One click code cleanup - default profile, Solution explorer command
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Editor.EditorConstants.EditorCommandID.WholeSolutionCodeCleanUpCustom">
+            <summary>
+            Initial ID for the dynamic Code Cleanup commands in the Editor
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Editor.EditorConstants.EditorCommandID.SortLines">
+            <summary>
+            Sort Lines
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Editor.EditorConstants.EditorCommandID.JoinLines">
+            <summary>
+            Join Lines
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Editor.EditorConstants.EditorCommandID.MoveToNextSubWord">
+            <summary>
+            Move SubWord Next
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Editor.EditorConstants.EditorCommandID.MoveToPreviousSubWord">
+            <summary>
+            Move SubWord Previous
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Editor.EditorConstants.EditorCommandID.MoveToNextSubWordExtend">
+            <summary>
+            Move SubWord Next
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Editor.EditorConstants.EditorCommandID.MoveToPreviousSubWordExtend">
+            <summary>
+            Move SubWord Previous
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Editor.EditorConstants.EditorCommandID.SubwordTranspose">
+            <summary>
+            Transpose Subword
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Editor.EditorConstants.EditorCommandID.SubwordDeleteToEnd">
+            <summary>
+            Subword Delete To End
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Editor.EditorConstants.EditorCommandID.SubwordDeleteToStart">
+            <summary>
+            Subword Delete To Start
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Editor.EditorConstants.EditorCommandID.SubwordExpandSelection">
+            <summary>
+            Subword Expand Selection
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Editor.EditorConstants.EditorCommandID.SubwordContractSelection">
+            <summary>
+            Subword Contract Selection
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Editor.EditorConstants.EditorCommandID.SelectCurrentSubword">
+            <summary>
+            Select Current Subword
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Editor.EditorConstants.EditorCommandID.PeekDifference">
+            <summary>
+            Peek Difference
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Editor.EditorConstants.EditorCommandID.PreviousSuggestion">
+            <summary>
+            Previous suggestion
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Editor.EditorConstants.EditorCommandID.NextSuggestion">
+            <summary>
+            Next suggestion
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Editor.EditorConstants.RoslynCommandID">
+            <summary>
+            IDs of commands in the Roslyn command set.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Editor.EditorConstants.RoslynCommandID.GoToImplementation">
+            <summary>
+            Begins symbol search for implementations.
+            The command is declared in Roslyn's .vsct file, and we are not re-defining it on Editor side,
+            because if we did, it would conflict with C++'s Go To Declaration which uses the same keyboard shortcut.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Editor.OptionDescriptions.SettingNameAttribute">
+            <summary>
+            Attribute used to define the name an option is persisted with.
+            </summary>
+            <remarks>
+            If null, then the option is persisted using the description's Name attribute.
+            </remarks>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Editor.OptionDescriptions.StandardOptionPages">
+            <summary>
+            Names of the standard options pages.
+            </summary>
+            <remarks>
+            Options with a Parent of one of these pages will be placed on the appropriate page.
+            </remarks>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Editor.OptionDescriptions.XmlNameAttribute">
+            <summary>
+            Attribute used to define the name used to export/import the file from a .vssettings file.
+            </summary>
+            <remarks>
+            If null, then the description's name is used as the xml name.
+            </remarks>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Editor.FontsAndColorsCategory">
+            <summary>
+            Represents a fonts and colors category. Font and color categories act as a mean to group various editors into groups that share the same
+            colors. Examples of this in Visual Studio are "Text Editor", "Output Window", etc. These show up in the Tools -&gt; Options -&gt; Fonts &amp; Colors dialog
+            in the "Show settings for" drop down. This is an immutable class.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Editor.FontsAndColorsCategory.FontCategory">
+            <summary>
+            The font category guid for this <see cref="T:Microsoft.VisualStudio.Editor.FontsAndColorsCategory" />.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Editor.FontsAndColorsCategory.ColorCategory">
+            <summary>
+            The color category guid for this <see cref="T:Microsoft.VisualStudio.Editor.FontsAndColorsCategory" />.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Editor.FontsAndColorsCategory.LanguageService">
+            <summary>
+            The language service guid for this <see cref="T:Microsoft.VisualStudio.Editor.FontsAndColorsCategory" />.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Editor.FontsAndColorsCategory.#ctor(System.Guid,System.Guid,System.Guid)">
+            <summary>
+            Initializes a new instance of <see cref="T:Microsoft.VisualStudio.Editor.FontsAndColorsCategory" />.
+            </summary>
+            <param name="languageService">The language service guid for this <see cref="T:Microsoft.VisualStudio.Editor.FontsAndColorsCategory" />.</param>
+            <param name="fontCategory">The font category guid for this <see cref="T:Microsoft.VisualStudio.Editor.FontsAndColorsCategory" />.</param>
+            <param name="colorCategory">The color category guid for this <see cref="T:Microsoft.VisualStudio.Editor.FontsAndColorsCategory" />.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Editor.FontsAndColorsCategory.SetColorCategory(System.Guid)">
+            <summary>
+            Sets the color category Guid.
+            </summary>
+            <param name="newColorCategory">The color category Guid.</param>
+            <returns>A new <see cref="T:Microsoft.VisualStudio.Editor.FontsAndColorsCategory" /> with the color category guid set to be <paramref name="newColorCategory" />.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Editor.FontsAndColorsCategory.SetFontCategory(System.Guid)">
+            <summary>
+            Sets the font category Guid.
+            </summary>
+            <param name="newFontCategory">The font category Guid.</param>
+            <returns>A new <see cref="T:Microsoft.VisualStudio.Editor.FontsAndColorsCategory" /> with the font category guid set to be <paramref name="newFontCategory" />.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Editor.FontsAndColorsCategory.SetLanguageService(System.Guid)">
+            <summary>
+            Sets the language service Guid. 
+            </summary>
+            <param name="newLanguageService">The language service Guid.</param>
+            <returns>A new <see cref="T:Microsoft.VisualStudio.Editor.FontsAndColorsCategory" /> with the font category guid set to be <paramref name="newLanguageService" />.</returns>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Editor.FontsAndColorsCategory.AppearanceCategory">
+            <summary>
+            Returns a string representating the textual key that's used in the editor's (platform side)
+            EditorFormatMap and ClassificationFormatMap groupings.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Editor.FontsAndColorsCategory.Equals(System.Object)">
+            <summary>
+            Determines whether two <see cref="T:Microsoft.VisualStudio.Editor.FontsAndColorsCategory" />s are the same.
+            </summary>
+            <param name="obj">The object to compare with.</param>
+            <returns>True if the two <see cref="T:Microsoft.VisualStudio.Editor.FontsAndColorsCategory" />s are the same, false otherwise</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Editor.FontsAndColorsCategory.GetHashCode">
+            <summary>
+            Serves as a hash function for this type.
+            </summary>
+            <returns>The hash code.</returns>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Editor.IVsFontsAndColorsInformation">
+            <summary>
+            Encapsulates information about a language's color information.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Editor.IVsFontsAndColorsInformation.GetClassificationType(System.Int32)">
+            <summary>
+            Returns a <see cref="T:Microsoft.VisualStudio.Text.Classification.IClassificationType" />s that is created to be used by the language service classifier 
+            for the colorable item at index colorableItemIndex.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Editor.IVsFontsAndColorsInformation.GetFontAndColorPreferences">
+            <summary>
+            Returns the <see cref="T:Microsoft.VisualStudio.TextManager.Interop.FONTCOLORPREFERENCES2" /> of the language service. This corresponds to the color definitions
+            inside Visual Studio (not the information available in the classification format map, editor format map, etc.)
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Editor.IVsFontsAndColorsInformation.AddLanguageService(System.Guid)">
+            <summary>
+            Adds an additional language service that contributes to coloring information of this class. This method can be
+            used to add additional color sources where multiple buffers of the same font and color category guid have 
+            varying language service GUIDs.
+            </summary>
+        </member>
+        <member name="E:Microsoft.VisualStudio.Editor.IVsFontsAndColorsInformation.Updated">
+            <summary>
+            Raised when information about the language service's colors is changed.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Editor.IVsFontsAndColorsInformationService">
+            <summary>
+            Provides <see cref="T:Microsoft.VisualStudio.Editor.IVsFontsAndColorsInformation" />s for given languages and <see cref="T:Microsoft.VisualStudio.Editor.FontsAndColorsCategory" />ies.
+            </summary>
+            <remarks>
+            This is a MEF Component, and should be imported with the following attribute:
+            [Import(typeof(IFontsAndColorsInformationService))]
+            </remarks>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Editor.IVsFontsAndColorsInformationService.GetFontAndColorInformation(Microsoft.VisualStudio.Editor.FontsAndColorsCategory)">
+            <summary>
+            Returns an <see cref="T:Microsoft.VisualStudio.Editor.IVsFontsAndColorsInformation" /> which represents the coloring information for the provided
+            <see cref="T:Microsoft.VisualStudio.Editor.FontsAndColorsCategory" />.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Editor.DefGuidList.CLSID_VsTextBufferString">
+            <summary>
+            String representing the Guid used to co-create a VsTextBuffer
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Editor.DefGuidList.CLSID_SecondaryVsTextBufferAdapterString">
+            <summary>
+            String representing the Guid used to co-create a SecondaryVsTextBufferAdapter
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Editor.DefGuidList.CLSID_VsTextViewString">
+            <summary>
+            String representing the Guid used to co-create a VsTextView
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Editor.DefGuidList.CLSID_VsDocDataAdapterString">
+            <summary>
+            String representing the Guid used to co-create a VsDocDataAdapter
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Editor.DefGuidList.CLSID_VsCodeWindowString">
+            <summary>
+            String representing the Guid used to co-create a VsCodeWindow
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Editor.DefGuidList.CLSID_VsDiffAwareCodeWindowString">
+            <summary>
+            String representing the Guid used to co-create a DiffAwareVsCodeWindow
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Editor.DefGuidList.CLSID_VsTextBufferCoordinatorAdapterString">
+            <summary>
+            String representing the Guid used to co-create a VsTextBufferCoordinatorAdapter
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Editor.DefGuidList.CLSID_VsHiddenTextManagerAdapterString">
+            <summary>
+            String representing the Guid used to co-create a VsHiddenTextManagerAdapter
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Editor.DefGuidList.CLSID_PlatformFactoryString">
+            <summary>
+            String representing the Guid used to co-create a PlatformFactory
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Editor.DefGuidList.CLSID_TextEditorFactoryString">
+            <summary>
+            String representing the Guid used to co-create a TextEditorFactory
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Editor.DefGuidList.CLSID_TextEditorFactoryWithEncodingString">
+            <summary>
+            String representing the Guid used to co-create a TextEditorFactoryWithEncoding
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Editor.DefGuidList.CLSID_PrimeEditorString">
+            <summary>
+            String representing the Guid used to co-create a PrimeEditor
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Editor.DefGuidList.guidTextEditorFontCategory">
+            <summary>
+            Guid for the code editor font and color category.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Editor.DefGuidList.guidOutputWindowFontCategory">
+            <summary>
+            Guid for the ouput window's font and color category.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Editor.DefGuidList.guidPrinterFontCategory">
+            <summary>
+            Guid for the printer font and color category.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Editor.DefGuidList.guidToolTipFontCategory">
+            <summary>
+            Guid for the tooltip font and color category.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Editor.DefGuidList.guidStatementCompletionFontCategory">
+            <summary>
+            Guid for the statement completion font and color category.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Editor.DefGuidList.guidFindResultsFontCategory">
+            <summary>
+            Guid for the find results font and color category.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Editor.DefGuidList.guidCommandWindowFontCategory">
+            <summary>
+            Guid for the command window's font and color category.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Editor.DefGuidList.guidSystemWindowFontCategory">
+            <summary>
+            Guid for the system window font and color category.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Editor.DefGuidList.guidImmediateWindowFontCategory">
+            <summary>
+            Guid for the immediate window's font and color category.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Editor.DefGuidList.guidEditPropCategoryViewMasterSettings">
+            <summary>
+            Guid for the master settings for a certain TextView
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Editor.DefGuidList.CLSID_VsTextBuffer">
+            <summary>
+            Guid used to co-create a VsTextBuffer
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Editor.DefGuidList.CLSID_VsTextView">
+            <summary>
+            Guid used to co-create a VsTextView
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Editor.DefGuidList.CLSID_SecondaryVsTextViewAdapter">
+            <summary>
+            Guid used to co-create a SecondaryVsTextViewAdapter
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Editor.DefGuidList.CLSID_VsDocDataAdapter">
+            <summary>
+            Guid used to co-create a VsDocDataAdapter
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Editor.DefGuidList.CLSID_VsCodeWindow">
+            <summary>
+            Guid used to co-create a VsCodeWindow
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Editor.DefGuidList.CLSID_VsTextBufferCoordinatorAdapter">
+            <summary>
+            Guid used to co-create a VsTextBufferCoordinatorAdapter
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Editor.DefGuidList.CLSID_VsHiddenTextManagerAdapter">
+            <summary>
+            Guid used to co-create a VsHiddenTextManagerAdapter
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Editor.DefGuidList.CLSID_PlatformFactory">
+            <summary>
+            Guid used to co-create a PlatformFactory
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Editor.DefGuidList.CLSID_TextEditorFactory">
+            <summary>
+            Guid used to co-create a TextEditorFactory
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Editor.DefGuidList.CLSID_TextEditorFactoryWithEncoding">
+            <summary>
+            Guid used to co-create a TextEditorFactoryWithEncoding
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Editor.DefGuidList.CLSID_PrimeEditor">
+            <summary>
+            Guid used to co-create a PrimeEditor
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Editor.DefGuidList.guidIVxTextBuffer">
+            <summary>
+            Guid used to get an IVxTextBuffer from an ITextBuffer
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Editor.DefGuidList.guidTextDataModel">
+            <summary>
+            Guid used to get the ITextDataModel from an IVsTextBuffer
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Editor.DefGuidList.guidIWpfTextViewHost">
+            <summary>
+            Guid used to get an IWpfTextViewHost from an IWpfTextView
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Editor.DefGuidList.guidImmutableITextImage">
+            <summary>
+            Guid used to get an immutable ITextImage that corresponds to the current document buffer.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Editor.DefGuidList.guidDocumentTextSnapshot">
+            <summary>
+            Guid used to get the current ITextSnapshot of the document buffer.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Editor.DefGuidList.guidEditorPkgString">
+            <summary>
+            String representing the Guid for the editor package
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Editor.DefGuidList.guidEditorPkg">
+            <summary>
+            Guid for the editor package
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Editor.IAugmentCompletion">
+            <summary>
+            Definition of a MEF export to allow an extension augment IntelliCodeSuggestions.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Editor.IExpansionManager.EnumerateExpansionsAsync(System.Guid,System.Int32,System.String[],System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Aysnchronously enumerates this expansions associated with the given guid.
+            </summary>
+            <param name="guidLang">GUID of the language associated with snippets.</param>
+            <param name="shortCutOnly">Value which determines if only shortcut should be checked for duplication.</param>
+            <param name="types">Expansion types.</param>
+            <param name="countTypes">Count of expansion types.</param>
+            <param name="includeNULLType">Value which determines if NULL snippet type should be allowed.</param>
+            <param name="includeDuplicates">Value which determines if two snippets of the same title/shortcut can be allowed.</param>
+            <returns>An asynchronous Task which fetches the expansion enumerator.</returns>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Editor.IIntellicodeQuickReplace">
+            <summary>
+            Definition of a MEF export to allow an extension to add a button to the QuickFind.
+            </summary>
+            <remarks>
+            The extension needs to export an instance of IIntellicodeFindReplace. If there is no IIntellicodeQuickReplace2, then
+            quick replace behaves normally. If there's more than one, MEF decides which one is used.
+            </remarks>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Editor.IIntellicodeQuickReplace.OnCreated(Microsoft.VisualStudio.Editor.IUpdateFindAndReplace)">
+            <summary>
+            Called once when the replace in files UI is created (happens once/VS session: only a single instance of the replace in files adornment is created for each VS session).
+            </summary>
+            <param name="updateFind">Hook to allow the extension to adjust find parameters.</param>
+            <returns>UIElement displayed to the left of the Replace box in replace in files.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Editor.IIntellicodeQuickReplace.OnFindConfigurationChanged">
+            <summary>
+            Called when some aspect of ReplaceInFiles is changed is changed.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Editor.IIntellicodeQuickReplace.OnFindScopeChange">
+            <summary>
+            Called when there is a change in the find scope.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Editor.IIntellicodeQuickReplace.OnFindNextClicked">
+            <summary>
+            Called when FindNext is clicked.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Editor.IIntellicodeQuickReplace.OnFindAllClicked">
+            <summary>
+            Called when FindAll is clicked.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Editor.IIntellicodeQuickReplace.OnReplaceNextClicked">
+            <summary>
+            Called when ReplaceNext (or ReplacePrevious) is clicked.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Editor.IIntellicodeQuickReplace.OnReplaceAllClicked">
+            <summary>
+            Called when ReplaceAll is clicked.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Editor.IIntellicodeQuickReplace.OnOpened(Microsoft.VisualStudio.Text.Editor.ITextView)">
+            <summary>
+            Called when the replace in files dialog is opened.
+            </summary>
+            <param name="view"><see cref="T:Microsoft.VisualStudio.Text.Editor.ITextView" /> in which the file dialog as opened. Will always be null for QuickReplace.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Editor.IIntellicodeQuickReplace.OnClosed(System.Boolean)">
+            <summary>
+            Called when the replace in files dialog is closed.
+            </summary>
+            <param name="explicitlyClosed">false if the dialog was closed as a side-effect of some other action (navigating to a new view, doing a file all).</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Editor.IIntellicodeQuickReplace.OnEscapeKeyPressed">
+            <summary>
+            Called when the user hits escape.
+            </summary>
+            <returns>Returns true if locally processed and some dialog element was closed.</returns>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Editor.IIntellicodeReplaceInFiles">
+            <summary>
+            Definition of a MEF export to allow an extension to add a button to the ReplaceInFiles UI.
+            </summary>
+            <remarks>
+            The extension needs to export an instance of IIntellicodeReplaceInFiles2. If there is no IIntellicodeFindReplace, then
+            replace in files behaves normally. If there's more than one, MEF decides which one is used.
+            </remarks>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Editor.IIntellicodeReplaceInFiles.OnCreated(Microsoft.VisualStudio.Editor.IUpdateFindAndReplace)">
+            <summary>
+            Called once when the replace in files UI is created (happens once/VS session: only a single instance of the replace in files adornment is created for each VS session).
+            </summary>
+            <param name="updateFind">Hook to allow the extension to adjust find parameters.</param>
+            <returns>UIElement displayed to the left of the Replace box in replace in files.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Editor.IIntellicodeReplaceInFiles.OnFindConfigurationChanged">
+            <summary>
+            Called when some aspect of ReplaceInFiles is changed is changed.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Editor.IIntellicodeReplaceInFiles.OnFindScopeChange">
+            <summary>
+            Called when there is a change in the find scope.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Editor.IIntellicodeReplaceInFiles.OnFindNextClicked">
+            <summary>
+            Called when FindNext is clicked.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Editor.IIntellicodeReplaceInFiles.OnFindAllClicked">
+            <summary>
+            Called when FindAll is clicked.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Editor.IIntellicodeReplaceInFiles.OnReplaceNextClicked">
+            <summary>
+            Called when ReplaceNext (or ReplacePrevious) is clicked.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Editor.IIntellicodeReplaceInFiles.OnReplaceAllClicked">
+            <summary>
+            Called when ReplaceAll is clicked.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Editor.IIntellicodeReplaceInFiles.OnOpened">
+            <summary>
+            Called when the replace in files dialog is opened.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Editor.IIntellicodeReplaceInFiles.OnClosed">
+            <summary>
+            Called when the replace in files dialog is closed.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Editor.IIntellicodeReplaceInFiles.OnEscapeKeyPressed">
+            <summary>
+            Called when the user hits escape.
+            </summary>
+            <returns>Returns true if locally processed and some dialog element was closed.</returns>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Editor.IUpdateFindAndReplace">
+            <summary>
+            Helper method to allow the extension to set/get QuickFind properties.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Editor.IVsDifferenceCodeWindow">
+            <summary>
+            An <see cref="T:Microsoft.VisualStudio.TextManager.Interop.IVsCodeWindow" /> built around a difference between two files.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Editor.IVsDifferenceCodeWindow.DifferenceViewer">
+            <summary>
+            The <see cref="T:Microsoft.VisualStudio.Text.Differencing.IWpfDifferenceViewer" /> used by this code window.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Editor.IVsDifferenceCodeWindow.Control">
+            <summary>
+            The <see cref="T:System.Windows.FrameworkElement" /> that contains the difference view.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Editor.IVsDifferenceCodeWindow.Caption">
+            <summary>
+            The caption for the diff window's document tab..
+            </summary>
+            <remarks><para>If null or empty, the default ("{0} vs. {1}") is used.</para>
+            <para>The caption is formated (replacing {0} with the name of the left file and {1} with
+            the name of the right file).</para></remarks>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Editor.IVsDifferenceCodeWindow.Tooltip">
+            <summary>
+            The tooltip for the diff window's document tab..
+            </summary>
+            <remarks><para>If null or empty, the default tooltip is used.</para>
+            <para>The caption is formated (replacing {0} with the name of the left file and {1} with
+            the name of the right file).</para></remarks>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Editor.IVsDifferenceCodeWindow.LeftLabel">
+            <summary>
+            The label displayed above the left view.
+            </summary>
+            <remarks><para>This object is displayed in a <see cref="T:System.Windows.Controls.ContentControl" />.</para>
+            <para>If the object is a string, then the string is formated (replacing {0} with the name of the left file and {1} with
+            the name of the right file).</para>
+            <para>This label is not displayed in the side by side view if this.SideBySideLabel is not null.</para></remarks>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Editor.IVsDifferenceCodeWindow.RightLabel">
+            <summary>
+            The label displayed above the right view.
+            </summary>
+            <remarks><para>This object is displayed in a <see cref="T:System.Windows.Controls.ContentControl" />.</para>
+            <para>If the object is a string, then the string is formated (replacing {0} with the name of the left file and {1} with
+            the name of the right file).</para>
+            <para>This label is not displayed in the side by side view if this.SideBySideLabel is not null.</para></remarks>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Editor.IVsDifferenceCodeWindow.InlineLabel">
+            <summary>
+            The label displayed above the inline view.
+            </summary>
+            <remarks><para>This object is displayed in a <see cref="T:System.Windows.Controls.ContentControl" />.</para>
+            <para>If the object is a string, then the string is formated (replacing {0} with the name of the left file and {1} with
+            the name of the right file).</para></remarks>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Editor.IVsDifferenceCodeWindow.SideBySideLabel">
+            <summary>
+            The label displayed above the side by side.
+            </summary>
+            <remarks><para>This object is displayed in a <see cref="T:System.Windows.Controls.ContentControl" />.</para>
+            <para>If the object is a string, then the string is formated (replacing {0} with the name of the left file and {1} with
+            the name of the right file).</para>
+            <para>This label is only displayed in the side by side view and, if it is not null, the left and right labels will not be displayed.</para></remarks>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Editor.IVsDifferenceCodeWindow2">
+            <summary>
+            An <see cref="T:Microsoft.VisualStudio.TextManager.Interop.IVsCodeWindow" /> that can support a difference view. If a <see cref="P:Microsoft.VisualStudio.Editor.IVsDifferenceCodeWindow2.Baseline" /> is specified, the code window will display the differences between the baseline and the buffer.
+            Otherwise, the code window just displays the buffer.
+            </summary>
+            <remarks>
+            This interface is provisional and may change in subsequent releases of VS.
+            </remarks>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Editor.IVsDifferenceCodeWindow2.SupportsDiff">
+            <summary>
+            True if the code window supports setting the baseline. If false, <see cref="P:Microsoft.VisualStudio.Editor.IVsDifferenceCodeWindow2.Baseline" /> will be null and attempting to set it will throw an <see cref="T:System.InvalidOperationException" />.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Editor.IVsDifferenceCodeWindow2.Baseline">
+            <summary>
+            The baseline used for the computing differences. Can be null.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Editor.IVsDifferenceCodeWindow2.DifferenceBuffer">
+            <summary>
+            The difference buffer used by the <see cref="P:Microsoft.VisualStudio.Editor.IVsDifferenceCodeWindow2.PrimaryDifferenceViewer" /> and <see cref="P:Microsoft.VisualStudio.Editor.IVsDifferenceCodeWindow2.SecondaryDifferenceViewer" /> (if it exists).
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Editor.IVsDifferenceCodeWindow2.PrimaryDifferenceViewer">
+            <summary>
+            The difference viewer for the primary view code window. Will be null unless <see cref="P:Microsoft.VisualStudio.Editor.IVsDifferenceCodeWindow2.SupportsDiff" /> is true.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Editor.IVsDifferenceCodeWindow2.SecondaryDifferenceViewer">
+            <summary>
+            The difference viewer for the secondary view code window. Will be null unless <see cref="P:Microsoft.VisualStudio.Editor.IVsDifferenceCodeWindow2.SupportsDiff" /> is true and the code window has been split.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Editor.IVsDifferenceCodeWindowFactoryService">
+            <summary>
+            A factory service for creating difference code windows on arbitrary strings or snapshot spans.
+            </summary>
+            <remarks>This is a MEF Component and can be imported as follows:
+            <code>
+            [Import]
+            IVsDifferenceCodeWindowFactoryService  differenceCodeWindowFactoryService;
+            </code>
+            </remarks>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Editor.IVsDifferenceCodeWindowFactoryService.CreateComparisonCodeWindow(Microsoft.VisualStudio.OLE.Interop.IServiceProvider,System.String,System.String,System.String,Microsoft.VisualStudio.Shell.Interop.__VSDIFFSERVICEOPTIONS)">
+            <summary>
+            Create and <see cref="T:Microsoft.VisualStudio.Editor.IVsDifferenceCodeWindow" /> showing the differences between to strings or SnapshotSpans.
+            </summary>
+            <param name="provider"></param>
+            <param name="leftFileName">Name of the file displayed in the difference viewer's LeftView.</param>
+            <param name="rightFileName">Name of the file displayed in the difference viewer's RightView.</param>
+            <param name="roles">The <see cref="T:Microsoft.VisualStudio.Text.Editor.TextViewRoleAttribute" />s that will be added to the three views of the difference viewer.</param>
+            <param name="options">Options for the creation of the difference code window.</param>
+            <returns>An <see cref="T:Microsoft.VisualStudio.Editor.IVsDifferenceCodeWindow" /> that displays the differences between <paramref name="leftFileName" /> and <paramref name="rightFileName" />.</returns>
+            <remarks>
+            <para>The <paramref name="roles" /> can specify multiple roles separated by commas.</para>
+            </remarks>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Editor.IVsDifferenceCodeWindowFactoryService.CreateComparisonCodeWindow(Microsoft.VisualStudio.OLE.Interop.IServiceProvider,Microsoft.VisualStudio.TextManager.Interop.IVsTextLines,Microsoft.VisualStudio.TextManager.Interop.IVsTextLines,System.String)">
+            <summary>
+            Create and <see cref="T:Microsoft.VisualStudio.Editor.IVsDifferenceCodeWindow" /> showing the differences between two buffers.
+            </summary>
+            <param name="provider"></param>
+            <param name="left">The buffer for the left side.</param>
+            <param name="right">The buffer for the right side.</param>
+            <param name="roles">The <see cref="T:Microsoft.VisualStudio.Text.Editor.TextViewRoleAttribute" />s that will be added to the three views of the difference viewer.</param>
+            <returns>An <see cref="T:Microsoft.VisualStudio.Editor.IVsDifferenceCodeWindow" /> that displays the differences between <paramref name="left" /> and <paramref name="right" />.</returns>
+            <remarks>
+            <para>The <paramref name="roles" /> can specify multiple roles separated by commas.</para>
+            </remarks>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Editor.IVsDifferenceLegendElementProvider">
+            <summary>
+            Creates <see cref="T:System.Windows.FrameworkElement" /> that is displayed in the legend margin of the difference code window.
+            </summary>
+            <remarks><para>This is a MEF Component and can be exported as follows:
+            <code>
+            [Export(typeof(IVsDifferenceLegendElementFactory))]
+            [Name(...)]
+            [Replaces(...)]
+            [Order(After = ..., Before = ...)]
+            [TextViewRole(...)]
+            </code>
+            The [Replaces(...)] attribute is optional. If specified, it indicates that this provider replaces the specified provider.</para>
+            <para>
+            The legend elements are only displayed if the <see cref="P:Microsoft.VisualStudio.Text.Editor.ITextView.Roles" /> property of the right view contains one or more of
+            the roles specified by the TextViewRole attribute.
+            </para>
+            </remarks>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Editor.IVsDifferenceLegendElementProvider.CreateLegendElement(Microsoft.VisualStudio.Editor.IVsDifferenceCodeWindow)">
+            <summary>
+            Create a <see cref="T:System.Windows.FrameworkElement" /> that will be displayed in the legend of the difference code window.
+            </summary>
+            <param name="codeWindow">Code window in which the legend will be displayed.</param>
+            <returns>A <see cref="T:System.Windows.FrameworkElement" /> to display or null.</returns>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Editor.DifferencePackageElements">
+            <summary>
+            These are the default elements of the difference code window legend. Use the names below if you want to replace one of the default
+            elements with a customized element.
+            </summary>
+            <remarks>
+            <para>These elements are displayed in the following order: RemovedLine RemovedWord AddedLine AddedWord HelpLink</para>
+            </remarks>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Editor.DifferencePackageOptions.ShowLegendName">
+            <summary>
+            Name of the option that controls whether or not the legend is shown in the diff view.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Editor.DifferencePackageOptions.ShowLegendId">
+            <summary>
+            Key of the option that controls whether or not the legend is shown in the diff view.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Editor.IVsEditorAdaptersFactoryService">
+            <summary>
+            A factory service for creating Editor Adapter objects and mapping between such objects and
+            the underlying new editor objects.
+            </summary>
+            <remarks>This is a MEF Component, and should be exported with the following attribute:
+            [Export(typeof(IVsEditorAdaptersFactoryService))]
+            </remarks>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Editor.IVsEditorAdaptersFactoryService.CreateVsTextBufferAdapter(Microsoft.VisualStudio.OLE.Interop.IServiceProvider)">
+            <summary>
+            Create an IVsTextBuffer.
+            </summary>
+            <param name="serviceProvider">The IServiceProvider with which to site the IVsTextBuffer.</param>
+            <returns>The new IVsTextBuffer.</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="serviceProvider" /> is null.</exception>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Editor.IVsEditorAdaptersFactoryService.CreateVsTextBufferAdapter(Microsoft.VisualStudio.OLE.Interop.IServiceProvider,Microsoft.VisualStudio.Utilities.IContentType)">
+            <summary>
+            Create an IVsTextBuffer with a specified content type.
+            </summary>
+            <param name="serviceProvider">The IServiceProvider with which to site the IVsTextBuffer.</param>
+            <param name="contentType">The <see cref="T:Microsoft.VisualStudio.Utilities.IContentType" /> for the underlying <see cref="T:Microsoft.VisualStudio.Text.ITextBuffer" />.</param>
+            <returns>The new IVsTextBuffer.</returns>
+            <remarks>This operation is intended for text buffers that will be initialized by IVsTextBuffer.InitializeContent.</remarks>
+            <exception cref="T:System.ArgumentNullException"><paramref name="contentType" /> is null.</exception>
+            <exception cref="T:System.ArgumentNullException"><paramref name="serviceProvider" /> is null.</exception>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Editor.IVsEditorAdaptersFactoryService.CreateVsTextBufferAdapterForSecondaryBuffer(Microsoft.VisualStudio.OLE.Interop.IServiceProvider,Microsoft.VisualStudio.Text.ITextBuffer)">
+            <summary>
+            Create an IVsTextBuffer for the SecondaryBuffer (used in BufferCoordinator) given an <see cref="T:Microsoft.VisualStudio.Text.ITextBuffer" />
+            </summary>
+            <param name="serviceProvider">The IServiceProvider with which to site the IVsTextBuffer.</param>
+            <param name="secondaryBuffer">The <see cref="T:Microsoft.VisualStudio.Text.ITextBuffer" /> with which to create the IVsTextBuffer.</param>
+            <returns>The new IVsTextBuffer.</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="serviceProvider" /> is null.</exception>
+            <exception cref="T:System.ArgumentNullException"><paramref name="secondaryBuffer" /> is null.</exception>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Editor.IVsEditorAdaptersFactoryService.CreateVsTextViewAdapter(Microsoft.VisualStudio.OLE.Interop.IServiceProvider)">
+            <summary>
+            Create an IVsTextView.
+            </summary>
+            <param name="serviceProvider">The IServiceProvider with which to site the IVsTextView.</param>
+            <returns>The new IVsTextView.</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="serviceProvider" /> is null.</exception>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Editor.IVsEditorAdaptersFactoryService.CreateVsTextViewAdapter(Microsoft.VisualStudio.OLE.Interop.IServiceProvider,Microsoft.VisualStudio.Text.Editor.ITextViewRoleSet)">
+            <summary>
+            Create an IVsTextView with a specified set of text view roles.
+            </summary>
+            <param name="serviceProvider">The IServiceProvider with which to site the IVsTextView.</param>
+            <param name="roles">The roles with which to initialize the text view.</param>
+            <returns>The new IVsTextView.</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="serviceProvider" /> is null.</exception>
+            <exception cref="T:System.ArgumentNullException"><paramref name="roles" /> is null.</exception>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Editor.IVsEditorAdaptersFactoryService.CreateVsCodeWindowAdapter(Microsoft.VisualStudio.OLE.Interop.IServiceProvider)">
+            <summary>
+            Create an IVsCodeWindow.
+            </summary>
+            <param name="serviceProvider">The IServiceProvider with which to site the IVsCodeWindow.</param>
+            <returns>The new IVsCodeWindow.</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="serviceProvider" /> is null.</exception>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Editor.IVsEditorAdaptersFactoryService.CreateVsTextBufferCoordinatorAdapter">
+            <summary>
+            Create an IVsTextBuffercoordinator.
+            </summary>
+            <returns>The new IVsTextBufferCoordinator.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Editor.IVsEditorAdaptersFactoryService.GetDataBuffer(Microsoft.VisualStudio.TextManager.Interop.IVsTextBuffer)">
+            <summary>
+            Get the DataBuffer of an IVsTextBuffer adapter (this is the top buffer of
+            the data model buffer graph). This buffer will be
+            the same as the DocumentBuffer except in BufferCoordinator scenarios.
+            </summary>
+            <param name="bufferAdapter">The text buffer adapter of interest.</param>
+            <returns>Null if this method is called before content has been established for 
+            the adapter, otherwise the DataBuffer that is presented to the view model.</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="bufferAdapter" /> is null.</exception>
+            <exception cref="T:System.ArgumentException"><paramref name="bufferAdapter" /> does not contain <c>VsTextDocData</c>.</exception>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Editor.IVsEditorAdaptersFactoryService.GetDocumentBuffer(Microsoft.VisualStudio.TextManager.Interop.IVsTextBuffer)">
+            <summary>
+            Get the DocumentBuffer of an IVsTextBuffer adapter (this is the bottom buffer
+            of the data model buffer graph). This buffer will be
+            the same as the DataBuffer except in BufferCoordinator scenarios.
+            </summary>
+            <param name="bufferAdapter">The text buffer adapter of interest.</param>
+            <returns>Null if this method is called before content has been established for 
+            the adapter, otherwise the DocumentBuffer that is presented to the view model.</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="bufferAdapter" /> is null.</exception>
+            <exception cref="T:System.ArgumentException"><paramref name="bufferAdapter" /> does not contain <c>VsTextDocData</c>.</exception>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Editor.IVsEditorAdaptersFactoryService.GetWpfTextView(Microsoft.VisualStudio.TextManager.Interop.IVsTextView)">
+            <summary>
+            Get the WpfTextView of an IVsTextView adapter. 
+            </summary>
+            <param name="viewAdapter">The text view adapter of interest.</param>
+            <returns>Null if this method is called before content has been established for the adapter,
+            null if <paramref name="viewAdapter" /> does not implement <c>IVsUserData</c>,
+            otherwise the IWpfTextView that presents the text in the UI.</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="viewAdapter" /> is null.</exception>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Editor.IVsEditorAdaptersFactoryService.GetWpfTextViewHost(Microsoft.VisualStudio.TextManager.Interop.IVsTextView)">
+            <summary>
+            Get the WpfTextViewHost of an IVsTextView adapter. 
+            </summary>
+            <param name="viewAdapter">The text view adapter of interest.</param>
+            <returns>Null if this method is called before content has been established for the adapter,
+            null if <paramref name="viewAdapter" /> does not implement <c>IVsUserData</c>,
+            otherwise the IWpfTextViewHost that presents the text in the UI.</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="viewAdapter" /> is null.</exception>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Editor.IVsEditorAdaptersFactoryService.SetDataBuffer(Microsoft.VisualStudio.TextManager.Interop.IVsTextBuffer,Microsoft.VisualStudio.Text.ITextBuffer)">
+            <summary>
+            Set the DataBuffer of an IVsTextBuffer adapter that is being used together
+            with an IVsTextBufferCoordinator adapter.
+            </summary>
+            <param name="bufferAdapter">The buffer adapter of interest.</param>
+            <param name="dataBuffer">The new data buffer.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="bufferAdapter" /> is null.</exception>
+            <exception cref="T:System.ArgumentNullException"><paramref name="dataBuffer" />is null.</exception>
+            <exception cref="T:System.ArgumentException"><paramref name="bufferAdapter" /> does not contain <c>VsTextDocData</c>.</exception>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Editor.IVsEditorAdaptersFactoryService.GetBufferAdapter(Microsoft.VisualStudio.Text.ITextBuffer)">
+            <summary>
+            Get the IVsTextBuffer adapter for this text buffer (if it exists).
+            </summary>
+            <param name="textBuffer">The text buffer of interest.</param>
+            <returns>Null if no adapter exists, or else the adapter.</returns>
+            <remarks>Adapters are generally built only for document windows.</remarks>
+            <exception cref="T:System.ArgumentNullException">textBuffer is null.</exception>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Editor.IVsEditorAdaptersFactoryService.GetViewAdapter(Microsoft.VisualStudio.Text.Editor.ITextView)">
+            <summary>
+            Get the IVsTextView adapter for this text view (if it exists).
+            </summary>
+            <param name="textView">The text view of interest.</param>
+            <returns>Null if no adapter exists, or else the adapter.</returns>
+            <remarks>Adapters are generally built only for document windows.</remarks>
+            <exception cref="T:System.ArgumentNullException">textView is null.</exception>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Editor.IVsExpansionEnumeration2">
+            <summary>
+            An enumerator which returns the expansions in the expansion manager, one at a time.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Editor.IVsExpansionEnumeration2.Next(System.IntPtr@)">
+            <summary>
+            Fetches the next expansion.
+            </summary>
+            <param name="pExpansion">Pointer to the next expansion.</param>
+            <returns>S_OK if successful; S_FALSE otherwise.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Editor.IVsExpansionEnumeration2.Reset">
+            <summary>
+            Resets the current position.
+            </summary>
+            <returns>S_OK</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Editor.IVsExpansionEnumeration2.GetCount(System.UInt32@)">
+            <summary>
+            Gets the count of expansions in the enumerator.
+            </summary>
+            <param name="pCount">Count of total expansions.</param>
+            <returns>S_OK</returns>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Editor.IVsTextViewCreationListener">
+            <summary>
+            A listener for when a text view adapter (<see cref="T:Microsoft.VisualStudio.TextManager.Interop.IVsTextView" />) is created and initialized that 
+            has matching roles and was created over a text data model having a matching content type.
+            Exporters must specify at least one ContentTypeAttribute and one TextViewRole, and should mark their export using the following attribute:
+            [Export(typeof(IVsTextViewCreationListener))], along with [ContentType] and [TextViewRole].
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Editor.IVsTextViewCreationListener.VsTextViewCreated(Microsoft.VisualStudio.TextManager.Interop.IVsTextView)">
+            <summary>
+            Called when a <see cref="T:Microsoft.VisualStudio.TextManager.Interop.IVsTextView" /> adapter has been created and initialized.
+            </summary>
+            <param name="textViewAdapter">The newly created and initialized text view
+            adapter.</param>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Editor.IVsVisibleTextMarkerTag">
+            <summary>
+            These tags are generated from the visible legacy markers created using <see cref="T:Microsoft.VisualStudio.TextManager.Interop.IVsTextLines" />.CreateLineMarker and <see cref="T:Microsoft.VisualStudio.TextManager.Interop.IVsTextStream" />.CreateStreamMarker.
+            </summary>
+            <remarks>No extension should produce these tags.</remarks>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Editor.IVsVisibleTextMarkerTag.Type">
+            <summary>
+            The integer type of the marker.
+            </summary>
+            <remarks>This is equivalent to the type produced by IVsTextLineMarker.GetType().</remarks>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Editor.IVsVisibleTextMarkerTag.MarkerType">
+            <summary>
+            The marker's <see cref="T:Microsoft.VisualStudio.TextManager.Interop.IVsTextMarkerType" />.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Editor.IVsVisibleTextMarkerTag.LineMarker">
+            <summary>
+            The marker as an <see cref="T:Microsoft.VisualStudio.TextManager.Interop.IVsTextLineMarker" />.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Editor.IVsVisibleTextMarkerTag.StreamMarker">
+            <summary>
+            The marker as an <see cref="T:Microsoft.VisualStudio.TextManager.Interop.IVsTextStreamMarker" />.
+            </summary>
+        </member>
+    </members>
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315" /><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256" /><DigestValue>kOvXfOX4guEXFYpm4YdYTKKKkJPf4sAn3mIOCnNrfXM=</DigestValue></Reference></SignedInfo><SignatureValue>D+tr5yUFDlaaL3TVoMhCbPG8aK5t6H1UB/nDNxw6+azstcHMdSUngElz0wpgeoJrCjP+iUpR93h9ZUo5Av7z7EDnMm2D2khcDkwfNLdAFYluCWDIWrvF4ajpHxmomh7/Uhb3EnnyZ+9tVsxJOqqIC0NkXD1SuVLCRqy8okVsdS4SdjB0qAVKUcZ48cJBLDZx0xzq0mPrCSUNNLgWifvoQXn9O8kkmZ0huv5JBDl9piDg990wNoqu9zmKlSBd+XoIvtGUOmf2V4tRMkxbRCZH5jL9Dgulj5WEwUqnoucBFEB7iZO7VsWZOxFaYPWhVXbdFqJjrL0UhSJut0nd9PFwYw==</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>0OTPj7P1+wTbr+Qf9COrqA8I9DSTqNSq1UKju4IEV3HJJck61i+MTEoYyKLtiLG2Jxeu8F81QKuTpuKHvi380gzs43G+prNNIAaNDkGqsENQYo8iezbw3/NCNX1vTi++irdFqXNs6xoc3B3W+7qT678b0jTVL8St7IMO2E7d9eNdL6RKfMnwRJf4XfGcwL+OwwoCeY9c5tvebNUVWRzaejKIkBVThApuAMCtpdvIvmBEdSTuCKZUx+OLr81/aEZyR2jL1s2RKaMz8uIzTtgw6m3DbOM4ewFjIRNT1hVQPghyPxJ+ZwErwry5rkf7fKuG3PF0fECGSUEqftlOptpXTQ==</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIF/zCCA+egAwIBAgITMwAAAlKLM6r4lfM52wAAAAACUjANBgkqhkiG9w0BAQsFADB+MQswCQYDVQQGEwJVUzETMBEGA1UECBMKV2FzaGluZ3RvbjEQMA4GA1UEBxMHUmVkbW9uZDEeMBwGA1UEChMVTWljcm9zb2Z0IENvcnBvcmF0aW9uMSgwJgYDVQQDEx9NaWNyb3NvZnQgQ29kZSBTaWduaW5nIFBDQSAyMDExMB4XDTIxMDkwMjE4MzI1OVoXDTIyMDkwMTE4MzI1OVowdDELMAkGA1UEBhMCVVMxEzARBgNVBAgTCldhc2hpbmd0b24xEDAOBgNVBAcTB1JlZG1vbmQxHjAcBgNVBAoTFU1pY3Jvc29mdCBDb3Jwb3JhdGlvbjEeMBwGA1UEAxMVTWljcm9zb2Z0IENvcnBvcmF0aW9uMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA0OTPj7P1+wTbr+Qf9COrqA8I9DSTqNSq1UKju4IEV3HJJck61i+MTEoYyKLtiLG2Jxeu8F81QKuTpuKHvi380gzs43G+prNNIAaNDkGqsENQYo8iezbw3/NCNX1vTi++irdFqXNs6xoc3B3W+7qT678b0jTVL8St7IMO2E7d9eNdL6RKfMnwRJf4XfGcwL+OwwoCeY9c5tvebNUVWRzaejKIkBVThApuAMCtpdvIvmBEdSTuCKZUx+OLr81/aEZyR2jL1s2RKaMz8uIzTtgw6m3DbOM4ewFjIRNT1hVQPghyPxJ+ZwErwry5rkf7fKuG3PF0fECGSUEqftlOptpXTQIDAQABo4IBfjCCAXowHwYDVR0lBBgwFgYKKwYBBAGCN0wIAQYIKwYBBQUHAwMwHQYDVR0OBBYEFDWSWhFBi9hrsLe2TgLuHnxGF3nRMFAGA1UdEQRJMEekRTBDMSkwJwYDVQQLEyBNaWNyb3NvZnQgT3BlcmF0aW9ucyBQdWVydG8gUmljbzEWMBQGA1UEBRMNMjMwMDEyKzQ2NzU5NzAfBgNVHSMEGDAWgBRIbmTlUAXTgqoXNzcitW2oynUClTBUBgNVHR8ETTBLMEmgR6BFhkNodHRwOi8vd3d3Lm1pY3Jvc29mdC5jb20vcGtpb3BzL2NybC9NaWNDb2RTaWdQQ0EyMDExXzIwMTEtMDctMDguY3JsMGEGCCsGAQUFBwEBBFUwUzBRBggrBgEFBQcwAoZFaHR0cDovL3d3dy5taWNyb3NvZnQuY29tL3BraW9wcy9jZXJ0cy9NaWNDb2RTaWdQQ0EyMDExXzIwMTEtMDctMDguY3J0MAwGA1UdEwEB/wQCMAAwDQYJKoZIhvcNAQELBQADggIBABZJN7ksZExAYdTbQJewYryBLAFnYF9amfhHWTGG0CmrGOiIUi10TMRdQdzinUfSv5HHKZLzXBpfA+2MmEuJoQlDAUflS64N3/D1I9/APVeWomNvyaJO1mRTgJoz0TTRp8noO5dJU4k4RahPtmjrOvoXnoKgHXpRoDSSkRy1kboRiriyMOZZIMfSsvkL2a5/w3YvLkyIFiqfjBhvMWOjwb744LfY0EoZZz62d1GPAb8Muq8p4VwWldFdE0y9IBMe3ofytaPDImq7urP+xcqji3lEuL0x4fU4AS+Q7cQmLq120gVbS9RY+OPjnf+nJgvZpr67Yshu9PWN0Xd2HSY9n9xiau2OynVqtEGIWrSoQXoOH8Y4YNMrrdoOmjNZsYzT6xOPM+h1gjRrvYDCuWbnZXUcOGuOWdOgKJLaH9AqjskxK76tGI6BOF6WtPvO0/z1VFzan+2PqklO/vS7S0LjGEeMN3Ej47jbrLy3/YAZ3IeUajO5Gg7WFg4C8geNhH7MXjKsClsAPk1YtB61kan0sdqJWxOeoSXBJDIzkis97EbrqRQl91K6MmH+di/tolU63WvF1nrDxutjJ590/ALi383iRbgG3zkhEceyBWTvdlD6FxNbhIy+bJJdck2QdzLm4DgOBfCqETYb4hQBEk/pxvHPLiLG2Xm9PEnmEDKo1RJp</X509Certificate><X509Certificate>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</X509Certificate><X509Certificate>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</X509Certificate></X509Data></KeyInfo><Object Id="ts-countersig"><X509Data><X509Certificate>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</X509Certificate><X509Certificate>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</X509Certificate></X509Data><CounterSignature ts-format="cms-timestamp-message" xmlns="http://schemas.microsoft.com/xmldsig/timestamp/2003">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</CounterSignature></Object></Signature></doc>
