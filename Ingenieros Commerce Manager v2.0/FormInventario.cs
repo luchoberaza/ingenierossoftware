@@ -68,6 +68,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
                 }
 
             }
+            cmbTipo.Texts = "Materia Prima";
         }
         private void btnIngreso_Click(object sender, EventArgs e)
         {
@@ -228,6 +229,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
 
                 }
             }
+            cmbTipo.Texts = "Producto en Venta";
         }
     }
 }

@@ -18,7 +18,6 @@ namespace Ingenieros_Commerce_Manager_v2._0
         public void ClearTextBoxs()
         {
             txbValorGastos.Texts = "";
-            txbFechaGastos.Texts = "";
             txbConceptoGastos.Texts = "";
         }
         private void FormGastos_Load(object sender, EventArgs e)
@@ -112,6 +111,28 @@ namespace Ingenieros_Commerce_Manager_v2._0
             }
             dgvGastos.DataSource = sql.GetGastos();
             ClearTextBoxs();
+        }
+
+        private void dgvGastos_Click(object sender, EventArgs e)
+        {
+            if (dgvGastos.SelectedRows.Count > 0)
+            {
+                if (id == null)
+                {
+                    id = dgvGastos.CurrentRow.Cells["IdGasto"].Value.ToString();
+
+                }
+                else if (!(id.Contains(dgvGastos.CurrentRow.Cells["IdGasto"].Value.ToString())))
+                {
+                    id = id + ", " + dgvGastos.CurrentRow.Cells["IdGasto"].Value.ToString();
+                }
+
+            }
+        }
+
+        private void dtpFecha_ValueChanged(object sender, EventArgs e)
+        {
+            txbFechaGastos.Texts = dtpFecha.Value.ToString("dd/MM/yyyy");
         }
     }
 }

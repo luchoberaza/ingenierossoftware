@@ -48,6 +48,9 @@
             this.btnElimina = new CustomControls.RJControls.RJButton();
             this.btnDeseleccionar = new CustomControls.RJControls.RJButton();
             this.btnEdit = new CustomControls.RJControls.RJButton();
+            this.lblDescripcion = new System.Windows.Forms.Label();
+            this.lblStock = new System.Windows.Forms.Label();
+            this.lblPrecioCosto = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMatPrim)).BeginInit();
             this.panelDGVs.SuspendLayout();
@@ -59,7 +62,7 @@
             this.lblTipo.AutoSize = true;
             this.lblTipo.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTipo.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.lblTipo.Location = new System.Drawing.Point(519, 231);
+            this.lblTipo.Location = new System.Drawing.Point(519, 245);
             this.lblTipo.Margin = new System.Windows.Forms.Padding(0);
             this.lblTipo.Name = "lblTipo";
             this.lblTipo.Size = new System.Drawing.Size(35, 22);
@@ -233,7 +236,7 @@
             "Producto en Venta"});
             this.cmbTipo.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(228)))), ((int)(((byte)(245)))));
             this.cmbTipo.ListTextColor = System.Drawing.Color.DimGray;
-            this.cmbTipo.Location = new System.Drawing.Point(505, 241);
+            this.cmbTipo.Location = new System.Drawing.Point(505, 255);
             this.cmbTipo.MinimumSize = new System.Drawing.Size(200, 30);
             this.cmbTipo.Name = "cmbTipo";
             this.cmbTipo.Padding = new System.Windows.Forms.Padding(2);
@@ -250,14 +253,14 @@
             this.txbDescrip.BorderRadius = 0;
             this.txbDescrip.BorderSize = 2;
             this.txbDescrip.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbDescrip.Location = new System.Drawing.Point(505, 113);
+            this.txbDescrip.Location = new System.Drawing.Point(505, 127);
             this.txbDescrip.Maxlength = 32767;
             this.txbDescrip.Multiline = true;
             this.txbDescrip.Name = "txbDescrip";
             this.txbDescrip.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
             this.txbDescrip.PasswordChar = false;
             this.txbDescrip.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txbDescrip.PlaceholderText = "Descripción";
+            this.txbDescrip.PlaceholderText = "";
             this.txbDescrip.ReadOnly = false;
             this.txbDescrip.Size = new System.Drawing.Size(250, 118);
             this.txbDescrip.TabIndex = 3;
@@ -273,14 +276,14 @@
             this.txbStock.BorderRadius = 0;
             this.txbStock.BorderSize = 2;
             this.txbStock.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbStock.Location = new System.Drawing.Point(505, 70);
+            this.txbStock.Location = new System.Drawing.Point(505, 77);
             this.txbStock.Maxlength = 32767;
             this.txbStock.Multiline = false;
             this.txbStock.Name = "txbStock";
             this.txbStock.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
             this.txbStock.PasswordChar = false;
             this.txbStock.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txbStock.PlaceholderText = "Stock";
+            this.txbStock.PlaceholderText = "";
             this.txbStock.ReadOnly = false;
             this.txbStock.Size = new System.Drawing.Size(250, 37);
             this.txbStock.TabIndex = 2;
@@ -303,7 +306,7 @@
             this.txbPrecio.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
             this.txbPrecio.PasswordChar = false;
             this.txbPrecio.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txbPrecio.PlaceholderText = "Precio";
+            this.txbPrecio.PlaceholderText = "";
             this.txbPrecio.ReadOnly = false;
             this.txbPrecio.Size = new System.Drawing.Size(250, 37);
             this.txbPrecio.TabIndex = 1;
@@ -322,7 +325,7 @@
             this.btnIngreso.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnIngreso.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnIngreso.ForeColor = System.Drawing.Color.White;
-            this.btnIngreso.Location = new System.Drawing.Point(505, 290);
+            this.btnIngreso.Location = new System.Drawing.Point(505, 304);
             this.btnIngreso.Name = "btnIngreso";
             this.btnIngreso.Size = new System.Drawing.Size(250, 37);
             this.btnIngreso.TabIndex = 16;
@@ -343,7 +346,7 @@
             this.btnElimina.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnElimina.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnElimina.ForeColor = System.Drawing.Color.White;
-            this.btnElimina.Location = new System.Drawing.Point(505, 333);
+            this.btnElimina.Location = new System.Drawing.Point(505, 347);
             this.btnElimina.Name = "btnElimina";
             this.btnElimina.Size = new System.Drawing.Size(250, 37);
             this.btnElimina.TabIndex = 17;
@@ -394,12 +397,54 @@
             this.btnEdit.UseVisualStyleBackColor = false;
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
+            // lblDescripcion
+            // 
+            this.lblDescripcion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblDescripcion.AutoSize = true;
+            this.lblDescripcion.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDescripcion.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.lblDescripcion.Location = new System.Drawing.Point(519, 115);
+            this.lblDescripcion.Margin = new System.Windows.Forms.Padding(0);
+            this.lblDescripcion.Name = "lblDescripcion";
+            this.lblDescripcion.Size = new System.Drawing.Size(79, 22);
+            this.lblDescripcion.TabIndex = 20;
+            this.lblDescripcion.Text = "Descripción";
+            // 
+            // lblStock
+            // 
+            this.lblStock.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblStock.AutoSize = true;
+            this.lblStock.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStock.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.lblStock.Location = new System.Drawing.Point(519, 65);
+            this.lblStock.Margin = new System.Windows.Forms.Padding(0);
+            this.lblStock.Name = "lblStock";
+            this.lblStock.Size = new System.Drawing.Size(42, 22);
+            this.lblStock.TabIndex = 21;
+            this.lblStock.Text = "Stock";
+            // 
+            // lblPrecioCosto
+            // 
+            this.lblPrecioCosto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblPrecioCosto.AutoSize = true;
+            this.lblPrecioCosto.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrecioCosto.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.lblPrecioCosto.Location = new System.Drawing.Point(519, 13);
+            this.lblPrecioCosto.Margin = new System.Windows.Forms.Padding(0);
+            this.lblPrecioCosto.Name = "lblPrecioCosto";
+            this.lblPrecioCosto.Size = new System.Drawing.Size(46, 22);
+            this.lblPrecioCosto.TabIndex = 22;
+            this.lblPrecioCosto.Text = "Precio";
+            // 
             // FormInventario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(254)))));
             this.ClientSize = new System.Drawing.Size(770, 610);
+            this.Controls.Add(this.lblPrecioCosto);
+            this.Controls.Add(this.lblStock);
+            this.Controls.Add(this.lblDescripcion);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnDeseleccionar);
             this.Controls.Add(this.btnElimina);
@@ -438,5 +483,8 @@
         private CustomControls.RJControls.RJButton btnElimina;
         private CustomControls.RJControls.RJButton btnDeseleccionar;
         private CustomControls.RJControls.RJButton btnEdit;
+        private System.Windows.Forms.Label lblDescripcion;
+        private System.Windows.Forms.Label lblStock;
+        private System.Windows.Forms.Label lblPrecioCosto;
     }
 }
