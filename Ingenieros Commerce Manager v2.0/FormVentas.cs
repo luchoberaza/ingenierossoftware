@@ -29,12 +29,13 @@ namespace Ingenieros_Commerce_Manager_v2._0
         private void btnUp_Click(object sender, EventArgs e)
         {
             txbCantidad.Texts = (float.Parse(txbCantidad.Texts) + 1).ToString();
+            txbCantidad.Select();
         }
 
         private void btnDown_Click(object sender, EventArgs e)
         {
             txbCantidad.Texts = (float.Parse(txbCantidad.Texts) - 1).ToString();
-
+            txbCantidad.Select();
         }
 
         private void btnBuscarCli_Click(object sender, EventArgs e)
