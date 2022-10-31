@@ -87,7 +87,6 @@ namespace Ingenieros_Commerce_Manager_v2._0
             DTGastos.Load(datos);
             return DTGastos;
         }
-
         public void InsertarGasto(string Valor, string Fecha, string Concepto)
         {
             AbrirConexion();
@@ -104,7 +103,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
         public void ActualizarGasto(string Valor, string Concepto, string Fecha, string id)
         {
             AbrirConexion();
-            comandos.CommandText = "UPDATE `gasto` SET `Valor` = '" + Valor + "', `Concepto` = '" + Concepto + "', `Fecha` = '" + Fecha + "' WHERE `gasto`.`IdGasto` IN (" + id + ") ;";
+            comandos.CommandText = "UPDATE `gasto` SET `Valor` = '" + Valor + "', `Concepto` = '" + Concepto + "', `Fecha` = STR_TO_DATE('" + Fecha + "' WHERE `gasto`.`IdGasto` IN (" + id + ") ;";
             comandos.ExecuteNonQuery();
         }
         #endregion
@@ -114,7 +113,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
         public DataTable GetClientes()
         {
             AbrirConexion();
-            comandos.CommandText = "SELECT * from cliente;";
+            comandos.CommandText = "SELECT `ID.CLI`, `Nombre`, `Direccion`, `Telefono`, `Saldo` from cliente WHERE IdUsuario = '" + Usuario.Id + "';";
             EjecutarReader();
             DTClientes.Rows.Clear();
             DTClientes.Load(datos);
@@ -123,10 +122,9 @@ namespace Ingenieros_Commerce_Manager_v2._0
         public void InsertarCliente(string Nombre, string Direccion, string Telefono, float Saldo)
         {
             AbrirConexion();
-            comandos.CommandText = "INSERT INTO `cliente` (`ID.CLI`, `Nombre`, `Direccion`, `Telefono`, `Saldo`) VALUES (NULL, '" +Nombre+ "', '" +Direccion+ "', '" +Telefono+ "', '" +Saldo+ "');";
+            comandos.CommandText = "INSERT INTO `cliente` (`ID.CLI`, `IdUsuario`, `Nombre`, `Direccion`, `Telefono`, `Saldo`) VALUES (NULL,'"+Usuario.Id+"' '" +Nombre+ "', '" +Direccion+ "', '" +Telefono+ "', '" +Saldo+ "');";
             comandos.ExecuteNonQuery();
         }
-
         public void EliminarCliente(int id)
         {
             AbrirConexion();
@@ -134,7 +132,6 @@ namespace Ingenieros_Commerce_Manager_v2._0
             comandos.ExecuteNonQuery();
 
         }
-
         public void ActualizarCliente(string Nombre, string Direccion, string Telefono, float Saldo, string id)
         {
             AbrirConexion();
@@ -148,7 +145,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
         public DataTable MostrarDTProd()
         {
             AbrirConexion();
-            comandos.CommandText = "select * from producto_venta";
+            comandos.CommandText = "select `ID.Prod`, `PrecioUnitario`, `Descripcion`, `Stock` from producto_venta WHERE `IdUsuario` = '" + Usuario.Id + "';";
             EjecutarReader();
             DTProd.Rows.Clear();
             DTProd.Load(datos);
@@ -177,7 +174,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
         public DataTable MostrarDTMatPrim()
         {
             AbrirConexion();
-            comandos.CommandText = "select * from materia_prima";
+            comandos.CommandText = "select `ID.Mat`, `Costo`, `Descripcion`, `Stock` from materia_prima WHERE `IdUsuario` = '"+Usuario.Id+"';";
             EjecutarReader();
             DTMatPrim.Rows.Clear();
             DTMatPrim.Load(datos);
@@ -186,13 +183,13 @@ namespace Ingenieros_Commerce_Manager_v2._0
         public void InsertarProd(string stock, string descrip, string precio)
         {
             AbrirConexion();
-            comandos.CommandText = "INSERT INTO `producto_venta` (`ID.Prod`, `Stock`, `Descripcion`, `PrecioUnitario`) VALUES (NULL, '"+Double.Parse(stock)+ "', '" +descrip+ "', '" + Double.Parse(precio) + "');";
+            comandos.CommandText = "INSERT INTO `producto_venta` (`ID.Prod`, `IdUsuario`, `Stock`, `Descripcion`, `PrecioUnitario`) VALUES (NULL, '"+Usuario.Id+"', '"+Double.Parse(stock)+ "', '" +descrip+ "', '" + Double.Parse(precio) + "');";
             comandos.ExecuteNonQuery();
         }
         public void InsertarMatPrim(string stock, string descrip, string costo)
         {
             AbrirConexion();
-            comandos.CommandText = "INSERT INTO `materia_prima` (`ID.Mat`, `Costo`, `Descripcion`, `Stock`) VALUES (NULL, '" + Double.Parse(stock) + "', '" + descrip + "', '" + Double.Parse(costo) + "');";
+            comandos.CommandText = "INSERT INTO `materia_prima` (`ID.Mat`, `IdUsuario`, `Costo`, `Descripcion`, `Stock`) VALUES (NULL, '"+Usuario.Id+"', '" + Double.Parse(stock) + "', '" + descrip + "', '" + Double.Parse(costo) + "');";
             comandos.ExecuteNonQuery();
         }
         public void UpdateMatPrim(string stock, string descrip, string costo, string id)
