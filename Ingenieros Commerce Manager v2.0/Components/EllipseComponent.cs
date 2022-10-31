@@ -41,10 +41,10 @@ namespace Ingenieros_Commerce_Manager_v2._0.Components
                         0,
                         _control.Width,
                         _control.Height,
-                        _CornerRadius,
+                        _CornerRad,
+                    _control.Region = Region.FromHrgius,
                         _CornerRadius
-                    );
-                    _control.Region = Region.FromHrgn(handle);
+                    );n(handle);
                     DeleteObject(handle);
                 };
             }

@@ -28,6 +28,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
         DataTable DTMatPrim = new DataTable();
         DataTable UserData = new DataTable();
         DataTable DTClientes = new DataTable();
+        DataTable DTGastos = new DataTable();
         #endregion
 
         #region Usuario
@@ -73,6 +74,38 @@ namespace Ingenieros_Commerce_Manager_v2._0
             comandos.CommandText = "UPDATE `usuario` SET `Username` = '"+user+"', `Contraseña` = '"+pwrd+"', `Denominacion` = '"+denom+"', `RUT` = '"+RUT+"', `Direccion` = '"+dir+"', `Telefono` = '"+tel+"' WHERE `usuario`.`ID.Usuario` = "+id.ToString()+";";
             comandos.ExecuteNonQuery();
             SetUserData(id);
+        }
+        #endregion
+
+        #region Gastos
+        public DataTable GetGastos()
+        {
+            AbrirConexion();
+            comandos.CommandText = "SELECT * from gasto;";
+            EjecutarReader();
+            DTGastos.Rows.Clear();
+            DTGastos.Load(datos);
+            return DTGastos;
+        }
+
+        public void InsertarGasto(string Valor, string Fecha, string Concepto)
+        {
+            AbrirConexion();
+            comandos.CommandText = "INSERT INTO `gasto` (`IdGasto`, `IdUsuario`, `Valor`, `Concepto`, `Fecha`) VALUES (NULL, NULL, '" + Valor + "', '" + Fecha + "', '" + Concepto + "');";
+            comandos.ExecuteNonQuery();
+        }
+        public void EliminarGasto(int id)
+        {
+            AbrirConexion();
+            comandos.CommandText = "DELETE FROM `gasto` WHERE `gasto`.`IdGasto` IN (" + id + ") ;";
+            comandos.ExecuteNonQuery();
+
+        }
+        public void ActualizarGasto(string Valor, string Concepto, string Fecha, string id)
+        {
+            AbrirConexion();
+            comandos.CommandText = "UPDATE `gasto` SET `Valor` = '" + Valor + "', `Concepto` = '" + Concepto + "', `Fecha` = '" + Fecha + "' WHERE `gasto`.`IdGasto` IN (" + id + ") ;";
+            comandos.ExecuteNonQuery();
         }
         #endregion
 
