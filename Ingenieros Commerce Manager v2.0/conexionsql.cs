@@ -81,7 +81,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
         public DataTable GetGastos()
         {
             AbrirConexion();
-            comandos.CommandText = "SELECT * from gasto;";
+            comandos.CommandText = "SELECT IdGasto, Valor, Concepto, CAST(Fecha as char) Fecha from gasto where IdUsuario = '"+Usuario.Id+"';";
             EjecutarReader();
             DTGastos.Rows.Clear();
             DTGastos.Load(datos);
@@ -91,7 +91,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
         public void InsertarGasto(string Valor, string Fecha, string Concepto)
         {
             AbrirConexion();
-            comandos.CommandText = "INSERT INTO `gasto` (`IdGasto`, `IdUsuario`, `Valor`, `Concepto`, `Fecha`) VALUES (NULL, NULL, '" + Valor + "', '" + Fecha + "', '" + Concepto + "');";
+            comandos.CommandText = "INSERT INTO `gasto` (`IdGasto`, `IdUsuario`, `Valor`, `Concepto`, `Fecha`) VALUES (NULL, '" + Usuario.Id + "', '" + Valor + "', '" + Concepto + "', STR_TO_DATE('" + Fecha + "', '%e/%c/%Y'));";
             comandos.ExecuteNonQuery();
         }
         public void EliminarGasto(int id)

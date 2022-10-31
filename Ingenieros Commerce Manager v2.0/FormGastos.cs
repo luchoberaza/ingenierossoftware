@@ -23,7 +23,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
         }
         private void FormGastos_Load(object sender, EventArgs e)
         {
-            txbValorGastos.Texts = DateTime.Now.ToString("dd/MM/yyyy");
+            txbFechaGastos.Texts = DateTime.Now.ToString("dd/MM/yyyy");
             dgvGastos.DataSource = sql.GetGastos();
         }
 
@@ -53,7 +53,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
                     {
                         sql.InsertarGasto(txbValorGastos.Texts, txbFechaGastos.Texts, txbConceptoGastos.Texts);
                     }
-                    dgvGastos.DataSource = sql.GetClientes();
+                    dgvGastos.DataSource = sql.GetGastos();
                     MessageBox.Show("Datos ingresados correctamente", "Acción realizada", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     ClearTextBoxs();
 
