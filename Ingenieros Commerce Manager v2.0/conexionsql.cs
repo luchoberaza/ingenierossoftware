@@ -31,6 +31,24 @@ namespace Ingenieros_Commerce_Manager_v2._0
         DataTable DTGastos = new DataTable();
         #endregion
 
+        #region Ventas
+        public void RestarStock(int id,  float cantidad)
+        {
+            AbrirConexion();
+            comandos.CommandText = "update `producto_venta` set `Stock` = `Stock` - '"+cantidad+"' where `ID.Prod` = '"+id+"' ;";
+            comandos.ExecuteNonQuery();
+
+        }
+        public void SumarStock(int id, float cantidad)
+        {
+            AbrirConexion();
+            comandos.CommandText = "update `producto_venta` set `Stock` = `Stock` + '" + cantidad + "' where `ID.Prod` = '" + id + "' ;";
+            comandos.ExecuteNonQuery();
+
+        }
+
+        #endregion
+
         #region Usuario
         public int GetUserID(string username)
         {
@@ -154,7 +172,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
         public void SetProduct(int id)
         {
             AbrirConexion();
-            comandos.CommandText = "select * from producto_venta where `ID.Prod` = " + id + ";";
+            comandos.CommandText = "select `ID.Prod`, `PrecioUnitario`, `Descripcion`, `Stock` from producto_venta where `ID.Prod` = " + id + ";";
             EjecutarReader();
             DataTable producto = new DataTable();
             producto.Load(datos);
@@ -163,8 +181,8 @@ namespace Ingenieros_Commerce_Manager_v2._0
             {
                 Producto.IDPROD = int.Parse(producto.Rows[0][0].ToString());
                 Producto.Descripcion = producto.Rows[0][2].ToString();
-                Producto.PrecioUnitario = int.Parse(producto.Rows[0][3].ToString());
-                Producto.Stock = int.Parse(producto.Rows[0][1].ToString());
+                Producto.PrecioUnitario = int.Parse(producto.Rows[0][1].ToString());
+                Producto.Stock = int.Parse(producto.Rows[0][3].ToString());
             }
             else
             {

@@ -122,6 +122,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
                         precio.ToString(),
                         (float.Parse(txbCantidad.Texts)*precio).ToString()
                     });
+                sql.RestarStock(int.Parse(txbIDProd.Texts), float.Parse(txbCantidad.Texts));
             }
             else
             {
@@ -177,9 +178,15 @@ namespace Ingenieros_Commerce_Manager_v2._0
         {
             if (dgvVenta.Columns[e.ColumnIndex].Name == "Eliminar")
             {
-                if(e.RowIndex >= 0)
+                int index = e.RowIndex;
+                if (index >= 0)
                 {
-                    dgvVenta.Rows.RemoveAt(e.RowIndex);
+                    sql.SumarStock
+                        (
+                        int.Parse(dgvVenta.Rows[index].Cells["IDProducto"].Value.ToString()),
+                        float.Parse(dgvVenta.Rows[index].Cells["Cantidad"].Value.ToString())
+                        );
+                    dgvVenta.Rows.RemoveAt(index);
                     CalcularTotal();
                 }
             }
