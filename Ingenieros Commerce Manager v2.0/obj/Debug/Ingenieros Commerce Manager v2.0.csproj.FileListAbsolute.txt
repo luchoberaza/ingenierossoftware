@@ -539,7 +539,6 @@ C:\Users\lbera\OneDrive\Documentos\GitHub\ingenierossoftware\Ingenieros Commerce
 C:\Users\lbera\OneDrive\Documentos\GitHub\ingenierossoftware\Ingenieros Commerce Manager v2.0\obj\Debug\Ingenieros_Commerce_Manager_v2._0.FormClientes.resources
 C:\Users\lbera\OneDrive\Documentos\GitHub\ingenierossoftware\Ingenieros Commerce Manager v2.0\obj\Debug\Ingenieros_Commerce_Manager_v2._0.FormGastos.resources
 C:\Users\lbera\OneDrive\Documentos\GitHub\ingenierossoftware\Ingenieros Commerce Manager v2.0\obj\Debug\Ingenieros_Commerce_Manager_v2._0.FormInventario.resources
-C:\Users\lbera\OneDrive\Documentos\GitHub\ingenierossoftware\Ingenieros Commerce Manager v2.0\obj\Debug\Ingenieros_Commerce_Manager_v2._0.Form1.resources
 C:\Users\lbera\OneDrive\Documentos\GitHub\ingenierossoftware\Ingenieros Commerce Manager v2.0\obj\Debug\Ingenieros_Commerce_Manager_v2._0.FormInicial.resources
 C:\Users\lbera\OneDrive\Documentos\GitHub\ingenierossoftware\Ingenieros Commerce Manager v2.0\obj\Debug\Ingenieros_Commerce_Manager_v2._0.FormUsuario.resources
 C:\Users\lbera\OneDrive\Documentos\GitHub\ingenierossoftware\Ingenieros Commerce Manager v2.0\obj\Debug\Ingenieros_Commerce_Manager_v2._0.FormVentas.resources
@@ -550,3 +549,4 @@ C:\Users\lbera\OneDrive\Documentos\GitHub\ingenierossoftware\Ingenieros Commerce
 C:\Users\lbera\OneDrive\Documentos\GitHub\ingenierossoftware\Ingenieros Commerce Manager v2.0\obj\Debug\Ingenieros Commerce Manager v2.0.csproj.CopyComplete
 C:\Users\lbera\OneDrive\Documentos\GitHub\ingenierossoftware\Ingenieros Commerce Manager v2.0\obj\Debug\Ingenieros Commerce Manager v2.0.exe
 C:\Users\lbera\OneDrive\Documentos\GitHub\ingenierossoftware\Ingenieros Commerce Manager v2.0\obj\Debug\Ingenieros Commerce Manager v2.0.pdb
+C:\Users\lbera\OneDrive\Documentos\GitHub\ingenierossoftware\Ingenieros Commerce Manager v2.0\obj\Debug\Ingenieros_Commerce_Manager_v2._0.FormPrincipal.resources
