@@ -171,7 +171,7 @@
             this.btnPagos.Name = "btnPagos";
             this.btnPagos.Size = new System.Drawing.Size(230, 72);
             this.btnPagos.TabIndex = 9;
-            this.btnPagos.Text = "pagos";
+            this.btnPagos.Text = "clientes";
             this.btnPagos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnPagos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnPagos.UseVisualStyleBackColor = false;
