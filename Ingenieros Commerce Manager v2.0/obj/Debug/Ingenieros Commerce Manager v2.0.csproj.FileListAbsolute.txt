@@ -257,7 +257,6 @@ Z:\Personal\Documentos\GitHub\ingenierossoftware\Ingenieros Commerce Manager v2.
 Z:\Personal\Documentos\GitHub\ingenierossoftware\Ingenieros Commerce Manager v2.0\obj\Debug\Ingenieros Commerce Manager v2.0.csproj.AssemblyReference.cache
 Z:\Personal\Documentos\GitHub\ingenierossoftware\Ingenieros Commerce Manager v2.0\obj\Debug\Ingenieros Commerce Manager v2.0.csproj.SuggestedBindingRedirects.cache
 Z:\Personal\Documentos\GitHub\ingenierossoftware\Ingenieros Commerce Manager v2.0\obj\Debug\Ingenieros_Commerce_Manager.CustomControls.CustomTextBox.resources
-Z:\Personal\Documentos\GitHub\ingenierossoftware\Ingenieros Commerce Manager v2.0\obj\Debug\Ingenieros_Commerce_Manager_v2._0.Form1.resources
 Z:\Personal\Documentos\GitHub\ingenierossoftware\Ingenieros Commerce Manager v2.0\obj\Debug\Ingenieros_Commerce_Manager_v2._0.FormInicial.resources
 Z:\Personal\Documentos\GitHub\ingenierossoftware\Ingenieros Commerce Manager v2.0\obj\Debug\Ingenieros_Commerce_Manager_v2._0.FormVentas.resources
 Z:\Personal\Documentos\GitHub\ingenierossoftware\Ingenieros Commerce Manager v2.0\obj\Debug\Ingenieros_Commerce_Manager_v2._0.Properties.Resources.resources
@@ -550,3 +549,4 @@ C:\Users\lbera\OneDrive\Documentos\GitHub\ingenierossoftware\Ingenieros Commerce
 C:\Users\lbera\OneDrive\Documentos\GitHub\ingenierossoftware\Ingenieros Commerce Manager v2.0\obj\Debug\Ingenieros Commerce Manager v2.0.exe
 C:\Users\lbera\OneDrive\Documentos\GitHub\ingenierossoftware\Ingenieros Commerce Manager v2.0\obj\Debug\Ingenieros Commerce Manager v2.0.pdb
 C:\Users\lbera\OneDrive\Documentos\GitHub\ingenierossoftware\Ingenieros Commerce Manager v2.0\obj\Debug\Ingenieros_Commerce_Manager_v2._0.FormPrincipal.resources
+Z:\Personal\Documentos\GitHub\ingenierossoftware\Ingenieros Commerce Manager v2.0\obj\Debug\Ingenieros_Commerce_Manager_v2._0.FormPrincipal.resources

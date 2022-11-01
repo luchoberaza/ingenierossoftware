@@ -50,12 +50,12 @@ namespace Ingenieros_Commerce_Manager_v2._0
                 {
                     if (editar == true)
                     {
-                        sql.ActualizarGasto(txbValorGastos.Texts, txbFechaGastos.Texts, txbConceptoGastos.Texts, id);
+                        sql.ActualizarGasto(txbValorGastos.Texts, txbFechaGastos.Texts, txbConceptoGastos.Texts, cmbTipo.Texts, id);
                         editar = false;
                     }
                     else
                     {
-                        sql.InsertarGasto(txbValorGastos.Texts, txbFechaGastos.Texts, txbConceptoGastos.Texts);
+                        sql.InsertarGasto(txbValorGastos.Texts, txbFechaGastos.Texts, txbConceptoGastos.Texts, cmbTipo.Texts);
                     }
                     dgvGastos.DataSource = sql.GetGastos();
                     MessageBox.Show("Datos ingresados correctamente", "Acción realizada", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -81,6 +81,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
                 txbConceptoGastos.Texts = dgvGastos.CurrentRow.Cells["Concepto"].Value.ToString();
                 txbFechaGastos.Texts = dgvGastos.CurrentRow.Cells["Fecha"].Value.ToString();
                 txbValorGastos.Texts = dgvGastos.CurrentRow.Cells["Valor"].Value.ToString();
+                cmbTipo.Texts = dgvGastos.CurrentRow.Cells["Tipo"].Value.ToString();
                 editar = true;
 
             }

@@ -99,16 +99,16 @@ namespace Ingenieros_Commerce_Manager_v2._0
         public DataTable GetGastos()
         {
             AbrirConexion();
-            comandos.CommandText = "SELECT IdGasto, Valor, Concepto, CAST(Fecha as char) Fecha from gasto where IdUsuario = '"+Usuario.Id+"';";
+            comandos.CommandText = "SELECT IdGasto, Valor, Concepto, Tipo, CAST(DATE_FORMAT(Fecha, '%e/%c/%Y') as char) Fecha from gasto where IdUsuario = '" + Usuario.Id+"';";
             EjecutarReader();
             DTGastos.Rows.Clear();
             DTGastos.Load(datos);
             return DTGastos;
         }
-        public void InsertarGasto(string Valor, string Fecha, string Concepto)
+        public void InsertarGasto(string Valor, string Fecha, string Concepto, string Tipo)
         {
             AbrirConexion();
-            comandos.CommandText = "INSERT INTO `gasto` (`IdGasto`, `IdUsuario`, `Valor`, `Concepto`, `Fecha`) VALUES (NULL, '" + Usuario.Id + "', '" + Valor + "', '" + Concepto + "', STR_TO_DATE('" + Fecha + "', '%e/%c/%Y'));";
+            comandos.CommandText = "INSERT INTO `gasto` (`IdGasto`, `IdUsuario`, `Valor`, `Tipo`, `Concepto`, `Fecha`) VALUES (NULL, '" + Usuario.Id + "', '" + Valor + "', '" + Tipo + "', '" + Concepto + "', STR_TO_DATE('" + Fecha + "', '%e/%c/%Y'));";
             comandos.ExecuteNonQuery();
         }
         public void EliminarGasto(int id)
@@ -118,10 +118,10 @@ namespace Ingenieros_Commerce_Manager_v2._0
             comandos.ExecuteNonQuery();
 
         }
-        public void ActualizarGasto(string Valor, string Concepto, string Fecha, string id)
+        public void ActualizarGasto(string Valor, string Concepto, string Fecha, string Tipo, string id)
         {
             AbrirConexion();
-            comandos.CommandText = "UPDATE `gasto` SET `Valor` = '" + Valor + "', `Concepto` = '" + Concepto + "', `Fecha` = STR_TO_DATE('" + Fecha + "' WHERE `gasto`.`IdGasto` IN (" + id + ") ;";
+            comandos.CommandText = "UPDATE `gasto` SET `Valor` = '" + Valor + "', `Concepto` = '" + Concepto + "', `Fecha` = STR_TO_DATE('" + Fecha + "', '%e/%c/%Y'), `Tipo` = '" + Tipo + "' WHERE `gasto`.`IdGasto` IN (" + id + ") ;";
             comandos.ExecuteNonQuery();
         }
         #endregion

@@ -37,11 +37,6 @@
             this.dgvGastos = new System.Windows.Forms.DataGridView();
             this.dtpFecha = new System.Windows.Forms.DateTimePicker();
             this.gboxIngresar = new System.Windows.Forms.GroupBox();
-            this.gboxBuscar = new System.Windows.Forms.GroupBox();
-            this.lblBusqueda = new System.Windows.Forms.Label();
-            this.btnClear = new CustomControls.RJControls.RJButton();
-            this.cmbBusqueda = new CustomControls.RJControls.RJComboBox();
-            this.txbBuscar = new Ingenieros_Commerce_Manager.CustomControls.CustomTextBox();
             this.txbValorGastos = new Ingenieros_Commerce_Manager.CustomControls.CustomTextBox();
             this.btnDeseleccionar = new CustomControls.RJControls.RJButton();
             this.txbFechaGastos = new Ingenieros_Commerce_Manager.CustomControls.CustomTextBox();
@@ -49,6 +44,13 @@
             this.txbConceptoGastos = new Ingenieros_Commerce_Manager.CustomControls.CustomTextBox();
             this.btnEliminarGastos = new CustomControls.RJControls.RJButton();
             this.btnIngresoGastos = new CustomControls.RJControls.RJButton();
+            this.gboxBuscar = new System.Windows.Forms.GroupBox();
+            this.btnClear = new CustomControls.RJControls.RJButton();
+            this.lblBusqueda = new System.Windows.Forms.Label();
+            this.cmbBusqueda = new CustomControls.RJControls.RJComboBox();
+            this.txbBuscar = new Ingenieros_Commerce_Manager.CustomControls.CustomTextBox();
+            this.cmbTipo = new CustomControls.RJControls.RJComboBox();
+            this.lblTipo = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGastos)).BeginInit();
             this.gboxIngresar.SuspendLayout();
             this.gboxBuscar.SuspendLayout();
@@ -75,7 +77,7 @@
             this.lblFechaGastos.AutoSize = true;
             this.lblFechaGastos.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFechaGastos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(160)))), ((int)(((byte)(160)))));
-            this.lblFechaGastos.Location = new System.Drawing.Point(19, 183);
+            this.lblFechaGastos.Location = new System.Drawing.Point(19, 231);
             this.lblFechaGastos.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblFechaGastos.Name = "lblFechaGastos";
             this.lblFechaGastos.Size = new System.Drawing.Size(46, 22);
@@ -156,7 +158,7 @@
             this.dtpFecha.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(254)))));
             this.dtpFecha.CalendarTrailingForeColor = System.Drawing.SystemColors.ControlDark;
             this.dtpFecha.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpFecha.Location = new System.Drawing.Point(14, 233);
+            this.dtpFecha.Location = new System.Drawing.Point(14, 281);
             this.dtpFecha.Margin = new System.Windows.Forms.Padding(2);
             this.dtpFecha.Name = "dtpFecha";
             this.dtpFecha.Size = new System.Drawing.Size(250, 25);
@@ -167,6 +169,8 @@
             // 
             this.gboxIngresar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.gboxIngresar.Controls.Add(this.lblTipo);
+            this.gboxIngresar.Controls.Add(this.cmbTipo);
             this.gboxIngresar.Controls.Add(this.lblValorGastos);
             this.gboxIngresar.Controls.Add(this.lblFechaGastos);
             this.gboxIngresar.Controls.Add(this.lblConceptoGasto);
@@ -186,110 +190,6 @@
             this.gboxIngresar.TabIndex = 44;
             this.gboxIngresar.TabStop = false;
             this.gboxIngresar.Text = "Ingresar gastos";
-            // 
-            // gboxBuscar
-            // 
-            this.gboxBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.gboxBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(254)))));
-            this.gboxBuscar.Controls.Add(this.btnClear);
-            this.gboxBuscar.Controls.Add(this.lblBusqueda);
-            this.gboxBuscar.Controls.Add(this.cmbBusqueda);
-            this.gboxBuscar.Controls.Add(this.txbBuscar);
-            this.gboxBuscar.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gboxBuscar.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.gboxBuscar.Location = new System.Drawing.Point(9, 8);
-            this.gboxBuscar.Name = "gboxBuscar";
-            this.gboxBuscar.Size = new System.Drawing.Size(466, 84);
-            this.gboxBuscar.TabIndex = 45;
-            this.gboxBuscar.TabStop = false;
-            this.gboxBuscar.Text = "Buscar gastos";
-            // 
-            // lblBusqueda
-            // 
-            this.lblBusqueda.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblBusqueda.AutoSize = true;
-            this.lblBusqueda.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBusqueda.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.lblBusqueda.Location = new System.Drawing.Point(28, 17);
-            this.lblBusqueda.Name = "lblBusqueda";
-            this.lblBusqueda.Size = new System.Drawing.Size(76, 22);
-            this.lblBusqueda.TabIndex = 12;
-            this.lblBusqueda.Text = "Buscar por:";
-            // 
-            // btnClear
-            // 
-            this.btnClear.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(154)))), ((int)(((byte)(234)))));
-            this.btnClear.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(154)))), ((int)(((byte)(234)))));
-            this.btnClear.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnClear.BorderRadius = 12;
-            this.btnClear.BorderSize = 0;
-            this.btnClear.FlatAppearance.BorderSize = 0;
-            this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClear.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClear.ForeColor = System.Drawing.Color.White;
-            this.btnClear.Image = global::Ingenieros_Commerce_Manager_v2._0.Properties.Resources.clean24;
-            this.btnClear.Location = new System.Drawing.Point(410, 30);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(39, 37);
-            this.btnClear.TabIndex = 18;
-            this.btnClear.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnClear.TextColor = System.Drawing.Color.White;
-            this.btnClear.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnClear.UseVisualStyleBackColor = false;
-            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
-            // 
-            // cmbBusqueda
-            // 
-            this.cmbBusqueda.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.cmbBusqueda.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.cmbBusqueda.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cmbBusqueda.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(254)))));
-            this.cmbBusqueda.BorderColor = System.Drawing.Color.MediumSlateBlue;
-            this.cmbBusqueda.BorderSize = 2;
-            this.cmbBusqueda.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbBusqueda.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbBusqueda.ForeColor = System.Drawing.Color.DimGray;
-            this.cmbBusqueda.IconColor = System.Drawing.Color.MediumSlateBlue;
-            this.cmbBusqueda.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(228)))), ((int)(((byte)(245)))));
-            this.cmbBusqueda.ListTextColor = System.Drawing.Color.DimGray;
-            this.cmbBusqueda.Location = new System.Drawing.Point(18, 30);
-            this.cmbBusqueda.MinimumSize = new System.Drawing.Size(200, 30);
-            this.cmbBusqueda.Name = "cmbBusqueda";
-            this.cmbBusqueda.Padding = new System.Windows.Forms.Padding(2);
-            this.cmbBusqueda.Size = new System.Drawing.Size(200, 38);
-            this.cmbBusqueda.TabIndex = 11;
-            this.cmbBusqueda.Texts = "";
-            // 
-            // txbBuscar
-            // 
-            this.txbBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txbBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(254)))));
-            this.txbBuscar.BorderColor = System.Drawing.Color.MediumSlateBlue;
-            this.txbBuscar.BorderFocusColor = System.Drawing.Color.HotPink;
-            this.txbBuscar.BorderRadius = 0;
-            this.txbBuscar.BorderSize = 2;
-            this.txbBuscar.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbBuscar.Location = new System.Drawing.Point(224, 30);
-            this.txbBuscar.Maxlength = 32767;
-            this.txbBuscar.Multiline = false;
-            this.txbBuscar.Name = "txbBuscar";
-            this.txbBuscar.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.txbBuscar.PasswordChar = false;
-            this.txbBuscar.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txbBuscar.PlaceholderText = "";
-            this.txbBuscar.ReadOnly = false;
-            this.txbBuscar.Size = new System.Drawing.Size(180, 37);
-            this.txbBuscar.TabIndex = 16;
-            this.txbBuscar.Texts = "";
-            this.txbBuscar.UnderlinedStyle = false;
-            this.txbBuscar._TextChanged += new System.EventHandler(this.txbBuscar__TextChanged);
             // 
             // txbValorGastos
             // 
@@ -348,7 +248,7 @@
             this.txbFechaGastos.BorderRadius = 0;
             this.txbFechaGastos.BorderSize = 2;
             this.txbFechaGastos.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbFechaGastos.Location = new System.Drawing.Point(14, 194);
+            this.txbFechaGastos.Location = new System.Drawing.Point(14, 242);
             this.txbFechaGastos.Margin = new System.Windows.Forms.Padding(2);
             this.txbFechaGastos.Maxlength = 32767;
             this.txbFechaGastos.Multiline = false;
@@ -423,7 +323,7 @@
             this.btnEliminarGastos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminarGastos.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminarGastos.ForeColor = System.Drawing.Color.White;
-            this.btnEliminarGastos.Location = new System.Drawing.Point(14, 306);
+            this.btnEliminarGastos.Location = new System.Drawing.Point(14, 354);
             this.btnEliminarGastos.Name = "btnEliminarGastos";
             this.btnEliminarGastos.Size = new System.Drawing.Size(250, 37);
             this.btnEliminarGastos.TabIndex = 18;
@@ -446,7 +346,7 @@
             this.btnIngresoGastos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnIngresoGastos.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnIngresoGastos.ForeColor = System.Drawing.Color.White;
-            this.btnIngresoGastos.Location = new System.Drawing.Point(14, 263);
+            this.btnIngresoGastos.Location = new System.Drawing.Point(14, 311);
             this.btnIngresoGastos.Name = "btnIngresoGastos";
             this.btnIngresoGastos.Size = new System.Drawing.Size(250, 37);
             this.btnIngresoGastos.TabIndex = 17;
@@ -454,6 +354,148 @@
             this.btnIngresoGastos.TextColor = System.Drawing.Color.White;
             this.btnIngresoGastos.UseVisualStyleBackColor = false;
             this.btnIngresoGastos.Click += new System.EventHandler(this.btnIngresoGastos_Click);
+            // 
+            // gboxBuscar
+            // 
+            this.gboxBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.gboxBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(254)))));
+            this.gboxBuscar.Controls.Add(this.btnClear);
+            this.gboxBuscar.Controls.Add(this.lblBusqueda);
+            this.gboxBuscar.Controls.Add(this.cmbBusqueda);
+            this.gboxBuscar.Controls.Add(this.txbBuscar);
+            this.gboxBuscar.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gboxBuscar.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.gboxBuscar.Location = new System.Drawing.Point(9, 8);
+            this.gboxBuscar.Name = "gboxBuscar";
+            this.gboxBuscar.Size = new System.Drawing.Size(466, 84);
+            this.gboxBuscar.TabIndex = 45;
+            this.gboxBuscar.TabStop = false;
+            this.gboxBuscar.Text = "Buscar gastos";
+            // 
+            // btnClear
+            // 
+            this.btnClear.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(154)))), ((int)(((byte)(234)))));
+            this.btnClear.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(154)))), ((int)(((byte)(234)))));
+            this.btnClear.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnClear.BorderRadius = 12;
+            this.btnClear.BorderSize = 0;
+            this.btnClear.FlatAppearance.BorderSize = 0;
+            this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClear.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClear.ForeColor = System.Drawing.Color.White;
+            this.btnClear.Image = global::Ingenieros_Commerce_Manager_v2._0.Properties.Resources.clean24;
+            this.btnClear.Location = new System.Drawing.Point(410, 30);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(39, 37);
+            this.btnClear.TabIndex = 18;
+            this.btnClear.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnClear.TextColor = System.Drawing.Color.White;
+            this.btnClear.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnClear.UseVisualStyleBackColor = false;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
+            // lblBusqueda
+            // 
+            this.lblBusqueda.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblBusqueda.AutoSize = true;
+            this.lblBusqueda.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBusqueda.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.lblBusqueda.Location = new System.Drawing.Point(28, 17);
+            this.lblBusqueda.Name = "lblBusqueda";
+            this.lblBusqueda.Size = new System.Drawing.Size(76, 22);
+            this.lblBusqueda.TabIndex = 12;
+            this.lblBusqueda.Text = "Buscar por:";
+            // 
+            // cmbBusqueda
+            // 
+            this.cmbBusqueda.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.cmbBusqueda.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cmbBusqueda.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmbBusqueda.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(254)))));
+            this.cmbBusqueda.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.cmbBusqueda.BorderSize = 2;
+            this.cmbBusqueda.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbBusqueda.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbBusqueda.ForeColor = System.Drawing.Color.DimGray;
+            this.cmbBusqueda.IconColor = System.Drawing.Color.MediumSlateBlue;
+            this.cmbBusqueda.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(228)))), ((int)(((byte)(245)))));
+            this.cmbBusqueda.ListTextColor = System.Drawing.Color.DimGray;
+            this.cmbBusqueda.Location = new System.Drawing.Point(18, 30);
+            this.cmbBusqueda.MinimumSize = new System.Drawing.Size(200, 30);
+            this.cmbBusqueda.Name = "cmbBusqueda";
+            this.cmbBusqueda.Padding = new System.Windows.Forms.Padding(2);
+            this.cmbBusqueda.Size = new System.Drawing.Size(200, 38);
+            this.cmbBusqueda.TabIndex = 11;
+            this.cmbBusqueda.Texts = "";
+            // 
+            // txbBuscar
+            // 
+            this.txbBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txbBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(254)))));
+            this.txbBuscar.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.txbBuscar.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.txbBuscar.BorderRadius = 0;
+            this.txbBuscar.BorderSize = 2;
+            this.txbBuscar.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbBuscar.Location = new System.Drawing.Point(224, 30);
+            this.txbBuscar.Maxlength = 32767;
+            this.txbBuscar.Multiline = false;
+            this.txbBuscar.Name = "txbBuscar";
+            this.txbBuscar.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txbBuscar.PasswordChar = false;
+            this.txbBuscar.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txbBuscar.PlaceholderText = "";
+            this.txbBuscar.ReadOnly = false;
+            this.txbBuscar.Size = new System.Drawing.Size(180, 37);
+            this.txbBuscar.TabIndex = 16;
+            this.txbBuscar.Texts = "";
+            this.txbBuscar.UnderlinedStyle = false;
+            this.txbBuscar._TextChanged += new System.EventHandler(this.txbBuscar__TextChanged);
+            // 
+            // cmbTipo
+            // 
+            this.cmbTipo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(254)))));
+            this.cmbTipo.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.cmbTipo.BorderSize = 2;
+            this.cmbTipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbTipo.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbTipo.ForeColor = System.Drawing.Color.DimGray;
+            this.cmbTipo.IconColor = System.Drawing.Color.MediumSlateBlue;
+            this.cmbTipo.Items.AddRange(new object[] {
+            "Gastos fijos",
+            "Compra de insumos",
+            "Compra de materia prima",
+            "Otros"});
+            this.cmbTipo.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(228)))), ((int)(((byte)(245)))));
+            this.cmbTipo.ListTextColor = System.Drawing.Color.DimGray;
+            this.cmbTipo.Location = new System.Drawing.Point(14, 193);
+            this.cmbTipo.MinimumSize = new System.Drawing.Size(200, 30);
+            this.cmbTipo.Name = "cmbTipo";
+            this.cmbTipo.Padding = new System.Windows.Forms.Padding(2);
+            this.cmbTipo.Size = new System.Drawing.Size(250, 35);
+            this.cmbTipo.TabIndex = 23;
+            this.cmbTipo.Texts = "";
+            // 
+            // lblTipo
+            // 
+            this.lblTipo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblTipo.AutoSize = true;
+            this.lblTipo.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTipo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(160)))), ((int)(((byte)(160)))));
+            this.lblTipo.Location = new System.Drawing.Point(19, 181);
+            this.lblTipo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblTipo.Name = "lblTipo";
+            this.lblTipo.Size = new System.Drawing.Size(35, 22);
+            this.lblTipo.TabIndex = 24;
+            this.lblTipo.Text = "Tipo";
             // 
             // FormGastos
             // 
@@ -497,5 +539,7 @@
         private System.Windows.Forms.Label lblBusqueda;
         private CustomControls.RJControls.RJComboBox cmbBusqueda;
         private Ingenieros_Commerce_Manager.CustomControls.CustomTextBox txbBuscar;
+        private System.Windows.Forms.Label lblTipo;
+        private CustomControls.RJControls.RJComboBox cmbTipo;
     }
 }
