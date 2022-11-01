@@ -12,9 +12,9 @@ using MySql.Data.MySqlClient;
 
 namespace Ingenieros_Commerce_Manager_v2._0
 {
-    public partial class Form1 : Form
+    public partial class FormPrincipal : Form
     {
-        public Form1()
+        public FormPrincipal()
         {
             InitializeComponent();
             //Estas lineas eliminan los parpadeos del formulario o controles en la interfaz grafica (Pero no en un 100%)
@@ -225,5 +225,10 @@ namespace Ingenieros_Commerce_Manager_v2._0
         }
         #endregion
 
+        private void FormPrincipal_Load(object sender, EventArgs e)
+        {
+            colorearBoton(btnVentas, btnPagos, btnGastos, btnInventario, btnResumen, btnUsuario);
+            AbrirFormulario<FormVentas>();
+        }
     }
 }

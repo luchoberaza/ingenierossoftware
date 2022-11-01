@@ -1,6 +1,6 @@
 ﻿namespace Ingenieros_Commerce_Manager_v2._0
 {
-    partial class Form1
+    partial class FormPrincipal
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPrincipal));
             this.panelHeader = new System.Windows.Forms.Panel();
             this.BotonHide = new System.Windows.Forms.PictureBox();
             this.BotonMinMax = new System.Windows.Forms.PictureBox();
@@ -290,7 +290,7 @@
             this.panelContenedor.Size = new System.Drawing.Size(1000, 650);
             this.panelContenedor.TabIndex = 3;
             // 
-            // Form1
+            // FormPrincipal
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.ClientSize = new System.Drawing.Size(1000, 650);
@@ -298,9 +298,10 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(600, 400);
-            this.Name = "Form1";
+            this.Name = "FormPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "Ingenieros Commerce Manager";
+            this.Load += new System.EventHandler(this.FormPrincipal_Load);
             this.panelHeader.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.BotonHide)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BotonMinMax)).EndInit();

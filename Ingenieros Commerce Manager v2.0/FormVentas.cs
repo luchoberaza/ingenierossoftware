@@ -122,7 +122,16 @@ namespace Ingenieros_Commerce_Manager_v2._0
                         precio.ToString(),
                         (float.Parse(txbCantidad.Texts)*precio).ToString()
                     });
-                sql.RestarStock(int.Parse(txbIDProd.Texts), float.Parse(txbCantidad.Texts));
+                try
+                {
+                    sql.RestarStock(int.Parse(txbIDProd.Texts), float.Parse(txbCantidad.Texts));
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error al conectar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                }
             }
             else
             {
@@ -181,11 +190,19 @@ namespace Ingenieros_Commerce_Manager_v2._0
                 int index = e.RowIndex;
                 if (index >= 0)
                 {
-                    sql.SumarStock
-                        (
-                        int.Parse(dgvVenta.Rows[index].Cells["IDProducto"].Value.ToString()),
-                        float.Parse(dgvVenta.Rows[index].Cells["Cantidad"].Value.ToString())
-                        );
+                    try
+                    {
+                        sql.SumarStock
+                          (
+                          int.Parse(dgvVenta.Rows[index].Cells["IDProducto"].Value.ToString()),
+                          float.Parse(dgvVenta.Rows[index].Cells["Cantidad"].Value.ToString())
+                          );
+                    }
+                    catch(Exception ex) 
+                    { 
+                        MessageBox.Show(ex.Message, "Error al conectar+", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    
                     dgvVenta.Rows.RemoveAt(index);
                     CalcularTotal();
                 }
@@ -195,6 +212,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
         {
             if(txbPaga.Texts.Length == 0)
             {
+                txbCambio.Texts = "";
                 return;
             }
             if (!int.TryParse(txbPaga.Texts, out pago))
@@ -205,6 +223,10 @@ namespace Ingenieros_Commerce_Manager_v2._0
             if (txbTotal.Texts.Trim() == "")
             {
                 MessageBox.Show("No existen productos en la venta.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            if(pago < float.Parse(txbTotal.Texts))
+            {
                 return;
             }
             txbCambio.Texts = (pago - float.Parse(txbTotal.Texts)).ToString();

@@ -159,7 +159,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
                     {
                         MessageBox.Show("Bienvenido " + txbUsuario.Texts, "Ingenieros Commerce Manager", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                         Module.formInicio = this;
-                        Form1 formPrincipal = new Form1();
+                        FormPrincipal formPrincipal = new FormPrincipal();
                         formPrincipal.Show();
                         this.Hide();
 
