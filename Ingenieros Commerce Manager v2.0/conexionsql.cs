@@ -122,7 +122,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
         public void InsertarCliente(string Nombre, string Direccion, string Telefono, float Saldo)
         {
             AbrirConexion();
-            comandos.CommandText = "INSERT INTO `cliente` (`ID.CLI`, `IdUsuario`, `Nombre`, `Direccion`, `Telefono`, `Saldo`) VALUES (NULL,'"+Usuario.Id+"' '" +Nombre+ "', '" +Direccion+ "', '" +Telefono+ "', '" +Saldo+ "');";
+            comandos.CommandText = "INSERT INTO `cliente` (`ID.CLI`, `IdUsuario`, `Nombre`, `Direccion`, `Telefono`, `Saldo`) VALUES (NULL,'"+Usuario.Id+"', '" +Nombre+ "', '" +Direccion+ "', '" +Telefono+ "', '" +Saldo+ "');";
             comandos.ExecuteNonQuery();
         }
         public void EliminarCliente(int id)

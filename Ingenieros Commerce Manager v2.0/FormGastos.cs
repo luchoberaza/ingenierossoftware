@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualStudio.Utilities.Internal;
+using System;
 using System.Windows.Forms;
 
 namespace Ingenieros_Commerce_Manager_v2._0
@@ -19,21 +20,25 @@ namespace Ingenieros_Commerce_Manager_v2._0
         {
             txbValorGastos.Texts = "";
             txbConceptoGastos.Texts = "";
+            txbFechaGastos.Texts = "";
         }
         private void FormGastos_Load(object sender, EventArgs e)
         {
             txbFechaGastos.Texts = DateTime.Now.ToString("dd/MM/yyyy");
-            dgvGastos.DataSource = sql.GetGastos();
-        }
+            try
+            {
+                dgvGastos.DataSource = sql.GetGastos();
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error al conectar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            foreach (DataGridViewColumn column in dgvGastos.Columns)
+            {
+                cmbBusqueda.Items.Add(column.HeaderText);
+            }
+            cmbBusqueda.Texts = "Concepto";
         }
 
         private void btnIngresoGastos_Click(object sender, EventArgs e)
@@ -133,6 +138,53 @@ namespace Ingenieros_Commerce_Manager_v2._0
         private void dtpFecha_ValueChanged(object sender, EventArgs e)
         {
             txbFechaGastos.Texts = dtpFecha.Value.ToString("dd/MM/yyyy");
+            txbFechaGastos.Select();
+        }
+
+        private void btnDeseleccionar_Click(object sender, EventArgs e)
+        {
+            dgvGastos.ClearSelection();
+            id = null;
+            ClearTextBoxs();
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            txbBuscar.Texts = "";
+            foreach (DataGridViewRow row in dgvGastos.Rows)
+            {
+                row.Visible = true;
+            }
+            cmbBusqueda.Texts = "";
+        }
+
+        private void txbBuscar__TextChanged(object sender, EventArgs e)
+        {
+            CurrencyManager manager = (CurrencyManager)dgvGastos.BindingContext[dgvGastos.DataSource];
+            manager.SuspendBinding();
+            string Filter = cmbBusqueda.Texts;
+            if (dgvGastos.Rows.Count > 0)
+            {
+                if (Filter.IsNullOrWhiteSpace() == true)
+                {
+                    MessageBox.Show("Seleccione un criterio de búsqueda.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    foreach (DataGridViewRow row in dgvGastos.Rows)
+                    {
+                        if (row.Cells[Filter].Value.ToString().Trim().ToLower().Contains(txbBuscar.Texts.Trim().ToLower()))
+                        {
+                            row.Visible = true;
+                        }
+                        else
+                        {
+                            row.Visible = false;
+                        }
+                    }
+                }
+            }
+            manager.ResumeBinding();
         }
     }
 }

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using Microsoft.VisualStudio.Utilities.Internal;
 
 namespace Ingenieros_Commerce_Manager_v2._0
 {
@@ -25,7 +26,27 @@ namespace Ingenieros_Commerce_Manager_v2._0
 
         private void FormInventario_Load(object sender, EventArgs e)
         {
-            MostrarProductos();
+            try
+            {
+                MostrarProductos();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error al conectar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            foreach (DataGridViewColumn column in dgvProductos.Columns)
+            {
+                cmbBusqueda.Items.Add(column.HeaderText);
+            }
+            foreach (DataGridViewColumn column in dgvMatPrim.Columns)
+            {
+                if(column.HeaderText != "Descripcion" && column.HeaderText != "Stock")
+                {
+                    cmbBusqueda.Items.Add(column.HeaderText);
+                }
+            }
+            cmbBusqueda.Texts = "Descripcion";
         }
         private void MostrarProductos()
         {
@@ -212,6 +233,85 @@ namespace Ingenieros_Commerce_Manager_v2._0
             idprod = null;
             editar = false;
             ClearTextBoxs();
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            txbBuscar.Texts = "";
+            foreach (DataGridViewRow row in dgvProductos.Rows)
+            {
+                row.Visible = true;
+            }
+            foreach (DataGridViewRow row in dgvMatPrim.Rows)
+            {
+                row.Visible = true;
+            }
+            cmbBusqueda.Texts = "";
+        }
+
+        private void txbBuscar__TextChanged(object sender, EventArgs e)
+        {
+            BusquedaCompleta();
+        }
+        private void Buscar(DataGridView dgv, string Filter)
+        {
+            foreach (DataGridViewRow row in dgv.Rows)
+            {
+                if (row.Cells[Filter].Value.ToString().Trim().ToLower().Contains(txbBuscar.Texts.Trim().ToLower()))
+                {
+                    row.Visible = true;
+                }
+                else
+                {
+                    row.Visible = false;
+                }
+            }
+        }
+        private void BusquedaCompleta()
+        {
+            CurrencyManager manager = (CurrencyManager)dgvProductos.BindingContext[dgvProductos.DataSource];
+            CurrencyManager manager1 = (CurrencyManager)dgvMatPrim.BindingContext[dgvMatPrim.DataSource];
+            manager.SuspendBinding();
+            manager1.SuspendBinding();
+            string Filter = cmbBusqueda.Texts;
+            if (dgvProductos.Rows.Count > 0 | dgvMatPrim.Rows.Count > 0)
+            {
+                if (Filter.IsNullOrWhiteSpace() == true)
+                {
+                    MessageBox.Show("Seleccione un criterio de búsqueda.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    if (Filter == "ID.Prod" | Filter == "PrecioUnitario")
+                    {
+                        Buscar(dgvProductos, Filter);
+                        foreach (DataGridViewRow row in dgvMatPrim.Rows)
+                        {
+                            row.Visible = false;
+                        }
+                    }
+                    else if (Filter == "ID.Mat" | Filter == "Costo")
+                    {
+                        Buscar(dgvMatPrim, Filter);
+                        foreach (DataGridViewRow row in dgvProductos.Rows)
+                        {
+                            row.Visible = false;
+                        }
+                    }
+                    else
+                    {
+                        Buscar(dgvProductos, Filter);
+                        Buscar(dgvMatPrim, Filter);
+                    }
+                }
+            }
+            manager.ResumeBinding();
+            manager1.ResumeBinding();
+        }
+
+        private void cmbBusqueda_OnSelectedIndexChanged(object sender, EventArgs e)
+        {
+            BusquedaCompleta();
         }
 
         private void dgvProductos_Click(object sender, EventArgs e)

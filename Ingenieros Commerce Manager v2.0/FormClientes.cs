@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualStudio.Utilities.Internal;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -31,7 +32,20 @@ namespace Ingenieros_Commerce_Manager_v2._0
         }
         private void FormClientes_Load(object sender, EventArgs e)
         {
-            dgvClientes.DataSource = sql.GetClientes();
+            try
+            {
+                dgvClientes.DataSource = sql.GetClientes();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error al conectar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            foreach (DataGridViewColumn column in dgvClientes.Columns)
+            {
+                cmbBusqueda.Items.Add(column.HeaderText);
+            }
+            cmbBusqueda.Texts = "Nombre";
         }
 
         private void rjButtonIngresar_Click(object sender, EventArgs e)
@@ -131,5 +145,50 @@ namespace Ingenieros_Commerce_Manager_v2._0
 
         }
 
+        private void btnDeseleccionar_Click(object sender, EventArgs e)
+        {
+            dgvClientes.ClearSelection();
+            ClearTextBoxs();
+            id = null;
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            txbBuscar.Texts = "";
+            foreach (DataGridViewRow row in dgvClientes.Rows)
+            {
+                row.Visible = true;
+            }
+            cmbBusqueda.Texts = "";
+        }
+
+        private void txbBuscar__TextChanged(object sender, EventArgs e)
+        {
+            CurrencyManager manager = (CurrencyManager)dgvClientes.BindingContext[dgvClientes.DataSource];
+            manager.SuspendBinding();
+            string Filter = cmbBusqueda.Texts;
+            if (dgvClientes.Rows.Count > 0)
+            {
+                if (Filter.IsNullOrWhiteSpace() == true)
+                {
+                    MessageBox.Show("Seleccione un criterio de búsqueda.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    foreach (DataGridViewRow row in dgvClientes.Rows)
+                    {
+                        if (row.Cells[Filter].Value.ToString().Trim().ToLower().Contains(txbBuscar.Texts.Trim().ToLower()))
+                        {
+                            row.Visible = true;
+                        }
+                        else
+                        {
+                            row.Visible = false;
+                        }
+                    }
+                }
+            }
+            manager.ResumeBinding();
+        }
     }
 }
