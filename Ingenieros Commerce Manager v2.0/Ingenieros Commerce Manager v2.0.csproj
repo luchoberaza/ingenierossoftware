@@ -319,6 +319,7 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Entities\Cliente.cs" />
+    <Compile Include="Entities\MateriaPrima.cs" />
     <Compile Include="Entities\Producto.cs" />
     <Compile Include="Entities\Usuario.cs" />
     <Compile Include="FormBuscarCliente.cs">
@@ -363,6 +364,12 @@
     <Compile Include="FormInicial.Designer.cs">
       <DependentUpon>FormInicial.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormUsarMatPrim.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUsarMatPrim.Designer.cs">
+      <DependentUpon>FormUsarMatPrim.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -402,6 +409,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormInicial.resx">
       <DependentUpon>FormInicial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUsarMatPrim.resx">
+      <DependentUpon>FormUsarMatPrim.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormUsuario.resx">
       <DependentUpon>FormUsuario.cs</DependentUpon>

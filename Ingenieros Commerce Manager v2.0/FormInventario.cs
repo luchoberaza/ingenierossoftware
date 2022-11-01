@@ -314,6 +314,14 @@ namespace Ingenieros_Commerce_Manager_v2._0
             BusquedaCompleta();
         }
 
+        private void dgvMatPrim_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if(dgvMatPrim.SelectedRows.Count > 0)
+            {
+
+            }
+        }
+
         private void dgvProductos_Click(object sender, EventArgs e)
         {
             if(dgvProductos.SelectedRows.Count > 0)

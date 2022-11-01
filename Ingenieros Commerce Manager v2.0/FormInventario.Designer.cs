@@ -57,6 +57,7 @@
             this.cmbBusqueda = new CustomControls.RJControls.RJComboBox();
             this.txbBuscar = new Ingenieros_Commerce_Manager.CustomControls.CustomTextBox();
             this.gboxArticulos = new System.Windows.Forms.GroupBox();
+            this.btnUsar = new CustomControls.RJControls.RJButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMatPrim)).BeginInit();
             this.panelDGVs.SuspendLayout();
@@ -173,6 +174,7 @@
             this.dgvMatPrim.ShowCellErrors = false;
             this.dgvMatPrim.Size = new System.Drawing.Size(480, 227);
             this.dgvMatPrim.TabIndex = 9;
+            this.dgvMatPrim.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvMatPrim_RowHeaderMouseClick);
             this.dgvMatPrim.Click += new System.EventHandler(this.dgvMatPrim_Click);
             // 
             // lblProds
@@ -553,6 +555,7 @@
             // 
             this.gboxArticulos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.gboxArticulos.Controls.Add(this.btnUsar);
             this.gboxArticulos.Controls.Add(this.lblTipo);
             this.gboxArticulos.Controls.Add(this.lblPrecioCosto);
             this.gboxArticulos.Controls.Add(this.btnEdit);
@@ -573,6 +576,27 @@
             this.gboxArticulos.TabIndex = 44;
             this.gboxArticulos.TabStop = false;
             this.gboxArticulos.Text = "Ingresar artículos";
+            // 
+            // btnUsar
+            // 
+            this.btnUsar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnUsar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(154)))), ((int)(((byte)(234)))));
+            this.btnUsar.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(154)))), ((int)(((byte)(234)))));
+            this.btnUsar.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnUsar.BorderRadius = 15;
+            this.btnUsar.BorderSize = 0;
+            this.btnUsar.FlatAppearance.BorderSize = 0;
+            this.btnUsar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUsar.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUsar.ForeColor = System.Drawing.Color.White;
+            this.btnUsar.Location = new System.Drawing.Point(10, 400);
+            this.btnUsar.Name = "btnUsar";
+            this.btnUsar.Size = new System.Drawing.Size(250, 37);
+            this.btnUsar.TabIndex = 23;
+            this.btnUsar.Text = "Utilizar";
+            this.btnUsar.TextColor = System.Drawing.Color.White;
+            this.btnUsar.UseVisualStyleBackColor = false;
+            this.btnUsar.Visible = false;
             // 
             // FormInventario
             // 
@@ -623,5 +647,6 @@
         private CustomControls.RJControls.RJComboBox cmbBusqueda;
         private Ingenieros_Commerce_Manager.CustomControls.CustomTextBox txbBuscar;
         private System.Windows.Forms.GroupBox gboxArticulos;
+        private CustomControls.RJControls.RJButton btnUsar;
     }
 }
