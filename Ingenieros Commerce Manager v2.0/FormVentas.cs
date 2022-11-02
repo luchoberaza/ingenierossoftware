@@ -15,6 +15,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
         }
         //Instancia de clase
         conexionsql sql = new conexionsql();
+        Module module = new Module();
         //Variables 
         int pago;
 
@@ -28,14 +29,12 @@ namespace Ingenieros_Commerce_Manager_v2._0
 
         private void btnUp_Click(object sender, EventArgs e)
         {
-            txbCantidad.Texts = (float.Parse(txbCantidad.Texts) + 1).ToString();
-            txbCantidad.Select();
+            module.BtnUpDown(txbCantidad, "+");
         }
 
         private void btnDown_Click(object sender, EventArgs e)
         {
-            txbCantidad.Texts = (float.Parse(txbCantidad.Texts) - 1).ToString();
-            txbCantidad.Select();
+            module.BtnUpDown(txbCantidad, "-");
         }
 
         private void btnBuscarCli_Click(object sender, EventArgs e)

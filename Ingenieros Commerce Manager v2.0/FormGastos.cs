@@ -10,6 +10,8 @@ namespace Ingenieros_Commerce_Manager_v2._0
         {
             InitializeComponent();
         }
+        //Instancia de clase
+        Module module = new Module();
         //Conexion SQL
         conexionsql sql = new conexionsql();
         //Variables;
@@ -186,6 +188,17 @@ namespace Ingenieros_Commerce_Manager_v2._0
                 }
             }
             manager.ResumeBinding();
+        }
+
+        private void btnDown_Click(object sender, EventArgs e)
+        {
+            module.BtnUpDown(txbValorGastos, "-");
+        }
+
+        private void btnUp_Click(object sender, EventArgs e)
+        {
+            module.BtnUpDown(txbValorGastos, "+");
+
         }
     }
 }

@@ -18,17 +18,16 @@ namespace Ingenieros_Commerce_Manager_v2._0
             InitializeComponent();
         }
         conexionsql sql = new conexionsql();
+        Module module = new Module();
 
         private void btnDown_Click(object sender, EventArgs e)
         {
-            txbCantidad.Texts = (float.Parse(txbCantidad.Texts) - 1).ToString();
-            txbCantidad.Select();
+            module.BtnUpDown(txbCantidad, "-");
         }
 
         private void btnUp_Click(object sender, EventArgs e)
         {
-            txbCantidad.Texts = (float.Parse(txbCantidad.Texts) + 1).ToString();
-            txbCantidad.Select();
+            module.BtnUpDown(txbCantidad, "+");
         }
 
         private void dtpFecha_ValueChanged(object sender, EventArgs e)

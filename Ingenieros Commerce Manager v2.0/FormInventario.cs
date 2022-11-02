@@ -17,6 +17,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
     {
         //Instancia de clase
         conexionsql sql = new conexionsql();
+        Module module = new Module();
         //Variables
         private string idprod = null, idmat = null;
         private bool editar = false;
@@ -341,14 +342,13 @@ namespace Ingenieros_Commerce_Manager_v2._0
 
         private void btnUp_Click(object sender, EventArgs e)
         {
-            txbStock.Texts = (float.Parse(txbStock.Texts) + 1).ToString();
-            txbStock.Select();
+            module.BtnUpDown(txbStock, "+");
+
         }
 
         private void btnDown_Click(object sender, EventArgs e)
         {
-            txbStock.Texts = (float.Parse(txbStock.Texts) - 1).ToString();
-            txbStock.Select();
+            module.BtnUpDown(txbStock, "-");
         }
 
         private void dgvProductos_Click(object sender, EventArgs e)
