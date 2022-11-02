@@ -342,13 +342,29 @@ namespace Ingenieros_Commerce_Manager_v2._0
 
         private void btnUp_Click(object sender, EventArgs e)
         {
-            module.BtnUpDown(txbStock, "+");
+            if (!float.TryParse(txbStock.Texts, out float num))
+            {
+                MessageBox.Show("Formato incorrecto", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txbStock.Texts = "0";
+                txbStock.Select();
+                return;
+            }
+            txbStock.Texts = (num + 1).ToString();
+            txbStock.Select();
 
         }
 
         private void btnDown_Click(object sender, EventArgs e)
         {
-            module.BtnUpDown(txbStock, "-");
+            if (!float.TryParse(txbStock.Texts, out float num))
+            {
+                MessageBox.Show("Formato incorrecto", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txbStock.Texts = "0";
+                txbStock.Select();
+                return;
+            }
+            txbStock.Texts = (num - 1).ToString();
+            txbStock.Select();
         }
 
         private void dgvProductos_Click(object sender, EventArgs e)

@@ -4,6 +4,7 @@ using System.Drawing.Text;
 using System.Runtime.Remoting.Messaging;
 using System.Windows.Forms;
 using Ingenieros_Commerce_Manager_v2._0.Entities;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Ingenieros_Commerce_Manager_v2._0
 {
@@ -29,12 +30,28 @@ namespace Ingenieros_Commerce_Manager_v2._0
 
         private void btnUp_Click(object sender, EventArgs e)
         {
-            module.BtnUpDown(txbCantidad, "+");
+            if (!float.TryParse(txbCantidad.Texts, out float num))
+            {
+                MessageBox.Show("Formato incorrecto", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txbCantidad.Texts = "0";
+                txbCantidad.Select();
+                return;
+            }
+            txbCantidad.Texts = (num + 1).ToString();
+            txbCantidad.Select();
         }
 
         private void btnDown_Click(object sender, EventArgs e)
         {
-            module.BtnUpDown(txbCantidad, "-");
+            if (!float.TryParse(txbCantidad.Texts, out float num))
+            {
+                MessageBox.Show("Formato incorrecto", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txbCantidad.Texts = "0";
+                txbCantidad.Select();
+                return;
+            }
+            txbCantidad.Texts = (num - 1).ToString();
+            txbCantidad.Select();
         }
 
         private void btnBuscarCli_Click(object sender, EventArgs e)

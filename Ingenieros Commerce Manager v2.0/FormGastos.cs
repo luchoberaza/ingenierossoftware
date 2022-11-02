@@ -192,12 +192,28 @@ namespace Ingenieros_Commerce_Manager_v2._0
 
         private void btnDown_Click(object sender, EventArgs e)
         {
-            module.BtnUpDown(txbValorGastos, "-");
+            if (!float.TryParse(txbValorGastos.Texts, out float num))
+            {
+                MessageBox.Show("Formato incorrecto", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txbValorGastos.Texts = "0";
+                txbValorGastos.Select();
+                return;
+            }
+            txbValorGastos.Texts = (num - 1).ToString();
+            txbValorGastos.Select();
         }
 
         private void btnUp_Click(object sender, EventArgs e)
         {
-            module.BtnUpDown(txbValorGastos, "+");
+            if (!float.TryParse(txbValorGastos.Texts, out float num))
+            {
+                MessageBox.Show("Formato incorrecto", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txbValorGastos.Texts = "0";
+                txbValorGastos.Select();
+                return;
+            }
+            txbValorGastos.Texts = (num + 1).ToString();
+            txbValorGastos.Select();
 
         }
     }
