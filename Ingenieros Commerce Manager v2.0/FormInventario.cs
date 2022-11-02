@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using Microsoft.VisualStudio.Utilities.Internal;
+using Ingenieros_Commerce_Manager_v2._0.Entities;
 
 namespace Ingenieros_Commerce_Manager_v2._0
 {
@@ -47,6 +48,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
                 }
             }
             cmbBusqueda.Texts = "Descripcion";
+            txbStock.Texts = "0";
         }
         private void MostrarProductos()
         {
@@ -314,12 +316,39 @@ namespace Ingenieros_Commerce_Manager_v2._0
             BusquedaCompleta();
         }
 
-        private void dgvMatPrim_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        private void btnUsar_Click(object sender, EventArgs e)
         {
-            if(dgvMatPrim.SelectedRows.Count > 0)
-            {
+            MateriaPrima.Descripcion = dgvMatPrim.CurrentRow.Cells["Descripcion"].Value.ToString();
+            MateriaPrima.Stock = float.Parse(dgvMatPrim.CurrentRow.Cells["Stock"].Value.ToString());
+            MateriaPrima.Costo = float.Parse(dgvMatPrim.CurrentRow.Cells["Costo"].Value.ToString());
+            MateriaPrima.Id = int.Parse(dgvMatPrim.CurrentRow.Cells["ID.Mat"].Value.ToString());
+            FormUsarMatPrim form = new FormUsarMatPrim();
+            form.ShowDialog();
+            MostrarProductos();
+        }
 
+        private void dgvMatPrim_SelectionChanged(object sender, EventArgs e)
+        {
+            if(dgvMatPrim.SelectedRows.Count == 1)
+            {
+                btnUsar.Visible = true;
             }
+            else
+            {
+                btnUsar.Visible = false;
+            }
+        }
+
+        private void btnUp_Click(object sender, EventArgs e)
+        {
+            txbStock.Texts = (float.Parse(txbStock.Texts) + 1).ToString();
+            txbStock.Select();
+        }
+
+        private void btnDown_Click(object sender, EventArgs e)
+        {
+            txbStock.Texts = (float.Parse(txbStock.Texts) - 1).ToString();
+            txbStock.Select();
         }
 
         private void dgvProductos_Click(object sender, EventArgs e)

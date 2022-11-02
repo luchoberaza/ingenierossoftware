@@ -235,6 +235,14 @@ namespace Ingenieros_Commerce_Manager_v2._0
             comandos.ExecuteNonQuery();
 
         }
+        public void UsarMatPrim(int id, string fecha, float cantidad)
+        {
+            AbrirConexion();
+            comandos.CommandText = "INSERT INTO elaboracion VALUES (NULL, '"+id+"', STR_TO_DATE('"+fecha+"', '%e/%c/%Y'), '"+cantidad+"');";
+            comandos.ExecuteNonQuery();
+            comandos.CommandText = "UPDATE `materia_prima` SET `Stock` = `Stock` - '"+cantidad+"' WHERE `ID.Mat` = '"+id+"' ";
+            comandos.ExecuteNonQuery();
+        }
         #endregion
 
         #region Gestor de conexion

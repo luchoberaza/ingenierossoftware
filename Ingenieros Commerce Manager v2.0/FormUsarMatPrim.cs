@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Ingenieros_Commerce_Manager_v2._0.Entities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,60 @@ namespace Ingenieros_Commerce_Manager_v2._0
         public FormUsarMatPrim()
         {
             InitializeComponent();
+        }
+        conexionsql sql = new conexionsql();
+
+        private void btnDown_Click(object sender, EventArgs e)
+        {
+            txbCantidad.Texts = (float.Parse(txbCantidad.Texts) - 1).ToString();
+            txbCantidad.Select();
+        }
+
+        private void btnUp_Click(object sender, EventArgs e)
+        {
+            txbCantidad.Texts = (float.Parse(txbCantidad.Texts) + 1).ToString();
+            txbCantidad.Select();
+        }
+
+        private void dtpFecha_ValueChanged(object sender, EventArgs e)
+        {
+            txbFecha.Texts = dtpFecha.Value.ToString("dd/MM/yyyy");
+            txbFecha.Select();
+        }
+
+        private void FormUsarMatPrim_Load(object sender, EventArgs e)
+        {
+            txbFecha.Texts = DateTime.Now.ToString("dd/MM/yyyy");
+            txbCantidad.Texts = "0";
+            txbCantidad.Select();
+            txbCosto.Texts = MateriaPrima.Costo.ToString();
+            txbDescrip.Texts = MateriaPrima.Descripcion;
+            txbStock.Texts = MateriaPrima.Stock.ToString();
+            lblID.Text = MateriaPrima.Id.ToString();
+        }
+
+        private void btnAceptar_Click(object sender, EventArgs e)
+        {
+            if(txbFecha.Texts.Trim() == "" | txbCantidad.Texts.Trim() == "")
+            {
+                MessageBox.Show("Complete TODOS los campos de texto.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            try
+            {
+                sql.UsarMatPrim(MateriaPrima.Id, txbFecha.Texts, float.Parse(txbCantidad.Texts));
+                this.Close();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            MateriaPrima.ClearMatData();
+            this.Close();
         }
     }
 }
