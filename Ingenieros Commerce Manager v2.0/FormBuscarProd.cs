@@ -25,8 +25,8 @@ namespace Ingenieros_Commerce_Manager_v2._0
         {
             Producto.IDPROD = int.Parse(dgvProducto.CurrentRow.Cells["ID.Prod"].Value.ToString());
             Producto.Descripcion = dgvProducto.CurrentRow.Cells["Descripcion"].Value.ToString();
-            Producto.PrecioUnitario = int.Parse(dgvProducto.CurrentRow.Cells["PrecioUnitario"].Value.ToString());
-            Producto.Stock = int.Parse(dgvProducto.CurrentRow.Cells["Stock"].Value.ToString());
+            Producto.PrecioUnitario = float.Parse(dgvProducto.CurrentRow.Cells["PrecioUnitario"].Value.ToString());
+            Producto.Stock = float.Parse(dgvProducto.CurrentRow.Cells["Stock"].Value.ToString());
         }
         private void FormBuscarProd_Load(object sender, EventArgs e)
         {

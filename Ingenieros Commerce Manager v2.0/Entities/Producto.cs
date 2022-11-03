@@ -10,8 +10,8 @@ namespace Ingenieros_Commerce_Manager_v2._0.Entities
     {
         public static int IDPROD { get; set; }
         public static string Descripcion { get; set; }
-        public static int Stock { get; set; }
-        public static int PrecioUnitario { get; set; }
+        public static float Stock { get; set; }
+        public static float PrecioUnitario { get; set; }
 
         public static void ClearProductData()
         {

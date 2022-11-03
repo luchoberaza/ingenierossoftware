@@ -21,6 +21,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
             this.SetStyle(ControlStyles.ResizeRedraw, true);
             this.DoubleBuffered = true;
             Module.formContenedor = this;
+            conexionsql.CerrarReader();
         }
         //Instancia de clase
         conexionsql conexionsql = new conexionsql();

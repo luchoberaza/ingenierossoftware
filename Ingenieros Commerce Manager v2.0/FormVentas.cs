@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Drawing;
 using System.Drawing.Text;
 using System.Runtime.Remoting.Messaging;
@@ -258,5 +259,33 @@ namespace Ingenieros_Commerce_Manager_v2._0
             CalcularCambio();
         }
 
+        private void btnCrearVenta_Click(object sender, EventArgs e)
+        {
+            sql.CerrarReader();
+            if(dgvVenta.Rows.Count < 1)
+            {
+                MessageBox.Show("Ingrese productos en la venta.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            DataTable detalle = new DataTable();
+            detalle.Columns.Add("IDProducto", typeof(int));
+            detalle.Columns.Add("PrecioVenta", typeof(float));
+            detalle.Columns.Add("Cantidad", typeof(float));
+            detalle.Columns.Add("SubTotal", typeof(float));
+
+            foreach(DataGridViewRow row in dgvVenta.Rows)
+            {
+                detalle.Rows.Add(new object[]
+                {
+                    row.Cells["IDProducto"].Value.ToString(),
+                    row.Cells["PrecioUnitario"].Value.ToString(),
+                    row.Cells["Cantidad"].Value.ToString(),
+                    row.Cells["SubTotal"].Value.ToString()
+                });
+            }
+
+
+            sql.RegistrarVenta(cmbTipoDoc.Texts, txbFecha.Texts, float.Parse(txbTotal.Texts), true, float.Parse(txbCambio.Texts), detalle);
+        }
     }
 }

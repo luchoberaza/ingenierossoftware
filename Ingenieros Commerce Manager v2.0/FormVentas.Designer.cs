@@ -57,6 +57,12 @@
             this.btnAgregar = new CustomControls.RJControls.RJButton();
             this.txbIDProd = new Ingenieros_Commerce_Manager.CustomControls.CustomTextBox();
             this.dgvVenta = new System.Windows.Forms.DataGridView();
+            this.IDProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Detalle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PrecioUnitario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SubTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Eliminar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.lblTotal = new System.Windows.Forms.Label();
             this.lblPaga = new System.Windows.Forms.Label();
             this.lblCambio = new System.Windows.Forms.Label();
@@ -64,12 +70,6 @@
             this.txbCambio = new Ingenieros_Commerce_Manager.CustomControls.CustomTextBox();
             this.txbPaga = new Ingenieros_Commerce_Manager.CustomControls.CustomTextBox();
             this.txbTotal = new Ingenieros_Commerce_Manager.CustomControls.CustomTextBox();
-            this.IDProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Detalle = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PrecioUnitario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SubTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Eliminar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.gboxInfoVenta.SuspendLayout();
             this.gboxInfoCliente.SuspendLayout();
             this.gboxInfoProductos.SuspendLayout();
@@ -85,11 +85,9 @@
             this.gboxInfoVenta.Controls.Add(this.txbFecha);
             this.gboxInfoVenta.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gboxInfoVenta.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.gboxInfoVenta.Location = new System.Drawing.Point(16, 15);
-            this.gboxInfoVenta.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gboxInfoVenta.Location = new System.Drawing.Point(12, 12);
             this.gboxInfoVenta.Name = "gboxInfoVenta";
-            this.gboxInfoVenta.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.gboxInfoVenta.Size = new System.Drawing.Size(505, 176);
+            this.gboxInfoVenta.Size = new System.Drawing.Size(379, 143);
             this.gboxInfoVenta.TabIndex = 0;
             this.gboxInfoVenta.TabStop = false;
             this.gboxInfoVenta.Text = "Información de Venta";
@@ -101,10 +99,9 @@
             this.lblDocumento.AutoSize = true;
             this.lblDocumento.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDocumento.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.lblDocumento.Location = new System.Drawing.Point(44, 100);
-            this.lblDocumento.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblDocumento.Location = new System.Drawing.Point(33, 81);
             this.lblDocumento.Name = "lblDocumento";
-            this.lblDocumento.Size = new System.Drawing.Size(163, 26);
+            this.lblDocumento.Size = new System.Drawing.Size(129, 22);
             this.lblDocumento.TabIndex = 12;
             this.lblDocumento.Text = "Tipo de Documento:";
             // 
@@ -115,10 +112,9 @@
             this.lblFecha.AutoSize = true;
             this.lblFecha.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFecha.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.lblFecha.Location = new System.Drawing.Point(44, 28);
-            this.lblFecha.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblFecha.Location = new System.Drawing.Point(33, 23);
             this.lblFecha.Name = "lblFecha";
-            this.lblFecha.Size = new System.Drawing.Size(61, 26);
+            this.lblFecha.Size = new System.Drawing.Size(49, 22);
             this.lblFecha.TabIndex = 10;
             this.lblFecha.Text = "Fecha:";
             // 
@@ -142,12 +138,11 @@
             "eTicket Crédito"});
             this.cmbTipoDoc.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(228)))), ((int)(((byte)(245)))));
             this.cmbTipoDoc.ListTextColor = System.Drawing.Color.DimGray;
-            this.cmbTipoDoc.Location = new System.Drawing.Point(31, 116);
-            this.cmbTipoDoc.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.cmbTipoDoc.MinimumSize = new System.Drawing.Size(267, 37);
+            this.cmbTipoDoc.Location = new System.Drawing.Point(23, 94);
+            this.cmbTipoDoc.MinimumSize = new System.Drawing.Size(200, 30);
             this.cmbTipoDoc.Name = "cmbTipoDoc";
-            this.cmbTipoDoc.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cmbTipoDoc.Size = new System.Drawing.Size(441, 47);
+            this.cmbTipoDoc.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbTipoDoc.Size = new System.Drawing.Size(331, 38);
             this.cmbTipoDoc.TabIndex = 11;
             this.cmbTipoDoc.Texts = "";
             // 
@@ -161,17 +156,16 @@
             this.txbFecha.BorderRadius = 0;
             this.txbFecha.BorderSize = 2;
             this.txbFecha.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbFecha.Location = new System.Drawing.Point(31, 46);
-            this.txbFecha.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txbFecha.Location = new System.Drawing.Point(23, 37);
             this.txbFecha.Maxlength = 32767;
             this.txbFecha.Multiline = false;
             this.txbFecha.Name = "txbFecha";
-            this.txbFecha.Padding = new System.Windows.Forms.Padding(13, 9, 13, 9);
+            this.txbFecha.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
             this.txbFecha.PasswordChar = false;
             this.txbFecha.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txbFecha.PlaceholderText = "";
             this.txbFecha.ReadOnly = true;
-            this.txbFecha.Size = new System.Drawing.Size(441, 45);
+            this.txbFecha.Size = new System.Drawing.Size(331, 37);
             this.txbFecha.TabIndex = 10;
             this.txbFecha.Texts = "";
             this.txbFecha.UnderlinedStyle = false;
@@ -186,11 +180,9 @@
             this.gboxInfoCliente.Controls.Add(this.txbNombre);
             this.gboxInfoCliente.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gboxInfoCliente.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.gboxInfoCliente.Location = new System.Drawing.Point(529, 15);
-            this.gboxInfoCliente.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gboxInfoCliente.Location = new System.Drawing.Point(397, 12);
             this.gboxInfoCliente.Name = "gboxInfoCliente";
-            this.gboxInfoCliente.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.gboxInfoCliente.Size = new System.Drawing.Size(481, 176);
+            this.gboxInfoCliente.Size = new System.Drawing.Size(361, 143);
             this.gboxInfoCliente.TabIndex = 1;
             this.gboxInfoCliente.TabStop = false;
             this.gboxInfoCliente.Text = "Información del Cliente";
@@ -202,10 +194,9 @@
             this.lblNombre.AutoSize = true;
             this.lblNombre.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNombre.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.lblNombre.Location = new System.Drawing.Point(156, 55);
-            this.lblNombre.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblNombre.Location = new System.Drawing.Point(117, 45);
             this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(152, 26);
+            this.lblNombre.Size = new System.Drawing.Size(119, 22);
             this.lblNombre.TabIndex = 13;
             this.lblNombre.Text = "Nombre Completo";
             // 
@@ -223,10 +214,9 @@
             this.btnBuscarCli.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscarCli.ForeColor = System.Drawing.Color.White;
             this.btnBuscarCli.Image = global::Ingenieros_Commerce_Manager_v2._0.Properties.Resources.search;
-            this.btnBuscarCli.Location = new System.Drawing.Point(24, 50);
-            this.btnBuscarCli.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnBuscarCli.Location = new System.Drawing.Point(18, 41);
             this.btnBuscarCli.Name = "btnBuscarCli";
-            this.btnBuscarCli.Size = new System.Drawing.Size(93, 86);
+            this.btnBuscarCli.Size = new System.Drawing.Size(70, 70);
             this.btnBuscarCli.TabIndex = 11;
             this.btnBuscarCli.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnBuscarCli.TextColor = System.Drawing.Color.White;
@@ -244,17 +234,16 @@
             this.txbNombre.BorderRadius = 0;
             this.txbNombre.BorderSize = 2;
             this.txbNombre.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbNombre.Location = new System.Drawing.Point(143, 73);
-            this.txbNombre.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txbNombre.Location = new System.Drawing.Point(107, 59);
             this.txbNombre.Maxlength = 32767;
             this.txbNombre.Multiline = false;
             this.txbNombre.Name = "txbNombre";
-            this.txbNombre.Padding = new System.Windows.Forms.Padding(13, 9, 13, 9);
+            this.txbNombre.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
             this.txbNombre.PasswordChar = false;
             this.txbNombre.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txbNombre.PlaceholderText = "";
             this.txbNombre.ReadOnly = false;
-            this.txbNombre.Size = new System.Drawing.Size(312, 45);
+            this.txbNombre.Size = new System.Drawing.Size(234, 37);
             this.txbNombre.TabIndex = 14;
             this.txbNombre.Texts = "";
             this.txbNombre.UnderlinedStyle = false;
@@ -281,11 +270,9 @@
             this.gboxInfoProductos.Controls.Add(this.txbIDProd);
             this.gboxInfoProductos.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gboxInfoProductos.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.gboxInfoProductos.Location = new System.Drawing.Point(16, 192);
-            this.gboxInfoProductos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gboxInfoProductos.Location = new System.Drawing.Point(12, 156);
             this.gboxInfoProductos.Name = "gboxInfoProductos";
-            this.gboxInfoProductos.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.gboxInfoProductos.Size = new System.Drawing.Size(995, 176);
+            this.gboxInfoProductos.Size = new System.Drawing.Size(746, 143);
             this.gboxInfoProductos.TabIndex = 1;
             this.gboxInfoProductos.TabStop = false;
             this.gboxInfoProductos.Text = "Productos";
@@ -304,10 +291,9 @@
             this.btnID.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnID.ForeColor = System.Drawing.Color.White;
             this.btnID.Image = global::Ingenieros_Commerce_Manager_v2._0.Properties.Resources.check;
-            this.btnID.Location = new System.Drawing.Point(175, 44);
-            this.btnID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnID.Location = new System.Drawing.Point(131, 36);
             this.btnID.Name = "btnID";
-            this.btnID.Size = new System.Drawing.Size(56, 46);
+            this.btnID.Size = new System.Drawing.Size(42, 37);
             this.btnID.TabIndex = 24;
             this.btnID.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnID.TextColor = System.Drawing.Color.White;
@@ -329,10 +315,9 @@
             this.btnUp.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUp.ForeColor = System.Drawing.Color.White;
             this.btnUp.Image = global::Ingenieros_Commerce_Manager_v2._0.Properties.Resources.plus_24;
-            this.btnUp.Location = new System.Drawing.Point(724, 102);
-            this.btnUp.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnUp.Location = new System.Drawing.Point(543, 83);
             this.btnUp.Name = "btnUp";
-            this.btnUp.Size = new System.Drawing.Size(60, 50);
+            this.btnUp.Size = new System.Drawing.Size(45, 41);
             this.btnUp.TabIndex = 23;
             this.btnUp.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnUp.TextColor = System.Drawing.Color.White;
@@ -354,10 +339,9 @@
             this.btnDown.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDown.ForeColor = System.Drawing.Color.White;
             this.btnDown.Image = global::Ingenieros_Commerce_Manager_v2._0.Properties.Resources.minus24;
-            this.btnDown.Location = new System.Drawing.Point(656, 102);
-            this.btnDown.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDown.Location = new System.Drawing.Point(492, 83);
             this.btnDown.Name = "btnDown";
-            this.btnDown.Size = new System.Drawing.Size(60, 50);
+            this.btnDown.Size = new System.Drawing.Size(45, 41);
             this.btnDown.TabIndex = 15;
             this.btnDown.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnDown.TextColor = System.Drawing.Color.White;
@@ -372,10 +356,9 @@
             this.lblCantidad.AutoSize = true;
             this.lblCantidad.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCantidad.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.lblCantidad.Location = new System.Drawing.Point(664, 32);
-            this.lblCantidad.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblCantidad.Location = new System.Drawing.Point(498, 26);
             this.lblCantidad.Name = "lblCantidad";
-            this.lblCantidad.Size = new System.Drawing.Size(86, 26);
+            this.lblCantidad.Size = new System.Drawing.Size(69, 22);
             this.lblCantidad.TabIndex = 21;
             this.lblCantidad.Text = "Cantidad:";
             // 
@@ -389,17 +372,16 @@
             this.txbCantidad.BorderRadius = 0;
             this.txbCantidad.BorderSize = 2;
             this.txbCantidad.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbCantidad.Location = new System.Drawing.Point(656, 49);
-            this.txbCantidad.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txbCantidad.Location = new System.Drawing.Point(492, 40);
             this.txbCantidad.Maxlength = 32767;
             this.txbCantidad.Multiline = false;
             this.txbCantidad.Name = "txbCantidad";
-            this.txbCantidad.Padding = new System.Windows.Forms.Padding(13, 9, 13, 9);
+            this.txbCantidad.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
             this.txbCantidad.PasswordChar = false;
             this.txbCantidad.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txbCantidad.PlaceholderText = "";
             this.txbCantidad.ReadOnly = false;
-            this.txbCantidad.Size = new System.Drawing.Size(128, 45);
+            this.txbCantidad.Size = new System.Drawing.Size(96, 37);
             this.txbCantidad.TabIndex = 22;
             this.txbCantidad.Texts = "";
             this.txbCantidad.UnderlinedStyle = false;
@@ -411,10 +393,9 @@
             this.lblStock.AutoSize = true;
             this.lblStock.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblStock.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.lblStock.Location = new System.Drawing.Point(472, 98);
-            this.lblStock.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblStock.Location = new System.Drawing.Point(354, 80);
             this.lblStock.Name = "lblStock";
-            this.lblStock.Size = new System.Drawing.Size(56, 26);
+            this.lblStock.Size = new System.Drawing.Size(45, 22);
             this.lblStock.TabIndex = 19;
             this.lblStock.Text = "Stock:";
             // 
@@ -428,17 +409,16 @@
             this.txbStock.BorderRadius = 0;
             this.txbStock.BorderSize = 2;
             this.txbStock.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbStock.Location = new System.Drawing.Point(459, 116);
-            this.txbStock.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txbStock.Location = new System.Drawing.Point(344, 94);
             this.txbStock.Maxlength = 32767;
             this.txbStock.Multiline = false;
             this.txbStock.Name = "txbStock";
-            this.txbStock.Padding = new System.Windows.Forms.Padding(13, 9, 13, 9);
+            this.txbStock.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
             this.txbStock.PasswordChar = false;
             this.txbStock.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txbStock.PlaceholderText = "";
             this.txbStock.ReadOnly = true;
-            this.txbStock.Size = new System.Drawing.Size(147, 45);
+            this.txbStock.Size = new System.Drawing.Size(110, 37);
             this.txbStock.TabIndex = 20;
             this.txbStock.Texts = "";
             this.txbStock.UnderlinedStyle = false;
@@ -451,10 +431,9 @@
             this.lblPrecio.AutoSize = true;
             this.lblPrecio.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPrecio.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.lblPrecio.Location = new System.Drawing.Point(281, 98);
-            this.lblPrecio.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblPrecio.Location = new System.Drawing.Point(211, 80);
             this.lblPrecio.Name = "lblPrecio";
-            this.lblPrecio.Size = new System.Drawing.Size(62, 26);
+            this.lblPrecio.Size = new System.Drawing.Size(49, 22);
             this.lblPrecio.TabIndex = 17;
             this.lblPrecio.Text = "Precio:";
             // 
@@ -469,17 +448,16 @@
             this.txbPrecio.BorderRadius = 0;
             this.txbPrecio.BorderSize = 2;
             this.txbPrecio.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbPrecio.Location = new System.Drawing.Point(268, 116);
-            this.txbPrecio.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txbPrecio.Location = new System.Drawing.Point(201, 94);
             this.txbPrecio.Maxlength = 32767;
             this.txbPrecio.Multiline = false;
             this.txbPrecio.Name = "txbPrecio";
-            this.txbPrecio.Padding = new System.Windows.Forms.Padding(13, 9, 13, 9);
+            this.txbPrecio.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
             this.txbPrecio.PasswordChar = false;
             this.txbPrecio.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txbPrecio.PlaceholderText = "";
             this.txbPrecio.ReadOnly = false;
-            this.txbPrecio.Size = new System.Drawing.Size(183, 45);
+            this.txbPrecio.Size = new System.Drawing.Size(137, 37);
             this.txbPrecio.TabIndex = 18;
             this.txbPrecio.Texts = "";
             this.txbPrecio.UnderlinedStyle = false;
@@ -490,10 +468,9 @@
             this.lblProd.AutoSize = true;
             this.lblProd.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblProd.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.lblProd.Location = new System.Drawing.Point(281, 26);
-            this.lblProd.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblProd.Location = new System.Drawing.Point(211, 21);
             this.lblProd.Name = "lblProd";
-            this.lblProd.Size = new System.Drawing.Size(84, 26);
+            this.lblProd.Size = new System.Drawing.Size(67, 22);
             this.lblProd.TabIndex = 13;
             this.lblProd.Text = "Producto:";
             // 
@@ -511,10 +488,9 @@
             this.btnBuscarProd.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscarProd.ForeColor = System.Drawing.Color.White;
             this.btnBuscarProd.Image = global::Ingenieros_Commerce_Manager_v2._0.Properties.Resources.search;
-            this.btnBuscarProd.Location = new System.Drawing.Point(31, 97);
-            this.btnBuscarProd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnBuscarProd.Location = new System.Drawing.Point(23, 79);
             this.btnBuscarProd.Name = "btnBuscarProd";
-            this.btnBuscarProd.Size = new System.Drawing.Size(200, 68);
+            this.btnBuscarProd.Size = new System.Drawing.Size(150, 55);
             this.btnBuscarProd.TabIndex = 15;
             this.btnBuscarProd.Text = "Buscar";
             this.btnBuscarProd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -532,17 +508,16 @@
             this.txbProd.BorderRadius = 0;
             this.txbProd.BorderSize = 2;
             this.txbProd.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbProd.Location = new System.Drawing.Point(268, 44);
-            this.txbProd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txbProd.Location = new System.Drawing.Point(201, 36);
             this.txbProd.Maxlength = 32767;
             this.txbProd.Multiline = false;
             this.txbProd.Name = "txbProd";
-            this.txbProd.Padding = new System.Windows.Forms.Padding(13, 9, 13, 9);
+            this.txbProd.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
             this.txbProd.PasswordChar = false;
             this.txbProd.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txbProd.PlaceholderText = "";
             this.txbProd.ReadOnly = true;
-            this.txbProd.Size = new System.Drawing.Size(337, 45);
+            this.txbProd.Size = new System.Drawing.Size(253, 37);
             this.txbProd.TabIndex = 14;
             this.txbProd.Texts = "";
             this.txbProd.UnderlinedStyle = false;
@@ -554,10 +529,9 @@
             this.lblIDProd.AutoSize = true;
             this.lblIDProd.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblIDProd.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.lblIDProd.Location = new System.Drawing.Point(37, 27);
-            this.lblIDProd.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblIDProd.Location = new System.Drawing.Point(28, 22);
             this.lblIDProd.Name = "lblIDProd";
-            this.lblIDProd.Size = new System.Drawing.Size(103, 26);
+            this.lblIDProd.Size = new System.Drawing.Size(81, 22);
             this.lblIDProd.TabIndex = 15;
             this.lblIDProd.Text = "ID Producto:";
             // 
@@ -575,10 +549,9 @@
             this.btnAgregar.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregar.ForeColor = System.Drawing.Color.White;
             this.btnAgregar.Image = global::Ingenieros_Commerce_Manager_v2._0.Properties.Resources.plus;
-            this.btnAgregar.Location = new System.Drawing.Point(823, 33);
-            this.btnAgregar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAgregar.Location = new System.Drawing.Point(617, 27);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(145, 114);
+            this.btnAgregar.Size = new System.Drawing.Size(109, 93);
             this.btnAgregar.TabIndex = 10;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -597,17 +570,16 @@
             this.txbIDProd.BorderRadius = 0;
             this.txbIDProd.BorderSize = 2;
             this.txbIDProd.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbIDProd.Location = new System.Drawing.Point(31, 44);
-            this.txbIDProd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txbIDProd.Location = new System.Drawing.Point(23, 36);
             this.txbIDProd.Maxlength = 32767;
             this.txbIDProd.Multiline = false;
             this.txbIDProd.Name = "txbIDProd";
-            this.txbIDProd.Padding = new System.Windows.Forms.Padding(13, 9, 13, 9);
+            this.txbIDProd.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
             this.txbIDProd.PasswordChar = false;
             this.txbIDProd.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txbIDProd.PlaceholderText = "";
             this.txbIDProd.ReadOnly = false;
-            this.txbIDProd.Size = new System.Drawing.Size(136, 45);
+            this.txbIDProd.Size = new System.Drawing.Size(102, 37);
             this.txbIDProd.TabIndex = 16;
             this.txbIDProd.Texts = "";
             this.txbIDProd.UnderlinedStyle = false;
@@ -645,7 +617,7 @@
             this.dgvVenta.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvVenta.EnableHeadersVisualStyles = false;
             this.dgvVenta.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(94)))), ((int)(((byte)(220)))));
-            this.dgvVenta.Location = new System.Drawing.Point(16, 372);
+            this.dgvVenta.Location = new System.Drawing.Point(12, 302);
             this.dgvVenta.Margin = new System.Windows.Forms.Padding(0);
             this.dgvVenta.Name = "dgvVenta";
             this.dgvVenta.ReadOnly = true;
@@ -667,147 +639,10 @@
             this.dgvVenta.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvVenta.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvVenta.ShowCellErrors = false;
-            this.dgvVenta.Size = new System.Drawing.Size(697, 368);
+            this.dgvVenta.Size = new System.Drawing.Size(523, 299);
             this.dgvVenta.TabIndex = 2;
             this.dgvVenta.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvVenta_CellContentClick);
             this.dgvVenta.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvVenta_CellPainting);
-            // 
-            // lblTotal
-            // 
-            this.lblTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblTotal.AutoSize = true;
-            this.lblTotal.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotal.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.lblTotal.Location = new System.Drawing.Point(739, 377);
-            this.lblTotal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(115, 26);
-            this.lblTotal.TabIndex = 6;
-            this.lblTotal.Text = "Total a Pagar:";
-            // 
-            // lblPaga
-            // 
-            this.lblPaga.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblPaga.AutoSize = true;
-            this.lblPaga.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPaga.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.lblPaga.Location = new System.Drawing.Point(739, 497);
-            this.lblPaga.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblPaga.Name = "lblPaga";
-            this.lblPaga.Size = new System.Drawing.Size(87, 26);
-            this.lblPaga.TabIndex = 7;
-            this.lblPaga.Text = "Paga con:";
-            // 
-            // lblCambio
-            // 
-            this.lblCambio.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblCambio.AutoSize = true;
-            this.lblCambio.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCambio.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.lblCambio.Location = new System.Drawing.Point(739, 575);
-            this.lblCambio.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblCambio.Name = "lblCambio";
-            this.lblCambio.Size = new System.Drawing.Size(76, 26);
-            this.lblCambio.TabIndex = 8;
-            this.lblCambio.Text = "Cambio:";
-            // 
-            // btnCrearVenta
-            // 
-            this.btnCrearVenta.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCrearVenta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(154)))), ((int)(((byte)(234)))));
-            this.btnCrearVenta.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(154)))), ((int)(((byte)(234)))));
-            this.btnCrearVenta.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnCrearVenta.BorderRadius = 15;
-            this.btnCrearVenta.BorderSize = 0;
-            this.btnCrearVenta.FlatAppearance.BorderSize = 0;
-            this.btnCrearVenta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCrearVenta.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCrearVenta.ForeColor = System.Drawing.Color.White;
-            this.btnCrearVenta.Image = global::Ingenieros_Commerce_Manager_v2._0.Properties.Resources.shopping_cart_check;
-            this.btnCrearVenta.Location = new System.Drawing.Point(731, 668);
-            this.btnCrearVenta.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnCrearVenta.Name = "btnCrearVenta";
-            this.btnCrearVenta.Size = new System.Drawing.Size(268, 68);
-            this.btnCrearVenta.TabIndex = 9;
-            this.btnCrearVenta.Text = "Crear Venta";
-            this.btnCrearVenta.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnCrearVenta.TextColor = System.Drawing.Color.White;
-            this.btnCrearVenta.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnCrearVenta.UseVisualStyleBackColor = false;
-            // 
-            // txbCambio
-            // 
-            this.txbCambio.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.txbCambio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(254)))));
-            this.txbCambio.BorderColor = System.Drawing.Color.MediumSlateBlue;
-            this.txbCambio.BorderFocusColor = System.Drawing.Color.HotPink;
-            this.txbCambio.BorderRadius = 0;
-            this.txbCambio.BorderSize = 2;
-            this.txbCambio.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbCambio.Location = new System.Drawing.Point(731, 590);
-            this.txbCambio.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txbCambio.Maxlength = 32767;
-            this.txbCambio.Multiline = false;
-            this.txbCambio.Name = "txbCambio";
-            this.txbCambio.Padding = new System.Windows.Forms.Padding(13, 9, 13, 9);
-            this.txbCambio.PasswordChar = false;
-            this.txbCambio.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txbCambio.PlaceholderText = "";
-            this.txbCambio.ReadOnly = true;
-            this.txbCambio.Size = new System.Drawing.Size(268, 45);
-            this.txbCambio.TabIndex = 5;
-            this.txbCambio.Texts = "";
-            this.txbCambio.UnderlinedStyle = false;
-            // 
-            // txbPaga
-            // 
-            this.txbPaga.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.txbPaga.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(254)))));
-            this.txbPaga.BorderColor = System.Drawing.Color.MediumSlateBlue;
-            this.txbPaga.BorderFocusColor = System.Drawing.Color.HotPink;
-            this.txbPaga.BorderRadius = 0;
-            this.txbPaga.BorderSize = 2;
-            this.txbPaga.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbPaga.Location = new System.Drawing.Point(731, 513);
-            this.txbPaga.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txbPaga.Maxlength = 32767;
-            this.txbPaga.Multiline = false;
-            this.txbPaga.Name = "txbPaga";
-            this.txbPaga.Padding = new System.Windows.Forms.Padding(13, 9, 13, 9);
-            this.txbPaga.PasswordChar = false;
-            this.txbPaga.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txbPaga.PlaceholderText = "";
-            this.txbPaga.ReadOnly = false;
-            this.txbPaga.Size = new System.Drawing.Size(268, 45);
-            this.txbPaga.TabIndex = 4;
-            this.txbPaga.Texts = "";
-            this.txbPaga.UnderlinedStyle = false;
-            this.txbPaga._TextChanged += new System.EventHandler(this.txbPaga__TextChanged);
-            // 
-            // txbTotal
-            // 
-            this.txbTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txbTotal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(254)))));
-            this.txbTotal.BorderColor = System.Drawing.Color.MediumSlateBlue;
-            this.txbTotal.BorderFocusColor = System.Drawing.Color.HotPink;
-            this.txbTotal.BorderRadius = 0;
-            this.txbTotal.BorderSize = 2;
-            this.txbTotal.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbTotal.Location = new System.Drawing.Point(731, 394);
-            this.txbTotal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txbTotal.Maxlength = 32767;
-            this.txbTotal.Multiline = false;
-            this.txbTotal.Name = "txbTotal";
-            this.txbTotal.Padding = new System.Windows.Forms.Padding(13, 9, 13, 9);
-            this.txbTotal.PasswordChar = false;
-            this.txbTotal.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txbTotal.PlaceholderText = "";
-            this.txbTotal.ReadOnly = true;
-            this.txbTotal.Size = new System.Drawing.Size(268, 45);
-            this.txbTotal.TabIndex = 3;
-            this.txbTotal.Texts = "";
-            this.txbTotal.UnderlinedStyle = false;
-            this.txbTotal._TextChanged += new System.EventHandler(this.txbTotal__TextChanged);
             // 
             // IDProducto
             // 
@@ -851,12 +686,143 @@
             this.Eliminar.Name = "Eliminar";
             this.Eliminar.ReadOnly = true;
             // 
+            // lblTotal
+            // 
+            this.lblTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblTotal.AutoSize = true;
+            this.lblTotal.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotal.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.lblTotal.Location = new System.Drawing.Point(554, 306);
+            this.lblTotal.Name = "lblTotal";
+            this.lblTotal.Size = new System.Drawing.Size(91, 22);
+            this.lblTotal.TabIndex = 6;
+            this.lblTotal.Text = "Total a Pagar:";
+            // 
+            // lblPaga
+            // 
+            this.lblPaga.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblPaga.AutoSize = true;
+            this.lblPaga.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPaga.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.lblPaga.Location = new System.Drawing.Point(554, 404);
+            this.lblPaga.Name = "lblPaga";
+            this.lblPaga.Size = new System.Drawing.Size(70, 22);
+            this.lblPaga.TabIndex = 7;
+            this.lblPaga.Text = "Paga con:";
+            // 
+            // lblCambio
+            // 
+            this.lblCambio.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblCambio.AutoSize = true;
+            this.lblCambio.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCambio.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.lblCambio.Location = new System.Drawing.Point(554, 467);
+            this.lblCambio.Name = "lblCambio";
+            this.lblCambio.Size = new System.Drawing.Size(61, 22);
+            this.lblCambio.TabIndex = 8;
+            this.lblCambio.Text = "Cambio:";
+            // 
+            // btnCrearVenta
+            // 
+            this.btnCrearVenta.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCrearVenta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(154)))), ((int)(((byte)(234)))));
+            this.btnCrearVenta.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(154)))), ((int)(((byte)(234)))));
+            this.btnCrearVenta.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnCrearVenta.BorderRadius = 15;
+            this.btnCrearVenta.BorderSize = 0;
+            this.btnCrearVenta.FlatAppearance.BorderSize = 0;
+            this.btnCrearVenta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCrearVenta.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCrearVenta.ForeColor = System.Drawing.Color.White;
+            this.btnCrearVenta.Image = global::Ingenieros_Commerce_Manager_v2._0.Properties.Resources.shopping_cart_check;
+            this.btnCrearVenta.Location = new System.Drawing.Point(548, 543);
+            this.btnCrearVenta.Name = "btnCrearVenta";
+            this.btnCrearVenta.Size = new System.Drawing.Size(201, 55);
+            this.btnCrearVenta.TabIndex = 9;
+            this.btnCrearVenta.Text = "Crear Venta";
+            this.btnCrearVenta.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCrearVenta.TextColor = System.Drawing.Color.White;
+            this.btnCrearVenta.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCrearVenta.UseVisualStyleBackColor = false;
+            this.btnCrearVenta.Click += new System.EventHandler(this.btnCrearVenta_Click);
+            // 
+            // txbCambio
+            // 
+            this.txbCambio.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.txbCambio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(254)))));
+            this.txbCambio.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.txbCambio.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.txbCambio.BorderRadius = 0;
+            this.txbCambio.BorderSize = 2;
+            this.txbCambio.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbCambio.Location = new System.Drawing.Point(548, 479);
+            this.txbCambio.Maxlength = 32767;
+            this.txbCambio.Multiline = false;
+            this.txbCambio.Name = "txbCambio";
+            this.txbCambio.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txbCambio.PasswordChar = false;
+            this.txbCambio.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txbCambio.PlaceholderText = "";
+            this.txbCambio.ReadOnly = true;
+            this.txbCambio.Size = new System.Drawing.Size(201, 37);
+            this.txbCambio.TabIndex = 5;
+            this.txbCambio.Texts = "";
+            this.txbCambio.UnderlinedStyle = false;
+            // 
+            // txbPaga
+            // 
+            this.txbPaga.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.txbPaga.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(254)))));
+            this.txbPaga.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.txbPaga.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.txbPaga.BorderRadius = 0;
+            this.txbPaga.BorderSize = 2;
+            this.txbPaga.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbPaga.Location = new System.Drawing.Point(548, 417);
+            this.txbPaga.Maxlength = 32767;
+            this.txbPaga.Multiline = false;
+            this.txbPaga.Name = "txbPaga";
+            this.txbPaga.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txbPaga.PasswordChar = false;
+            this.txbPaga.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txbPaga.PlaceholderText = "";
+            this.txbPaga.ReadOnly = false;
+            this.txbPaga.Size = new System.Drawing.Size(201, 37);
+            this.txbPaga.TabIndex = 4;
+            this.txbPaga.Texts = "";
+            this.txbPaga.UnderlinedStyle = false;
+            this.txbPaga._TextChanged += new System.EventHandler(this.txbPaga__TextChanged);
+            // 
+            // txbTotal
+            // 
+            this.txbTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txbTotal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(254)))));
+            this.txbTotal.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.txbTotal.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.txbTotal.BorderRadius = 0;
+            this.txbTotal.BorderSize = 2;
+            this.txbTotal.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbTotal.Location = new System.Drawing.Point(548, 320);
+            this.txbTotal.Maxlength = 32767;
+            this.txbTotal.Multiline = false;
+            this.txbTotal.Name = "txbTotal";
+            this.txbTotal.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txbTotal.PasswordChar = false;
+            this.txbTotal.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txbTotal.PlaceholderText = "";
+            this.txbTotal.ReadOnly = true;
+            this.txbTotal.Size = new System.Drawing.Size(201, 37);
+            this.txbTotal.TabIndex = 3;
+            this.txbTotal.Texts = "";
+            this.txbTotal.UnderlinedStyle = false;
+            this.txbTotal._TextChanged += new System.EventHandler(this.txbTotal__TextChanged);
+            // 
             // FormVentas
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(254)))));
-            this.ClientSize = new System.Drawing.Size(1027, 751);
+            this.ClientSize = new System.Drawing.Size(770, 610);
             this.Controls.Add(this.btnCrearVenta);
             this.Controls.Add(this.lblCambio);
             this.Controls.Add(this.lblPaga);
@@ -869,7 +835,6 @@
             this.Controls.Add(this.gboxInfoCliente);
             this.Controls.Add(this.gboxInfoVenta);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FormVentas";
             this.Text = "FormVentas";
             this.Load += new System.EventHandler(this.FormVentas_Load);

@@ -70,9 +70,15 @@ namespace Ingenieros_Commerce_Manager_v2._0
                 MessageBox.Show("Complete TODOS los campos de texto.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            if(txbCantidad.Texts.Trim() == "0" | float.Parse(txbCantidad.Texts) > MateriaPrima.Stock)
+            {
+                MessageBox.Show("Cantidad inválida.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             try
             {
                 sql.UsarMatPrim(MateriaPrima.Id, txbFecha.Texts, float.Parse(txbCantidad.Texts));
+                MateriaPrima.ClearMatData();
                 this.Close();
             }
             catch(Exception ex)

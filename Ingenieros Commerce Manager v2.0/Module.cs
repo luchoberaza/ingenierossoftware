@@ -14,23 +14,5 @@ namespace Ingenieros_Commerce_Manager_v2._0
         public static Form formInicio { get; set; }
         public static Form formContenedor { get; set; }
 
-        public void BtnUpDown(CustomTextBox txb, string operation)
-        {
-            
-            if (operation != "-" | operation != "+")
-            {
-                return;
-            }
-            else if(operation == "+")
-            {
-                
-            }else if(operation == "-")
-            {
-                txb.Texts = (float.Parse(txb.Texts) - 1).ToString();
-                txb.Select();
-
-            }
-
-        }
     }
 }

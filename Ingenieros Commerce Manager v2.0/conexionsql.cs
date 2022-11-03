@@ -47,6 +47,59 @@ namespace Ingenieros_Commerce_Manager_v2._0
 
         }
 
+        public void RegistrarVenta(string TipoDocumento, string Fecha, float Importe, bool Envio, float Cambio, DataTable detalle)
+        {
+            AbrirConexion();
+            CerrarReader();
+            try
+            {
+                comandos.CommandText = "insert into venta(`IDUsuario`, `IDCliente`, `TipoDocumento`, `Fecha`, `Importe`, `Envio`, `Cambio`) values (@IdUsuario, @IdCliente, @TipoDocumento, STR_TO_DATE('" + Fecha + "', '%e/%c/%Y'), @Importe, @Envio, @Cambio);";
+                comandos.Parameters.AddWithValue("@IdUsuario", Usuario.Id);
+                comandos.Parameters.AddWithValue("@TipoDocumento", TipoDocumento);
+                if (Cliente.IDCLI > 0)
+                {
+                    comandos.Parameters.AddWithValue("@IdCliente", Cliente.IDCLI);
+                }
+                else
+                {
+                    comandos.Parameters.AddWithValue("@IdCliente", DBNull.Value);
+                }
+                comandos.Parameters.AddWithValue("@Importe", Importe);
+                if (Envio == true)
+                {
+                    comandos.Parameters.AddWithValue("@Envio", 1);
+                }
+                else
+                {
+                    comandos.Parameters.AddWithValue("@Envio", 0);
+                }
+                comandos.Parameters.AddWithValue("@Cambio", Cambio);
+                comandos.ExecuteNonQuery();
+                comandos.Parameters.Clear();
+                MySqlDataReader dataVentas;
+                comandos.CommandText = "SELECT LAST_INSERT_ID();";
+                dataVentas = comandos.ExecuteReader();
+                dataVentas.Read();
+                int idventa = dataVentas.GetInt32(0);
+                foreach(DataRow row in detalle.Rows)
+                {
+                    int idprod = Convert.ToInt32(row["IDProducto"]);
+                    float precio = float.Parse(row["PrecioVenta"].ToString());
+                    float Cantidad = float.Parse(row["Cantidad"].ToString());
+                    float SubTotal = float.Parse(row["SubTotal"].ToString());
+                    comandos.CommandText = "INSERT into `detalleventa` (`IdVenta`, `IdProd`, `PrecioVenta`, `Cantidad`, `SubTotal`) VALUES ('" + idventa + "', '" + idprod + "', '" + precio + "', '"+Cantidad+"', '"+SubTotal+"')";
+                    comandos.ExecuteNonQuery();
+                }
+                dataVentas.Dispose();
+                dataVentas.Close();
+                CerrarConexion();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
         #endregion
 
         #region Usuario
@@ -57,6 +110,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
             EjecutarReader();
             datos.Read();
             Usuario.Id = datos.GetInt32("ID.Usuario");
+            CerrarReader();
             return Usuario.Id;
         }
         public void SetUserData(int id)
@@ -267,6 +321,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
         {
             if (datos != null)
             {
+                datos.Dispose();
                 datos.Close();
             }
         }
@@ -274,6 +329,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
         {
             if(conexion.State == ConnectionState.Open)
             {
+                conexion.Dispose();
                 conexion.Close();
             }
         }
