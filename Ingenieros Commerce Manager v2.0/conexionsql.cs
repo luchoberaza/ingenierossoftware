@@ -76,12 +76,13 @@ namespace Ingenieros_Commerce_Manager_v2._0
                 comandos.Parameters.AddWithValue("@Cambio", Cambio);
                 comandos.ExecuteNonQuery();
                 comandos.Parameters.Clear();
-                MySqlDataReader dataVentas;
                 comandos.CommandText = "SELECT LAST_INSERT_ID();";
-                dataVentas = comandos.ExecuteReader();
-                dataVentas.Read();
-                int idventa = dataVentas.GetInt32(0);
-                foreach(DataRow row in detalle.Rows)
+                CerrarReader();
+                EjecutarReader();
+                datos.Read();
+                int idventa = datos.GetInt32(0);
+                CerrarReader();
+                foreach (DataRow row in detalle.Rows)
                 {
                     int idprod = Convert.ToInt32(row["IDProducto"]);
                     float precio = float.Parse(row["PrecioVenta"].ToString());
@@ -90,8 +91,6 @@ namespace Ingenieros_Commerce_Manager_v2._0
                     comandos.CommandText = "INSERT into `detalleventa` (`IdVenta`, `IdProd`, `PrecioVenta`, `Cantidad`, `SubTotal`) VALUES ('" + idventa + "', '" + idprod + "', '" + precio + "', '"+Cantidad+"', '"+SubTotal+"')";
                     comandos.ExecuteNonQuery();
                 }
-                dataVentas.Dispose();
-                dataVentas.Close();
                 CerrarConexion();
             }
             catch(Exception ex)
@@ -261,7 +260,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
         public void InsertarMatPrim(string stock, string descrip, string costo)
         {
             AbrirConexion();
-            comandos.CommandText = "INSERT INTO `materia_prima` (`ID.Mat`, `IdUsuario`, `Costo`, `Descripcion`, `Stock`) VALUES (NULL, '"+Usuario.Id+"', '" + Double.Parse(stock) + "', '" + descrip + "', '" + Double.Parse(costo) + "');";
+            comandos.CommandText = "INSERT INTO `materia_prima` (`ID.Mat`, `IdUsuario`, `Costo`, `Descripcion`, `Stock`) VALUES (NULL, '"+Usuario.Id+"', '" + Double.Parse(costo) + "', '" + descrip + "', '" + Double.Parse(stock) + "');";
             comandos.ExecuteNonQuery();
         }
         public void UpdateMatPrim(string stock, string descrip, string costo, string id)
