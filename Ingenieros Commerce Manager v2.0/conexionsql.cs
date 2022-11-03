@@ -47,7 +47,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
 
         }
 
-        public bool RegistrarVenta(string TipoDocumento, string Fecha, float Importe, bool Envio, float Cambio, DataTable detalle)
+        public int RegistrarVenta(string TipoDocumento, string Fecha, float Importe, bool Envio, float Cambio, DataTable detalle)
         {
             AbrirConexion();
             CerrarReader();
@@ -70,7 +70,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
                     if (TipoDocumento.Contains("Crédito"))
                     {
                         MessageBox.Show("Debe especificar el cliente para realizar ventas a crédito.", "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
-                        return false;
+                        return 0;
                     }
                 }
                 comandos.Parameters.AddWithValue("@Importe", Importe);
@@ -102,12 +102,12 @@ namespace Ingenieros_Commerce_Manager_v2._0
                     comandos.ExecuteNonQuery();
                 }
                 CerrarConexion();
-                return true;
+                return idventa;
             }
             catch(Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                return false;
+                return 0;
             }
         }
 

@@ -157,7 +157,6 @@ namespace Ingenieros_Commerce_Manager_v2._0
             }
             CalcularTotal();
             ClearProducts();
-            txbIDProd.Texts = "0";
             txbIDProd.Select();
         }
 
@@ -175,7 +174,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
         }
         private void ClearProducts()
         {
-            txbIDProd.Texts = "";
+            txbIDProd.Texts = "0";
             txbProd.Texts = "";
             txbPrecio.Texts = "";
             txbStock.Texts = "";
@@ -293,15 +292,22 @@ namespace Ingenieros_Commerce_Manager_v2._0
                 envio= false;
             }
 
-            
-            if(sql.RegistrarVenta(cmbTipoDoc.Texts, txbFecha.Texts, float.Parse(txbTotal.Texts), envio, float.Parse(txbCambio.Texts), detalle))
+            int idventa = sql.RegistrarVenta(cmbTipoDoc.Texts, txbFecha.Texts, float.Parse(txbTotal.Texts), envio, float.Parse(txbCambio.Texts), detalle);
+            if (idventa != 0)
             {
-                var respuesta = MessageBox.Show("Venta generada \n ¿Desea generar el documento?", "Acción completada", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                txbNombre.Texts = "";
+                CalcularTotal();
+                ClearProducts();
+                txbPaga.Text = "";
+                txbCambio.Texts = "";
+                dgvVenta.Rows.Clear();
+                var respuesta = MessageBox.Show("Venta Nº:'"+idventa+"' generada \n ¿Desea generar el documento?", "Acción completada", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                 if(respuesta == DialogResult.Yes)
                 {
-
+                    //Aca va convertir a pdf
                 }
             }
+            
         }
     }
 }
