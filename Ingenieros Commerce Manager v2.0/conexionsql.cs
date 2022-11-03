@@ -47,22 +47,31 @@ namespace Ingenieros_Commerce_Manager_v2._0
 
         }
 
-        public void RegistrarVenta(string TipoDocumento, string Fecha, float Importe, bool Envio, float Cambio, DataTable detalle)
+        public bool RegistrarVenta(string TipoDocumento, string Fecha, float Importe, bool Envio, float Cambio, DataTable detalle)
         {
             AbrirConexion();
             CerrarReader();
             try
             {
-                comandos.CommandText = "insert into venta(`IDUsuario`, `IDCliente`, `TipoDocumento`, `Fecha`, `Importe`, `Envio`, `Cambio`) values (@IdUsuario, @IdCliente, @TipoDocumento, STR_TO_DATE('" + Fecha + "', '%e/%c/%Y'), @Importe, @Envio, @Cambio);";
                 comandos.Parameters.AddWithValue("@IdUsuario", Usuario.Id);
                 comandos.Parameters.AddWithValue("@TipoDocumento", TipoDocumento);
                 if (Cliente.IDCLI > 0)
                 {
                     comandos.Parameters.AddWithValue("@IdCliente", Cliente.IDCLI);
+                    if (TipoDocumento.Contains("Crédito"))
+                    {
+                        comandos.CommandText = "UPDATE `cliente` SET `Saldo` = `Saldo` + '"+Importe+"' WHERE `ID.CLI` = '"+ Cliente.IDCLI + "';";
+                        comandos.ExecuteNonQuery();
+                    }
                 }
                 else
                 {
                     comandos.Parameters.AddWithValue("@IdCliente", DBNull.Value);
+                    if (TipoDocumento.Contains("Crédito"))
+                    {
+                        MessageBox.Show("Debe especificar el cliente para realizar ventas a crédito.", "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+                        return false;
+                    }
                 }
                 comandos.Parameters.AddWithValue("@Importe", Importe);
                 if (Envio == true)
@@ -74,6 +83,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
                     comandos.Parameters.AddWithValue("@Envio", 0);
                 }
                 comandos.Parameters.AddWithValue("@Cambio", Cambio);
+                comandos.CommandText = "insert into venta(`IDUsuario`, `IDCliente`, `TipoDocumento`, `Fecha`, `Importe`, `Envio`, `Cambio`) values (@IdUsuario, @IdCliente, @TipoDocumento, STR_TO_DATE('" + Fecha + "', '%e/%c/%Y'), @Importe, @Envio, @Cambio);";
                 comandos.ExecuteNonQuery();
                 comandos.Parameters.Clear();
                 comandos.CommandText = "SELECT LAST_INSERT_ID();";
@@ -92,10 +102,12 @@ namespace Ingenieros_Commerce_Manager_v2._0
                     comandos.ExecuteNonQuery();
                 }
                 CerrarConexion();
+                return true;
             }
             catch(Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return false;
             }
         }
 

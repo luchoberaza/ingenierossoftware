@@ -283,9 +283,25 @@ namespace Ingenieros_Commerce_Manager_v2._0
                     row.Cells["SubTotal"].Value.ToString()
                 });
             }
+            bool envio = false;
+            if (rbtnDomicilio.Checked == true && rbtnLocal.Checked == false)
+            {
+                envio = true;
+            }
+            else if(rbtnLocal.Checked == true && rbtnDomicilio.Checked == true)
+            {
+                envio= false;
+            }
 
+            
+            if(sql.RegistrarVenta(cmbTipoDoc.Texts, txbFecha.Texts, float.Parse(txbTotal.Texts), envio, float.Parse(txbCambio.Texts), detalle))
+            {
+                var respuesta = MessageBox.Show("Venta generada \n ¿Desea generar el documento?", "Acción completada", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                if(respuesta == DialogResult.Yes)
+                {
 
-            sql.RegistrarVenta(cmbTipoDoc.Texts, txbFecha.Texts, float.Parse(txbTotal.Texts), true, float.Parse(txbCambio.Texts), detalle);
+                }
+            }
         }
     }
 }
