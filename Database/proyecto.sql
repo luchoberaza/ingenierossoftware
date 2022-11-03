@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Oct 31, 2022 at 08:18 PM
+-- Generation Time: Nov 03, 2022 at 02:32 PM
 -- Server version: 5.7.36
 -- PHP Version: 7.4.26
 
@@ -37,7 +37,16 @@ CREATE TABLE IF NOT EXISTS `cliente` (
   `Saldo` float NOT NULL,
   PRIMARY KEY (`ID.CLI`),
   KEY `IdUsuario` (`IdUsuario`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `cliente`
+--
+
+INSERT INTO `cliente` (`ID.CLI`, `IdUsuario`, `Nombre`, `Direccion`, `Telefono`, `Saldo`) VALUES
+(1, 1, 'Pedro Picapiedra', 'Jurasico 352', '098999999', 0),
+(2, 1, 'Carola Baldassari', 'Julio Herrera y Obes 851', 'el del santi', 0),
+(3, 1, 'Juan Gabriel', 'Chinchurreta', '099999999', 10);
 
 -- --------------------------------------------------------
 
@@ -52,11 +61,39 @@ CREATE TABLE IF NOT EXISTS `detalleventa` (
   `IdProd` int(11) NOT NULL,
   `PrecioVenta` float NOT NULL,
   `Cantidad` float NOT NULL,
-  `SubTotal` int(11) NOT NULL,
+  `SubTotal` float NOT NULL,
   PRIMARY KEY (`IdDetalleVenta`),
   KEY `IdVenta` (`IdVenta`),
   KEY `IdProd` (`IdProd`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `elaboracion`
+--
+
+DROP TABLE IF EXISTS `elaboracion`;
+CREATE TABLE IF NOT EXISTS `elaboracion` (
+  `IdElaboracion` int(11) NOT NULL AUTO_INCREMENT,
+  `IdMatPrim` int(11) NOT NULL,
+  `Fecha` date NOT NULL,
+  `Cantidad` float NOT NULL,
+  PRIMARY KEY (`IdElaboracion`),
+  KEY `IdMatPrim` (`IdMatPrim`)
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `elaboracion`
+--
+
+INSERT INTO `elaboracion` (`IdElaboracion`, `IdMatPrim`, `Fecha`, `Cantidad`) VALUES
+(1, 1, '2022-11-02', 10),
+(2, 2, '2022-11-02', 100),
+(3, 1, '2022-11-02', 100),
+(4, 1, '2022-11-02', 10),
+(5, 2, '2022-11-02', 10),
+(6, 2, '2022-11-02', 5);
 
 -- --------------------------------------------------------
 
@@ -71,9 +108,19 @@ CREATE TABLE IF NOT EXISTS `gasto` (
   `Valor` float NOT NULL,
   `Concepto` varchar(100) NOT NULL,
   `Fecha` date NOT NULL,
+  `Tipo` varchar(50) NOT NULL,
   PRIMARY KEY (`IdGasto`),
   KEY `IdUsuario` (`IdUsuario`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `gasto`
+--
+
+INSERT INTO `gasto` (`IdGasto`, `IdUsuario`, `Valor`, `Concepto`, `Fecha`, `Tipo`) VALUES
+(2, 1, 1000, 'Firulais', '2022-11-01', 'Compra de insumos'),
+(3, 1, 2000, 'Cartuchos de tinta', '2022-11-01', 'Compra de insumos'),
+(4, 1, 3000, 'Pan rallado 20kg', '2022-07-14', 'Compra de materia prima');
 
 -- --------------------------------------------------------
 
@@ -90,7 +137,15 @@ CREATE TABLE IF NOT EXISTS `materia_prima` (
   `Stock` float NOT NULL,
   PRIMARY KEY (`ID.Mat`),
   KEY `IdUsuario` (`IdUsuario`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `materia_prima`
+--
+
+INSERT INTO `materia_prima` (`ID.Mat`, `IdUsuario`, `Costo`, `Descripcion`, `Stock`) VALUES
+(1, 1, 50, 'Pan rallado', 40),
+(2, 1, 40, 'ORegano', 480);
 
 -- --------------------------------------------------------
 
@@ -107,7 +162,16 @@ CREATE TABLE IF NOT EXISTS `producto_venta` (
   `PrecioUnitario` float NOT NULL,
   PRIMARY KEY (`ID.Prod`),
   KEY `IdUsuario` (`IdUsuario`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `producto_venta`
+--
+
+INSERT INTO `producto_venta` (`ID.Prod`, `IdUsuario`, `Stock`, `Descripcion`, `PrecioUnitario`) VALUES
+(2, 1, 4, 'Milanesa al pan', 200),
+(3, 1, 13, 'Coca', 100),
+(4, 1, 0, 'Papas Fritas', 200);
 
 -- --------------------------------------------------------
 
@@ -127,7 +191,14 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   `Foto` longblob,
   PRIMARY KEY (`ID.Usuario`),
   UNIQUE KEY `Username` (`Username`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `usuario`
+--
+
+INSERT INTO `usuario` (`ID.Usuario`, `Username`, `Contraseña`, `Denominacion`, `RUT`, `Direccion`, `Telefono`, `Foto`) VALUES
+(1, 'asd', 'asd', NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -144,10 +215,23 @@ CREATE TABLE IF NOT EXISTS `venta` (
   `Fecha` date NOT NULL,
   `Importe` float NOT NULL,
   `Envio` tinyint(1) NOT NULL,
+  `Cambio` float DEFAULT NULL,
   PRIMARY KEY (`IdVenta`),
   KEY `ID.Usuario` (`IDUsuario`) USING BTREE,
   KEY `ID.CLI` (`IDCliente`) USING BTREE
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `venta`
+--
+
+INSERT INTO `venta` (`IdVenta`, `IDUsuario`, `IDCliente`, `TipoDocumento`, `Fecha`, `Importe`, `Envio`, `Cambio`) VALUES
+(14, 1, 2, 'eTicket Contado', '2022-11-03', 100, 1, 100),
+(13, 1, 2, 'eTicket Contado', '2022-11-03', 100, 1, 100),
+(12, 1, 1, 'eTicket Contado', '2022-11-03', 200, 1, 300),
+(11, 1, 1, 'eTicket Contado', '2022-11-03', 200, 1, 300),
+(10, 1, 1, 'eTicket Contado', '2022-11-03', 200, 1, 300),
+(9, 1, 1, 'eTicket Contado', '2022-11-03', 200, 1, 300);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
