@@ -9,6 +9,8 @@ namespace Ingenieros_Commerce_Manager_v2._0
         public FormGastos()
         {
             InitializeComponent();
+            this.SetStyle(ControlStyles.ResizeRedraw, true);
+            this.DoubleBuffered = true;
         }
         //Instancia de clase
         Module module = new Module();

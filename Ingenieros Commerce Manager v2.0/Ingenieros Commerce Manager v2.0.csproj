@@ -561,6 +561,12 @@
   <ItemGroup>
     <None Include="Resources\trash24.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-menu-24 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-menu-24.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

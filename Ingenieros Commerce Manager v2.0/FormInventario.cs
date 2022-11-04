@@ -24,6 +24,8 @@ namespace Ingenieros_Commerce_Manager_v2._0
         public FormInventario()
         {
             InitializeComponent();
+            this.SetStyle(ControlStyles.ResizeRedraw, true);
+            this.DoubleBuffered = true;
         }
 
         private void FormInventario_Load(object sender, EventArgs e)

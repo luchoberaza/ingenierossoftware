@@ -25,7 +25,8 @@ namespace Ingenieros_Commerce_Manager_v2._0
         }
         //Instancia de clase
         conexionsql conexionsql = new conexionsql();
-        
+        //Variables 
+        bool sideBarOpen = true;
 
 
 
@@ -230,6 +231,46 @@ namespace Ingenieros_Commerce_Manager_v2._0
         {
             colorearBoton(btnVentas, btnPagos, btnGastos, btnInventario, btnResumen, btnUsuario);
             AbrirFormulario<FormVentas>();
+        }
+
+        private void sidebarTimer_Tick(object sender, EventArgs e)
+        {
+            if (sideBarOpen)
+            {
+                sideBarPanel.Width -= 30;
+                panelPrincipal.Width += 30;
+                int x = panelPrincipal.Location.X;
+                int y = panelPrincipal.Location.Y;
+                panelPrincipal.Location = new Point(x-30, y);
+                if (sideBarPanel.Width == sideBarPanel.MinimumSize.Width)
+                {
+                    panelPrincipal.Location = new Point(71, y);
+                    panelPrincipal.Width = panelHeader.Width - sideBarPanel.Width;
+                    sideBarOpen = false;
+                    sidebarTimer.Stop();
+                }
+            }
+            else
+            {
+                sideBarPanel.Width += 30;
+                panelPrincipal.Width -= 30;
+                int x = panelPrincipal.Location.X;
+                int y = panelPrincipal.Location.Y;
+                panelPrincipal.Location = new Point(x + 30, y);
+                if (sideBarPanel.Width == sideBarPanel.MaximumSize.Width)
+                {
+                    panelPrincipal.Location = new Point(230, y);
+                    panelPrincipal.Width = panelHeader.Width - sideBarPanel.Width;
+                    sideBarOpen = true;
+                    sidebarTimer.Stop();
+                }
+
+            }
+        }
+
+        private void btnMenu_Click(object sender, EventArgs e)
+        {
+            sidebarTimer.Start();
         }
     }
 }

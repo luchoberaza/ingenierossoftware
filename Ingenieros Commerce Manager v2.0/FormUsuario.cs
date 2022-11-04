@@ -18,6 +18,8 @@ namespace Ingenieros_Commerce_Manager_v2._0
         public FormUsuario()
         {
             InitializeComponent();
+            this.SetStyle(ControlStyles.ResizeRedraw, true);
+            this.DoubleBuffered = true;
         }
 
         //Instancia de clase
