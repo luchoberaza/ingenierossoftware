@@ -32,17 +32,17 @@ namespace Ingenieros_Commerce_Manager_v2._0
         #endregion
 
         #region Ventas
-        public void RestarStock(int id,  float cantidad)
+        public void RestarStock(int id,  string cantidad)
         {
             AbrirConexion();
-            comandos.CommandText = "update `producto_venta` set `Stock` = `Stock` - '"+cantidad+"' where `ID.Prod` = '"+id+"' ;";
+            comandos.CommandText = "update `producto_venta` set Stock = Stock - '"+cantidad+"' where `ID.Prod` = '"+id+"' ;";
             comandos.ExecuteNonQuery();
 
         }
-        public void SumarStock(int id, float cantidad)
+        public void SumarStock(int id, string cantidad)
         {
             AbrirConexion();
-            comandos.CommandText = "update `producto_venta` set `Stock` = `Stock` + '" + cantidad + "' where `ID.Prod` = '" + id + "' ;";
+            comandos.CommandText = "update `producto_venta` set Stock = Stock + '" + cantidad + "' where `ID.Prod` = '" + id + "' ;";
             comandos.ExecuteNonQuery();
 
         }

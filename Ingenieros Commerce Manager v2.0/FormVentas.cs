@@ -141,7 +141,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
                     });
                 try
                 {
-                    sql.RestarStock(int.Parse(txbIDProd.Texts), float.Parse(txbCantidad.Texts));
+                    sql.RestarStock(int.Parse(txbIDProd.Texts), txbCantidad.Texts.Replace(',','.'));
 
                 }
                 catch (Exception ex)
@@ -211,7 +211,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
                         sql.SumarStock
                           (
                           int.Parse(dgvVenta.Rows[index].Cells["IDProducto"].Value.ToString()),
-                          float.Parse(dgvVenta.Rows[index].Cells["Cantidad"].Value.ToString())
+                          dgvVenta.Rows[index].Cells["Cantidad"].Value.ToString().Replace(',', '.')
                           );
                     }
                     catch(Exception ex) 

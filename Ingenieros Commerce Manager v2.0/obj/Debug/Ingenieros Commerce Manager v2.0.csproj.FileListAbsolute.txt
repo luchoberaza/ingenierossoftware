@@ -551,3 +551,4 @@ C:\Users\lbera\OneDrive\Documentos\GitHub\ingenierossoftware\Ingenieros Commerce
 C:\Users\lbera\OneDrive\Documentos\GitHub\ingenierossoftware\Ingenieros Commerce Manager v2.0\obj\Debug\Ingenieros_Commerce_Manager_v2._0.FormPrincipal.resources
 Z:\Personal\Documentos\GitHub\ingenierossoftware\Ingenieros Commerce Manager v2.0\obj\Debug\Ingenieros_Commerce_Manager_v2._0.FormPrincipal.resources
 Z:\Personal\Documentos\GitHub\ingenierossoftware\Ingenieros Commerce Manager v2.0\obj\Debug\Ingenieros_Commerce_Manager_v2._0.FormUsarMatPrim.resources
+C:\Users\lbera\OneDrive\Documentos\GitHub\ingenierossoftware\Ingenieros Commerce Manager v2.0\obj\Debug\Ingenieros_Commerce_Manager_v2._0.FormUsarMatPrim.resources
