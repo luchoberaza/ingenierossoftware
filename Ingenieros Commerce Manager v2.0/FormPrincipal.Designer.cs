@@ -40,19 +40,25 @@
             this.sideBarPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.panelMenu = new System.Windows.Forms.Panel();
             this.btnMenu = new System.Windows.Forms.Button();
+            this.VentasContainer = new System.Windows.Forms.Panel();
+            this.panelHistorial = new System.Windows.Forms.Panel();
+            this.btnHistorial = new System.Windows.Forms.Button();
+            this.panelRegistrar = new System.Windows.Forms.Panel();
+            this.btnRegistrar = new System.Windows.Forms.Button();
             this.panelVentas = new System.Windows.Forms.Panel();
             this.btnVentas = new System.Windows.Forms.Button();
             this.panelGastos = new System.Windows.Forms.Panel();
             this.btnGastos = new System.Windows.Forms.Button();
-            this.panelClientes = new System.Windows.Forms.Panel();
-            this.btnPagos = new System.Windows.Forms.Button();
             this.panelInventario = new System.Windows.Forms.Panel();
             this.btnInventario = new System.Windows.Forms.Button();
             this.panelResumen = new System.Windows.Forms.Panel();
             this.btnResumen = new System.Windows.Forms.Button();
+            this.panelClientes = new System.Windows.Forms.Panel();
+            this.btnPagos = new System.Windows.Forms.Button();
             this.panelUsuario = new System.Windows.Forms.Panel();
             this.btnUsuario = new System.Windows.Forms.Button();
             this.sidebarTimer = new System.Windows.Forms.Timer(this.components);
+            this.TimerVentas = new System.Windows.Forms.Timer(this.components);
             this.RedondeoForm = new Ingenieros_Commerce_Manager_v2._0.Components.EllipseComponent();
             this.panelHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BotonHide)).BeginInit();
@@ -62,11 +68,14 @@
             this.panelContenedor.SuspendLayout();
             this.sideBarPanel.SuspendLayout();
             this.panelMenu.SuspendLayout();
+            this.VentasContainer.SuspendLayout();
+            this.panelHistorial.SuspendLayout();
+            this.panelRegistrar.SuspendLayout();
             this.panelVentas.SuspendLayout();
             this.panelGastos.SuspendLayout();
-            this.panelClientes.SuspendLayout();
             this.panelInventario.SuspendLayout();
             this.panelResumen.SuspendLayout();
+            this.panelClientes.SuspendLayout();
             this.panelUsuario.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -165,11 +174,11 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.sideBarPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(223)))), ((int)(((byte)(248)))));
             this.sideBarPanel.Controls.Add(this.panelMenu);
-            this.sideBarPanel.Controls.Add(this.panelVentas);
+            this.sideBarPanel.Controls.Add(this.VentasContainer);
             this.sideBarPanel.Controls.Add(this.panelGastos);
-            this.sideBarPanel.Controls.Add(this.panelClientes);
             this.sideBarPanel.Controls.Add(this.panelInventario);
             this.sideBarPanel.Controls.Add(this.panelResumen);
+            this.sideBarPanel.Controls.Add(this.panelClientes);
             this.sideBarPanel.Controls.Add(this.panelUsuario);
             this.sideBarPanel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(223)))), ((int)(((byte)(248)))));
             this.sideBarPanel.Location = new System.Drawing.Point(0, 40);
@@ -211,10 +220,88 @@
             this.btnMenu.UseVisualStyleBackColor = false;
             this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
             // 
+            // VentasContainer
+            // 
+            this.VentasContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(233)))), ((int)(((byte)(250)))));
+            this.VentasContainer.Controls.Add(this.panelHistorial);
+            this.VentasContainer.Controls.Add(this.panelRegistrar);
+            this.VentasContainer.Controls.Add(this.panelVentas);
+            this.VentasContainer.Location = new System.Drawing.Point(0, 72);
+            this.VentasContainer.Margin = new System.Windows.Forms.Padding(0);
+            this.VentasContainer.MaximumSize = new System.Drawing.Size(230, 213);
+            this.VentasContainer.MinimumSize = new System.Drawing.Size(230, 71);
+            this.VentasContainer.Name = "VentasContainer";
+            this.VentasContainer.Size = new System.Drawing.Size(230, 71);
+            this.VentasContainer.TabIndex = 20;
+            // 
+            // panelHistorial
+            // 
+            this.panelHistorial.Controls.Add(this.btnHistorial);
+            this.panelHistorial.Location = new System.Drawing.Point(0, 143);
+            this.panelHistorial.Margin = new System.Windows.Forms.Padding(0);
+            this.panelHistorial.Name = "panelHistorial";
+            this.panelHistorial.Size = new System.Drawing.Size(230, 72);
+            this.panelHistorial.TabIndex = 16;
+            // 
+            // btnHistorial
+            // 
+            this.btnHistorial.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(233)))), ((int)(((byte)(250)))));
+            this.btnHistorial.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnHistorial.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnHistorial.FlatAppearance.BorderSize = 0;
+            this.btnHistorial.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(174)))), ((int)(((byte)(238)))));
+            this.btnHistorial.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHistorial.Font = new System.Drawing.Font("Poppins", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHistorial.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(98)))), ((int)(((byte)(102)))));
+            this.btnHistorial.Image = global::Ingenieros_Commerce_Manager_v2._0.Properties.Resources.icons8_tasks_24;
+            this.btnHistorial.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnHistorial.Location = new System.Drawing.Point(-10, -10);
+            this.btnHistorial.Name = "btnHistorial";
+            this.btnHistorial.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.btnHistorial.Size = new System.Drawing.Size(250, 92);
+            this.btnHistorial.TabIndex = 8;
+            this.btnHistorial.Text = "   historial";
+            this.btnHistorial.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnHistorial.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnHistorial.UseVisualStyleBackColor = false;
+            this.btnHistorial.Click += new System.EventHandler(this.btnHistorial_Click);
+            // 
+            // panelRegistrar
+            // 
+            this.panelRegistrar.Controls.Add(this.btnRegistrar);
+            this.panelRegistrar.Location = new System.Drawing.Point(0, 72);
+            this.panelRegistrar.Margin = new System.Windows.Forms.Padding(0);
+            this.panelRegistrar.Name = "panelRegistrar";
+            this.panelRegistrar.Size = new System.Drawing.Size(230, 72);
+            this.panelRegistrar.TabIndex = 15;
+            // 
+            // btnRegistrar
+            // 
+            this.btnRegistrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(233)))), ((int)(((byte)(250)))));
+            this.btnRegistrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnRegistrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRegistrar.FlatAppearance.BorderSize = 0;
+            this.btnRegistrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(174)))), ((int)(((byte)(238)))));
+            this.btnRegistrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRegistrar.Font = new System.Drawing.Font("Poppins", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegistrar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(98)))), ((int)(((byte)(102)))));
+            this.btnRegistrar.Image = global::Ingenieros_Commerce_Manager_v2._0.Properties.Resources.icons8_windows_10_personalization_24;
+            this.btnRegistrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRegistrar.Location = new System.Drawing.Point(-10, -10);
+            this.btnRegistrar.Name = "btnRegistrar";
+            this.btnRegistrar.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.btnRegistrar.Size = new System.Drawing.Size(250, 92);
+            this.btnRegistrar.TabIndex = 8;
+            this.btnRegistrar.Text = "   registrar";
+            this.btnRegistrar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnRegistrar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnRegistrar.UseVisualStyleBackColor = false;
+            this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
+            // 
             // panelVentas
             // 
             this.panelVentas.Controls.Add(this.btnVentas);
-            this.panelVentas.Location = new System.Drawing.Point(0, 72);
+            this.panelVentas.Location = new System.Drawing.Point(0, 0);
             this.panelVentas.Margin = new System.Windows.Forms.Padding(0);
             this.panelVentas.Name = "panelVentas";
             this.panelVentas.Size = new System.Drawing.Size(230, 72);
@@ -246,7 +333,7 @@
             // panelGastos
             // 
             this.panelGastos.Controls.Add(this.btnGastos);
-            this.panelGastos.Location = new System.Drawing.Point(0, 144);
+            this.panelGastos.Location = new System.Drawing.Point(0, 143);
             this.panelGastos.Margin = new System.Windows.Forms.Padding(0);
             this.panelGastos.Name = "panelGastos";
             this.panelGastos.Size = new System.Drawing.Size(230, 72);
@@ -275,42 +362,10 @@
             this.btnGastos.UseVisualStyleBackColor = false;
             this.btnGastos.Click += new System.EventHandler(this.btnGastos_Click);
             // 
-            // panelClientes
-            // 
-            this.panelClientes.Controls.Add(this.btnPagos);
-            this.panelClientes.Location = new System.Drawing.Point(0, 216);
-            this.panelClientes.Margin = new System.Windows.Forms.Padding(0);
-            this.panelClientes.Name = "panelClientes";
-            this.panelClientes.Size = new System.Drawing.Size(230, 72);
-            this.panelClientes.TabIndex = 16;
-            // 
-            // btnPagos
-            // 
-            this.btnPagos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(223)))), ((int)(((byte)(248)))));
-            this.btnPagos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnPagos.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnPagos.FlatAppearance.BorderSize = 0;
-            this.btnPagos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(174)))), ((int)(((byte)(238)))));
-            this.btnPagos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPagos.Font = new System.Drawing.Font("Poppins", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPagos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(98)))), ((int)(((byte)(102)))));
-            this.btnPagos.Image = global::Ingenieros_Commerce_Manager_v2._0.Properties.Resources.pagos24;
-            this.btnPagos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPagos.Location = new System.Drawing.Point(-10, -10);
-            this.btnPagos.Name = "btnPagos";
-            this.btnPagos.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.btnPagos.Size = new System.Drawing.Size(250, 92);
-            this.btnPagos.TabIndex = 9;
-            this.btnPagos.Text = "   clientes";
-            this.btnPagos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnPagos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnPagos.UseVisualStyleBackColor = false;
-            this.btnPagos.Click += new System.EventHandler(this.btnPagos_Click);
-            // 
             // panelInventario
             // 
             this.panelInventario.Controls.Add(this.btnInventario);
-            this.panelInventario.Location = new System.Drawing.Point(0, 288);
+            this.panelInventario.Location = new System.Drawing.Point(0, 215);
             this.panelInventario.Margin = new System.Windows.Forms.Padding(0);
             this.panelInventario.Name = "panelInventario";
             this.panelInventario.Size = new System.Drawing.Size(230, 72);
@@ -342,7 +397,7 @@
             // panelResumen
             // 
             this.panelResumen.Controls.Add(this.btnResumen);
-            this.panelResumen.Location = new System.Drawing.Point(0, 360);
+            this.panelResumen.Location = new System.Drawing.Point(0, 287);
             this.panelResumen.Margin = new System.Windows.Forms.Padding(0);
             this.panelResumen.Name = "panelResumen";
             this.panelResumen.Size = new System.Drawing.Size(230, 72);
@@ -371,10 +426,42 @@
             this.btnResumen.UseVisualStyleBackColor = false;
             this.btnResumen.Click += new System.EventHandler(this.btnResumen_Click);
             // 
+            // panelClientes
+            // 
+            this.panelClientes.Controls.Add(this.btnPagos);
+            this.panelClientes.Location = new System.Drawing.Point(0, 359);
+            this.panelClientes.Margin = new System.Windows.Forms.Padding(0);
+            this.panelClientes.Name = "panelClientes";
+            this.panelClientes.Size = new System.Drawing.Size(230, 72);
+            this.panelClientes.TabIndex = 16;
+            // 
+            // btnPagos
+            // 
+            this.btnPagos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(223)))), ((int)(((byte)(248)))));
+            this.btnPagos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnPagos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPagos.FlatAppearance.BorderSize = 0;
+            this.btnPagos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(174)))), ((int)(((byte)(238)))));
+            this.btnPagos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPagos.Font = new System.Drawing.Font("Poppins", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPagos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(98)))), ((int)(((byte)(102)))));
+            this.btnPagos.Image = global::Ingenieros_Commerce_Manager_v2._0.Properties.Resources.pagos24;
+            this.btnPagos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPagos.Location = new System.Drawing.Point(-10, -10);
+            this.btnPagos.Name = "btnPagos";
+            this.btnPagos.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.btnPagos.Size = new System.Drawing.Size(250, 92);
+            this.btnPagos.TabIndex = 9;
+            this.btnPagos.Text = "   clientes";
+            this.btnPagos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnPagos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnPagos.UseVisualStyleBackColor = false;
+            this.btnPagos.Click += new System.EventHandler(this.btnPagos_Click);
+            // 
             // panelUsuario
             // 
             this.panelUsuario.Controls.Add(this.btnUsuario);
-            this.panelUsuario.Location = new System.Drawing.Point(0, 432);
+            this.panelUsuario.Location = new System.Drawing.Point(0, 431);
             this.panelUsuario.Margin = new System.Windows.Forms.Padding(0);
             this.panelUsuario.Name = "panelUsuario";
             this.panelUsuario.Size = new System.Drawing.Size(230, 72);
@@ -408,6 +495,11 @@
             this.sidebarTimer.Interval = 1;
             this.sidebarTimer.Tick += new System.EventHandler(this.sidebarTimer_Tick);
             // 
+            // TimerVentas
+            // 
+            this.TimerVentas.Interval = 3;
+            this.TimerVentas.Tick += new System.EventHandler(this.TimerVentas_Tick);
+            // 
             // RedondeoForm
             // 
             this.RedondeoForm.CornerRadius = 30;
@@ -424,7 +516,6 @@
             this.Name = "FormPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ingenieros Commerce Manager";
-            this.Load += new System.EventHandler(this.FormPrincipal_Load);
             this.panelHeader.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.BotonHide)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BotonMinMax)).EndInit();
@@ -433,11 +524,14 @@
             this.panelContenedor.ResumeLayout(false);
             this.sideBarPanel.ResumeLayout(false);
             this.panelMenu.ResumeLayout(false);
+            this.VentasContainer.ResumeLayout(false);
+            this.panelHistorial.ResumeLayout(false);
+            this.panelRegistrar.ResumeLayout(false);
             this.panelVentas.ResumeLayout(false);
             this.panelGastos.ResumeLayout(false);
-            this.panelClientes.ResumeLayout(false);
             this.panelInventario.ResumeLayout(false);
             this.panelResumen.ResumeLayout(false);
+            this.panelClientes.ResumeLayout(false);
             this.panelUsuario.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -469,6 +563,12 @@
         private System.Windows.Forms.FlowLayoutPanel sideBarPanel;
         private System.Windows.Forms.Panel panelMenu;
         private System.Windows.Forms.Timer sidebarTimer;
+        private System.Windows.Forms.Panel panelRegistrar;
+        private System.Windows.Forms.Button btnRegistrar;
+        private System.Windows.Forms.Panel VentasContainer;
+        private System.Windows.Forms.Panel panelHistorial;
+        private System.Windows.Forms.Button btnHistorial;
+        private System.Windows.Forms.Timer TimerVentas;
     }
 }
 

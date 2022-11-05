@@ -29,6 +29,8 @@ namespace Ingenieros_Commerce_Manager_v2._0
         DataTable UserData = new DataTable();
         DataTable DTClientes = new DataTable();
         DataTable DTGastos = new DataTable();
+        DataTable DTVentas = new DataTable();
+        DataTable InfoVentas = new DataTable();
         #endregion
 
         #region Ventas
@@ -46,7 +48,26 @@ namespace Ingenieros_Commerce_Manager_v2._0
             comandos.ExecuteNonQuery();
 
         }
-
+        public DataTable GetVentas()
+        {
+            CerrarReader();
+            AbrirConexion();
+            comandos.CommandText = "SELECT `IdVenta`, `ID.CLI`, `Nombre` Cliente, TipoDocumento, CAST(DATE_FORMAT(Fecha, '%e/%c/%Y') as char) Fecha, Importe, IF(`Envio`=1, 'A domicilio', 'Venta en local') Envio FROM `venta`, `cliente` WHERE `venta`.`IDCliente` = `cliente`.`ID.CLI` and `venta`.`IDUsuario` = '" + Usuario.Id + "';";
+            EjecutarReader();
+            DTVentas.Rows.Clear();
+            DTVentas.Load(datos);
+            return DTVentas;
+        }
+        public DataTable GetInfoVentas(int idventa)
+        {
+            CerrarReader();
+            AbrirConexion();
+            comandos.CommandText = "SELECT `Descripcion` Producto, `PrecioVenta` Precio, `Cantidad`, `SubTotal` FROM `detalleventa`, `producto_venta` WHERE `detalleventa`.`IdProd` = `producto_venta`.`ID.Prod` AND IdVenta = '"+idventa+"';";
+            EjecutarReader();
+            InfoVentas.Rows.Clear();
+            InfoVentas.Load(datos);
+            return InfoVentas;
+        }
         public int RegistrarVenta(string TipoDocumento, string Fecha, float Importe, bool Envio, float Cambio, DataTable detalle)
         {
             AbrirConexion();
@@ -201,6 +222,18 @@ namespace Ingenieros_Commerce_Manager_v2._0
             DTClientes.Rows.Clear();
             DTClientes.Load(datos);
             return DTClientes;
+        }
+        public void SetCliente(int idcli)
+        {
+            AbrirConexion();
+            comandos.CommandText = "SELECT `Nombre`, `Direccion`, `Telefono`, `Saldo` from cliente WHERE `ID.CLI`= '"+idcli+"' AND `IdUsuario` = '" + Usuario.Id + "';";
+            EjecutarReader();
+            DTClientes.Rows.Clear();
+            DTClientes.Load(datos);
+            Cliente.Nombre = DTClientes.Rows[0]["Nombre"].ToString();
+            Cliente.Direccion = DTClientes.Rows[0]["Direccion"].ToString();
+            Cliente.Telefono = DTClientes.Rows[0]["Telefono"].ToString();
+            Cliente.Saldo = float.Parse(DTClientes.Rows[0]["Saldo"].ToString());
         }
         public void InsertarCliente(string Nombre, string Direccion, string Telefono, float Saldo)
         {

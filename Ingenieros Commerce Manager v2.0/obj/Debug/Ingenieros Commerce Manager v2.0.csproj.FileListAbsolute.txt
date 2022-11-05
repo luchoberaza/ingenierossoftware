@@ -68,7 +68,6 @@ Z:\Personal\Documentos\GitHub\ingenierossoftware\Ingenieros Commerce Manager v2.
 Z:\Personal\Documentos\GitHub\ingenierossoftware\Ingenieros Commerce Manager v2.0\bin\Debug\System.ValueTuple.dll
 Z:\Personal\Documentos\GitHub\ingenierossoftware\Ingenieros Commerce Manager v2.0\bin\Debug\Ubiety.Dns.Core.dll
 Z:\Personal\Documentos\GitHub\ingenierossoftware\Ingenieros Commerce Manager v2.0\bin\Debug\ZstdNet.dll
-Z:\Personal\Documentos\GitHub\ingenierossoftware\Ingenieros Commerce Manager v2.0\bin\Debug\BouncyCastle.Crypto.xml
 Z:\Personal\Documentos\GitHub\ingenierossoftware\Ingenieros Commerce Manager v2.0\bin\Debug\envdte.xml
 Z:\Personal\Documentos\GitHub\ingenierossoftware\Ingenieros Commerce Manager v2.0\bin\Debug\envdte80.xml
 Z:\Personal\Documentos\GitHub\ingenierossoftware\Ingenieros Commerce Manager v2.0\bin\Debug\Google.Protobuf.pdb
@@ -552,3 +551,7 @@ C:\Users\lbera\OneDrive\Documentos\GitHub\ingenierossoftware\Ingenieros Commerce
 Z:\Personal\Documentos\GitHub\ingenierossoftware\Ingenieros Commerce Manager v2.0\obj\Debug\Ingenieros_Commerce_Manager_v2._0.FormPrincipal.resources
 Z:\Personal\Documentos\GitHub\ingenierossoftware\Ingenieros Commerce Manager v2.0\obj\Debug\Ingenieros_Commerce_Manager_v2._0.FormUsarMatPrim.resources
 C:\Users\lbera\OneDrive\Documentos\GitHub\ingenierossoftware\Ingenieros Commerce Manager v2.0\obj\Debug\Ingenieros_Commerce_Manager_v2._0.FormUsarMatPrim.resources
+Z:\Personal\Documentos\GitHub\ingenierossoftware\Ingenieros Commerce Manager v2.0\obj\Debug\Ingenieros_Commerce_Manager_v2._0.FormHistorialVenta.resources
+Z:\Personal\Documentos\GitHub\ingenierossoftware\Ingenieros Commerce Manager v2.0\bin\Debug\itextsharp.dll
+Z:\Personal\Documentos\GitHub\ingenierossoftware\Ingenieros Commerce Manager v2.0\bin\Debug\itextsharp.xmlworker.dll
+Z:\Personal\Documentos\GitHub\ingenierossoftware\Ingenieros Commerce Manager v2.0\bin\Debug\itextsharp.xml

@@ -27,6 +27,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
         conexionsql conexionsql = new conexionsql();
         //Variables 
         bool sideBarOpen = true;
+        bool ventasClosed = true;
 
 
 
@@ -191,48 +192,34 @@ namespace Ingenieros_Commerce_Manager_v2._0
         }
         private void btnVentas_Click(object sender, EventArgs e)
         {
-            colorearBoton(btnVentas, btnPagos, btnGastos, btnInventario, btnResumen, btnUsuario);
-            AbrirFormulario<FormVentas>();
+            TimerVentas.Start();
 
         }
-
         private void btnGastos_Click(object sender, EventArgs e)
         {
             colorearBoton(btnGastos, btnPagos, btnVentas, btnInventario, btnResumen, btnUsuario);
             AbrirFormulario<FormGastos>();
         }
-
         private void btnPagos_Click(object sender, EventArgs e)
         {
             colorearBoton(btnPagos, btnVentas, btnGastos, btnInventario, btnResumen, btnUsuario);
             AbrirFormulario<FormClientes>();
         }
-
         private void btnInventario_Click(object sender, EventArgs e)
         {
             colorearBoton(btnInventario, btnPagos, btnGastos, btnVentas, btnResumen, btnUsuario);
             AbrirFormulario<FormInventario>();
         }
-
         private void btnResumen_Click(object sender, EventArgs e)
         {
             colorearBoton(btnResumen, btnPagos, btnGastos, btnVentas, btnInventario, btnUsuario);
         }
-
         private void btnUsuario_Click(object sender, EventArgs e)
         {
             colorearBoton(btnUsuario, btnPagos, btnGastos, btnVentas, btnInventario, btnResumen);
             AbrirFormulario<FormUsuario>();
 
         }
-        #endregion
-
-        private void FormPrincipal_Load(object sender, EventArgs e)
-        {
-            colorearBoton(btnVentas, btnPagos, btnGastos, btnInventario, btnResumen, btnUsuario);
-            AbrirFormulario<FormVentas>();
-        }
-
         private void sidebarTimer_Tick(object sender, EventArgs e)
         {
             if (sideBarOpen)
@@ -267,10 +254,45 @@ namespace Ingenieros_Commerce_Manager_v2._0
 
             }
         }
-
         private void btnMenu_Click(object sender, EventArgs e)
         {
             sidebarTimer.Start();
         }
+        private void TimerVentas_Tick(object sender, EventArgs e)
+        {
+            if (ventasClosed)
+            {
+                VentasContainer.Height += 30;
+                if(VentasContainer.Height == VentasContainer.MaximumSize.Height)
+                {
+                    ventasClosed = false;
+                    TimerVentas.Stop();
+                }
+            }
+            else
+            {
+                VentasContainer.Height -= 30;
+                if(VentasContainer.Height == VentasContainer.MinimumSize.Height)
+                {
+                    ventasClosed = true;
+                    TimerVentas.Stop();
+                }
+            }
+        }
+        private void btnRegistrar_Click(object sender, EventArgs e)
+        {
+            TimerVentas.Start();
+            AbrirFormulario<FormVentas>();
+            colorearBoton(btnVentas, btnPagos, btnGastos, btnInventario, btnResumen, btnUsuario);
+        }
+        private void btnHistorial_Click(object sender, EventArgs e)
+        {
+            TimerVentas.Start();
+            AbrirFormulario<FormHistorialVenta>();
+            colorearBoton(btnVentas, btnPagos, btnGastos, btnInventario, btnResumen, btnUsuario);
+
+        }
+        #endregion
+
     }
 }

@@ -2,9 +2,14 @@
 using System.Data;
 using System.Drawing;
 using System.Drawing.Text;
+using System.IO;
+using System.Reflection;
 using System.Runtime.Remoting.Messaging;
 using System.Windows.Forms;
 using Ingenieros_Commerce_Manager_v2._0.Entities;
+using iTextSharp.text.pdf;
+using iTextSharp.text;
+using iTextSharp.tool.xml;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Ingenieros_Commerce_Manager_v2._0
@@ -195,7 +200,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
                 var x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2;
                 var y = e.CellBounds.Top + (e.CellBounds.Height - h) / 2;
 
-                e.Graphics.DrawImage(Properties.Resources.trash24, new Rectangle(x, y, w, h));
+                e.Graphics.DrawImage(Properties.Resources.trash24, new System.Drawing.Rectangle(x, y, w, h));
                 e.Handled = true;
 
             }
@@ -297,19 +302,73 @@ namespace Ingenieros_Commerce_Manager_v2._0
             int idventa = sql.RegistrarVenta(cmbTipoDoc.Texts, txbFecha.Texts, float.Parse(txbTotal.Texts), envio, float.Parse(txbCambio.Texts), detalle);
             if (idventa != 0)
             {
+                var respuesta = MessageBox.Show("Venta Nº:'"+idventa+"' generada \n ¿Desea generar el documento?", "Acción completada", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                if(respuesta == DialogResult.Yes)
+                {
+                    SaveFileDialog dialog = new SaveFileDialog();
+
+                    dialog.FileName = DateTime.Now.ToString("ddMMyyyyHHmmss") + ".pdf";
+
+                    string txthtml = Properties.Resources.Plantilla.ToString();
+
+                    txthtml = txthtml.Replace("@DENOMINACION", Usuario.Denominacion);
+                    txthtml = txthtml.Replace("@DIRECCION", Usuario.Direccion);
+                    txthtml = txthtml.Replace("@TELEFONO", Usuario.Telefono);
+                    txthtml = txthtml.Replace("@RUT", Usuario.RUT);
+                    txthtml = txthtml.Replace("@TIPODOCUMENTO", cmbTipoDoc.Texts);
+                    txthtml = txthtml.Replace("@IDVENTA", idventa.ToString("000000"));
+                    txthtml = txthtml.Replace("@FECHA", txbFecha.Texts);
+                    txthtml = txthtml.Replace("@TOTAL", txbTotal.Texts);
+                    txthtml = txthtml.Replace("@CLIENTE", txbNombre.Texts);
+                    txthtml = txthtml.Replace("@DIRCLI", Cliente.Direccion);
+
+                    string filas = string.Empty;
+                    foreach (DataGridViewRow row in dgvVenta.Rows)
+                    {
+                        sql.SetProduct(int.Parse(row.Cells["IDProducto"].Value.ToString()));
+                        filas += "<tr>";
+                        filas += "<td>" + row.Cells["Cantidad"].Value.ToString() + "</td>";
+                        filas += "<td>" + Producto.Descripcion + "</td>";
+                        filas += "<td>" + row.Cells["PrecioUnitario"].Value.ToString() + "</td>";
+                        filas += "<td>" + row.Cells["SubTotal"].Value.ToString() + "</td>";
+                        filas += "</tr>";
+                    }
+                    txthtml = txthtml.Replace("@FILAS", filas);
+
+                    if (dialog.ShowDialog() == DialogResult.OK)
+                    {
+                        using (FileStream fs = new FileStream(dialog.FileName, FileMode.Create))
+                        {
+                            Document pdf = new Document(PageSize.A4, 25, 25, 25, 25);
+                            PdfWriter writer = PdfWriter.GetInstance(pdf, fs);
+                            pdf.Open();
+                            pdf.Add(new Phrase(""));
+
+                            System.Drawing.Image img = System.Drawing.Image.FromStream(Usuario.ByteToImage(Usuario.Foto));
+                            var format = img.RawFormat;
+                            iTextSharp.text.Image image = iTextSharp.text.Image.GetInstance(img, format);
+                            image.ScaleToFit(80, 80);
+                            image.Alignment = iTextSharp.text.Image.UNDERLYING;
+                            image.SetAbsolutePosition(pdf.LeftMargin, pdf.Top - 80);
+                            pdf.Add(image);
+
+                            using (StringReader sr = new StringReader(txthtml))
+                            {
+                                XMLWorkerHelper.GetInstance().ParseXHtml(writer, pdf, sr);
+                            }
+                            pdf.Close();
+                            fs.Close();
+                        }
+                    }
+                }
+                dgvVenta.Rows.Clear();
                 txbNombre.Texts = "";
                 CalcularTotal();
                 ClearProducts();
                 txbPaga.Text = "";
                 txbCambio.Texts = "";
-                dgvVenta.Rows.Clear();
-                var respuesta = MessageBox.Show("Venta Nº:'"+idventa+"' generada \n ¿Desea generar el documento?", "Acción completada", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-                if(respuesta == DialogResult.Yes)
-                {
-                    //Aca va convertir a pdf
-                }
             }
-            
+
         }
     }
 }

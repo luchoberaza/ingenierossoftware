@@ -163,6 +163,26 @@ namespace Ingenieros_Commerce_Manager_v2._0.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_tasks_24 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-tasks-24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_windows_10_personalization_24 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-windows-10-personalization-24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap inevntario24 {
             get {
                 object obj = ResourceManager.GetObject("inevntario24", resourceCulture);
@@ -241,6 +261,37 @@ namespace Ingenieros_Commerce_Manager_v2._0.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;!DOCTYPE html&gt;
+        ///&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+        ///&lt;head&gt;
+        ///    &lt;title&gt;Title of the document&lt;/title&gt;
+        ///    &lt;style&gt;
+        ///        table.border {
+        ///            border-collapse: collapse;
+        ///        }
+        ///
+        ///            table.border th {
+        ///                padding: 5px;
+        ///                border: 1px solid black;
+        ///            }
+        ///
+        ///            table.border td {
+        ///                padding: 5px;
+        ///                border: 1px solid black;
+        ///            }
+        ///    &lt;/style&gt;
+        ///&lt;/head&gt;
+        ///&lt;body&gt;
+        ///    &lt;table style=&quot;width:100%&quot;&gt;
+        ///        [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Plantilla {
+            get {
+                return ResourceManager.GetString("Plantilla", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap plus {
@@ -276,26 +327,6 @@ namespace Ingenieros_Commerce_Manager_v2._0.Properties {
         internal static System.Drawing.Bitmap resumen24blue {
             get {
                 object obj = ResourceManager.GetObject("resumen24blue", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap RoundPanelAspect {
-            get {
-                object obj = ResourceManager.GetObject("RoundPanelAspect", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap RoundPanelAspect1 {
-            get {
-                object obj = ResourceManager.GetObject("RoundPanelAspect1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -426,16 +457,6 @@ namespace Ingenieros_Commerce_Manager_v2._0.Properties {
         internal static System.Drawing.Bitmap venta24blue {
             get {
                 object obj = ResourceManager.GetObject("venta24blue", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap WIN_20200522_09_42_25_Pro {
-            get {
-                object obj = ResourceManager.GetObject("WIN_20200522_09_42_25_Pro", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
