@@ -103,13 +103,16 @@ namespace Ingenieros_Commerce_Manager_v2._0
                             pdf.Open();
                             pdf.Add(new Phrase(""));
 
-                            System.Drawing.Image img = System.Drawing.Image.FromStream(Usuario.ByteToImage(Usuario.Foto));
-                            var format = img.RawFormat;
-                            iTextSharp.text.Image image = iTextSharp.text.Image.GetInstance(img, format);
-                            image.ScaleToFit(80, 80);
-                            image.Alignment = iTextSharp.text.Image.UNDERLYING;
-                            image.SetAbsolutePosition(pdf.LeftMargin, pdf.Top - 80);
-                            pdf.Add(image);
+                            if(Usuario.Foto != null)
+                            {
+                                System.Drawing.Image img = System.Drawing.Image.FromStream(Usuario.ByteToImage(Usuario.Foto));
+                                var format = img.RawFormat;
+                                iTextSharp.text.Image image = iTextSharp.text.Image.GetInstance(img, format);
+                                image.ScaleToFit(80, 80);
+                                image.Alignment = iTextSharp.text.Image.UNDERLYING;
+                                image.SetAbsolutePosition(pdf.LeftMargin, pdf.Top - 80);
+                                pdf.Add(image);
+                            }
 
                             using (StringReader sr = new StringReader(txthtml))
                             {

@@ -41,28 +41,28 @@
             this.dtpFechaInicio = new System.Windows.Forms.DateTimePicker();
             this.dtpFechaFin = new System.Windows.Forms.DateTimePicker();
             this.gboxDatosFecha = new System.Windows.Forms.GroupBox();
-            this.lblFechaInicio = new System.Windows.Forms.Label();
             this.lblFechaFin = new System.Windows.Forms.Label();
+            this.lblFechaInicio = new System.Windows.Forms.Label();
             this.gboxNroVentas = new System.Windows.Forms.GroupBox();
-            this.gboxTotalIngresos = new System.Windows.Forms.GroupBox();
-            this.gboxTotalGastos = new System.Windows.Forms.GroupBox();
-            this.gboxTotalGanancias = new System.Windows.Forms.GroupBox();
             this.lblVentas = new System.Windows.Forms.Label();
+            this.gboxTotalIngresos = new System.Windows.Forms.GroupBox();
             this.lblIngresos = new System.Windows.Forms.Label();
+            this.gboxTotalGastos = new System.Windows.Forms.GroupBox();
             this.lblGastos = new System.Windows.Forms.Label();
+            this.gboxTotalGanancias = new System.Windows.Forms.GroupBox();
             this.lblGanancias = new System.Windows.Forms.Label();
             this.chartIngresos = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.gboxBajoStock = new System.Windows.Forms.GroupBox();
             this.dgvBajoStock = new System.Windows.Forms.DataGridView();
             this.gboxInfo = new System.Windows.Forms.GroupBox();
+            this.lblNroMatPrim = new System.Windows.Forms.Label();
+            this.lblNroProd = new System.Windows.Forms.Label();
+            this.lblNroClientes = new System.Windows.Forms.Label();
             this.gboxIngresosBrutos = new System.Windows.Forms.GroupBox();
             this.gboxGastos = new System.Windows.Forms.GroupBox();
             this.chartGastos = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.gboxMasVendidos = new System.Windows.Forms.GroupBox();
             this.chartProds = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.lblNroClientes = new System.Windows.Forms.Label();
-            this.lblNroProd = new System.Windows.Forms.Label();
-            this.lblNroMatPrim = new System.Windows.Forms.Label();
             this.btnMes = new CustomControls.RJControls.RJButton();
             this.btnOKFecha = new CustomControls.RJControls.RJButton();
             this.btn30dias = new CustomControls.RJControls.RJButton();
@@ -92,10 +92,10 @@
             this.dtpFechaInicio.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(254)))));
             this.dtpFechaInicio.CalendarTrailingForeColor = System.Drawing.SystemColors.ControlDark;
             this.dtpFechaInicio.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpFechaInicio.Location = new System.Drawing.Point(118, 29);
-            this.dtpFechaInicio.Margin = new System.Windows.Forms.Padding(2);
+            this.dtpFechaInicio.Location = new System.Drawing.Point(157, 36);
+            this.dtpFechaInicio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtpFechaInicio.Name = "dtpFechaInicio";
-            this.dtpFechaInicio.Size = new System.Drawing.Size(539, 25);
+            this.dtpFechaInicio.Size = new System.Drawing.Size(748, 30);
             this.dtpFechaInicio.TabIndex = 22;
             // 
             // dtpFechaFin
@@ -106,10 +106,10 @@
             this.dtpFechaFin.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(254)))));
             this.dtpFechaFin.CalendarTrailingForeColor = System.Drawing.SystemColors.ControlDark;
             this.dtpFechaFin.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpFechaFin.Location = new System.Drawing.Point(118, 58);
-            this.dtpFechaFin.Margin = new System.Windows.Forms.Padding(2);
+            this.dtpFechaFin.Location = new System.Drawing.Point(157, 71);
+            this.dtpFechaFin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtpFechaFin.Name = "dtpFechaFin";
-            this.dtpFechaFin.Size = new System.Drawing.Size(539, 25);
+            this.dtpFechaFin.Size = new System.Drawing.Size(748, 30);
             this.dtpFechaFin.TabIndex = 23;
             // 
             // gboxDatosFecha
@@ -128,26 +128,14 @@
             this.gboxDatosFecha.Controls.Add(this.btnHoy);
             this.gboxDatosFecha.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gboxDatosFecha.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.gboxDatosFecha.Location = new System.Drawing.Point(12, 12);
+            this.gboxDatosFecha.Location = new System.Drawing.Point(16, 15);
+            this.gboxDatosFecha.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gboxDatosFecha.Name = "gboxDatosFecha";
-            this.gboxDatosFecha.Size = new System.Drawing.Size(746, 140);
+            this.gboxDatosFecha.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gboxDatosFecha.Size = new System.Drawing.Size(999, 172);
             this.gboxDatosFecha.TabIndex = 25;
             this.gboxDatosFecha.TabStop = false;
             this.gboxDatosFecha.Text = "Intervalo";
-            // 
-            // lblFechaInicio
-            // 
-            this.lblFechaInicio.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblFechaInicio.AutoSize = true;
-            this.lblFechaInicio.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFechaInicio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(160)))), ((int)(((byte)(160)))));
-            this.lblFechaInicio.Location = new System.Drawing.Point(15, 32);
-            this.lblFechaInicio.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblFechaInicio.Name = "lblFechaInicio";
-            this.lblFechaInicio.Size = new System.Drawing.Size(99, 22);
-            this.lblFechaInicio.TabIndex = 24;
-            this.lblFechaInicio.Text = "Fecha de Inicio";
             // 
             // lblFechaFin
             // 
@@ -156,12 +144,24 @@
             this.lblFechaFin.AutoSize = true;
             this.lblFechaFin.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFechaFin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(160)))), ((int)(((byte)(160)))));
-            this.lblFechaFin.Location = new System.Drawing.Point(15, 61);
-            this.lblFechaFin.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblFechaFin.Location = new System.Drawing.Point(20, 75);
             this.lblFechaFin.Name = "lblFechaFin";
-            this.lblFechaFin.Size = new System.Drawing.Size(75, 22);
+            this.lblFechaFin.Size = new System.Drawing.Size(95, 26);
             this.lblFechaFin.TabIndex = 25;
             this.lblFechaFin.Text = "Fecha final";
+            // 
+            // lblFechaInicio
+            // 
+            this.lblFechaInicio.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblFechaInicio.AutoSize = true;
+            this.lblFechaInicio.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFechaInicio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(160)))), ((int)(((byte)(160)))));
+            this.lblFechaInicio.Location = new System.Drawing.Point(20, 39);
+            this.lblFechaInicio.Name = "lblFechaInicio";
+            this.lblFechaInicio.Size = new System.Drawing.Size(126, 26);
+            this.lblFechaInicio.TabIndex = 24;
+            this.lblFechaInicio.Text = "Fecha de Inicio";
             // 
             // gboxNroVentas
             // 
@@ -169,12 +169,25 @@
             this.gboxNroVentas.Controls.Add(this.lblVentas);
             this.gboxNroVentas.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gboxNroVentas.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.gboxNroVentas.Location = new System.Drawing.Point(12, 158);
+            this.gboxNroVentas.Location = new System.Drawing.Point(16, 194);
+            this.gboxNroVentas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gboxNroVentas.Name = "gboxNroVentas";
-            this.gboxNroVentas.Size = new System.Drawing.Size(180, 85);
+            this.gboxNroVentas.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gboxNroVentas.Size = new System.Drawing.Size(240, 105);
             this.gboxNroVentas.TabIndex = 31;
             this.gboxNroVentas.TabStop = false;
             this.gboxNroVentas.Text = "Número de Ventas";
+            // 
+            // lblVentas
+            // 
+            this.lblVentas.Font = new System.Drawing.Font("Poppins", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVentas.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.lblVentas.Location = new System.Drawing.Point(16, 39);
+            this.lblVentas.Margin = new System.Windows.Forms.Padding(13, 0, 0, 0);
+            this.lblVentas.Name = "lblVentas";
+            this.lblVentas.Size = new System.Drawing.Size(207, 34);
+            this.lblVentas.TabIndex = 35;
+            this.lblVentas.Text = "0";
             // 
             // gboxTotalIngresos
             // 
@@ -182,12 +195,25 @@
             this.gboxTotalIngresos.Controls.Add(this.lblIngresos);
             this.gboxTotalIngresos.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gboxTotalIngresos.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.gboxTotalIngresos.Location = new System.Drawing.Point(12, 249);
+            this.gboxTotalIngresos.Location = new System.Drawing.Point(16, 306);
+            this.gboxTotalIngresos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gboxTotalIngresos.Name = "gboxTotalIngresos";
-            this.gboxTotalIngresos.Size = new System.Drawing.Size(180, 85);
+            this.gboxTotalIngresos.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gboxTotalIngresos.Size = new System.Drawing.Size(240, 105);
             this.gboxTotalIngresos.TabIndex = 32;
             this.gboxTotalIngresos.TabStop = false;
             this.gboxTotalIngresos.Text = "Total de Ingresos";
+            // 
+            // lblIngresos
+            // 
+            this.lblIngresos.Font = new System.Drawing.Font("Poppins", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIngresos.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.lblIngresos.Location = new System.Drawing.Point(17, 39);
+            this.lblIngresos.Margin = new System.Windows.Forms.Padding(13, 0, 0, 0);
+            this.lblIngresos.Name = "lblIngresos";
+            this.lblIngresos.Size = new System.Drawing.Size(207, 34);
+            this.lblIngresos.TabIndex = 36;
+            this.lblIngresos.Text = "$";
             // 
             // gboxTotalGastos
             // 
@@ -195,12 +221,25 @@
             this.gboxTotalGastos.Controls.Add(this.lblGastos);
             this.gboxTotalGastos.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gboxTotalGastos.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.gboxTotalGastos.Location = new System.Drawing.Point(12, 340);
+            this.gboxTotalGastos.Location = new System.Drawing.Point(16, 418);
+            this.gboxTotalGastos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gboxTotalGastos.Name = "gboxTotalGastos";
-            this.gboxTotalGastos.Size = new System.Drawing.Size(180, 85);
+            this.gboxTotalGastos.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gboxTotalGastos.Size = new System.Drawing.Size(240, 105);
             this.gboxTotalGastos.TabIndex = 33;
             this.gboxTotalGastos.TabStop = false;
             this.gboxTotalGastos.Text = "Total de Gastos";
+            // 
+            // lblGastos
+            // 
+            this.lblGastos.Font = new System.Drawing.Font("Poppins", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGastos.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.lblGastos.Location = new System.Drawing.Point(17, 39);
+            this.lblGastos.Margin = new System.Windows.Forms.Padding(13, 0, 0, 0);
+            this.lblGastos.Name = "lblGastos";
+            this.lblGastos.Size = new System.Drawing.Size(207, 34);
+            this.lblGastos.TabIndex = 37;
+            this.lblGastos.Text = "$";
             // 
             // gboxTotalGanancias
             // 
@@ -208,54 +247,23 @@
             this.gboxTotalGanancias.Controls.Add(this.lblGanancias);
             this.gboxTotalGanancias.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gboxTotalGanancias.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.gboxTotalGanancias.Location = new System.Drawing.Point(12, 431);
+            this.gboxTotalGanancias.Location = new System.Drawing.Point(16, 530);
+            this.gboxTotalGanancias.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gboxTotalGanancias.Name = "gboxTotalGanancias";
-            this.gboxTotalGanancias.Size = new System.Drawing.Size(180, 85);
+            this.gboxTotalGanancias.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gboxTotalGanancias.Size = new System.Drawing.Size(240, 105);
             this.gboxTotalGanancias.TabIndex = 34;
             this.gboxTotalGanancias.TabStop = false;
             this.gboxTotalGanancias.Text = "Total de Ganancias";
-            // 
-            // lblVentas
-            // 
-            this.lblVentas.Font = new System.Drawing.Font("Poppins", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVentas.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.lblVentas.Location = new System.Drawing.Point(12, 32);
-            this.lblVentas.Margin = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.lblVentas.Name = "lblVentas";
-            this.lblVentas.Size = new System.Drawing.Size(155, 28);
-            this.lblVentas.TabIndex = 35;
-            this.lblVentas.Text = "0";
-            // 
-            // lblIngresos
-            // 
-            this.lblIngresos.Font = new System.Drawing.Font("Poppins", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIngresos.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.lblIngresos.Location = new System.Drawing.Point(13, 32);
-            this.lblIngresos.Margin = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.lblIngresos.Name = "lblIngresos";
-            this.lblIngresos.Size = new System.Drawing.Size(155, 28);
-            this.lblIngresos.TabIndex = 36;
-            this.lblIngresos.Text = "$";
-            // 
-            // lblGastos
-            // 
-            this.lblGastos.Font = new System.Drawing.Font("Poppins", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGastos.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.lblGastos.Location = new System.Drawing.Point(13, 32);
-            this.lblGastos.Margin = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.lblGastos.Name = "lblGastos";
-            this.lblGastos.Size = new System.Drawing.Size(155, 28);
-            this.lblGastos.TabIndex = 37;
-            this.lblGastos.Text = "$";
             // 
             // lblGanancias
             // 
             this.lblGanancias.Font = new System.Drawing.Font("Poppins", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblGanancias.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.lblGanancias.Location = new System.Drawing.Point(13, 32);
-            this.lblGanancias.Margin = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.lblGanancias.Location = new System.Drawing.Point(17, 39);
+            this.lblGanancias.Margin = new System.Windows.Forms.Padding(13, 0, 0, 0);
             this.lblGanancias.Name = "lblGanancias";
-            this.lblGanancias.Size = new System.Drawing.Size(155, 28);
+            this.lblGanancias.Size = new System.Drawing.Size(207, 34);
             this.lblGanancias.TabIndex = 38;
             this.lblGanancias.Text = "$";
             // 
@@ -268,13 +276,14 @@
             chartArea1.Name = "ChartArea1";
             this.chartIngresos.ChartAreas.Add(chartArea1);
             this.chartIngresos.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chartIngresos.Location = new System.Drawing.Point(3, 21);
+            this.chartIngresos.Location = new System.Drawing.Point(4, 27);
+            this.chartIngresos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.chartIngresos.Name = "chartIngresos";
             series1.ChartArea = "ChartArea1";
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
             series1.Name = "Series1";
             this.chartIngresos.Series.Add(series1);
-            this.chartIngresos.Size = new System.Drawing.Size(271, 152);
+            this.chartIngresos.Size = new System.Drawing.Size(388, 410);
             this.chartIngresos.TabIndex = 35;
             this.chartIngresos.Text = "chartIngresos";
             // 
@@ -286,9 +295,11 @@
             this.gboxBajoStock.Controls.Add(this.dgvBajoStock);
             this.gboxBajoStock.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gboxBajoStock.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.gboxBajoStock.Location = new System.Drawing.Point(481, 340);
+            this.gboxBajoStock.Location = new System.Drawing.Point(669, 643);
+            this.gboxBajoStock.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gboxBajoStock.Name = "gboxBajoStock";
-            this.gboxBajoStock.Size = new System.Drawing.Size(277, 258);
+            this.gboxBajoStock.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gboxBajoStock.Size = new System.Drawing.Size(346, 219);
             this.gboxBajoStock.TabIndex = 38;
             this.gboxBajoStock.TabStop = false;
             this.gboxBajoStock.Text = "Productos con bajo stock";
@@ -317,7 +328,7 @@
             this.dgvBajoStock.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvBajoStock.EnableHeadersVisualStyles = false;
             this.dgvBajoStock.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(94)))), ((int)(((byte)(220)))));
-            this.dgvBajoStock.Location = new System.Drawing.Point(3, 21);
+            this.dgvBajoStock.Location = new System.Drawing.Point(4, 27);
             this.dgvBajoStock.Margin = new System.Windows.Forms.Padding(0);
             this.dgvBajoStock.Name = "dgvBajoStock";
             this.dgvBajoStock.ReadOnly = true;
@@ -341,36 +352,78 @@
             this.dgvBajoStock.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvBajoStock.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvBajoStock.ShowCellErrors = false;
-            this.dgvBajoStock.Size = new System.Drawing.Size(271, 234);
+            this.dgvBajoStock.Size = new System.Drawing.Size(338, 188);
             this.dgvBajoStock.TabIndex = 4;
             // 
             // gboxInfo
             // 
-            this.gboxInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.gboxInfo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.gboxInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(254)))));
             this.gboxInfo.Controls.Add(this.lblNroMatPrim);
             this.gboxInfo.Controls.Add(this.lblNroProd);
             this.gboxInfo.Controls.Add(this.lblNroClientes);
             this.gboxInfo.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gboxInfo.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.gboxInfo.Location = new System.Drawing.Point(12, 522);
+            this.gboxInfo.Location = new System.Drawing.Point(16, 643);
+            this.gboxInfo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gboxInfo.Name = "gboxInfo";
-            this.gboxInfo.Size = new System.Drawing.Size(459, 76);
+            this.gboxInfo.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gboxInfo.Size = new System.Drawing.Size(240, 219);
             this.gboxInfo.TabIndex = 39;
             this.gboxInfo.TabStop = false;
             this.gboxInfo.Text = "Información";
             // 
+            // lblNroMatPrim
+            // 
+            this.lblNroMatPrim.AutoSize = true;
+            this.lblNroMatPrim.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNroMatPrim.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.lblNroMatPrim.Location = new System.Drawing.Point(9, 81);
+            this.lblNroMatPrim.Margin = new System.Windows.Forms.Padding(13, 0, 0, 0);
+            this.lblNroMatPrim.Name = "lblNroMatPrim";
+            this.lblNroMatPrim.Size = new System.Drawing.Size(181, 26);
+            this.lblNroMatPrim.TabIndex = 40;
+            this.lblNroMatPrim.Text = "Nº de Materias Primas:";
+            // 
+            // lblNroProd
+            // 
+            this.lblNroProd.AutoSize = true;
+            this.lblNroProd.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNroProd.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.lblNroProd.Location = new System.Drawing.Point(9, 31);
+            this.lblNroProd.Margin = new System.Windows.Forms.Padding(13, 0, 0, 0);
+            this.lblNroProd.Name = "lblNroProd";
+            this.lblNroProd.Size = new System.Drawing.Size(137, 26);
+            this.lblNroProd.TabIndex = 39;
+            this.lblNroProd.Text = "Nº de Productos:";
+            // 
+            // lblNroClientes
+            // 
+            this.lblNroClientes.AutoSize = true;
+            this.lblNroClientes.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNroClientes.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.lblNroClientes.Location = new System.Drawing.Point(9, 132);
+            this.lblNroClientes.Margin = new System.Windows.Forms.Padding(13, 0, 0, 0);
+            this.lblNroClientes.Name = "lblNroClientes";
+            this.lblNroClientes.Size = new System.Drawing.Size(121, 26);
+            this.lblNroClientes.TabIndex = 38;
+            this.lblNroClientes.Text = "Nº de Clientes:";
+            // 
             // gboxIngresosBrutos
             // 
-            this.gboxIngresosBrutos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.gboxIngresosBrutos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gboxIngresosBrutos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(254)))));
             this.gboxIngresosBrutos.Controls.Add(this.chartIngresos);
             this.gboxIngresosBrutos.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gboxIngresosBrutos.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.gboxIngresosBrutos.Location = new System.Drawing.Point(198, 158);
+            this.gboxIngresosBrutos.Location = new System.Drawing.Point(264, 194);
+            this.gboxIngresosBrutos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gboxIngresosBrutos.Name = "gboxIngresosBrutos";
-            this.gboxIngresosBrutos.Size = new System.Drawing.Size(277, 176);
+            this.gboxIngresosBrutos.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gboxIngresosBrutos.Size = new System.Drawing.Size(396, 441);
             this.gboxIngresosBrutos.TabIndex = 36;
             this.gboxIngresosBrutos.TabStop = false;
             this.gboxIngresosBrutos.Text = "Ingresos Brutos";
@@ -383,9 +436,11 @@
             this.gboxGastos.Controls.Add(this.chartGastos);
             this.gboxGastos.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gboxGastos.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.gboxGastos.Location = new System.Drawing.Point(481, 158);
+            this.gboxGastos.Location = new System.Drawing.Point(669, 194);
+            this.gboxGastos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gboxGastos.Name = "gboxGastos";
-            this.gboxGastos.Size = new System.Drawing.Size(277, 176);
+            this.gboxGastos.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gboxGastos.Size = new System.Drawing.Size(346, 441);
             this.gboxGastos.TabIndex = 37;
             this.gboxGastos.TabStop = false;
             this.gboxGastos.Text = "Gastos";
@@ -399,27 +454,29 @@
             chartArea2.Name = "ChartArea1";
             this.chartGastos.ChartAreas.Add(chartArea2);
             this.chartGastos.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chartGastos.Location = new System.Drawing.Point(3, 21);
+            this.chartGastos.Location = new System.Drawing.Point(4, 27);
+            this.chartGastos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.chartGastos.Name = "chartGastos";
             series2.ChartArea = "ChartArea1";
             series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
             series2.Name = "Series1";
             this.chartGastos.Series.Add(series2);
-            this.chartGastos.Size = new System.Drawing.Size(271, 152);
+            this.chartGastos.Size = new System.Drawing.Size(338, 410);
             this.chartGastos.TabIndex = 35;
             this.chartGastos.Text = "chartGastos";
             // 
             // gboxMasVendidos
             // 
-            this.gboxMasVendidos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            this.gboxMasVendidos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.gboxMasVendidos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(254)))));
             this.gboxMasVendidos.Controls.Add(this.chartProds);
             this.gboxMasVendidos.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gboxMasVendidos.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.gboxMasVendidos.Location = new System.Drawing.Point(198, 340);
+            this.gboxMasVendidos.Location = new System.Drawing.Point(264, 643);
+            this.gboxMasVendidos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gboxMasVendidos.Name = "gboxMasVendidos";
-            this.gboxMasVendidos.Size = new System.Drawing.Size(277, 176);
+            this.gboxMasVendidos.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gboxMasVendidos.Size = new System.Drawing.Size(397, 219);
             this.gboxMasVendidos.TabIndex = 38;
             this.gboxMasVendidos.TabStop = false;
             this.gboxMasVendidos.Text = "Productos más vendidos";
@@ -433,50 +490,15 @@
             chartArea3.Name = "ChartArea1";
             this.chartProds.ChartAreas.Add(chartArea3);
             this.chartProds.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chartProds.Location = new System.Drawing.Point(3, 21);
+            this.chartProds.Location = new System.Drawing.Point(4, 27);
+            this.chartProds.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.chartProds.Name = "chartProds";
             series3.ChartArea = "ChartArea1";
             series3.Name = "Series1";
             this.chartProds.Series.Add(series3);
-            this.chartProds.Size = new System.Drawing.Size(271, 152);
+            this.chartProds.Size = new System.Drawing.Size(389, 188);
             this.chartProds.TabIndex = 35;
             this.chartProds.Text = "chartProds";
-            // 
-            // lblNroClientes
-            // 
-            this.lblNroClientes.AutoSize = true;
-            this.lblNroClientes.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNroClientes.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.lblNroClientes.Location = new System.Drawing.Point(311, 25);
-            this.lblNroClientes.Margin = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.lblNroClientes.Name = "lblNroClientes";
-            this.lblNroClientes.Size = new System.Drawing.Size(94, 22);
-            this.lblNroClientes.TabIndex = 38;
-            this.lblNroClientes.Text = "Nº de Clientes:";
-            // 
-            // lblNroProd
-            // 
-            this.lblNroProd.AutoSize = true;
-            this.lblNroProd.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNroProd.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.lblNroProd.Location = new System.Drawing.Point(7, 25);
-            this.lblNroProd.Margin = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.lblNroProd.Name = "lblNroProd";
-            this.lblNroProd.Size = new System.Drawing.Size(107, 22);
-            this.lblNroProd.TabIndex = 39;
-            this.lblNroProd.Text = "Nº de Productos:";
-            // 
-            // lblNroMatPrim
-            // 
-            this.lblNroMatPrim.AutoSize = true;
-            this.lblNroMatPrim.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNroMatPrim.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.lblNroMatPrim.Location = new System.Drawing.Point(7, 47);
-            this.lblNroMatPrim.Margin = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.lblNroMatPrim.Name = "lblNroMatPrim";
-            this.lblNroMatPrim.Size = new System.Drawing.Size(140, 22);
-            this.lblNroMatPrim.TabIndex = 40;
-            this.lblNroMatPrim.Text = "Nº de Materias Primas:";
             // 
             // btnMes
             // 
@@ -490,9 +512,10 @@
             this.btnMes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMes.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMes.ForeColor = System.Drawing.Color.White;
-            this.btnMes.Location = new System.Drawing.Point(552, 92);
+            this.btnMes.Location = new System.Drawing.Point(751, 113);
+            this.btnMes.Margin = new System.Windows.Forms.Padding(4);
             this.btnMes.Name = "btnMes";
-            this.btnMes.Size = new System.Drawing.Size(168, 37);
+            this.btnMes.Size = new System.Drawing.Size(224, 46);
             this.btnMes.TabIndex = 30;
             this.btnMes.Text = "Este mes";
             this.btnMes.TextColor = System.Drawing.Color.White;
@@ -512,9 +535,10 @@
             this.btnOKFecha.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOKFecha.ForeColor = System.Drawing.Color.White;
             this.btnOKFecha.Image = global::Ingenieros_Commerce_Manager_v2._0.Properties.Resources.check;
-            this.btnOKFecha.Location = new System.Drawing.Point(661, 29);
+            this.btnOKFecha.Location = new System.Drawing.Point(912, 36);
+            this.btnOKFecha.Margin = new System.Windows.Forms.Padding(4);
             this.btnOKFecha.Name = "btnOKFecha";
-            this.btnOKFecha.Size = new System.Drawing.Size(54, 54);
+            this.btnOKFecha.Size = new System.Drawing.Size(72, 66);
             this.btnOKFecha.TabIndex = 26;
             this.btnOKFecha.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnOKFecha.TextColor = System.Drawing.Color.White;
@@ -534,9 +558,10 @@
             this.btn30dias.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn30dias.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn30dias.ForeColor = System.Drawing.Color.White;
-            this.btn30dias.Location = new System.Drawing.Point(378, 92);
+            this.btn30dias.Location = new System.Drawing.Point(519, 113);
+            this.btn30dias.Margin = new System.Windows.Forms.Padding(4);
             this.btn30dias.Name = "btn30dias";
-            this.btn30dias.Size = new System.Drawing.Size(168, 37);
+            this.btn30dias.Size = new System.Drawing.Size(224, 46);
             this.btn30dias.TabIndex = 29;
             this.btn30dias.Text = "Últimos 30 días";
             this.btn30dias.TextColor = System.Drawing.Color.White;
@@ -555,9 +580,10 @@
             this.btn7dias.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn7dias.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn7dias.ForeColor = System.Drawing.Color.White;
-            this.btn7dias.Location = new System.Drawing.Point(201, 92);
+            this.btn7dias.Location = new System.Drawing.Point(283, 113);
+            this.btn7dias.Margin = new System.Windows.Forms.Padding(4);
             this.btn7dias.Name = "btn7dias";
-            this.btn7dias.Size = new System.Drawing.Size(168, 37);
+            this.btn7dias.Size = new System.Drawing.Size(224, 46);
             this.btn7dias.TabIndex = 28;
             this.btn7dias.Text = "Últimos 7 días";
             this.btn7dias.TextColor = System.Drawing.Color.White;
@@ -576,9 +602,10 @@
             this.btnHoy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnHoy.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHoy.ForeColor = System.Drawing.Color.White;
-            this.btnHoy.Location = new System.Drawing.Point(27, 92);
+            this.btnHoy.Location = new System.Drawing.Point(51, 113);
+            this.btnHoy.Margin = new System.Windows.Forms.Padding(4);
             this.btnHoy.Name = "btnHoy";
-            this.btnHoy.Size = new System.Drawing.Size(168, 37);
+            this.btnHoy.Size = new System.Drawing.Size(224, 46);
             this.btnHoy.TabIndex = 27;
             this.btnHoy.Text = "Hoy";
             this.btnHoy.TextColor = System.Drawing.Color.White;
@@ -587,10 +614,10 @@
             // 
             // FormResumen
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(254)))));
-            this.ClientSize = new System.Drawing.Size(770, 610);
+            this.ClientSize = new System.Drawing.Size(1027, 888);
             this.Controls.Add(this.gboxMasVendidos);
             this.Controls.Add(this.gboxGastos);
             this.Controls.Add(this.gboxIngresosBrutos);
@@ -603,6 +630,7 @@
             this.Controls.Add(this.gboxDatosFecha);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FormResumen";
             this.Text = "FormResumen";
             this.Load += new System.EventHandler(this.FormResumen_Load);

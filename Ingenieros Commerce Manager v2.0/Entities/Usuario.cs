@@ -23,7 +23,11 @@ namespace Ingenieros_Commerce_Manager_v2._0.Entities
 
         public static MemoryStream ByteToImage(byte[] img)
         {
-            MemoryStream ms = new MemoryStream(img);
+            MemoryStream ms = new MemoryStream();
+            if (img != null)
+            {
+                ms = new MemoryStream(img);
+            }
             return ms;
         }
         public static byte[] ImageToByte(Image img)

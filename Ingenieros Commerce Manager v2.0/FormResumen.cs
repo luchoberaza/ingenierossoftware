@@ -36,8 +36,8 @@ namespace Ingenieros_Commerce_Manager_v2._0
                 lblGanancias.Text = "$" + model.TotalGanancias.ToString();
 
                 lblNroClientes.Text = "Nº de Clientes:\n" + model.NumClientes.ToString();
-                lblNroProd.Text = "Nº de Productos: " + model.NumProductos.ToString();
-                lblNroMatPrim.Text = "Nº de Materias Primas: " + model.NumMatPrims.ToString();
+                lblNroProd.Text = "Nº de Productos:\n" + model.NumProductos.ToString();
+                lblNroMatPrim.Text = "Nº de Materias Primas:\n" + model.NumMatPrims.ToString();
 
                 chartIngresos.DataSource = model.IngresosBrutos;
                 chartIngresos.Series[0].XValueMember = "Fecha";
@@ -58,6 +58,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
                 dgvBajoStock.Columns["Key"].HeaderText = "Producto";
                 dgvBajoStock.Columns["Value"].HeaderText = "Cantidad";
                 Console.WriteLine("Vista cargada");
+                dgvBajoStock.ClearSelection();
             }
             else
             {
