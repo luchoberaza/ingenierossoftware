@@ -39,18 +39,18 @@ namespace Ingenieros_Commerce_Manager_v2._0
                     cmd.Connection = conexion;
                     //Obtiene el total de clientes
                     cmd.CommandText = "SELECT COUNT(`ID.CLI`) FROM `cliente` WHERE `IdUsuario` = '" + Usuario.Id + "';";
-                    NumClientes = (int)cmd.ExecuteScalar();
+                    NumClientes = int.Parse(cmd.ExecuteScalar().ToString());
                     //Obtiene el total de Productos 
                     cmd.CommandText = "SELECT COUNT(`ID.Prod`) FROM `producto_venta` WHERE `IdUsuario` = '" + Usuario.Id + "';";
-                    NumProductos = (int)cmd.ExecuteScalar();
+                    NumProductos = int.Parse(cmd.ExecuteScalar().ToString());
                     //Obtiene el total de materias primas
                     cmd.CommandText = "SELECT COUNT(`ID.Mat`) FROM `materia_prima` WHERE `IdUsuario` = '" + Usuario.Id + "';";
-                    NumMatPrims = (int)cmd.ExecuteScalar();
+                    NumMatPrims = int.Parse(cmd.ExecuteScalar().ToString());
                     //Obtiene el total de ventas
                     cmd.CommandText = "SELECT COUNT(`IdVenta`) FROM `venta` WHERE `IdUsuario` = '" + Usuario.Id + "' AND Fecha BETWEEN @fromDate AND @toDate;";
                     cmd.Parameters.Add("@fromDate", MySqlDbType.Date).Value = FechaInicio;
                     cmd.Parameters.Add("@toDate", MySqlDbType.Date).Value = FechaFin;
-                    NumVentas = (int)cmd.ExecuteScalar();
+                    NumVentas = int.Parse(cmd.ExecuteScalar().ToString());
                 }
             }
         }
@@ -75,11 +75,12 @@ namespace Ingenieros_Commerce_Manager_v2._0
                     var ListaResultadosVentas = new List<KeyValuePair<DateTime, float>>();
                     while (reader.Read())
                     {
-                        ListaResultadosVentas.Add(new KeyValuePair<DateTime, float>((DateTime)reader[0], (float)reader[1]));
-                        TotalIngresos += (float)reader[1];
+                        ListaResultadosVentas.Add(new KeyValuePair<DateTime, float>((DateTime)reader[0], float.Parse(reader[1].ToString())));
+                        TotalIngresos += float.Parse(reader[1].ToString());
                     }
                     reader.Close();
                     reader.Dispose();
+                    cmd.Parameters.Clear();
 
                     //Obtiene los gastos
                     cmd.Connection = conexion;
@@ -90,14 +91,15 @@ namespace Ingenieros_Commerce_Manager_v2._0
                     var ListaResultadosGastos = new List<KeyValuePair<DateTime, float>>();
                     while (reader.Read())
                     {
-                        ListaResultadosGastos.Add(new KeyValuePair<DateTime, float>((DateTime)reader[0], (float)reader[1]));
-                        TotalGastos += (float)reader[1];
+                        ListaResultadosGastos.Add(new KeyValuePair<DateTime, float>((DateTime)reader[0], float.Parse(reader[1].ToString())));
+                        TotalGastos += float.Parse(reader[1].ToString());
                     }
                     reader.Close();
                     reader.Dispose();
+                    cmd.Parameters.Clear();
 
                     TotalGanancias = TotalIngresos - TotalGastos;
-                    //Ordena las ventas
+                    
                     if(NroDias <= 30)
                     {
                         foreach(var item in ListaResultadosVentas)
@@ -109,45 +111,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
                             });
 
                         }
-                    }
-                    else if(NroDias <= 92)
-                    {
-                        IngresosBrutos = (from orderList in ListaResultadosVentas
-                                          group orderList by CultureInfo.CurrentCulture.Calendar.GetWeekOfYear(
-                                              orderList.Key, CalendarWeekRule.FirstDay, DayOfWeek.Monday)
-                                          into order
-                                          select new IngresosXFecha
-                                          {
-                                              Fecha = "Semana "+ order.Key.ToString(),
-                                              Monto = order.Sum(amount => amount.Value)
-                                          }).ToList();
-                    }
-                    else if(NroDias <= (365 * 2))
-                    {
-                        IngresosBrutos = (from orderList in ListaResultadosVentas
-                                          group orderList by orderList.Key.ToString("MMM yyyy")
-                                          into order
-                                          select new IngresosXFecha
-                                          {
-                                              Fecha = order.Key,
-                                              Monto = order.Sum(amount=> amount.Value)
-                                          }).ToList();
-                    }
-                    else
-                    {
-                        IngresosBrutos = (from orderList in ListaResultadosVentas
-                                          group orderList by orderList.Key.ToString("yyyy")
-                                          into order
-                                          select new IngresosXFecha
-                                          {
-                                              Fecha = order.Key,
-                                              Monto = order.Sum(amount => amount.Value)
-                                          }).ToList();
-                    }
-                    //Ordena los gastos
-                    if(NroDias <= 30)
-                    {
-                        foreach(var item in ListaResultadosGastos)
+                        foreach (var item in ListaResultadosGastos)
                         {
                             GastosXFecha.Add(new IngresosXFecha()
                             {
@@ -156,10 +120,11 @@ namespace Ingenieros_Commerce_Manager_v2._0
                             });
 
                         }
+
                     }
                     else if(NroDias <= 92)
                     {
-                        GastosXFecha = (from orderList in ListaResultadosGastos
+                        IngresosBrutos = (from orderList in ListaResultadosVentas
                                           group orderList by CultureInfo.CurrentCulture.Calendar.GetWeekOfYear(
                                               orderList.Key, CalendarWeekRule.FirstDay, DayOfWeek.Monday)
                                           into order
@@ -168,10 +133,19 @@ namespace Ingenieros_Commerce_Manager_v2._0
                                               Fecha = "Semana "+ order.Key.ToString(),
                                               Monto = order.Sum(amount => amount.Value)
                                           }).ToList();
+                        GastosXFecha = (from orderList in ListaResultadosGastos
+                                        group orderList by CultureInfo.CurrentCulture.Calendar.GetWeekOfYear(
+                                            orderList.Key, CalendarWeekRule.FirstDay, DayOfWeek.Monday)
+                                          into order
+                                        select new IngresosXFecha
+                                        {
+                                            Fecha = "Semana " + order.Key.ToString(),
+                                            Monto = order.Sum(amount => amount.Value)
+                                        }).ToList();
                     }
                     else if(NroDias <= (365 * 2))
                     {
-                        GastosXFecha = (from orderList in ListaResultadosGastos
+                        IngresosBrutos = (from orderList in ListaResultadosVentas
                                           group orderList by orderList.Key.ToString("MMM yyyy")
                                           into order
                                           select new IngresosXFecha
@@ -179,10 +153,18 @@ namespace Ingenieros_Commerce_Manager_v2._0
                                               Fecha = order.Key,
                                               Monto = order.Sum(amount=> amount.Value)
                                           }).ToList();
+                        GastosXFecha = (from orderList in ListaResultadosGastos
+                                        group orderList by orderList.Key.ToString("MMM yyyy")
+                                          into order
+                                        select new IngresosXFecha
+                                        {
+                                            Fecha = order.Key,
+                                            Monto = order.Sum(amount => amount.Value)
+                                        }).ToList();
                     }
                     else
                     {
-                        GastosXFecha = (from orderList in ListaResultadosGastos
+                        IngresosBrutos = (from orderList in ListaResultadosVentas
                                           group orderList by orderList.Key.ToString("yyyy")
                                           into order
                                           select new IngresosXFecha
@@ -190,7 +172,16 @@ namespace Ingenieros_Commerce_Manager_v2._0
                                               Fecha = order.Key,
                                               Monto = order.Sum(amount => amount.Value)
                                           }).ToList();
+                        GastosXFecha = (from orderList in ListaResultadosGastos
+                                        group orderList by orderList.Key.ToString("yyyy")
+                                          into order
+                                        select new IngresosXFecha
+                                        {
+                                            Fecha = order.Key,
+                                            Monto = order.Sum(amount => amount.Value)
+                                        }).ToList();
                     }
+                    
                 }
             }
         }
@@ -220,7 +211,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
                     reader = cmd.ExecuteReader();
                     while (reader.Read())
                     {
-                        ProductosMasVendidos.Add(new KeyValuePair<string, float>(reader[0].ToString(), (float)reader[1]));
+                        ProductosMasVendidos.Add(new KeyValuePair<string, float>(reader[0].ToString(), float.Parse(reader[1].ToString())));
                     }
                     reader.Close();
                     reader.Dispose();
@@ -229,7 +220,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
                     reader = cmd.ExecuteReader();
                     while (reader.Read())
                     {
-                        ProductosBajoStock.Add(new KeyValuePair<string, float>(reader[0].ToString(), (float)reader[1]));
+                        ProductosBajoStock.Add(new KeyValuePair<string, float>(reader[0].ToString(), float.Parse(reader[1].ToString())));
                     }
                 }
             }
