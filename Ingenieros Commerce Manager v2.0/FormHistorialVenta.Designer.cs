@@ -31,6 +31,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormHistorialVenta));
             this.gboxBuscar = new System.Windows.Forms.GroupBox();
             this.btnClear = new CustomControls.RJControls.RJButton();
             this.lblBusqueda = new System.Windows.Forms.Label();
@@ -288,6 +289,7 @@
             this.Controls.Add(this.gboxBuscar);
             this.Controls.Add(this.dgvVentas);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormHistorialVenta";
             this.Text = "FormHistorialVenta";
             this.Load += new System.EventHandler(this.FormHistorialVenta_Load);

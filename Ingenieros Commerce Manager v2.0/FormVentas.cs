@@ -308,6 +308,9 @@ namespace Ingenieros_Commerce_Manager_v2._0
                     SaveFileDialog dialog = new SaveFileDialog();
 
                     dialog.FileName = DateTime.Now.ToString("ddMMyyyyHHmmss") + ".pdf";
+                    dialog.AddExtension = true;
+                    dialog.DefaultExt = "pdf";
+                    dialog.RestoreDirectory = true;
 
                     string txthtml = Properties.Resources.Plantilla.ToString();
 
@@ -359,6 +362,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
                             pdf.Close();
                             fs.Close();
                         }
+                        System.Diagnostics.Process.Start(dialog.FileName);
                     }
                 }
                 dgvVenta.Rows.Clear();

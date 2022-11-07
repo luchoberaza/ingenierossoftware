@@ -555,3 +555,13 @@ Z:\Personal\Documentos\GitHub\ingenierossoftware\Ingenieros Commerce Manager v2.
 Z:\Personal\Documentos\GitHub\ingenierossoftware\Ingenieros Commerce Manager v2.0\bin\Debug\itextsharp.dll
 Z:\Personal\Documentos\GitHub\ingenierossoftware\Ingenieros Commerce Manager v2.0\bin\Debug\itextsharp.xmlworker.dll
 Z:\Personal\Documentos\GitHub\ingenierossoftware\Ingenieros Commerce Manager v2.0\bin\Debug\itextsharp.xml
+Z:\Personal\Documentos\GitHub\ingenierossoftware\Ingenieros Commerce Manager v2.0\bin\Debug\LiveCharts.dll
+Z:\Personal\Documentos\GitHub\ingenierossoftware\Ingenieros Commerce Manager v2.0\bin\Debug\LiveCharts.WinForms.dll
+Z:\Personal\Documentos\GitHub\ingenierossoftware\Ingenieros Commerce Manager v2.0\bin\Debug\LiveCharts.Wpf.dll
+Z:\Personal\Documentos\GitHub\ingenierossoftware\Ingenieros Commerce Manager v2.0\bin\Debug\LiveCharts.pdb
+Z:\Personal\Documentos\GitHub\ingenierossoftware\Ingenieros Commerce Manager v2.0\bin\Debug\LiveCharts.xml
+Z:\Personal\Documentos\GitHub\ingenierossoftware\Ingenieros Commerce Manager v2.0\bin\Debug\LiveCharts.WinForms.pdb
+Z:\Personal\Documentos\GitHub\ingenierossoftware\Ingenieros Commerce Manager v2.0\bin\Debug\LiveCharts.WinForms.xml
+Z:\Personal\Documentos\GitHub\ingenierossoftware\Ingenieros Commerce Manager v2.0\bin\Debug\LiveCharts.Wpf.pdb
+Z:\Personal\Documentos\GitHub\ingenierossoftware\Ingenieros Commerce Manager v2.0\bin\Debug\LiveCharts.Wpf.xml
+Z:\Personal\Documentos\GitHub\ingenierossoftware\Ingenieros Commerce Manager v2.0\obj\Debug\Ingenieros_Commerce_Manager_v2._0.FormResumen.resources

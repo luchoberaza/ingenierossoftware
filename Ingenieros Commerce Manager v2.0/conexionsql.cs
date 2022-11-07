@@ -17,8 +17,8 @@ namespace Ingenieros_Commerce_Manager_v2._0
     public class conexionsql
     {
         #region MySQLResources
-        MySqlConnection conexion = new MySqlConnection("Server=localhost; Database=proyecto; Uid=usuario; Pwd=user;");
-        MySqlCommand comandos = new MySqlCommand();
+        private readonly MySqlConnection conexion = new MySqlConnection("Server=localhost; Database=proyecto; Uid=usuario; Pwd=user;");
+        private MySqlCommand comandos = new MySqlCommand();
         public MySqlDataReader datos;
         protected MySqlDataAdapter adapter;
         #endregion
@@ -376,6 +376,10 @@ namespace Ingenieros_Commerce_Manager_v2._0
                 conexion.Dispose();
                 conexion.Close();
             }
+        }
+        protected MySqlConnection GetMySqlConnection()
+        {
+            return conexion;
         }
         #endregion
     }

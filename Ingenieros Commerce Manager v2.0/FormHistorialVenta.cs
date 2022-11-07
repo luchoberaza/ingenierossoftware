@@ -59,7 +59,12 @@ namespace Ingenieros_Commerce_Manager_v2._0
                 if (index >= 0)
                 {
                     SaveFileDialog dialog = new SaveFileDialog();
+
                     dialog.FileName = DateTime.Now.ToString("ddMMyyyyHHmmss") + ".pdf";
+                    dialog.AddExtension = true;
+                    dialog.DefaultExt = "pdf";
+                    dialog.RestoreDirectory = true;
+
 
                     sql.SetCliente(int.Parse(DTVentas.Rows[index]["ID.CLI"].ToString()));
                     string txthtml = Properties.Resources.Plantilla.ToString();
@@ -113,6 +118,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
                             pdf.Close();
                             fs.Close();
                         }
+                        System.Diagnostics.Process.Start(dialog.FileName);
                     }
 
                 }
