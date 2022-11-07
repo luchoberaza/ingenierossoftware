@@ -173,5 +173,16 @@ namespace Ingenieros_Commerce_Manager_v2._0
                 }
             }
         }
+
+        private void lblSoporte_Click(object sender, EventArgs e)
+        {
+            Form formsoporte = new FormSoporte(); 
+        }
+
+        private void rjButton1_Click(object sender, EventArgs e)
+        {
+            Form formsoporte = new FormSoporte();
+            formsoporte.Show();
+        }
     }
 }

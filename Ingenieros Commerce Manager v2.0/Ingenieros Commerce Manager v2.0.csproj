@@ -393,6 +393,12 @@
     <Compile Include="FormResumen.Designer.cs">
       <DependentUpon>FormResumen.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormSoporte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSoporte.Designer.cs">
+      <DependentUpon>FormSoporte.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormUsarMatPrim.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -445,6 +451,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormResumen.resx">
       <DependentUpon>FormResumen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSoporte.resx">
+      <DependentUpon>FormSoporte.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormUsarMatPrim.resx">
       <DependentUpon>FormUsarMatPrim.cs</DependentUpon>

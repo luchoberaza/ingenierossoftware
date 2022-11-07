@@ -342,7 +342,6 @@ C:\Users\lbera\OneDrive\Documentos\GitHub\ingenierossoftware\Ingenieros Commerce
 C:\Users\lbera\OneDrive\Documentos\GitHub\ingenierossoftware\Ingenieros Commerce Manager v2.0\bin\Debug\System.ValueTuple.dll
 C:\Users\lbera\OneDrive\Documentos\GitHub\ingenierossoftware\Ingenieros Commerce Manager v2.0\bin\Debug\Ubiety.Dns.Core.dll
 C:\Users\lbera\OneDrive\Documentos\GitHub\ingenierossoftware\Ingenieros Commerce Manager v2.0\bin\Debug\ZstdNet.dll
-C:\Users\lbera\OneDrive\Documentos\GitHub\ingenierossoftware\Ingenieros Commerce Manager v2.0\bin\Debug\BouncyCastle.Crypto.xml
 C:\Users\lbera\OneDrive\Documentos\GitHub\ingenierossoftware\Ingenieros Commerce Manager v2.0\bin\Debug\envdte.xml
 C:\Users\lbera\OneDrive\Documentos\GitHub\ingenierossoftware\Ingenieros Commerce Manager v2.0\bin\Debug\envdte80.xml
 C:\Users\lbera\OneDrive\Documentos\GitHub\ingenierossoftware\Ingenieros Commerce Manager v2.0\bin\Debug\Google.Protobuf.pdb
@@ -565,3 +564,18 @@ Z:\Personal\Documentos\GitHub\ingenierossoftware\Ingenieros Commerce Manager v2.
 Z:\Personal\Documentos\GitHub\ingenierossoftware\Ingenieros Commerce Manager v2.0\bin\Debug\LiveCharts.Wpf.pdb
 Z:\Personal\Documentos\GitHub\ingenierossoftware\Ingenieros Commerce Manager v2.0\bin\Debug\LiveCharts.Wpf.xml
 Z:\Personal\Documentos\GitHub\ingenierossoftware\Ingenieros Commerce Manager v2.0\obj\Debug\Ingenieros_Commerce_Manager_v2._0.FormResumen.resources
+C:\Users\lbera\OneDrive\Documentos\GitHub\ingenierossoftware\Ingenieros Commerce Manager v2.0\bin\Debug\itextsharp.dll
+C:\Users\lbera\OneDrive\Documentos\GitHub\ingenierossoftware\Ingenieros Commerce Manager v2.0\bin\Debug\itextsharp.xmlworker.dll
+C:\Users\lbera\OneDrive\Documentos\GitHub\ingenierossoftware\Ingenieros Commerce Manager v2.0\bin\Debug\LiveCharts.dll
+C:\Users\lbera\OneDrive\Documentos\GitHub\ingenierossoftware\Ingenieros Commerce Manager v2.0\bin\Debug\LiveCharts.WinForms.dll
+C:\Users\lbera\OneDrive\Documentos\GitHub\ingenierossoftware\Ingenieros Commerce Manager v2.0\bin\Debug\LiveCharts.Wpf.dll
+C:\Users\lbera\OneDrive\Documentos\GitHub\ingenierossoftware\Ingenieros Commerce Manager v2.0\bin\Debug\itextsharp.xml
+C:\Users\lbera\OneDrive\Documentos\GitHub\ingenierossoftware\Ingenieros Commerce Manager v2.0\bin\Debug\LiveCharts.pdb
+C:\Users\lbera\OneDrive\Documentos\GitHub\ingenierossoftware\Ingenieros Commerce Manager v2.0\bin\Debug\LiveCharts.xml
+C:\Users\lbera\OneDrive\Documentos\GitHub\ingenierossoftware\Ingenieros Commerce Manager v2.0\bin\Debug\LiveCharts.WinForms.pdb
+C:\Users\lbera\OneDrive\Documentos\GitHub\ingenierossoftware\Ingenieros Commerce Manager v2.0\bin\Debug\LiveCharts.WinForms.xml
+C:\Users\lbera\OneDrive\Documentos\GitHub\ingenierossoftware\Ingenieros Commerce Manager v2.0\bin\Debug\LiveCharts.Wpf.pdb
+C:\Users\lbera\OneDrive\Documentos\GitHub\ingenierossoftware\Ingenieros Commerce Manager v2.0\bin\Debug\LiveCharts.Wpf.xml
+C:\Users\lbera\OneDrive\Documentos\GitHub\ingenierossoftware\Ingenieros Commerce Manager v2.0\obj\Debug\Ingenieros_Commerce_Manager_v2._0.FormHistorialVenta.resources
+C:\Users\lbera\OneDrive\Documentos\GitHub\ingenierossoftware\Ingenieros Commerce Manager v2.0\obj\Debug\Ingenieros_Commerce_Manager_v2._0.FormResumen.resources
+C:\Users\lbera\OneDrive\Documentos\GitHub\ingenierossoftware\Ingenieros Commerce Manager v2.0\obj\Debug\Ingenieros_Commerce_Manager_v2._0.FormSoporte.resources
