@@ -126,17 +126,17 @@ namespace Ingenieros_Commerce_Manager_v2._0
         private void btnPWDChar_Click(object sender, EventArgs e) //Muestra o esconde los caracteres de contrasena
         {
            if(txbPasswd.PasswordChar == true && txbConfirm.PasswordChar == true)
-            {
+           {
                 txbPasswd.PasswordChar = false;
                 txbConfirm.PasswordChar = false;
                 btnPWDChar.Image = Ingenieros_Commerce_Manager_v2._0.Properties.Resources.hidepwd;
-            }else
-            {
+           }
+           else
+           {
                 txbPasswd.PasswordChar = true;
                 txbConfirm.PasswordChar = true;
                 btnPWDChar.Image = Ingenieros_Commerce_Manager_v2._0.Properties.Resources.showpwd;
-
-            }
+           }
         }
 
         private void btnLogin_Click(object sender, EventArgs e) //Conecta con la base de datos
@@ -249,6 +249,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
             lblVolver.ForeColor = Color.DarkBlue;
         }
         #endregion
+
 
         private void FormInicial_Load(object sender, EventArgs e)
         {

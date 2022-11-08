@@ -393,6 +393,12 @@
     <Compile Include="FormResumen.Designer.cs">
       <DependentUpon>FormResumen.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormSeguridad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSeguridad.Designer.cs">
+      <DependentUpon>FormSeguridad.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormSoporte.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -421,6 +427,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ResumenData.cs" />
+    <Compile Include="SecurityCheck.cs" />
     <EmbeddedResource Include="Controls\CustomTextBox.resx">
       <DependentUpon>CustomTextBox.cs</DependentUpon>
     </EmbeddedResource>
@@ -451,6 +458,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormResumen.resx">
       <DependentUpon>FormResumen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSeguridad.resx">
+      <DependentUpon>FormSeguridad.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSoporte.resx">
       <DependentUpon>FormSoporte.cs</DependentUpon>

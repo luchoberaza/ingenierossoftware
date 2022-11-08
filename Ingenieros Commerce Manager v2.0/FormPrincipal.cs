@@ -25,9 +25,11 @@ namespace Ingenieros_Commerce_Manager_v2._0
         }
         //Instancia de clase
         conexionsql conexionsql = new conexionsql();
+        FormSeguridad formSeguridad = new FormSeguridad();
         //Variables 
         bool sideBarOpen = true;
         bool ventasClosed = true;
+
 
 
 
@@ -212,9 +214,12 @@ namespace Ingenieros_Commerce_Manager_v2._0
         }
         private void btnResumen_Click(object sender, EventArgs e)
         {
-            colorearBoton(btnResumen, btnPagos, btnGastos, btnVentas, btnInventario, btnUsuario);
-            AbrirFormulario<FormResumen>();
-
+            var respuesta = formSeguridad.ShowDialog();
+            if (respuesta == DialogResult.OK)
+            {
+                colorearBoton(btnResumen, btnPagos, btnGastos, btnVentas, btnInventario, btnUsuario);
+                AbrirFormulario<FormResumen>();
+            }
         }
         private void btnUsuario_Click(object sender, EventArgs e)
         {
