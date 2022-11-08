@@ -150,7 +150,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
                 try
                 {
                     conexionsql.AbrirConexion();
-                    string login = "SELECT Username, Contraseña FROM usuario WHERE Username = '" + txbUsuario.Texts + "' AND Contraseña = '" + txbPasswd.Texts + "';";
+                    string login = "SELECT Username, Contraseña FROM usuario WHERE BINARY Username = '" + txbUsuario.Texts + "' AND BINARY Contraseña = '" + txbPasswd.Texts + "';";
                     Usuario.Id = conexionsql.GetUserID(txbUsuario.Texts);
                     conexionsql.SetUserData(Usuario.Id);
                     conexionsql.setComandos(login);

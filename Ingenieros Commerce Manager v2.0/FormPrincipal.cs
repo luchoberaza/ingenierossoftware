@@ -209,8 +209,12 @@ namespace Ingenieros_Commerce_Manager_v2._0
         }
         private void btnInventario_Click(object sender, EventArgs e)
         {
-            colorearBoton(btnInventario, btnPagos, btnGastos, btnVentas, btnResumen, btnUsuario);
-            AbrirFormulario<FormInventario>();
+            var respuesta = formSeguridad.ShowDialog();
+            if (respuesta == DialogResult.OK)
+            {
+                colorearBoton(btnInventario, btnPagos, btnGastos, btnVentas, btnResumen, btnUsuario);
+                AbrirFormulario<FormInventario>();
+            }
         }
         private void btnResumen_Click(object sender, EventArgs e)
         {
