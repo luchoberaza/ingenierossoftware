@@ -14,6 +14,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
     }
     public class ResumenData : conexionsql
     {
+
         private DateTime FechaInicio, FechaFin;
         private int NroDias;
 
