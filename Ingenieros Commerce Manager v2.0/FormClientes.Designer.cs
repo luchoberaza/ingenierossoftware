@@ -50,6 +50,7 @@
             this.cmbBusqueda = new CustomControls.RJControls.RJComboBox();
             this.txbBuscar = new Ingenieros_Commerce_Manager.CustomControls.CustomTextBox();
             this.gboxIngresar = new System.Windows.Forms.GroupBox();
+            this.btnRefresh = new CustomControls.RJControls.RJButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
             this.gboxBuscar.SuspendLayout();
             this.gboxIngresar.SuspendLayout();
@@ -289,7 +290,7 @@
             this.rjButtonEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rjButtonEditar.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rjButtonEditar.ForeColor = System.Drawing.Color.White;
-            this.rjButtonEditar.Location = new System.Drawing.Point(14, 504);
+            this.rjButtonEditar.Location = new System.Drawing.Point(14, 358);
             this.rjButtonEditar.Name = "rjButtonEditar";
             this.rjButtonEditar.Size = new System.Drawing.Size(250, 37);
             this.rjButtonEditar.TabIndex = 3;
@@ -450,6 +451,7 @@
             // 
             this.gboxIngresar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.gboxIngresar.Controls.Add(this.btnRefresh);
             this.gboxIngresar.Controls.Add(this.label1);
             this.gboxIngresar.Controls.Add(this.labelNombre);
             this.gboxIngresar.Controls.Add(this.customTextBoxDireccion);
@@ -470,6 +472,28 @@
             this.gboxIngresar.TabIndex = 43;
             this.gboxIngresar.TabStop = false;
             this.gboxIngresar.Text = "Ingresar clientes";
+            // 
+            // btnRefresh
+            // 
+            this.btnRefresh.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRefresh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(154)))), ((int)(((byte)(234)))));
+            this.btnRefresh.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(154)))), ((int)(((byte)(234)))));
+            this.btnRefresh.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnRefresh.BorderRadius = 15;
+            this.btnRefresh.BorderSize = 0;
+            this.btnRefresh.FlatAppearance.BorderSize = 0;
+            this.btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRefresh.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRefresh.ForeColor = System.Drawing.Color.White;
+            this.btnRefresh.Location = new System.Drawing.Point(14, 504);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(250, 37);
+            this.btnRefresh.TabIndex = 20;
+            this.btnRefresh.Text = "Refrescar";
+            this.btnRefresh.TextColor = System.Drawing.Color.White;
+            this.btnRefresh.UseVisualStyleBackColor = false;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // FormClientes
             // 
@@ -514,5 +538,6 @@
         private System.Windows.Forms.Label lblBusqueda;
         private CustomControls.RJControls.RJComboBox cmbBusqueda;
         private System.Windows.Forms.GroupBox gboxIngresar;
+        private CustomControls.RJControls.RJButton btnRefresh;
     }
 }

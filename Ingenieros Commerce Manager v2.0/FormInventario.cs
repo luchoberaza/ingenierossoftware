@@ -369,6 +369,19 @@ namespace Ingenieros_Commerce_Manager_v2._0
             txbStock.Select();
         }
 
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                MostrarProductos();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error al conectar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         private void dgvProductos_Click(object sender, EventArgs e)
         {
             if(dgvProductos.SelectedRows.Count > 0)

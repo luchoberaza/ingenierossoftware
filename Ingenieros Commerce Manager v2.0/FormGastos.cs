@@ -218,5 +218,18 @@ namespace Ingenieros_Commerce_Manager_v2._0
             txbValorGastos.Select();
 
         }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                dgvGastos.DataSource = sql.GetGastos();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error al conectar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

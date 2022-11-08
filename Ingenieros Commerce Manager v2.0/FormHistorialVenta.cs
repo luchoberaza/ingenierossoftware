@@ -31,6 +31,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
         private void FormHistorialVenta_Load(object sender, EventArgs e)
         {
             DTVentas = sql.GetVentas();
+            dgvVentas.Rows.Clear();
             foreach (DataRow dr in DTVentas.Rows)
             {
                 dgvVentas.Rows.Add(new object[]
@@ -167,6 +168,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             DTVentas = sql.GetVentas();
+            dgvVentas.Rows.Clear();
             foreach (DataRow dr in DTVentas.Rows)
             {
                 dgvVentas.Rows.Add(new object[]

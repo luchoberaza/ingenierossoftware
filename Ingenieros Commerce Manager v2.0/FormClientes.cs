@@ -192,5 +192,18 @@ namespace Ingenieros_Commerce_Manager_v2._0
             }
             manager.ResumeBinding();
         }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                dgvClientes.DataSource = sql.GetClientes();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error al conectar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

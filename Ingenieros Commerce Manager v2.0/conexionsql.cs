@@ -52,7 +52,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
         {
             CerrarReader();
             AbrirConexion();
-            comandos.CommandText = "SELECT `IdVenta`, `ID.CLI`, `Nombre` Cliente, TipoDocumento, CAST(DATE_FORMAT(Fecha, '%e/%c/%Y') as char) Fecha, Importe, IF(`Envio`=1, 'A domicilio', 'Venta en local') Envio FROM `venta`, `cliente` WHERE `venta`.`IDCliente` = `cliente`.`ID.CLI` and `venta`.`IDUsuario` = '" + Usuario.Id + "';";
+            comandos.CommandText = "SELECT `IdVenta`, `ID.CLI`, `Nombre` Cliente, TipoDocumento, CAST(DATE_FORMAT(Fecha, '%e/%c/%Y') as char) Fecha, Importe, IF(`Envio`=1, 'A domicilio', 'Venta en local') Envio FROM `venta`, `cliente` WHERE `venta`.`IDCliente` = `cliente`.`ID.CLI` and `venta`.`IDUsuario` = '" + Usuario.Id + "' ORDER BY Fecha DESC;";
             EjecutarReader();
             DTVentas.Rows.Clear();
             DTVentas.Load(datos);
