@@ -63,7 +63,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
             Producto.CostoUnitario = costonuevo;
             try
             {
-                if (sql.InsertarCostoProd(float.Parse(txbCantidad.Texts)) > 0)
+                if (sql.InsertarCostoProd(float.Parse(txbCantidad.Texts), btnGenerar.Checked, float.Parse(txbCostoProduccion.Texts)) > 0)
                 {
                     this.DialogResult = DialogResult.OK;
                 }

@@ -51,6 +51,8 @@
             this.lblCostoCalculado = new System.Windows.Forms.Label();
             this.btnCancel = new CustomControls.RJControls.RJButton();
             this.btnAceptar = new CustomControls.RJControls.RJButton();
+            this.label3 = new System.Windows.Forms.Label();
+            this.btnGenerar = new CustomControls.RJControls.RJToggleButton();
             this.gboxItem.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -243,6 +245,8 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(254)))));
+            this.groupBox1.Controls.Add(this.btnGenerar);
+            this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.btnCalcular);
             this.groupBox1.Controls.Add(this.btnUp);
             this.groupBox1.Controls.Add(this.btnDown);
@@ -455,6 +459,33 @@
             this.btnAceptar.UseVisualStyleBackColor = false;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
+            // label3
+            // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.label3.Location = new System.Drawing.Point(10, 140);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(156, 22);
+            this.label3.TabIndex = 31;
+            this.label3.Text = "Generar gasto asociado:";
+            // 
+            // btnGenerar
+            // 
+            this.btnGenerar.AutoSize = true;
+            this.btnGenerar.Location = new System.Drawing.Point(212, 140);
+            this.btnGenerar.MinimumSize = new System.Drawing.Size(45, 22);
+            this.btnGenerar.Name = "btnGenerar";
+            this.btnGenerar.OffBackColor = System.Drawing.Color.Gray;
+            this.btnGenerar.OffToggleColor = System.Drawing.Color.Gainsboro;
+            this.btnGenerar.OnBackColor = System.Drawing.Color.MediumSlateBlue;
+            this.btnGenerar.OnToggleColor = System.Drawing.Color.WhiteSmoke;
+            this.btnGenerar.Size = new System.Drawing.Size(45, 22);
+            this.btnGenerar.TabIndex = 32;
+            this.btnGenerar.UseVisualStyleBackColor = true;
+            // 
             // FormCalcularCosto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -503,5 +534,7 @@
         private System.Windows.Forms.Label lblCostoCalculado;
         private CustomControls.RJControls.RJButton btnCancel;
         private CustomControls.RJControls.RJButton btnAceptar;
+        private CustomControls.RJControls.RJToggleButton btnGenerar;
+        private System.Windows.Forms.Label label3;
     }
 }

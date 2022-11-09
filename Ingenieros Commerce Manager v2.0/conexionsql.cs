@@ -344,7 +344,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
             comandos.CommandText = "UPDATE `materia_prima` SET `Stock` = `Stock` - '"+cantidad+"' WHERE `ID.Mat` = '"+id+"' ";
             comandos.ExecuteNonQuery();
         }
-        public int InsertarCostoProd(float cantidad)
+        public int InsertarCostoProd(float cantidad, bool GenerarGasto, float valor)
         {
             AbrirConexion();
             comandos.CommandText = "UPDATE `producto_venta` SET `CostoUnitario` = @costo, `Stock` = `Stock` + @Cantidad WHERE `ID.Prod` = @idprod;";
@@ -353,6 +353,14 @@ namespace Ingenieros_Commerce_Manager_v2._0
             comandos.Parameters.Add("@Cantidad", MySqlDbType.Int32).Value = cantidad;
             int i = comandos.ExecuteNonQuery();
             comandos.Parameters.Clear();
+            if (GenerarGasto)
+            {
+                comandos.CommandText = "insert into gasto (IdUsuario, Valor, Concepto, Fecha, Tipo) values (@IdUsuario, @Valor, 'Produccion de "+Producto.Descripcion+ "', @Fecha, 'Generado automáticamente');";
+                comandos.Parameters.Add("@IdUsuario", MySqlDbType.Int32).Value = Usuario.Id;
+                comandos.Parameters.Add("@Valor", MySqlDbType.Float).Value = valor;
+                comandos.Parameters.Add("@Fecha", MySqlDbType.Date).Value = DateTime.Now.Date;
+                i += comandos.ExecuteNonQuery();
+            }
             return i;
         }
         #endregion
