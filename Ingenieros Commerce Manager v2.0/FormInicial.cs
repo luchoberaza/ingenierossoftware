@@ -163,6 +163,13 @@ namespace Ingenieros_Commerce_Manager_v2._0
                             archivo.WriteLine(txbPasswd.Texts);
                             archivo.Close();
                         }
+                        else
+                        {
+                            if (File.Exists("UserInfo.txt"))
+                            {
+                                File.Delete("UserInfo.txt");
+                            }
+                        }
                         formPrincipal.Show();
                         this.Hide();
 
@@ -251,6 +258,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
                 txbUsuario.Texts = leer.ReadLine();
                 txbPasswd.Texts = leer.ReadLine();
                 btnRecordar.Checked = true;
+                leer.Close();
             }
         }
     }

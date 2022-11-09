@@ -37,6 +37,8 @@
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormResumen));
             this.dtpFechaInicio = new System.Windows.Forms.DateTimePicker();
             this.dtpFechaFin = new System.Windows.Forms.DateTimePicker();
@@ -57,10 +59,12 @@
             this.lblNroProd = new System.Windows.Forms.Label();
             this.lblNroClientes = new System.Windows.Forms.Label();
             this.gboxIngresosBrutos = new System.Windows.Forms.GroupBox();
-            this.gboxGastos = new System.Windows.Forms.GroupBox();
             this.gboxMasVendidos = new System.Windows.Forms.GroupBox();
-            this.chartGastos = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.chartProds = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.chartGastos = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.gboxGastos = new System.Windows.Forms.GroupBox();
+            this.gboxGanancia = new System.Windows.Forms.GroupBox();
+            this.chartGananciasProds = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.btnMes = new CustomControls.RJControls.RJButton();
             this.btnOKFecha = new CustomControls.RJControls.RJButton();
             this.btn30dias = new CustomControls.RJControls.RJButton();
@@ -76,10 +80,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvBajoStock)).BeginInit();
             this.gboxInfo.SuspendLayout();
             this.gboxIngresosBrutos.SuspendLayout();
-            this.gboxGastos.SuspendLayout();
             this.gboxMasVendidos.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chartGastos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartProds)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartGastos)).BeginInit();
+            this.gboxGastos.SuspendLayout();
+            this.gboxGanancia.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chartGananciasProds)).BeginInit();
             this.SuspendLayout();
             // 
             // dtpFechaInicio
@@ -89,7 +95,7 @@
             this.dtpFechaInicio.CalendarTrailingForeColor = System.Drawing.SystemColors.ControlDark;
             this.dtpFechaInicio.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpFechaInicio.Location = new System.Drawing.Point(11, 29);
-            this.dtpFechaInicio.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtpFechaInicio.Margin = new System.Windows.Forms.Padding(2);
             this.dtpFechaInicio.Name = "dtpFechaInicio";
             this.dtpFechaInicio.Size = new System.Drawing.Size(136, 25);
             this.dtpFechaInicio.TabIndex = 22;
@@ -101,7 +107,7 @@
             this.dtpFechaFin.CalendarTrailingForeColor = System.Drawing.SystemColors.ControlDark;
             this.dtpFechaFin.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpFechaFin.Location = new System.Drawing.Point(162, 29);
-            this.dtpFechaFin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtpFechaFin.Margin = new System.Windows.Forms.Padding(2);
             this.dtpFechaFin.Name = "dtpFechaFin";
             this.dtpFechaFin.Size = new System.Drawing.Size(136, 25);
             this.dtpFechaFin.TabIndex = 23;
@@ -118,7 +124,7 @@
             this.gboxDatosFecha.Controls.Add(this.dtpFechaInicio);
             this.gboxDatosFecha.Controls.Add(this.dtpFechaFin);
             this.gboxDatosFecha.Controls.Add(this.btnHoy);
-            this.gboxDatosFecha.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gboxDatosFecha.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gboxDatosFecha.ForeColor = System.Drawing.SystemColors.ControlDark;
             this.gboxDatosFecha.Location = new System.Drawing.Point(12, 12);
             this.gboxDatosFecha.Name = "gboxDatosFecha";
@@ -131,7 +137,7 @@
             // 
             this.gboxNroVentas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(254)))));
             this.gboxNroVentas.Controls.Add(this.lblVentas);
-            this.gboxNroVentas.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gboxNroVentas.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gboxNroVentas.ForeColor = System.Drawing.SystemColors.ControlDark;
             this.gboxNroVentas.Location = new System.Drawing.Point(12, 97);
             this.gboxNroVentas.Name = "gboxNroVentas";
@@ -155,7 +161,7 @@
             // 
             this.gboxTotalIngresos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(254)))));
             this.gboxTotalIngresos.Controls.Add(this.lblIngresos);
-            this.gboxTotalIngresos.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gboxTotalIngresos.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gboxTotalIngresos.ForeColor = System.Drawing.SystemColors.ControlDark;
             this.gboxTotalIngresos.Location = new System.Drawing.Point(200, 97);
             this.gboxTotalIngresos.Name = "gboxTotalIngresos";
@@ -179,7 +185,7 @@
             // 
             this.gboxTotalGastos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(254)))));
             this.gboxTotalGastos.Controls.Add(this.lblGastos);
-            this.gboxTotalGastos.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gboxTotalGastos.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gboxTotalGastos.ForeColor = System.Drawing.SystemColors.ControlDark;
             this.gboxTotalGastos.Location = new System.Drawing.Point(389, 97);
             this.gboxTotalGastos.Name = "gboxTotalGastos";
@@ -205,7 +211,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gboxTotalGanancias.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(254)))));
             this.gboxTotalGanancias.Controls.Add(this.lblGanancias);
-            this.gboxTotalGanancias.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gboxTotalGanancias.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gboxTotalGanancias.ForeColor = System.Drawing.SystemColors.ControlDark;
             this.gboxTotalGanancias.Location = new System.Drawing.Point(578, 97);
             this.gboxTotalGanancias.Name = "gboxTotalGanancias";
@@ -252,7 +258,7 @@
             chartArea1.Name = "ChartArea1";
             this.chartIngresos.ChartAreas.Add(chartArea1);
             this.chartIngresos.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chartIngresos.Location = new System.Drawing.Point(3, 21);
+            this.chartIngresos.Location = new System.Drawing.Point(3, 23);
             this.chartIngresos.Name = "chartIngresos";
             series1.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.LeftRight;
             series1.BackSecondaryColor = System.Drawing.Color.MediumPurple;
@@ -260,6 +266,7 @@
             series1.ChartArea = "ChartArea1";
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
             series1.Color = System.Drawing.Color.Indigo;
+            series1.Legend = "Legend1";
             series1.MarkerBorderColor = System.Drawing.Color.Indigo;
             series1.MarkerBorderWidth = 0;
             series1.MarkerColor = System.Drawing.Color.Indigo;
@@ -267,7 +274,7 @@
             series1.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
             series1.Name = "Series1";
             this.chartIngresos.Series.Add(series1);
-            this.chartIngresos.Size = new System.Drawing.Size(364, 201);
+            this.chartIngresos.Size = new System.Drawing.Size(217, 199);
             this.chartIngresos.TabIndex = 35;
             this.chartIngresos.Text = "chartIngresos";
             // 
@@ -277,7 +284,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gboxBajoStock.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(254)))));
             this.gboxBajoStock.Controls.Add(this.dgvBajoStock);
-            this.gboxBajoStock.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gboxBajoStock.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gboxBajoStock.ForeColor = System.Drawing.SystemColors.ControlDark;
             this.gboxBajoStock.Location = new System.Drawing.Point(389, 410);
             this.gboxBajoStock.Name = "gboxBajoStock";
@@ -299,7 +306,7 @@
             this.dgvBajoStock.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(154)))), ((int)(((byte)(233)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(94)))), ((int)(((byte)(220)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
@@ -310,14 +317,14 @@
             this.dgvBajoStock.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvBajoStock.EnableHeadersVisualStyles = false;
             this.dgvBajoStock.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(94)))), ((int)(((byte)(220)))));
-            this.dgvBajoStock.Location = new System.Drawing.Point(3, 21);
+            this.dgvBajoStock.Location = new System.Drawing.Point(3, 23);
             this.dgvBajoStock.Margin = new System.Windows.Forms.Padding(0);
             this.dgvBajoStock.Name = "dgvBajoStock";
             this.dgvBajoStock.ReadOnly = true;
             this.dgvBajoStock.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(154)))), ((int)(((byte)(233)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(94)))), ((int)(((byte)(220)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
@@ -334,7 +341,7 @@
             this.dgvBajoStock.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvBajoStock.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvBajoStock.ShowCellErrors = false;
-            this.dgvBajoStock.Size = new System.Drawing.Size(192, 171);
+            this.dgvBajoStock.Size = new System.Drawing.Size(192, 169);
             this.dgvBajoStock.TabIndex = 4;
             // 
             // gboxInfo
@@ -344,7 +351,7 @@
             this.gboxInfo.Controls.Add(this.lblNroMatPrim);
             this.gboxInfo.Controls.Add(this.lblNroProd);
             this.gboxInfo.Controls.Add(this.lblNroClientes);
-            this.gboxInfo.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gboxInfo.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gboxInfo.ForeColor = System.Drawing.SystemColors.ControlDark;
             this.gboxInfo.Location = new System.Drawing.Point(593, 410);
             this.gboxInfo.Name = "gboxInfo";
@@ -396,36 +403,21 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gboxIngresosBrutos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(254)))));
             this.gboxIngresosBrutos.Controls.Add(this.chartIngresos);
-            this.gboxIngresosBrutos.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gboxIngresosBrutos.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gboxIngresosBrutos.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.gboxIngresosBrutos.Location = new System.Drawing.Point(13, 176);
+            this.gboxIngresosBrutos.Location = new System.Drawing.Point(278, 176);
             this.gboxIngresosBrutos.Name = "gboxIngresosBrutos";
-            this.gboxIngresosBrutos.Size = new System.Drawing.Size(370, 225);
+            this.gboxIngresosBrutos.Size = new System.Drawing.Size(223, 225);
             this.gboxIngresosBrutos.TabIndex = 36;
             this.gboxIngresosBrutos.TabStop = false;
             this.gboxIngresosBrutos.Text = "Ingresos Brutos";
-            // 
-            // gboxGastos
-            // 
-            this.gboxGastos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.gboxGastos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(254)))));
-            this.gboxGastos.Controls.Add(this.chartGastos);
-            this.gboxGastos.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gboxGastos.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.gboxGastos.Location = new System.Drawing.Point(389, 176);
-            this.gboxGastos.Name = "gboxGastos";
-            this.gboxGastos.Size = new System.Drawing.Size(372, 225);
-            this.gboxGastos.TabIndex = 37;
-            this.gboxGastos.TabStop = false;
-            this.gboxGastos.Text = "Gastos";
             // 
             // gboxMasVendidos
             // 
             this.gboxMasVendidos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.gboxMasVendidos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(254)))));
             this.gboxMasVendidos.Controls.Add(this.chartProds);
-            this.gboxMasVendidos.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gboxMasVendidos.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gboxMasVendidos.ForeColor = System.Drawing.SystemColors.ControlDark;
             this.gboxMasVendidos.Location = new System.Drawing.Point(12, 410);
             this.gboxMasVendidos.Name = "gboxMasVendidos";
@@ -434,10 +426,10 @@
             this.gboxMasVendidos.TabStop = false;
             this.gboxMasVendidos.Text = "Productos más vendidos";
             // 
-            // chartGastos
+            // chartProds
             // 
-            this.chartGastos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(254)))));
-            this.chartGastos.BorderlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(254)))));
+            this.chartProds.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(254)))));
+            this.chartProds.BorderlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(254)))));
             chartArea2.AxisX.IsLabelAutoFit = false;
             chartArea2.AxisX.IsMarginVisible = false;
             chartArea2.AxisX.LabelStyle.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -459,31 +451,41 @@
             chartArea2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(254)))));
             chartArea2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(160)))), ((int)(((byte)(160)))));
             chartArea2.Name = "ChartArea1";
-            this.chartGastos.ChartAreas.Add(chartArea2);
-            this.chartGastos.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chartGastos.Location = new System.Drawing.Point(3, 21);
-            this.chartGastos.Name = "chartGastos";
-            series2.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.LeftRight;
-            series2.BackSecondaryColor = System.Drawing.Color.MediumPurple;
+            this.chartProds.ChartAreas.Add(chartArea2);
+            this.chartProds.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chartProds.Location = new System.Drawing.Point(3, 23);
+            this.chartProds.Name = "chartProds";
+            this.chartProds.PaletteCustomColors = new System.Drawing.Color[] {
+        System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(94)))), ((int)(((byte)(220))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(154)))), ((int)(((byte)(234))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(192)))), ((int)(((byte)(243))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(237)))), ((int)(((byte)(250))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(21)))), ((int)(((byte)(210))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(232)))), ((int)(((byte)(254)))))};
+            series2.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.TopBottom;
+            series2.BackSecondaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(154)))), ((int)(((byte)(234)))));
+            series2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(254)))));
             series2.BorderWidth = 2;
             series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series2.Color = System.Drawing.Color.DarkRed;
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(192)))), ((int)(((byte)(243)))));
+            series2.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             series2.MarkerBorderColor = System.Drawing.Color.Indigo;
             series2.MarkerBorderWidth = 0;
             series2.MarkerColor = System.Drawing.Color.DarkRed;
             series2.MarkerSize = 8;
             series2.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
             series2.Name = "Series1";
-            this.chartGastos.Series.Add(series2);
-            this.chartGastos.Size = new System.Drawing.Size(366, 201);
-            this.chartGastos.TabIndex = 36;
-            this.chartGastos.Text = "chart1";
+            series2.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Berry;
+            this.chartProds.Series.Add(series2);
+            this.chartProds.Size = new System.Drawing.Size(365, 169);
+            this.chartProds.TabIndex = 37;
+            this.chartProds.Text = "chart1";
             // 
-            // chartProds
+            // chartGastos
             // 
-            this.chartProds.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(254)))));
-            this.chartProds.BorderlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(254)))));
+            this.chartGastos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(254)))));
+            this.chartGastos.BorderlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(254)))));
             chartArea3.AxisX.IsLabelAutoFit = false;
             chartArea3.AxisX.IsMarginVisible = false;
             chartArea3.AxisX.LabelStyle.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -505,36 +507,101 @@
             chartArea3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(254)))));
             chartArea3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(160)))), ((int)(((byte)(160)))));
             chartArea3.Name = "ChartArea1";
-            this.chartProds.ChartAreas.Add(chartArea3);
-            this.chartProds.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chartProds.Location = new System.Drawing.Point(3, 21);
-            this.chartProds.Name = "chartProds";
-            this.chartProds.PaletteCustomColors = new System.Drawing.Color[] {
-        System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(94)))), ((int)(((byte)(220))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(154)))), ((int)(((byte)(234))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(192)))), ((int)(((byte)(243))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(237)))), ((int)(((byte)(250))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(21)))), ((int)(((byte)(210))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(232)))), ((int)(((byte)(254)))))};
-            series3.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.TopBottom;
-            series3.BackSecondaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(154)))), ((int)(((byte)(234)))));
-            series3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(254)))));
+            this.chartGastos.ChartAreas.Add(chartArea3);
+            this.chartGastos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chartGastos.Location = new System.Drawing.Point(3, 23);
+            this.chartGastos.Name = "chartGastos";
+            series3.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.LeftRight;
+            series3.BackSecondaryColor = System.Drawing.Color.MediumPurple;
             series3.BorderWidth = 2;
             series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            series3.Color = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(192)))), ((int)(((byte)(243)))));
-            series3.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series3.Color = System.Drawing.Color.DarkRed;
             series3.MarkerBorderColor = System.Drawing.Color.Indigo;
             series3.MarkerBorderWidth = 0;
             series3.MarkerColor = System.Drawing.Color.DarkRed;
             series3.MarkerSize = 8;
             series3.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
             series3.Name = "Series1";
-            series3.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Berry;
-            this.chartProds.Series.Add(series3);
-            this.chartProds.Size = new System.Drawing.Size(365, 171);
-            this.chartProds.TabIndex = 37;
-            this.chartProds.Text = "chart1";
+            this.chartGastos.Series.Add(series3);
+            this.chartGastos.Size = new System.Drawing.Size(248, 199);
+            this.chartGastos.TabIndex = 36;
+            this.chartGastos.Text = "chart1";
+            // 
+            // gboxGastos
+            // 
+            this.gboxGastos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.gboxGastos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(254)))));
+            this.gboxGastos.Controls.Add(this.chartGastos);
+            this.gboxGastos.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gboxGastos.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.gboxGastos.Location = new System.Drawing.Point(507, 176);
+            this.gboxGastos.Name = "gboxGastos";
+            this.gboxGastos.Size = new System.Drawing.Size(254, 225);
+            this.gboxGastos.TabIndex = 37;
+            this.gboxGastos.TabStop = false;
+            this.gboxGastos.Text = "Gastos";
+            // 
+            // gboxGanancia
+            // 
+            this.gboxGanancia.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.gboxGanancia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(254)))));
+            this.gboxGanancia.Controls.Add(this.chartGananciasProds);
+            this.gboxGanancia.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gboxGanancia.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.gboxGanancia.Location = new System.Drawing.Point(11, 176);
+            this.gboxGanancia.Name = "gboxGanancia";
+            this.gboxGanancia.Size = new System.Drawing.Size(261, 225);
+            this.gboxGanancia.TabIndex = 37;
+            this.gboxGanancia.TabStop = false;
+            this.gboxGanancia.Text = "Ganancia por producto";
+            // 
+            // chartGananciasProds
+            // 
+            this.chartGananciasProds.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(254)))));
+            this.chartGananciasProds.BorderlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(254)))));
+            chartArea4.AxisX.IsLabelAutoFit = false;
+            chartArea4.AxisX.IsMarginVisible = false;
+            chartArea4.AxisX.LabelStyle.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea4.AxisX.MajorGrid.LineWidth = 0;
+            chartArea4.AxisX.MajorTickMark.Enabled = false;
+            chartArea4.AxisX.MajorTickMark.LineWidth = 0;
+            chartArea4.AxisX.MajorTickMark.Size = 0F;
+            chartArea4.AxisX.MinorGrid.LineWidth = 0;
+            chartArea4.AxisX.MinorTickMark.LineWidth = 0;
+            chartArea4.AxisX.MinorTickMark.Size = 0F;
+            chartArea4.AxisX2.MajorGrid.LineWidth = 0;
+            chartArea4.AxisY.IsLabelAutoFit = false;
+            chartArea4.AxisY.LabelStyle.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea4.AxisY.LineWidth = 0;
+            chartArea4.AxisY.MajorTickMark.Enabled = false;
+            chartArea4.AxisY.MajorTickMark.LineWidth = 0;
+            chartArea4.AxisY.MajorTickMark.Size = 0F;
+            chartArea4.AxisY2.MajorGrid.LineWidth = 0;
+            chartArea4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(254)))));
+            chartArea4.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(160)))), ((int)(((byte)(160)))));
+            chartArea4.Name = "ChartArea1";
+            this.chartGananciasProds.ChartAreas.Add(chartArea4);
+            this.chartGananciasProds.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chartGananciasProds.Location = new System.Drawing.Point(3, 23);
+            this.chartGananciasProds.Name = "chartGananciasProds";
+            series4.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.LeftRight;
+            series4.BackSecondaryColor = System.Drawing.Color.Plum;
+            series4.BorderWidth = 2;
+            series4.ChartArea = "ChartArea1";
+            series4.Color = System.Drawing.Color.SlateBlue;
+            series4.Legend = "Legend1";
+            series4.MarkerBorderColor = System.Drawing.Color.Indigo;
+            series4.MarkerBorderWidth = 0;
+            series4.MarkerColor = System.Drawing.Color.Indigo;
+            series4.MarkerSize = 0;
+            series4.Name = "Series1";
+            this.chartGananciasProds.Series.Add(series4);
+            this.chartGananciasProds.Size = new System.Drawing.Size(255, 199);
+            this.chartGananciasProds.TabIndex = 35;
+            this.chartGananciasProds.Text = "chart1";
             // 
             // btnMes
             // 
@@ -648,6 +715,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(254)))));
             this.ClientSize = new System.Drawing.Size(770, 610);
+            this.Controls.Add(this.gboxGanancia);
             this.Controls.Add(this.gboxMasVendidos);
             this.Controls.Add(this.gboxInfo);
             this.Controls.Add(this.gboxGastos);
@@ -674,10 +742,12 @@
             this.gboxInfo.ResumeLayout(false);
             this.gboxInfo.PerformLayout();
             this.gboxIngresosBrutos.ResumeLayout(false);
-            this.gboxGastos.ResumeLayout(false);
             this.gboxMasVendidos.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.chartGastos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartProds)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartGastos)).EndInit();
+            this.gboxGastos.ResumeLayout(false);
+            this.gboxGanancia.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chartGananciasProds)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -707,10 +777,12 @@
         private System.Windows.Forms.Label lblNroProd;
         private System.Windows.Forms.Label lblNroClientes;
         private System.Windows.Forms.GroupBox gboxIngresosBrutos;
-        private System.Windows.Forms.GroupBox gboxGastos;
         private System.Windows.Forms.GroupBox gboxMasVendidos;
         private System.Windows.Forms.Label lblNroMatPrim;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chartGastos;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartProds;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartGastos;
+        private System.Windows.Forms.GroupBox gboxGastos;
+        private System.Windows.Forms.GroupBox gboxGanancia;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartGananciasProds;
     }
 }

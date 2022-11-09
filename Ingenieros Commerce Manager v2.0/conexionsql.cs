@@ -263,7 +263,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
         public DataTable MostrarDTProd()
         {
             AbrirConexion();
-            comandos.CommandText = "select `ID.Prod`, `PrecioUnitario`, `Descripcion`, `Stock` from producto_venta WHERE `IdUsuario` = '" + Usuario.Id + "';";
+            comandos.CommandText = "select `ID.Prod`, `PrecioUnitario`, `Descripcion`, `Stock`, `CostoUnitario` from producto_venta WHERE `IdUsuario` = '" + Usuario.Id + "';";
             EjecutarReader();
             DTProd.Rows.Clear();
             DTProd.Load(datos);
@@ -272,7 +272,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
         public void SetProduct(int id)
         {
             AbrirConexion();
-            comandos.CommandText = "select `ID.Prod`, `PrecioUnitario`, `Descripcion`, `Stock` from producto_venta where `ID.Prod` = " + id + ";";
+            comandos.CommandText = "select `ID.Prod`, `PrecioUnitario`, `Descripcion`, `Stock`, `CostoUnitario` from producto_venta where `ID.Prod` = " + id + ";";
             EjecutarReader();
             DataTable producto = new DataTable();
             producto.Load(datos);
@@ -283,6 +283,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
                 Producto.Descripcion = producto.Rows[0][2].ToString();
                 Producto.PrecioUnitario = int.Parse(producto.Rows[0][1].ToString());
                 Producto.Stock = int.Parse(producto.Rows[0][3].ToString());
+                Producto.CostoUnitario = int.Parse(producto.Rows[0][4].ToString());
             }
             else
             {
@@ -342,6 +343,17 @@ namespace Ingenieros_Commerce_Manager_v2._0
             comandos.ExecuteNonQuery();
             comandos.CommandText = "UPDATE `materia_prima` SET `Stock` = `Stock` - '"+cantidad+"' WHERE `ID.Mat` = '"+id+"' ";
             comandos.ExecuteNonQuery();
+        }
+        public int InsertarCostoProd(float cantidad)
+        {
+            AbrirConexion();
+            comandos.CommandText = "UPDATE `producto_venta` SET `CostoUnitario` = @costo, `Stock` = `Stock` + @Cantidad WHERE `ID.Prod` = @idprod;";
+            comandos.Parameters.Add("@costo", MySqlDbType.Float).Value = Producto.CostoUnitario;
+            comandos.Parameters.Add("@idprod", MySqlDbType.Int32).Value = Producto.IDPROD;
+            comandos.Parameters.Add("@Cantidad", MySqlDbType.Int32).Value = cantidad;
+            int i = comandos.ExecuteNonQuery();
+            comandos.Parameters.Clear();
+            return i;
         }
         #endregion
 

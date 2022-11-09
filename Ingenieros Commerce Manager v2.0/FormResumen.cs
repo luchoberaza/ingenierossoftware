@@ -1,8 +1,10 @@
-﻿using System;
+﻿using Microsoft.Build.Framework;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +15,8 @@ namespace Ingenieros_Commerce_Manager_v2._0
     public partial class FormResumen : Form
     {
         private ResumenData model;
+
+        
 
         public FormResumen()
         {
@@ -43,12 +47,17 @@ namespace Ingenieros_Commerce_Manager_v2._0
                 chartIngresos.Series[0].XValueMember = "Fecha";
                 chartIngresos.Series[0].YValueMembers = "Monto";
                 chartIngresos.DataBind();
-
+                
                 chartGastos.DataSource = model.GastosXFecha;
                 chartGastos.Series[0].XValueMember = "Fecha";
                 chartGastos.Series[0].YValueMembers = "Monto";
                 chartGastos.DataBind();
-                
+
+                chartGananciasProds.DataSource = model.GananciaXProducto;
+                chartGananciasProds.Series[0].XValueMember = "Key";
+                chartGananciasProds.Series[0].YValueMembers = "Value";
+                chartGananciasProds.DataBind();
+
                 chartProds.DataSource = model.ProductosMasVendidos;
                 chartProds.Series[0].XValueMember = "Key";
                 chartProds.Series[0].YValueMembers = "Value";

@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblTipo = new System.Windows.Forms.Label();
             this.dgvProductos = new System.Windows.Forms.DataGridView();
             this.dgvMatPrim = new System.Windows.Forms.DataGridView();
@@ -43,24 +43,25 @@
             this.lblDescripcion = new System.Windows.Forms.Label();
             this.lblStock = new System.Windows.Forms.Label();
             this.lblPrecioCosto = new System.Windows.Forms.Label();
-            this.btnEdit = new CustomControls.RJControls.RJButton();
-            this.btnDeseleccionar = new CustomControls.RJControls.RJButton();
-            this.btnElimina = new CustomControls.RJControls.RJButton();
-            this.btnIngreso = new CustomControls.RJControls.RJButton();
-            this.cmbTipo = new CustomControls.RJControls.RJComboBox();
-            this.txbDescrip = new Ingenieros_Commerce_Manager.CustomControls.CustomTextBox();
-            this.txbStock = new Ingenieros_Commerce_Manager.CustomControls.CustomTextBox();
-            this.txbPrecio = new Ingenieros_Commerce_Manager.CustomControls.CustomTextBox();
             this.gboxBuscar = new System.Windows.Forms.GroupBox();
-            this.btnClear = new CustomControls.RJControls.RJButton();
             this.lblBusqueda = new System.Windows.Forms.Label();
+            this.gboxArticulos = new System.Windows.Forms.GroupBox();
+            this.btnClear = new CustomControls.RJControls.RJButton();
             this.cmbBusqueda = new CustomControls.RJControls.RJComboBox();
             this.txbBuscar = new Ingenieros_Commerce_Manager.CustomControls.CustomTextBox();
-            this.gboxArticulos = new System.Windows.Forms.GroupBox();
+            this.btnCalcular = new CustomControls.RJControls.RJButton();
+            this.btnRefresh = new CustomControls.RJControls.RJButton();
             this.btnUp = new CustomControls.RJControls.RJButton();
             this.btnDown = new CustomControls.RJControls.RJButton();
             this.btnUsar = new CustomControls.RJControls.RJButton();
-            this.btnRefresh = new CustomControls.RJControls.RJButton();
+            this.btnEdit = new CustomControls.RJControls.RJButton();
+            this.btnDeseleccionar = new CustomControls.RJControls.RJButton();
+            this.txbDescrip = new Ingenieros_Commerce_Manager.CustomControls.CustomTextBox();
+            this.txbPrecio = new Ingenieros_Commerce_Manager.CustomControls.CustomTextBox();
+            this.txbStock = new Ingenieros_Commerce_Manager.CustomControls.CustomTextBox();
+            this.cmbTipo = new CustomControls.RJControls.RJComboBox();
+            this.btnIngreso = new CustomControls.RJControls.RJButton();
+            this.btnElimina = new CustomControls.RJControls.RJButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMatPrim)).BeginInit();
             this.panelDGVs.SuspendLayout();
@@ -92,14 +93,14 @@
             this.dgvProductos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvProductos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvProductos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(154)))), ((int)(((byte)(233)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(94)))), ((int)(((byte)(220)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvProductos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(154)))), ((int)(((byte)(233)))));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(94)))), ((int)(((byte)(220)))));
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvProductos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvProductos.ColumnHeadersHeight = 25;
             this.dgvProductos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvProductos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
@@ -110,24 +111,25 @@
             this.dgvProductos.Name = "dgvProductos";
             this.dgvProductos.ReadOnly = true;
             this.dgvProductos.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(154)))), ((int)(((byte)(233)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(94)))), ((int)(((byte)(220)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvProductos.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(223)))), ((int)(((byte)(248)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(94)))), ((int)(((byte)(220)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(249)))), ((int)(((byte)(254)))));
-            this.dgvProductos.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(154)))), ((int)(((byte)(233)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(94)))), ((int)(((byte)(220)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvProductos.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(223)))), ((int)(((byte)(248)))));
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(94)))), ((int)(((byte)(220)))));
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(249)))), ((int)(((byte)(254)))));
+            this.dgvProductos.RowsDefaultCellStyle = dataGridViewCellStyle9;
             this.dgvProductos.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvProductos.ShowCellErrors = false;
             this.dgvProductos.Size = new System.Drawing.Size(480, 226);
             this.dgvProductos.TabIndex = 0;
+            this.dgvProductos.SelectionChanged += new System.EventHandler(this.dgvProductos_SelectionChanged);
             this.dgvProductos.Click += new System.EventHandler(this.dgvProductos_Click);
             // 
             // dgvMatPrim
@@ -141,14 +143,14 @@
             this.dgvMatPrim.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvMatPrim.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvMatPrim.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(154)))), ((int)(((byte)(233)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(94)))), ((int)(((byte)(220)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvMatPrim.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(154)))), ((int)(((byte)(233)))));
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(94)))), ((int)(((byte)(220)))));
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvMatPrim.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.dgvMatPrim.ColumnHeadersHeight = 25;
             this.dgvMatPrim.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvMatPrim.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
@@ -159,20 +161,20 @@
             this.dgvMatPrim.Name = "dgvMatPrim";
             this.dgvMatPrim.ReadOnly = true;
             this.dgvMatPrim.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(154)))), ((int)(((byte)(233)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(94)))), ((int)(((byte)(220)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvMatPrim.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(223)))), ((int)(((byte)(248)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(94)))), ((int)(((byte)(220)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(249)))), ((int)(((byte)(254)))));
-            this.dgvMatPrim.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(154)))), ((int)(((byte)(233)))));
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(94)))), ((int)(((byte)(220)))));
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvMatPrim.RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(223)))), ((int)(((byte)(248)))));
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(94)))), ((int)(((byte)(220)))));
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(249)))), ((int)(((byte)(254)))));
+            this.dgvMatPrim.RowsDefaultCellStyle = dataGridViewCellStyle12;
             this.dgvMatPrim.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvMatPrim.ShowCellErrors = false;
             this.dgvMatPrim.Size = new System.Drawing.Size(480, 227);
@@ -271,185 +273,6 @@
             this.lblPrecioCosto.TabIndex = 22;
             this.lblPrecioCosto.Text = "Precio:";
             // 
-            // btnEdit
-            // 
-            this.btnEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnEdit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(154)))), ((int)(((byte)(234)))));
-            this.btnEdit.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(154)))), ((int)(((byte)(234)))));
-            this.btnEdit.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnEdit.BorderRadius = 15;
-            this.btnEdit.BorderSize = 0;
-            this.btnEdit.FlatAppearance.BorderSize = 0;
-            this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEdit.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEdit.ForeColor = System.Drawing.Color.White;
-            this.btnEdit.Location = new System.Drawing.Point(10, 400);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(250, 37);
-            this.btnEdit.TabIndex = 19;
-            this.btnEdit.Text = "Editar";
-            this.btnEdit.TextColor = System.Drawing.Color.White;
-            this.btnEdit.UseVisualStyleBackColor = false;
-            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
-            // 
-            // btnDeseleccionar
-            // 
-            this.btnDeseleccionar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDeseleccionar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(154)))), ((int)(((byte)(234)))));
-            this.btnDeseleccionar.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(154)))), ((int)(((byte)(234)))));
-            this.btnDeseleccionar.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnDeseleccionar.BorderRadius = 15;
-            this.btnDeseleccionar.BorderSize = 0;
-            this.btnDeseleccionar.FlatAppearance.BorderSize = 0;
-            this.btnDeseleccionar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDeseleccionar.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeseleccionar.ForeColor = System.Drawing.Color.White;
-            this.btnDeseleccionar.Location = new System.Drawing.Point(10, 545);
-            this.btnDeseleccionar.Name = "btnDeseleccionar";
-            this.btnDeseleccionar.Size = new System.Drawing.Size(250, 37);
-            this.btnDeseleccionar.TabIndex = 18;
-            this.btnDeseleccionar.Text = "Deseleccionar";
-            this.btnDeseleccionar.TextColor = System.Drawing.Color.White;
-            this.btnDeseleccionar.UseVisualStyleBackColor = false;
-            this.btnDeseleccionar.Click += new System.EventHandler(this.btnDeseleccionar_Click);
-            // 
-            // btnElimina
-            // 
-            this.btnElimina.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnElimina.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(154)))), ((int)(((byte)(234)))));
-            this.btnElimina.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(154)))), ((int)(((byte)(234)))));
-            this.btnElimina.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnElimina.BorderRadius = 15;
-            this.btnElimina.BorderSize = 0;
-            this.btnElimina.FlatAppearance.BorderSize = 0;
-            this.btnElimina.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnElimina.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnElimina.ForeColor = System.Drawing.Color.White;
-            this.btnElimina.Location = new System.Drawing.Point(10, 357);
-            this.btnElimina.Name = "btnElimina";
-            this.btnElimina.Size = new System.Drawing.Size(250, 37);
-            this.btnElimina.TabIndex = 17;
-            this.btnElimina.Text = "Eliminar";
-            this.btnElimina.TextColor = System.Drawing.Color.White;
-            this.btnElimina.UseVisualStyleBackColor = false;
-            this.btnElimina.Click += new System.EventHandler(this.btnElimina_Click);
-            // 
-            // btnIngreso
-            // 
-            this.btnIngreso.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnIngreso.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(154)))), ((int)(((byte)(234)))));
-            this.btnIngreso.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(154)))), ((int)(((byte)(234)))));
-            this.btnIngreso.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnIngreso.BorderRadius = 15;
-            this.btnIngreso.BorderSize = 0;
-            this.btnIngreso.FlatAppearance.BorderSize = 0;
-            this.btnIngreso.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnIngreso.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnIngreso.ForeColor = System.Drawing.Color.White;
-            this.btnIngreso.Location = new System.Drawing.Point(10, 314);
-            this.btnIngreso.Name = "btnIngreso";
-            this.btnIngreso.Size = new System.Drawing.Size(250, 37);
-            this.btnIngreso.TabIndex = 16;
-            this.btnIngreso.Text = "Ingresar";
-            this.btnIngreso.TextColor = System.Drawing.Color.White;
-            this.btnIngreso.UseVisualStyleBackColor = false;
-            this.btnIngreso.Click += new System.EventHandler(this.btnIngreso_Click);
-            // 
-            // cmbTipo
-            // 
-            this.cmbTipo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmbTipo.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.cmbTipo.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cmbTipo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(254)))));
-            this.cmbTipo.BorderColor = System.Drawing.Color.MediumSlateBlue;
-            this.cmbTipo.BorderSize = 2;
-            this.cmbTipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbTipo.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbTipo.ForeColor = System.Drawing.Color.DimGray;
-            this.cmbTipo.IconColor = System.Drawing.Color.MediumSlateBlue;
-            this.cmbTipo.Items.AddRange(new object[] {
-            "Materia Prima",
-            "Producto en Venta"});
-            this.cmbTipo.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(228)))), ((int)(((byte)(245)))));
-            this.cmbTipo.ListTextColor = System.Drawing.Color.DimGray;
-            this.cmbTipo.Location = new System.Drawing.Point(10, 265);
-            this.cmbTipo.MinimumSize = new System.Drawing.Size(200, 30);
-            this.cmbTipo.Name = "cmbTipo";
-            this.cmbTipo.Padding = new System.Windows.Forms.Padding(2);
-            this.cmbTipo.Size = new System.Drawing.Size(250, 34);
-            this.cmbTipo.TabIndex = 4;
-            this.cmbTipo.Texts = "";
-            // 
-            // txbDescrip
-            // 
-            this.txbDescrip.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txbDescrip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(254)))));
-            this.txbDescrip.BorderColor = System.Drawing.Color.MediumSlateBlue;
-            this.txbDescrip.BorderFocusColor = System.Drawing.Color.HotPink;
-            this.txbDescrip.BorderRadius = 0;
-            this.txbDescrip.BorderSize = 2;
-            this.txbDescrip.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbDescrip.Location = new System.Drawing.Point(10, 137);
-            this.txbDescrip.Maxlength = 32767;
-            this.txbDescrip.Multiline = true;
-            this.txbDescrip.Name = "txbDescrip";
-            this.txbDescrip.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.txbDescrip.PasswordChar = false;
-            this.txbDescrip.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txbDescrip.PlaceholderText = "";
-            this.txbDescrip.ReadOnly = false;
-            this.txbDescrip.Size = new System.Drawing.Size(250, 118);
-            this.txbDescrip.TabIndex = 3;
-            this.txbDescrip.Texts = "";
-            this.txbDescrip.UnderlinedStyle = false;
-            // 
-            // txbStock
-            // 
-            this.txbStock.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txbStock.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(254)))));
-            this.txbStock.BorderColor = System.Drawing.Color.MediumSlateBlue;
-            this.txbStock.BorderFocusColor = System.Drawing.Color.HotPink;
-            this.txbStock.BorderRadius = 0;
-            this.txbStock.BorderSize = 2;
-            this.txbStock.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbStock.Location = new System.Drawing.Point(10, 87);
-            this.txbStock.Maxlength = 32767;
-            this.txbStock.Multiline = false;
-            this.txbStock.Name = "txbStock";
-            this.txbStock.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.txbStock.PasswordChar = false;
-            this.txbStock.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txbStock.PlaceholderText = "";
-            this.txbStock.ReadOnly = false;
-            this.txbStock.Size = new System.Drawing.Size(164, 37);
-            this.txbStock.TabIndex = 2;
-            this.txbStock.Texts = "";
-            this.txbStock.UnderlinedStyle = false;
-            // 
-            // txbPrecio
-            // 
-            this.txbPrecio.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txbPrecio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(254)))));
-            this.txbPrecio.BorderColor = System.Drawing.Color.MediumSlateBlue;
-            this.txbPrecio.BorderFocusColor = System.Drawing.Color.HotPink;
-            this.txbPrecio.BorderRadius = 0;
-            this.txbPrecio.BorderSize = 2;
-            this.txbPrecio.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbPrecio.Location = new System.Drawing.Point(10, 37);
-            this.txbPrecio.Maxlength = 32767;
-            this.txbPrecio.Multiline = false;
-            this.txbPrecio.Name = "txbPrecio";
-            this.txbPrecio.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.txbPrecio.PasswordChar = false;
-            this.txbPrecio.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txbPrecio.PlaceholderText = "";
-            this.txbPrecio.ReadOnly = false;
-            this.txbPrecio.Size = new System.Drawing.Size(250, 37);
-            this.txbPrecio.TabIndex = 1;
-            this.txbPrecio.Texts = "";
-            this.txbPrecio.UnderlinedStyle = false;
-            // 
             // gboxBuscar
             // 
             this.gboxBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -467,6 +290,49 @@
             this.gboxBuscar.TabIndex = 43;
             this.gboxBuscar.TabStop = false;
             this.gboxBuscar.Text = "Buscar artículo";
+            // 
+            // lblBusqueda
+            // 
+            this.lblBusqueda.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblBusqueda.AutoSize = true;
+            this.lblBusqueda.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBusqueda.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.lblBusqueda.Location = new System.Drawing.Point(28, 17);
+            this.lblBusqueda.Name = "lblBusqueda";
+            this.lblBusqueda.Size = new System.Drawing.Size(76, 22);
+            this.lblBusqueda.TabIndex = 12;
+            this.lblBusqueda.Text = "Buscar por:";
+            // 
+            // gboxArticulos
+            // 
+            this.gboxArticulos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.gboxArticulos.Controls.Add(this.btnCalcular);
+            this.gboxArticulos.Controls.Add(this.btnRefresh);
+            this.gboxArticulos.Controls.Add(this.btnUp);
+            this.gboxArticulos.Controls.Add(this.btnDown);
+            this.gboxArticulos.Controls.Add(this.btnUsar);
+            this.gboxArticulos.Controls.Add(this.lblTipo);
+            this.gboxArticulos.Controls.Add(this.lblPrecioCosto);
+            this.gboxArticulos.Controls.Add(this.btnEdit);
+            this.gboxArticulos.Controls.Add(this.btnDeseleccionar);
+            this.gboxArticulos.Controls.Add(this.lblStock);
+            this.gboxArticulos.Controls.Add(this.lblDescripcion);
+            this.gboxArticulos.Controls.Add(this.txbDescrip);
+            this.gboxArticulos.Controls.Add(this.txbPrecio);
+            this.gboxArticulos.Controls.Add(this.txbStock);
+            this.gboxArticulos.Controls.Add(this.cmbTipo);
+            this.gboxArticulos.Controls.Add(this.btnIngreso);
+            this.gboxArticulos.Controls.Add(this.btnElimina);
+            this.gboxArticulos.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gboxArticulos.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.gboxArticulos.Location = new System.Drawing.Point(496, 10);
+            this.gboxArticulos.Name = "gboxArticulos";
+            this.gboxArticulos.Size = new System.Drawing.Size(269, 590);
+            this.gboxArticulos.TabIndex = 44;
+            this.gboxArticulos.TabStop = false;
+            this.gboxArticulos.Text = "Ingresar artículos";
             // 
             // btnClear
             // 
@@ -491,19 +357,6 @@
             this.btnClear.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnClear.UseVisualStyleBackColor = false;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
-            // 
-            // lblBusqueda
-            // 
-            this.lblBusqueda.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblBusqueda.AutoSize = true;
-            this.lblBusqueda.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBusqueda.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.lblBusqueda.Location = new System.Drawing.Point(28, 17);
-            this.lblBusqueda.Name = "lblBusqueda";
-            this.lblBusqueda.Size = new System.Drawing.Size(76, 22);
-            this.lblBusqueda.TabIndex = 12;
-            this.lblBusqueda.Text = "Buscar por:";
             // 
             // cmbBusqueda
             // 
@@ -555,34 +408,48 @@
             this.txbBuscar.UnderlinedStyle = false;
             this.txbBuscar._TextChanged += new System.EventHandler(this.txbBuscar__TextChanged);
             // 
-            // gboxArticulos
+            // btnCalcular
             // 
-            this.gboxArticulos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.gboxArticulos.Controls.Add(this.btnRefresh);
-            this.gboxArticulos.Controls.Add(this.btnUp);
-            this.gboxArticulos.Controls.Add(this.btnDown);
-            this.gboxArticulos.Controls.Add(this.btnUsar);
-            this.gboxArticulos.Controls.Add(this.lblTipo);
-            this.gboxArticulos.Controls.Add(this.lblPrecioCosto);
-            this.gboxArticulos.Controls.Add(this.btnEdit);
-            this.gboxArticulos.Controls.Add(this.btnDeseleccionar);
-            this.gboxArticulos.Controls.Add(this.lblStock);
-            this.gboxArticulos.Controls.Add(this.lblDescripcion);
-            this.gboxArticulos.Controls.Add(this.txbDescrip);
-            this.gboxArticulos.Controls.Add(this.txbPrecio);
-            this.gboxArticulos.Controls.Add(this.txbStock);
-            this.gboxArticulos.Controls.Add(this.cmbTipo);
-            this.gboxArticulos.Controls.Add(this.btnIngreso);
-            this.gboxArticulos.Controls.Add(this.btnElimina);
-            this.gboxArticulos.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gboxArticulos.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.gboxArticulos.Location = new System.Drawing.Point(496, 10);
-            this.gboxArticulos.Name = "gboxArticulos";
-            this.gboxArticulos.Size = new System.Drawing.Size(269, 590);
-            this.gboxArticulos.TabIndex = 44;
-            this.gboxArticulos.TabStop = false;
-            this.gboxArticulos.Text = "Ingresar artículos";
+            this.btnCalcular.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCalcular.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(154)))), ((int)(((byte)(234)))));
+            this.btnCalcular.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(154)))), ((int)(((byte)(234)))));
+            this.btnCalcular.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnCalcular.BorderRadius = 15;
+            this.btnCalcular.BorderSize = 0;
+            this.btnCalcular.FlatAppearance.BorderSize = 0;
+            this.btnCalcular.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCalcular.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCalcular.ForeColor = System.Drawing.Color.White;
+            this.btnCalcular.Location = new System.Drawing.Point(10, 443);
+            this.btnCalcular.Name = "btnCalcular";
+            this.btnCalcular.Size = new System.Drawing.Size(250, 37);
+            this.btnCalcular.TabIndex = 31;
+            this.btnCalcular.Text = "Registrar producción";
+            this.btnCalcular.TextColor = System.Drawing.Color.White;
+            this.btnCalcular.UseVisualStyleBackColor = false;
+            this.btnCalcular.Visible = false;
+            this.btnCalcular.Click += new System.EventHandler(this.btnCalcular_Click);
+            // 
+            // btnRefresh
+            // 
+            this.btnRefresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRefresh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(154)))), ((int)(((byte)(234)))));
+            this.btnRefresh.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(154)))), ((int)(((byte)(234)))));
+            this.btnRefresh.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnRefresh.BorderRadius = 15;
+            this.btnRefresh.BorderSize = 0;
+            this.btnRefresh.FlatAppearance.BorderSize = 0;
+            this.btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRefresh.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRefresh.ForeColor = System.Drawing.Color.White;
+            this.btnRefresh.Location = new System.Drawing.Point(10, 502);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(250, 37);
+            this.btnRefresh.TabIndex = 30;
+            this.btnRefresh.Text = "Refrescar";
+            this.btnRefresh.TextColor = System.Drawing.Color.White;
+            this.btnRefresh.UseVisualStyleBackColor = false;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // btnUp
             // 
@@ -652,26 +519,184 @@
             this.btnUsar.Visible = false;
             this.btnUsar.Click += new System.EventHandler(this.btnUsar_Click);
             // 
-            // btnRefresh
+            // btnEdit
             // 
-            this.btnRefresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnRefresh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(154)))), ((int)(((byte)(234)))));
-            this.btnRefresh.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(154)))), ((int)(((byte)(234)))));
-            this.btnRefresh.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnRefresh.BorderRadius = 15;
-            this.btnRefresh.BorderSize = 0;
-            this.btnRefresh.FlatAppearance.BorderSize = 0;
-            this.btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRefresh.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRefresh.ForeColor = System.Drawing.Color.White;
-            this.btnRefresh.Location = new System.Drawing.Point(10, 502);
-            this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(250, 37);
-            this.btnRefresh.TabIndex = 30;
-            this.btnRefresh.Text = "Refrescar";
-            this.btnRefresh.TextColor = System.Drawing.Color.White;
-            this.btnRefresh.UseVisualStyleBackColor = false;
-            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            this.btnEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEdit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(154)))), ((int)(((byte)(234)))));
+            this.btnEdit.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(154)))), ((int)(((byte)(234)))));
+            this.btnEdit.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnEdit.BorderRadius = 15;
+            this.btnEdit.BorderSize = 0;
+            this.btnEdit.FlatAppearance.BorderSize = 0;
+            this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEdit.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEdit.ForeColor = System.Drawing.Color.White;
+            this.btnEdit.Location = new System.Drawing.Point(10, 400);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(250, 37);
+            this.btnEdit.TabIndex = 19;
+            this.btnEdit.Text = "Editar";
+            this.btnEdit.TextColor = System.Drawing.Color.White;
+            this.btnEdit.UseVisualStyleBackColor = false;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
+            // 
+            // btnDeseleccionar
+            // 
+            this.btnDeseleccionar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnDeseleccionar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(154)))), ((int)(((byte)(234)))));
+            this.btnDeseleccionar.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(154)))), ((int)(((byte)(234)))));
+            this.btnDeseleccionar.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnDeseleccionar.BorderRadius = 15;
+            this.btnDeseleccionar.BorderSize = 0;
+            this.btnDeseleccionar.FlatAppearance.BorderSize = 0;
+            this.btnDeseleccionar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeseleccionar.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeseleccionar.ForeColor = System.Drawing.Color.White;
+            this.btnDeseleccionar.Location = new System.Drawing.Point(10, 545);
+            this.btnDeseleccionar.Name = "btnDeseleccionar";
+            this.btnDeseleccionar.Size = new System.Drawing.Size(250, 37);
+            this.btnDeseleccionar.TabIndex = 18;
+            this.btnDeseleccionar.Text = "Deseleccionar";
+            this.btnDeseleccionar.TextColor = System.Drawing.Color.White;
+            this.btnDeseleccionar.UseVisualStyleBackColor = false;
+            this.btnDeseleccionar.Click += new System.EventHandler(this.btnDeseleccionar_Click);
+            // 
+            // txbDescrip
+            // 
+            this.txbDescrip.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txbDescrip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(254)))));
+            this.txbDescrip.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.txbDescrip.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.txbDescrip.BorderRadius = 0;
+            this.txbDescrip.BorderSize = 2;
+            this.txbDescrip.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbDescrip.Location = new System.Drawing.Point(10, 137);
+            this.txbDescrip.Maxlength = 32767;
+            this.txbDescrip.Multiline = true;
+            this.txbDescrip.Name = "txbDescrip";
+            this.txbDescrip.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txbDescrip.PasswordChar = false;
+            this.txbDescrip.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txbDescrip.PlaceholderText = "";
+            this.txbDescrip.ReadOnly = false;
+            this.txbDescrip.Size = new System.Drawing.Size(250, 118);
+            this.txbDescrip.TabIndex = 3;
+            this.txbDescrip.Texts = "";
+            this.txbDescrip.UnderlinedStyle = false;
+            // 
+            // txbPrecio
+            // 
+            this.txbPrecio.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txbPrecio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(254)))));
+            this.txbPrecio.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.txbPrecio.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.txbPrecio.BorderRadius = 0;
+            this.txbPrecio.BorderSize = 2;
+            this.txbPrecio.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbPrecio.Location = new System.Drawing.Point(10, 37);
+            this.txbPrecio.Maxlength = 32767;
+            this.txbPrecio.Multiline = false;
+            this.txbPrecio.Name = "txbPrecio";
+            this.txbPrecio.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txbPrecio.PasswordChar = false;
+            this.txbPrecio.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txbPrecio.PlaceholderText = "";
+            this.txbPrecio.ReadOnly = false;
+            this.txbPrecio.Size = new System.Drawing.Size(250, 37);
+            this.txbPrecio.TabIndex = 1;
+            this.txbPrecio.Texts = "";
+            this.txbPrecio.UnderlinedStyle = false;
+            // 
+            // txbStock
+            // 
+            this.txbStock.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txbStock.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(254)))));
+            this.txbStock.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.txbStock.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.txbStock.BorderRadius = 0;
+            this.txbStock.BorderSize = 2;
+            this.txbStock.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbStock.Location = new System.Drawing.Point(10, 87);
+            this.txbStock.Maxlength = 32767;
+            this.txbStock.Multiline = false;
+            this.txbStock.Name = "txbStock";
+            this.txbStock.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txbStock.PasswordChar = false;
+            this.txbStock.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txbStock.PlaceholderText = "";
+            this.txbStock.ReadOnly = false;
+            this.txbStock.Size = new System.Drawing.Size(164, 37);
+            this.txbStock.TabIndex = 2;
+            this.txbStock.Texts = "";
+            this.txbStock.UnderlinedStyle = false;
+            // 
+            // cmbTipo
+            // 
+            this.cmbTipo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmbTipo.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cmbTipo.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmbTipo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(254)))));
+            this.cmbTipo.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.cmbTipo.BorderSize = 2;
+            this.cmbTipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbTipo.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbTipo.ForeColor = System.Drawing.Color.DimGray;
+            this.cmbTipo.IconColor = System.Drawing.Color.MediumSlateBlue;
+            this.cmbTipo.Items.AddRange(new object[] {
+            "Materia Prima",
+            "Producto en Venta"});
+            this.cmbTipo.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(228)))), ((int)(((byte)(245)))));
+            this.cmbTipo.ListTextColor = System.Drawing.Color.DimGray;
+            this.cmbTipo.Location = new System.Drawing.Point(10, 265);
+            this.cmbTipo.MinimumSize = new System.Drawing.Size(200, 30);
+            this.cmbTipo.Name = "cmbTipo";
+            this.cmbTipo.Padding = new System.Windows.Forms.Padding(2);
+            this.cmbTipo.Size = new System.Drawing.Size(250, 34);
+            this.cmbTipo.TabIndex = 4;
+            this.cmbTipo.Texts = "";
+            // 
+            // btnIngreso
+            // 
+            this.btnIngreso.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnIngreso.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(154)))), ((int)(((byte)(234)))));
+            this.btnIngreso.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(154)))), ((int)(((byte)(234)))));
+            this.btnIngreso.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnIngreso.BorderRadius = 15;
+            this.btnIngreso.BorderSize = 0;
+            this.btnIngreso.FlatAppearance.BorderSize = 0;
+            this.btnIngreso.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnIngreso.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnIngreso.ForeColor = System.Drawing.Color.White;
+            this.btnIngreso.Location = new System.Drawing.Point(10, 314);
+            this.btnIngreso.Name = "btnIngreso";
+            this.btnIngreso.Size = new System.Drawing.Size(250, 37);
+            this.btnIngreso.TabIndex = 16;
+            this.btnIngreso.Text = "Ingresar";
+            this.btnIngreso.TextColor = System.Drawing.Color.White;
+            this.btnIngreso.UseVisualStyleBackColor = false;
+            this.btnIngreso.Click += new System.EventHandler(this.btnIngreso_Click);
+            // 
+            // btnElimina
+            // 
+            this.btnElimina.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnElimina.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(154)))), ((int)(((byte)(234)))));
+            this.btnElimina.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(154)))), ((int)(((byte)(234)))));
+            this.btnElimina.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnElimina.BorderRadius = 15;
+            this.btnElimina.BorderSize = 0;
+            this.btnElimina.FlatAppearance.BorderSize = 0;
+            this.btnElimina.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnElimina.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnElimina.ForeColor = System.Drawing.Color.White;
+            this.btnElimina.Location = new System.Drawing.Point(10, 357);
+            this.btnElimina.Name = "btnElimina";
+            this.btnElimina.Size = new System.Drawing.Size(250, 37);
+            this.btnElimina.TabIndex = 17;
+            this.btnElimina.Text = "Eliminar";
+            this.btnElimina.TextColor = System.Drawing.Color.White;
+            this.btnElimina.UseVisualStyleBackColor = false;
+            this.btnElimina.Click += new System.EventHandler(this.btnElimina_Click);
             // 
             // FormInventario
             // 
@@ -726,5 +751,6 @@
         private CustomControls.RJControls.RJButton btnUp;
         private CustomControls.RJControls.RJButton btnDown;
         private CustomControls.RJControls.RJButton btnRefresh;
+        private CustomControls.RJControls.RJButton btnCalcular;
     }
 }

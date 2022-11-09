@@ -351,6 +351,12 @@
     <Compile Include="FormBuscarProd.Designer.cs">
       <DependentUpon>FormBuscarProd.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormCalcularCosto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCalcularCosto.Designer.cs">
+      <DependentUpon>FormCalcularCosto.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormClientes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -437,6 +443,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormBuscarProd.resx">
       <DependentUpon>FormBuscarProd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCalcularCosto.resx">
+      <DependentUpon>FormCalcularCosto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormClientes.resx">
       <DependentUpon>FormClientes.cs</DependentUpon>

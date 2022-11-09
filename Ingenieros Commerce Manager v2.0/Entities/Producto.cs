@@ -12,6 +12,7 @@ namespace Ingenieros_Commerce_Manager_v2._0.Entities
         public static string Descripcion { get; set; }
         public static float Stock { get; set; }
         public static float PrecioUnitario { get; set; }
+        public static float CostoUnitario { get; set; }
 
         public static void ClearProductData()
         {
@@ -19,6 +20,7 @@ namespace Ingenieros_Commerce_Manager_v2._0.Entities
             Descripcion = null;
             Stock = -1;
             PrecioUnitario = -1;
+            CostoUnitario = 0;
         }
 
     }

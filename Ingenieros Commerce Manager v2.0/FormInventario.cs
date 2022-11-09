@@ -382,6 +382,34 @@ namespace Ingenieros_Commerce_Manager_v2._0
             }
         }
 
+        private void dgvProductos_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgvProductos.SelectedRows.Count == 1)
+            {
+                btnCalcular.Visible = true;
+            }
+            else
+            {
+                btnCalcular.Visible = false;
+            }
+        }
+
+        private void btnCalcular_Click(object sender, EventArgs e)
+        {
+            sql.SetProduct(int.Parse(dgvProductos.CurrentRow.Cells["ID.Prod"].Value.ToString()));
+            FormCalcularCosto formCalcularCosto = new FormCalcularCosto();
+            var respuesta = formCalcularCosto.ShowDialog();
+            if(respuesta == DialogResult.OK)
+            {
+                MessageBox.Show("Datos ingresados correctamente.", "Acción realizada", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Error al ingresar los datos.", "Error al insertar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            MostrarProductos();
+        }
+
         private void dgvProductos_Click(object sender, EventArgs e)
         {
             if(dgvProductos.SelectedRows.Count > 0)
