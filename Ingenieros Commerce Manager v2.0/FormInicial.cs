@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using MySql.Data.MySqlClient;
 using Ingenieros_Commerce_Manager_v2._0.Entities;
+using System.IO;
 
 namespace Ingenieros_Commerce_Manager_v2._0
 {
@@ -24,6 +25,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
         }
         //Instancia de clase
         conexionsql conexionsql = new conexionsql();
+        SecurityCheck check = new SecurityCheck();
 
         #region Controles y movimiento de ventana
         private void BotonCerrar_Click(object sender, EventArgs e)
@@ -96,22 +98,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
         }
         #endregion
 
-        #region Botones y formulario de login/registro
-        private void txbUsuario_Click(object sender, EventArgs e) //Vacio
-        {
-        }
-
-        private void txbPasswd_Click(object sender, EventArgs e) //Vacio
-        {
-        }
-
-        private void txbUsuario_MouseClick(object sender, MouseEventArgs e) //Vacio
-        {
-        }
-
-        private void txbPasswd_MouseClick(object sender, MouseEventArgs e) //Vacio
-        {
-        }
+        #region Estetica
         private void lblRegistrarse_MouseHover(object sender, EventArgs e) //Efecto estetico
         {
             lblRegistrarse.Cursor = Cursors.Hand;
@@ -125,19 +112,33 @@ namespace Ingenieros_Commerce_Manager_v2._0
 
         private void btnPWDChar_Click(object sender, EventArgs e) //Muestra o esconde los caracteres de contrasena
         {
-           if(txbPasswd.PasswordChar == true && txbConfirm.PasswordChar == true)
-           {
+            if (txbPasswd.PasswordChar == true && txbConfirm.PasswordChar == true)
+            {
                 txbPasswd.PasswordChar = false;
                 txbConfirm.PasswordChar = false;
                 btnPWDChar.Image = Ingenieros_Commerce_Manager_v2._0.Properties.Resources.hidepwd;
-           }
-           else
-           {
+            }
+            else
+            {
                 txbPasswd.PasswordChar = true;
                 txbConfirm.PasswordChar = true;
                 btnPWDChar.Image = Ingenieros_Commerce_Manager_v2._0.Properties.Resources.showpwd;
-           }
+            }
         }
+
+        private void lblVolver_MouseHover(object sender, EventArgs e) //Efecto estetico
+        {
+            lblVolver.Cursor = Cursors.Hand;
+            lblVolver.ForeColor = Color.Purple;
+        }
+        private void lblVolver_MouseLeave(object sender, EventArgs e) //Efecto estetico
+        {
+            lblVolver.ForeColor = Color.DarkBlue;
+        }
+        #endregion
+
+
+        #region Botones y formulario de login/registro
 
         private void btnLogin_Click(object sender, EventArgs e) //Conecta con la base de datos
         {
@@ -149,17 +150,19 @@ namespace Ingenieros_Commerce_Manager_v2._0
             {
                 try
                 {
-                    conexionsql.AbrirConexion();
-                    string login = "SELECT Username, Contraseña FROM usuario WHERE BINARY Username = '" + txbUsuario.Texts + "' AND BINARY Contraseña = '" + txbPasswd.Texts + "';";
-                    Usuario.Id = conexionsql.GetUserID(txbUsuario.Texts);
-                    conexionsql.SetUserData(Usuario.Id);
-                    conexionsql.setComandos(login);
-                    conexionsql.EjecutarReader();
-                    if (conexionsql.datos.Read())
+                    if (check.LogWEncryptPasswd(txbUsuario.Texts, txbPasswd.Texts))
                     {
-                        MessageBox.Show("Bienvenido " + txbUsuario.Texts, "Ingenieros Commerce Manager", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                        Usuario.Id = conexionsql.GetUserID(txbUsuario.Texts);
+                        conexionsql.SetUserData(Usuario.Id);
                         Module.formInicio = this;
                         FormPrincipal formPrincipal = new FormPrincipal();
+                        if (btnRecordar.Checked)
+                        {
+                            TextWriter archivo = new StreamWriter("UserInfo.txt");
+                            archivo.WriteLine(txbUsuario.Texts);
+                            archivo.WriteLine(txbPasswd.Texts);
+                            archivo.Close();
+                        }
                         formPrincipal.Show();
                         this.Hide();
 
@@ -176,12 +179,6 @@ namespace Ingenieros_Commerce_Manager_v2._0
             }
 
         } 
-
-        private void pictureBoxUser_Click(object sender, EventArgs e) //Vacio
-        {
-
-        }
-
         private void lblRegistrarse_Click(object sender, EventArgs e) //Muestra la interfaz de registro
         {
             txbConfirm.Visible = true;
@@ -190,24 +187,26 @@ namespace Ingenieros_Commerce_Manager_v2._0
             lblRegistrarse.Visible= false;
             lblVolver.Visible = true;
         }
-
         private void btnRegistrarse_Click(object sender, EventArgs e) //Se registra en la base de datos
         {
             try
             {
-                conexionsql.AbrirConexion();
-                string registro = "INSERT INTO usuario (Username, Contraseña) VALUES ('" + txbUsuario.Texts + "', '" + txbPasswd.Texts + "');";
+                
                 if (txbPasswd.Texts == txbConfirm.Texts)
                 {
-                    conexionsql.setComandos(registro);
-                    conexionsql.EjecutarReader();
-                    conexionsql.datos.Read();
-                    MessageBox.Show("Usted fue registrado con éxito!", "Usuario registrado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    txbConfirm.Visible = false;
-                    btnRegistrarse.Visible = false;
-                    btnLogin.Visible = true;
-                    lblRegistrarse.Visible = true;
-                    lblVolver.Visible = false;
+                    if(check.RegisterWEncrypt(txbUsuario.Texts, txbPasswd.Texts) > 0)
+                    {
+                        MessageBox.Show("Usted fue registrado con éxito!", "Usuario registrado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        txbConfirm.Visible = false;
+                        btnRegistrarse.Visible = false;
+                        btnLogin.Visible = true;
+                        lblRegistrarse.Visible = true;
+                        lblVolver.Visible = false;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error al registrar, intente de nuevo más tarde.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
 
                 }
                 else
@@ -223,7 +222,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
                 }
                 else
                 {
-                    MessageBox.Show(ex.ToString(), "Error al conectar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show(ex.Message, "Error al conectar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
         }
@@ -238,22 +237,21 @@ namespace Ingenieros_Commerce_Manager_v2._0
 
         }
 
-        private void lblVolver_MouseHover(object sender, EventArgs e) //Efecto estetico
-        {
-            lblVolver.Cursor = Cursors.Hand;
-            lblVolver.ForeColor = Color.Purple;
-        }
-
-        private void lblVolver_MouseLeave(object sender, EventArgs e) //Efecto estetico
-        {
-            lblVolver.ForeColor = Color.DarkBlue;
-        }
         #endregion
 
 
         private void FormInicial_Load(object sender, EventArgs e)
         {
             Usuario.ClearData();
+            if(File.Exists("UserInfo.txt"))
+            {
+                TextReader leer = new StreamReader("UserInfo.txt");
+                txbUsuario.RemovePlaceholder();
+                txbPasswd.RemovePlaceholder();
+                txbUsuario.Texts = leer.ReadLine();
+                txbPasswd.Texts = leer.ReadLine();
+                btnRecordar.Checked = true;
+            }
         }
     }
 }

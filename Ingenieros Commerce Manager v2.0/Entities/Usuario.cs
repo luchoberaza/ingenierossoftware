@@ -20,6 +20,8 @@ namespace Ingenieros_Commerce_Manager_v2._0.Entities
         public static string RUT { get; set; }
         public static byte[] Foto { get; set; }
 
+        public static string key { get; private set; } = "Ingenieros";
+
 
         public static MemoryStream ByteToImage(byte[] img)
         {

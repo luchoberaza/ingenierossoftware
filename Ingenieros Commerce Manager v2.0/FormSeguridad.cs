@@ -22,7 +22,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
             if (check.CheckPasswd(txbContra.Texts))
             {
                 this.DialogResult = DialogResult.OK;
-                txbContra.Text = "";
+                txbContra.Texts = "";
                 this.Close();
             }
             else

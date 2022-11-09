@@ -37,17 +37,19 @@
             this.panelMenu = new System.Windows.Forms.Panel();
             this.lblVolver = new System.Windows.Forms.Label();
             this.btnRegistrarse = new System.Windows.Forms.Button();
-            this.txbConfirm = new Ingenieros_Commerce_Manager.CustomControls.CustomTextBox();
             this.btnPWDChar = new System.Windows.Forms.PictureBox();
             this.pictureBoxUser = new System.Windows.Forms.PictureBox();
             this.btnLogin = new System.Windows.Forms.Button();
-            this.txbPasswd = new Ingenieros_Commerce_Manager.CustomControls.CustomTextBox();
-            this.txbUsuario = new Ingenieros_Commerce_Manager.CustomControls.CustomTextBox();
             this.lblRegistrarse = new System.Windows.Forms.Label();
             this.panelPrincipal = new System.Windows.Forms.Panel();
             this.LogoPrincipal = new System.Windows.Forms.PictureBox();
-            this.RedondeoForm = new Ingenieros_Commerce_Manager_v2._0.Components.EllipseComponent();
             this.panelContenedor = new System.Windows.Forms.Panel();
+            this.lblRecordar = new System.Windows.Forms.Label();
+            this.btnRecordar = new CustomControls.RJControls.RJToggleButton();
+            this.txbConfirm = new Ingenieros_Commerce_Manager.CustomControls.CustomTextBox();
+            this.txbPasswd = new Ingenieros_Commerce_Manager.CustomControls.CustomTextBox();
+            this.txbUsuario = new Ingenieros_Commerce_Manager.CustomControls.CustomTextBox();
+            this.RedondeoForm = new Ingenieros_Commerce_Manager_v2._0.Components.EllipseComponent();
             this.panelHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BotonHide)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BotonMinMax)).BeginInit();
@@ -128,6 +130,8 @@
             // panelMenu
             // 
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(223)))), ((int)(((byte)(248)))));
+            this.panelMenu.Controls.Add(this.lblRecordar);
+            this.panelMenu.Controls.Add(this.btnRecordar);
             this.panelMenu.Controls.Add(this.lblVolver);
             this.panelMenu.Controls.Add(this.btnRegistrarse);
             this.panelMenu.Controls.Add(this.txbConfirm);
@@ -153,9 +157,9 @@
             this.lblVolver.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblVolver.Font = new System.Drawing.Font("Poppins", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblVolver.ForeColor = System.Drawing.Color.DarkBlue;
-            this.lblVolver.Location = new System.Drawing.Point(95, 444);
+            this.lblVolver.Location = new System.Drawing.Point(95, 534);
             this.lblVolver.Name = "lblVolver";
-            this.lblVolver.Size = new System.Drawing.Size(55, 25);
+            this.lblVolver.Size = new System.Drawing.Size(43, 19);
             this.lblVolver.TabIndex = 8;
             this.lblVolver.Text = "Volver";
             this.lblVolver.Visible = false;
@@ -173,7 +177,7 @@
             this.btnRegistrarse.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(94)))), ((int)(((byte)(220)))));
             this.btnRegistrarse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegistrarse.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegistrarse.Location = new System.Drawing.Point(57, 373);
+            this.btnRegistrarse.Location = new System.Drawing.Point(57, 342);
             this.btnRegistrarse.Name = "btnRegistrarse";
             this.btnRegistrarse.Size = new System.Drawing.Size(118, 47);
             this.btnRegistrarse.TabIndex = 7;
@@ -182,37 +186,11 @@
             this.btnRegistrarse.Visible = false;
             this.btnRegistrarse.Click += new System.EventHandler(this.btnRegistrarse_Click);
             // 
-            // txbConfirm
-            // 
-            this.txbConfirm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txbConfirm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(223)))), ((int)(((byte)(248)))));
-            this.txbConfirm.BorderColor = System.Drawing.Color.MediumSlateBlue;
-            this.txbConfirm.BorderFocusColor = System.Drawing.Color.HotPink;
-            this.txbConfirm.BorderRadius = 0;
-            this.txbConfirm.BorderSize = 2;
-            this.txbConfirm.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbConfirm.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.txbConfirm.Location = new System.Drawing.Point(17, 314);
-            this.txbConfirm.Maxlength = 32767;
-            this.txbConfirm.Multiline = false;
-            this.txbConfirm.Name = "txbConfirm";
-            this.txbConfirm.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.txbConfirm.PasswordChar = true;
-            this.txbConfirm.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txbConfirm.PlaceholderText = "Repetir contraseña";
-            this.txbConfirm.ReadOnly = false;
-            this.txbConfirm.Size = new System.Drawing.Size(152, 45);
-            this.txbConfirm.TabIndex = 6;
-            this.txbConfirm.TabStop = false;
-            this.txbConfirm.Texts = "";
-            this.txbConfirm.UnderlinedStyle = true;
-            this.txbConfirm.Visible = false;
-            // 
             // btnPWDChar
             // 
             this.btnPWDChar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.btnPWDChar.Image = global::Ingenieros_Commerce_Manager_v2._0.Properties.Resources.showpwd;
-            this.btnPWDChar.Location = new System.Drawing.Point(177, 280);
+            this.btnPWDChar.Location = new System.Drawing.Point(177, 231);
             this.btnPWDChar.Margin = new System.Windows.Forms.Padding(2);
             this.btnPWDChar.Name = "btnPWDChar";
             this.btnPWDChar.Size = new System.Drawing.Size(34, 23);
@@ -225,14 +203,13 @@
             // 
             this.pictureBoxUser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBoxUser.Image = global::Ingenieros_Commerce_Manager_v2._0.Properties.Resources.user_circle;
-            this.pictureBoxUser.Location = new System.Drawing.Point(73, 128);
+            this.pictureBoxUser.Location = new System.Drawing.Point(73, 79);
             this.pictureBoxUser.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBoxUser.Name = "pictureBoxUser";
             this.pictureBoxUser.Size = new System.Drawing.Size(82, 87);
             this.pictureBoxUser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxUser.TabIndex = 4;
             this.pictureBoxUser.TabStop = false;
-            this.pictureBoxUser.Click += new System.EventHandler(this.pictureBoxUser_Click);
             // 
             // btnLogin
             // 
@@ -244,68 +221,13 @@
             this.btnLogin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(94)))), ((int)(((byte)(220)))));
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogin.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogin.Location = new System.Drawing.Point(57, 373);
+            this.btnLogin.Location = new System.Drawing.Point(57, 342);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(118, 47);
             this.btnLogin.TabIndex = 0;
             this.btnLogin.Text = "Iniciar Sesión";
             this.btnLogin.UseVisualStyleBackColor = false;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
-            // 
-            // txbPasswd
-            // 
-            this.txbPasswd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txbPasswd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(223)))), ((int)(((byte)(248)))));
-            this.txbPasswd.BorderColor = System.Drawing.Color.MediumSlateBlue;
-            this.txbPasswd.BorderFocusColor = System.Drawing.Color.HotPink;
-            this.txbPasswd.BorderRadius = 0;
-            this.txbPasswd.BorderSize = 2;
-            this.txbPasswd.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbPasswd.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.txbPasswd.Location = new System.Drawing.Point(17, 270);
-            this.txbPasswd.Maxlength = 32767;
-            this.txbPasswd.Multiline = false;
-            this.txbPasswd.Name = "txbPasswd";
-            this.txbPasswd.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.txbPasswd.PasswordChar = true;
-            this.txbPasswd.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txbPasswd.PlaceholderText = "Contraseña";
-            this.txbPasswd.ReadOnly = false;
-            this.txbPasswd.Size = new System.Drawing.Size(152, 45);
-            this.txbPasswd.TabIndex = 2;
-            this.txbPasswd.TabStop = false;
-            this.txbPasswd.Texts = "";
-            this.txbPasswd.UnderlinedStyle = true;
-            this.txbPasswd.Click += new System.EventHandler(this.txbPasswd_Click);
-            this.txbPasswd.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txbPasswd_MouseClick);
-            // 
-            // txbUsuario
-            // 
-            this.txbUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txbUsuario.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
-            this.txbUsuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(223)))), ((int)(((byte)(248)))));
-            this.txbUsuario.BorderColor = System.Drawing.Color.MediumSlateBlue;
-            this.txbUsuario.BorderFocusColor = System.Drawing.Color.HotPink;
-            this.txbUsuario.BorderRadius = 0;
-            this.txbUsuario.BorderSize = 2;
-            this.txbUsuario.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbUsuario.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.txbUsuario.Location = new System.Drawing.Point(17, 226);
-            this.txbUsuario.Maxlength = 32767;
-            this.txbUsuario.Multiline = false;
-            this.txbUsuario.Name = "txbUsuario";
-            this.txbUsuario.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.txbUsuario.PasswordChar = false;
-            this.txbUsuario.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txbUsuario.PlaceholderText = "Usuario";
-            this.txbUsuario.ReadOnly = false;
-            this.txbUsuario.Size = new System.Drawing.Size(191, 45);
-            this.txbUsuario.TabIndex = 1;
-            this.txbUsuario.TabStop = false;
-            this.txbUsuario.Texts = "";
-            this.txbUsuario.UnderlinedStyle = true;
-            this.txbUsuario.Click += new System.EventHandler(this.txbUsuario_Click);
-            this.txbUsuario.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txbUsuario_MouseClick);
             // 
             // lblRegistrarse
             // 
@@ -314,9 +236,9 @@
             this.lblRegistrarse.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblRegistrarse.Font = new System.Drawing.Font("Poppins", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRegistrarse.ForeColor = System.Drawing.Color.DarkBlue;
-            this.lblRegistrarse.Location = new System.Drawing.Point(27, 444);
+            this.lblRegistrarse.Location = new System.Drawing.Point(27, 534);
             this.lblRegistrarse.Name = "lblRegistrarse";
-            this.lblRegistrarse.Size = new System.Drawing.Size(219, 25);
+            this.lblRegistrarse.Size = new System.Drawing.Size(174, 19);
             this.lblRegistrarse.TabIndex = 0;
             this.lblRegistrarse.Text = "¿No tienes cuenta? Regístrate";
             this.lblRegistrarse.Click += new System.EventHandler(this.lblRegistrarse_Click);
@@ -347,11 +269,6 @@
             this.LogoPrincipal.TabIndex = 0;
             this.LogoPrincipal.TabStop = false;
             // 
-            // RedondeoForm
-            // 
-            this.RedondeoForm.CornerRadius = 30;
-            this.RedondeoForm.TargetControl = this;
-            // 
             // panelContenedor
             // 
             this.panelContenedor.Controls.Add(this.panelPrincipal);
@@ -363,6 +280,113 @@
             this.panelContenedor.Name = "panelContenedor";
             this.panelContenedor.Size = new System.Drawing.Size(1000, 650);
             this.panelContenedor.TabIndex = 3;
+            // 
+            // lblRecordar
+            // 
+            this.lblRecordar.AutoSize = true;
+            this.lblRecordar.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRecordar.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.lblRecordar.Location = new System.Drawing.Point(24, 424);
+            this.lblRecordar.Name = "lblRecordar";
+            this.lblRecordar.Size = new System.Drawing.Size(127, 22);
+            this.lblRecordar.TabIndex = 10;
+            this.lblRecordar.Text = "Recuerda mis datos";
+            // 
+            // btnRecordar
+            // 
+            this.btnRecordar.AutoSize = true;
+            this.btnRecordar.Location = new System.Drawing.Point(157, 424);
+            this.btnRecordar.MinimumSize = new System.Drawing.Size(45, 22);
+            this.btnRecordar.Name = "btnRecordar";
+            this.btnRecordar.OffBackColor = System.Drawing.Color.Gray;
+            this.btnRecordar.OffToggleColor = System.Drawing.Color.Gainsboro;
+            this.btnRecordar.OnBackColor = System.Drawing.Color.MediumSlateBlue;
+            this.btnRecordar.OnToggleColor = System.Drawing.Color.WhiteSmoke;
+            this.btnRecordar.Size = new System.Drawing.Size(45, 22);
+            this.btnRecordar.TabIndex = 9;
+            this.btnRecordar.UseVisualStyleBackColor = true;
+            // 
+            // txbConfirm
+            // 
+            this.txbConfirm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txbConfirm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(223)))), ((int)(((byte)(248)))));
+            this.txbConfirm.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.txbConfirm.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.txbConfirm.BorderRadius = 0;
+            this.txbConfirm.BorderSize = 2;
+            this.txbConfirm.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbConfirm.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.txbConfirm.Location = new System.Drawing.Point(17, 265);
+            this.txbConfirm.Maxlength = 32767;
+            this.txbConfirm.Multiline = false;
+            this.txbConfirm.Name = "txbConfirm";
+            this.txbConfirm.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txbConfirm.PasswordChar = true;
+            this.txbConfirm.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txbConfirm.PlaceholderText = "Repetir contraseña";
+            this.txbConfirm.ReadOnly = false;
+            this.txbConfirm.Size = new System.Drawing.Size(152, 38);
+            this.txbConfirm.TabIndex = 6;
+            this.txbConfirm.TabStop = false;
+            this.txbConfirm.Texts = "";
+            this.txbConfirm.UnderlinedStyle = true;
+            this.txbConfirm.Visible = false;
+            // 
+            // txbPasswd
+            // 
+            this.txbPasswd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txbPasswd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(223)))), ((int)(((byte)(248)))));
+            this.txbPasswd.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.txbPasswd.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.txbPasswd.BorderRadius = 0;
+            this.txbPasswd.BorderSize = 2;
+            this.txbPasswd.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbPasswd.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.txbPasswd.Location = new System.Drawing.Point(17, 221);
+            this.txbPasswd.Maxlength = 32767;
+            this.txbPasswd.Multiline = false;
+            this.txbPasswd.Name = "txbPasswd";
+            this.txbPasswd.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txbPasswd.PasswordChar = true;
+            this.txbPasswd.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txbPasswd.PlaceholderText = "Contraseña";
+            this.txbPasswd.ReadOnly = false;
+            this.txbPasswd.Size = new System.Drawing.Size(152, 38);
+            this.txbPasswd.TabIndex = 2;
+            this.txbPasswd.TabStop = false;
+            this.txbPasswd.Texts = "";
+            this.txbPasswd.UnderlinedStyle = true;
+            // 
+            // txbUsuario
+            // 
+            this.txbUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txbUsuario.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
+            this.txbUsuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(223)))), ((int)(((byte)(248)))));
+            this.txbUsuario.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.txbUsuario.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.txbUsuario.BorderRadius = 0;
+            this.txbUsuario.BorderSize = 2;
+            this.txbUsuario.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbUsuario.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.txbUsuario.Location = new System.Drawing.Point(17, 177);
+            this.txbUsuario.Maxlength = 32767;
+            this.txbUsuario.Multiline = false;
+            this.txbUsuario.Name = "txbUsuario";
+            this.txbUsuario.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txbUsuario.PasswordChar = false;
+            this.txbUsuario.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txbUsuario.PlaceholderText = "Usuario";
+            this.txbUsuario.ReadOnly = false;
+            this.txbUsuario.Size = new System.Drawing.Size(191, 38);
+            this.txbUsuario.TabIndex = 1;
+            this.txbUsuario.TabStop = false;
+            this.txbUsuario.Texts = "";
+            this.txbUsuario.UnderlinedStyle = true;
+            // 
+            // RedondeoForm
+            // 
+            this.RedondeoForm.CornerRadius = 30;
+            this.RedondeoForm.TargetControl = this;
             // 
             // FormInicial
             // 
@@ -413,6 +437,8 @@
         private System.Windows.Forms.Button btnRegistrarse;
         private System.Windows.Forms.Label lblVolver;
         private System.Windows.Forms.Panel panelContenedor;
+        private System.Windows.Forms.Label lblRecordar;
+        private CustomControls.RJControls.RJToggleButton btnRecordar;
     }
 }
 

@@ -149,7 +149,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
         {
             AbrirConexion();
             CerrarReader();
-            adapter = new MySqlDataAdapter("select * from usuario where `usuario`.`ID.Usuario` = '" + id + "';", conexion);
+            adapter = new MySqlDataAdapter("select `ID.Usuario`, `Username`, CAST(AES_DECRYPT(`Contraseña`, '"+Usuario.key+"') AS CHAR), `Denominacion`, `RUT`, `Direccion`, `Telefono`, `Foto` from usuario where `usuario`.`ID.Usuario` = '" + id + "';", conexion);
             adapter.Fill(UserData);
             Usuario.Username = UserData.Rows[0][1].ToString();
             Usuario.Password = UserData.Rows[0][2].ToString();
@@ -175,7 +175,9 @@ namespace Ingenieros_Commerce_Manager_v2._0
         public void UpdateUser(string user, string pwrd, string denom, string RUT, string dir, string tel, int id)
         {
             AbrirConexion();
-            comandos.CommandText = "UPDATE `usuario` SET `Username` = '"+user+"', `Contraseña` = '"+pwrd+"', `Denominacion` = '"+denom+"', `RUT` = '"+RUT+"', `Direccion` = '"+dir+"', `Telefono` = '"+tel+"' WHERE `usuario`.`ID.Usuario` = "+id.ToString()+";";
+            comandos.CommandText = "UPDATE `usuario` SET `Username` = '"+user+ "', `Contraseña` = AES_ENCRYPT(@Passwd, @key), `Denominacion` = '" + denom+"', `RUT` = '"+RUT+"', `Direccion` = '"+dir+"', `Telefono` = '"+tel+"' WHERE `usuario`.`ID.Usuario` = "+id.ToString()+";";
+            comandos.Parameters.AddWithValue("@Passwd", pwrd);
+            comandos.Parameters.AddWithValue("@key", Usuario.key);
             comandos.ExecuteNonQuery();
             SetUserData(id);
         }
