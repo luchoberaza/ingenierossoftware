@@ -23,7 +23,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
 
         private void SetProducto()
         {
-            Producto.IDPROD = int.Parse(dgvProducto.CurrentRow.Cells["ID.Prod"].Value.ToString());
+            Producto.IDPROD = int.Parse(dgvProducto.CurrentRow.Cells["IDProd"].Value.ToString());
             Producto.Descripcion = dgvProducto.CurrentRow.Cells["Descripcion"].Value.ToString();
             Producto.PrecioUnitario = float.Parse(dgvProducto.CurrentRow.Cells["PrecioUnitario"].Value.ToString());
             Producto.Stock = float.Parse(dgvProducto.CurrentRow.Cells["Stock"].Value.ToString());
@@ -32,7 +32,17 @@ namespace Ingenieros_Commerce_Manager_v2._0
         {
             try
             {
-                dgvProducto.DataSource = sql.MostrarDTProd();
+                DataTable Productos = new DataTable();
+                Productos = sql.MostrarDTProd();
+                foreach (DataRow row in Productos.Rows)
+                {
+                    dgvProducto.Rows.Add(new object[]
+                    {row["ID.Prod"],
+                    row["Descripcion"],
+                    row["Stock"],
+                    row["PrecioUnitario"]
+                    });
+                }
 
             }
             catch (Exception ex)

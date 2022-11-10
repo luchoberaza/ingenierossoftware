@@ -40,6 +40,10 @@
             this.btnCancel = new CustomControls.RJControls.RJButton();
             this.btnSelect = new CustomControls.RJControls.RJButton();
             this.dgvProducto = new System.Windows.Forms.DataGridView();
+            this.IDProd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PrecioUnitario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gboxProd.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducto)).BeginInit();
             this.SuspendLayout();
@@ -214,6 +218,11 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvProducto.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvProducto.ColumnHeadersHeight = 25;
+            this.dgvProducto.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.IDProd,
+            this.Descripcion,
+            this.Stock,
+            this.PrecioUnitario});
             this.dgvProducto.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvProducto.EnableHeadersVisualStyles = false;
             this.dgvProducto.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(94)))), ((int)(((byte)(220)))));
@@ -242,6 +251,30 @@
             this.dgvProducto.Size = new System.Drawing.Size(589, 240);
             this.dgvProducto.TabIndex = 42;
             this.dgvProducto.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProducto_CellDoubleClick);
+            // 
+            // IDProd
+            // 
+            this.IDProd.HeaderText = "ID.Prod";
+            this.IDProd.Name = "IDProd";
+            this.IDProd.ReadOnly = true;
+            // 
+            // Descripcion
+            // 
+            this.Descripcion.HeaderText = "Descripcion";
+            this.Descripcion.Name = "Descripcion";
+            this.Descripcion.ReadOnly = true;
+            // 
+            // Stock
+            // 
+            this.Stock.HeaderText = "Stock";
+            this.Stock.Name = "Stock";
+            this.Stock.ReadOnly = true;
+            // 
+            // PrecioUnitario
+            // 
+            this.PrecioUnitario.HeaderText = "PrecioUnitario";
+            this.PrecioUnitario.Name = "PrecioUnitario";
+            this.PrecioUnitario.ReadOnly = true;
             // 
             // FormBuscarProd
             // 
@@ -275,5 +308,9 @@
         private CustomControls.RJControls.RJButton btnCancel;
         private CustomControls.RJControls.RJButton btnSelect;
         private System.Windows.Forms.DataGridView dgvProducto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IDProd;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Descripcion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Stock;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PrecioUnitario;
     }
 }
