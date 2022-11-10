@@ -35,7 +35,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
 
         private void FormSoporte_Load(object sender, EventArgs e)
         {
-            linkLabel1.Links.Add(0, 0, "https://mail.google.com/mail/u/0/#inbox?compose=CllgCJvnrrXTcwRwDdXhNXLJNTlfRJfTSZThrKnqfTlSvLzxvkFZhbfGPNvXJQlRnxLfCkHWJfL");
+            linkLabel1.Links.Add(0, 0, "mailto:ingenierossoftware@gmail.com");
         }
     }
 }

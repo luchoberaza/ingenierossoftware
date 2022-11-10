@@ -640,6 +640,9 @@
   <ItemGroup>
     <None Include="Resources\Plantilla.html" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logo PNG - Copy.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

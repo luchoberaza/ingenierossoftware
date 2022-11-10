@@ -150,6 +150,8 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelPrincipal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(254)))));
+            this.panelPrincipal.BackgroundImage = global::Ingenieros_Commerce_Manager_v2._0.Properties.Resources.Logo_PNG;
+            this.panelPrincipal.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.panelPrincipal.Location = new System.Drawing.Point(230, 40);
             this.panelPrincipal.Margin = new System.Windows.Forms.Padding(0);
             this.panelPrincipal.Name = "panelPrincipal";

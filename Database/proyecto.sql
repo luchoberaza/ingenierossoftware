@@ -3,8 +3,8 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 10-11-2022 a las 03:11:41
--- Versión del servidor: 8.0.29
+-- Tiempo de generación: 10-11-2022 a las 03:45:25
+-- Versión del servidor: 5.7.36
 -- Versión de PHP: 7.4.26
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -29,23 +29,22 @@ SET time_zone = "+00:00";
 
 DROP TABLE IF EXISTS `cliente`;
 CREATE TABLE IF NOT EXISTS `cliente` (
-  `ID.CLI` int NOT NULL AUTO_INCREMENT,
-  `IdUsuario` int NOT NULL,
+  `ID.CLI` int(11) NOT NULL AUTO_INCREMENT,
+  `IdUsuario` int(11) NOT NULL,
   `Nombre` varchar(200) NOT NULL,
   `Direccion` varchar(200) NOT NULL,
   `Telefono` varchar(200) NOT NULL,
   `Saldo` float NOT NULL,
   PRIMARY KEY (`ID.CLI`),
   KEY `IdUsuario` (`IdUsuario`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `cliente`
 --
 
 INSERT INTO `cliente` (`ID.CLI`, `IdUsuario`, `Nombre`, `Direccion`, `Telefono`, `Saldo`) VALUES
-(4, 1, 'Pedro Picapiedra', 'Chinchurreta', '099999999', 0),
-(5, 1, 'roberito jaume', '6 de abril 549', '099736489', 240);
+(6, 1, 'Pedro Picapiedra', 'Chinchurreta', '099999999', 0);
 
 -- --------------------------------------------------------
 
@@ -55,16 +54,16 @@ INSERT INTO `cliente` (`ID.CLI`, `IdUsuario`, `Nombre`, `Direccion`, `Telefono`,
 
 DROP TABLE IF EXISTS `detalleventa`;
 CREATE TABLE IF NOT EXISTS `detalleventa` (
-  `IdDetalleVenta` int NOT NULL AUTO_INCREMENT,
-  `IdVenta` int NOT NULL,
-  `IdProd` int NOT NULL,
+  `IdDetalleVenta` int(11) NOT NULL AUTO_INCREMENT,
+  `IdVenta` int(11) NOT NULL,
+  `IdProd` int(11) NOT NULL,
   `PrecioVenta` float NOT NULL,
   `Cantidad` float NOT NULL,
   `SubTotal` float NOT NULL,
   PRIMARY KEY (`IdDetalleVenta`),
   KEY `IdVenta` (`IdVenta`),
   KEY `IdProd` (`IdProd`)
-) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `detalleventa`
@@ -78,9 +77,8 @@ INSERT INTO `detalleventa` (`IdDetalleVenta`, `IdVenta`, `IdProd`, `PrecioVenta`
 (9, 21, 5, 149, 15, 2235),
 (10, 22, 7, 240, 10, 2400),
 (11, 23, 7, 240, 2, 480),
-(12, 24, 7, 240, 1, 240),
-(13, 25, 8, 350, 1, 350),
-(14, 26, 6, 180, 2, 360);
+(12, 24, 7, 240, 6, 1440),
+(13, 25, 5, 149, 1, 149);
 
 -- --------------------------------------------------------
 
@@ -90,8 +88,8 @@ INSERT INTO `detalleventa` (`IdDetalleVenta`, `IdVenta`, `IdProd`, `PrecioVenta`
 
 DROP TABLE IF EXISTS `elaboracion`;
 CREATE TABLE IF NOT EXISTS `elaboracion` (
-  `IdElaboracion` int NOT NULL AUTO_INCREMENT,
-  `IdMatPrim` int NOT NULL,
+  `IdElaboracion` int(11) NOT NULL AUTO_INCREMENT,
+  `IdMatPrim` int(11) NOT NULL,
   `Fecha` date NOT NULL,
   `Cantidad` float NOT NULL,
   PRIMARY KEY (`IdElaboracion`),
@@ -113,15 +111,15 @@ INSERT INTO `elaboracion` (`IdElaboracion`, `IdMatPrim`, `Fecha`, `Cantidad`) VA
 
 DROP TABLE IF EXISTS `gasto`;
 CREATE TABLE IF NOT EXISTS `gasto` (
-  `IdGasto` int NOT NULL AUTO_INCREMENT,
-  `IdUsuario` int NOT NULL,
+  `IdGasto` int(11) NOT NULL AUTO_INCREMENT,
+  `IdUsuario` int(11) NOT NULL,
   `Valor` float NOT NULL,
   `Concepto` varchar(100) NOT NULL,
   `Fecha` date NOT NULL,
   `Tipo` varchar(50) NOT NULL,
   PRIMARY KEY (`IdGasto`),
   KEY `IdUsuario` (`IdUsuario`)
-) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `gasto`
@@ -134,8 +132,7 @@ INSERT INTO `gasto` (`IdGasto`, `IdUsuario`, `Valor`, `Concepto`, `Fecha`, `Tipo
 (8, 1, 5000, 'Prestamo colombiano', '2022-11-07', 'Otros'),
 (10, 1, 20, 'Produccion de', '2022-11-09', 'Generado automaticamente'),
 (11, 1, 2000, 'Produccion de', '2022-11-09', 'Generado automáticamente'),
-(12, 1, 2000, 'Produccion de Milanesa en dos panes', '2022-11-09', 'Generado automáticamente'),
-(13, 1, 5, 'bdbddbdbdgdf', '2022-11-09', 'Compra de insumos');
+(12, 1, 2000, 'Produccion de Milanesa en dos panes', '2022-11-09', 'Generado automáticamente');
 
 -- --------------------------------------------------------
 
@@ -145,14 +142,14 @@ INSERT INTO `gasto` (`IdGasto`, `IdUsuario`, `Valor`, `Concepto`, `Fecha`, `Tipo
 
 DROP TABLE IF EXISTS `materia_prima`;
 CREATE TABLE IF NOT EXISTS `materia_prima` (
-  `ID.Mat` int NOT NULL AUTO_INCREMENT,
-  `IdUsuario` int NOT NULL,
+  `ID.Mat` int(11) NOT NULL AUTO_INCREMENT,
+  `IdUsuario` int(11) NOT NULL,
   `Costo` float NOT NULL,
   `Descripcion` varchar(200) NOT NULL,
   `Stock` float NOT NULL,
   PRIMARY KEY (`ID.Mat`),
   KEY `IdUsuario` (`IdUsuario`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `materia_prima`
@@ -170,25 +167,24 @@ INSERT INTO `materia_prima` (`ID.Mat`, `IdUsuario`, `Costo`, `Descripcion`, `Sto
 
 DROP TABLE IF EXISTS `producto_venta`;
 CREATE TABLE IF NOT EXISTS `producto_venta` (
-  `ID.Prod` int NOT NULL AUTO_INCREMENT,
-  `IdUsuario` int NOT NULL,
+  `ID.Prod` int(11) NOT NULL AUTO_INCREMENT,
+  `IdUsuario` int(11) NOT NULL,
   `Stock` float NOT NULL,
   `Descripcion` varchar(200) NOT NULL,
   `PrecioUnitario` float NOT NULL,
   `CostoUnitario` float NOT NULL DEFAULT '0',
   PRIMARY KEY (`ID.Prod`),
   KEY `IdUsuario` (`IdUsuario`)
-) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `producto_venta`
 --
 
 INSERT INTO `producto_venta` (`ID.Prod`, `IdUsuario`, `Stock`, `Descripcion`, `PrecioUnitario`, `CostoUnitario`) VALUES
-(6, 1, 21, 'Milanesa en dos panes', 180, 100),
-(5, 1, 1, 'Coca cola 3 litros', 149, 0),
-(7, 1, 21, 'Milanesa de pollo cruda (kg)', 240, 200),
-(8, 1, 3, 'Asado de tira', 350, 0);
+(6, 1, 24, 'Milanesa en dos panes', 180, 100),
+(5, 1, 101, 'Coca cola 3 litros', 149, 100),
+(7, 1, 16, 'Milanesa de pollo cruda (kg)', 240, 200);
 
 -- --------------------------------------------------------
 
@@ -198,7 +194,7 @@ INSERT INTO `producto_venta` (`ID.Prod`, `IdUsuario`, `Stock`, `Descripcion`, `P
 
 DROP TABLE IF EXISTS `usuario`;
 CREATE TABLE IF NOT EXISTS `usuario` (
-  `ID.Usuario` int NOT NULL AUTO_INCREMENT,
+  `ID.Usuario` int(11) NOT NULL AUTO_INCREMENT,
   `Username` varchar(200) NOT NULL,
   `Contraseña` blob NOT NULL,
   `Denominacion` varchar(50) DEFAULT NULL,
@@ -208,7 +204,7 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   `Foto` longblob,
   PRIMARY KEY (`ID.Usuario`),
   UNIQUE KEY `Username` (`Username`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `usuario`
@@ -225,9 +221,9 @@ INSERT INTO `usuario` (`ID.Usuario`, `Username`, `Contraseña`, `Denominacion`, 
 
 DROP TABLE IF EXISTS `venta`;
 CREATE TABLE IF NOT EXISTS `venta` (
-  `IdVenta` int NOT NULL AUTO_INCREMENT,
-  `IDUsuario` int NOT NULL,
-  `IDCliente` int DEFAULT NULL,
+  `IdVenta` int(11) NOT NULL AUTO_INCREMENT,
+  `IDUsuario` int(11) NOT NULL,
+  `IDCliente` int(11) DEFAULT NULL,
   `TipoDocumento` varchar(50) NOT NULL,
   `Fecha` date NOT NULL,
   `Importe` float NOT NULL,
@@ -236,22 +232,21 @@ CREATE TABLE IF NOT EXISTS `venta` (
   PRIMARY KEY (`IdVenta`),
   KEY `ID.Usuario` (`IDUsuario`) USING BTREE,
   KEY `ID.CLI` (`IDCliente`) USING BTREE
-) ENGINE=MyISAM AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `venta`
 --
 
 INSERT INTO `venta` (`IdVenta`, `IDUsuario`, `IDCliente`, `TipoDocumento`, `Fecha`, `Importe`, `Envio`, `Cambio`) VALUES
+(25, 1, 6, 'eFactura Contado', '2022-11-10', 149, 1, 51),
+(24, 1, NULL, 'eTicket Contado', '2022-11-10', 1440, 1, 560),
 (22, 1, 4, 'eTicket Contado', '2022-11-07', 2400, 0, 100),
-(23, 1, 4, 'eTicket Contado', '2022-11-07', 480, 0, 20),
+(23, 1, 6, 'eTicket Contado', '2022-11-07', 480, 0, 20),
 (21, 1, 4, 'eTicket Contado', '2022-11-07', 2235, 0, 265),
 (20, 1, 4, 'eFactura Contado', '2022-11-06', 180, 0, 320),
-(19, 1, 4, 'eTicket Contado', '2022-11-04', 687, 0, 13),
-(18, 1, 4, 'eTicket Contado', '2022-11-04', 180, 0, 20),
-(24, 1, 5, 'eTicket Crédito', '2022-11-09', 240, 0, 0),
-(25, 1, NULL, 'eTicket Contado', '2022-11-09', 350, 0, 0),
-(26, 1, NULL, 'eTicket Contado', '2022-11-09', 360, 0, 140);
+(19, 1, 6, 'eTicket Contado', '2022-11-04', 687, 0, 13),
+(18, 1, 4, 'eTicket Contado', '2022-11-04', 180, 0, 20);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

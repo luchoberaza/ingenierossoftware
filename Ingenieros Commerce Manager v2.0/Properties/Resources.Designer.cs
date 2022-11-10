@@ -223,6 +223,16 @@ namespace Ingenieros_Commerce_Manager_v2._0.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Logo_PNG___Copy {
+            get {
+                object obj = ResourceManager.GetObject("Logo PNG - Copy", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Minimize_Maximize {
             get {
                 object obj = ResourceManager.GetObject("Minimize_Maximize", resourceCulture);

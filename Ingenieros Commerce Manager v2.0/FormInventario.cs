@@ -403,10 +403,6 @@ namespace Ingenieros_Commerce_Manager_v2._0
             {
                 MessageBox.Show("Datos ingresados correctamente.", "Acción realizada", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            else
-            {
-                MessageBox.Show("Error al ingresar los datos.", "Error al insertar", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
             MostrarProductos();
         }
 

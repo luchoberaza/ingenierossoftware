@@ -188,6 +188,8 @@ namespace Ingenieros_Commerce_Manager_v2._0
         } 
         private void lblRegistrarse_Click(object sender, EventArgs e) //Muestra la interfaz de registro
         {
+            lblRecordar.Visible = false;
+            btnRecordar.Visible = false;
             txbConfirm.Visible = true;
             btnRegistrarse.Visible = true;
             btnLogin.Visible = false;
@@ -205,6 +207,8 @@ namespace Ingenieros_Commerce_Manager_v2._0
                     {
                         MessageBox.Show("Usted fue registrado con éxito!", "Usuario registrado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         txbConfirm.Visible = false;
+                        lblRecordar.Visible = true;
+                        btnRecordar.Visible = true;
                         btnRegistrarse.Visible = false;
                         btnLogin.Visible = true;
                         lblRegistrarse.Visible = true;
@@ -241,6 +245,8 @@ namespace Ingenieros_Commerce_Manager_v2._0
             btnRegistrarse.Visible = false;
             btnLogin.Visible = true;
             lblRegistrarse.Visible = true;
+            lblRecordar.Visible = true;
+            btnRecordar.Visible = true;
 
         }
 
