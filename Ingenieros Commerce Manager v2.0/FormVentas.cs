@@ -34,6 +34,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
             txbFecha.Texts = DateTime.Now.ToString("dd/MM/yyyy");
             txbCantidad.Texts = "0";
             txbIDProd.Texts = "0";
+            txbCambio.Texts = "0";
         }
 
         private void btnUp_Click(object sender, EventArgs e)
@@ -101,67 +102,66 @@ namespace Ingenieros_Commerce_Manager_v2._0
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            int precio;
-            bool prodexiste = false; 
-            if(txbIDProd.Texts.Trim() == "" | txbProd.Texts.Trim() == "" | txbCantidad.Texts.Trim() == "" | txbPrecio.Texts.Trim() == "")
+            try
             {
-                MessageBox.Show("Seleccione un producto.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                txbIDProd.Select();
-                return;
-            }
-            if (float.Parse(txbCantidad.Texts) > float.Parse(txbStock.Texts))
-            {
-                MessageBox.Show("La cantidad no puede ser mayor al stock.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                txbCantidad.Select();
-                return;
-            }
-            if (!int.TryParse(txbPrecio.Texts, out precio))
-            {
-                MessageBox.Show("Formato de precio incorrecto.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                txbPrecio.Select();
-                return;
-            }
-            if (int.Parse(txbIDProd.Texts) == 0)
-            {
-                MessageBox.Show("Seleccione un producto.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                txbIDProd.Select();
-                return;
-            }
-            foreach(DataGridViewRow row in dgvVenta.Rows)
-            {
-                if (row.Cells["IDProducto"].Value.ToString() == txbIDProd.Texts)
+                int precio;
+                bool prodexiste = false;
+                if (txbIDProd.Texts.Trim() == "" | txbProd.Texts.Trim() == "" | txbCantidad.Texts.Trim() == "" | txbPrecio.Texts.Trim() == "")
                 {
-                    prodexiste = true;
-                    break;
+                    MessageBox.Show("Seleccione un producto.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    txbIDProd.Select();
+                    return;
                 }
-            }
-            if (!prodexiste)
-            {
-                dgvVenta.Rows.Add(
-                    new object[] 
+                if (float.Parse(txbCantidad.Texts) > float.Parse(txbStock.Texts))
+                {
+                    MessageBox.Show("La cantidad no puede ser mayor al stock.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    txbCantidad.Select();
+                    return;
+                }
+                if (!int.TryParse(txbPrecio.Texts, out precio))
+                {
+                    MessageBox.Show("Formato de precio incorrecto.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    txbPrecio.Select();
+                    return;
+                }
+                if (int.Parse(txbIDProd.Texts) == 0)
+                {
+                    MessageBox.Show("Seleccione un producto.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    txbIDProd.Select();
+                    return;
+                }
+                foreach (DataGridViewRow row in dgvVenta.Rows)
+                {
+                    if (row.Cells["IDProducto"].Value.ToString() == txbIDProd.Texts)
                     {
+                        prodexiste = true;
+                        break;
+                    }
+                }
+                if (!prodexiste)
+                {
+                    dgvVenta.Rows.Add(
+                        new object[]
+                        {
                         txbIDProd.Texts,
                         txbProd.Texts,
                         txbCantidad.Texts,
                         precio.ToString(),
                         (float.Parse(txbCantidad.Texts)*precio).ToString()
-                    });
-                try
-                {
-                    sql.RestarStock(int.Parse(txbIDProd.Texts), txbCantidad.Texts.Replace(',','.'));
-
+                        });
+                    sql.RestarStock(int.Parse(txbIDProd.Texts), txbCantidad.Texts.Replace(',', '.'));
                 }
-                catch (Exception ex)
+                else
                 {
-                    MessageBox.Show(ex.Message, "Error al conectar", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+                    MessageBox.Show("El producto ya ha sido seleccionado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    txbIDProd.Select();
                 }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("El producto ya ha sido seleccionado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                txbIDProd.Select();
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            
             CalcularTotal();
             ClearProducts();
             txbIDProd.Select();
@@ -235,7 +235,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
         {
             if(txbPaga.Texts.Length == 0)
             {
-                txbCambio.Texts = "";
+                txbCambio.Texts = "0";
                 return;
             }
             if (!int.TryParse(txbPaga.Texts, out pago))
@@ -273,6 +273,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
                 MessageBox.Show("Ingrese productos en la venta.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            
             DataTable detalle = new DataTable();
             detalle.Columns.Add("IDProducto", typeof(int));
             detalle.Columns.Add("PrecioVenta", typeof(float));
@@ -298,8 +299,16 @@ namespace Ingenieros_Commerce_Manager_v2._0
             {
                 envio= false;
             }
-
-            int idventa = sql.RegistrarVenta(cmbTipoDoc.Texts, txbFecha.Texts, float.Parse(txbTotal.Texts), envio, float.Parse(txbCambio.Texts), detalle);
+            float cambio;
+            if (float.TryParse(txbCambio.Texts, out cambio))
+            {
+                txbCambio.Text = "0";
+            }
+            else
+            {
+                cambio= 0;
+            }
+            int idventa = sql.RegistrarVenta(cmbTipoDoc.Texts, txbFecha.Texts, float.Parse(txbTotal.Texts), envio, cambio, detalle);
             if (idventa != 0)
             {
                 var respuesta = MessageBox.Show("Venta Nº:'"+idventa+"' generada \n ¿Desea generar el documento?", "Acción completada", MessageBoxButtons.YesNo, MessageBoxIcon.Information);

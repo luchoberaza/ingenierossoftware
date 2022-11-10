@@ -52,7 +52,10 @@ namespace Ingenieros_Commerce_Manager_v2._0
         {
             CerrarReader();
             AbrirConexion();
-            comandos.CommandText = "SELECT `IdVenta`, `ID.CLI`, `Nombre` Cliente, TipoDocumento, CAST(DATE_FORMAT(Fecha, '%e/%c/%Y') as char) Fecha, Importe, IF(`Envio`=1, 'A domicilio', 'Venta en local') Envio FROM `venta`, `cliente` WHERE `venta`.`IDCliente` = `cliente`.`ID.CLI` and `venta`.`IDUsuario` = '" + Usuario.Id + "' ORDER BY IdVenta DESC;";
+            comandos.CommandText = @"SELECT `IdVenta`, `ID.CLI`, `Nombre` Cliente, TipoDocumento, CAST(DATE_FORMAT(Fecha, '%e/%c/%Y') as char) Fecha, Importe, IF(`Envio`=1, 'A domicilio', 'Venta en local') Envio 
+                                    FROM `venta` left join `cliente` on `venta`.`IDCliente` = `cliente`.`ID.CLI`
+                                    WHERE `venta`.`IDUsuario` = '"+Usuario.Id+@"' ORDER BY IdVenta DESC;
+                                    ";
             EjecutarReader();
             DTVentas.Rows.Clear();
             DTVentas.Load(datos);
@@ -74,6 +77,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
             CerrarReader();
             try
             {
+                comandos.Parameters.Clear();
                 comandos.Parameters.AddWithValue("@IdUsuario", Usuario.Id);
                 comandos.Parameters.AddWithValue("@TipoDocumento", TipoDocumento);
                 if (Cliente.IDCLI > 0)
@@ -174,6 +178,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
         }
         public void UpdateUser(string user, string pwrd, string denom, string RUT, string dir, string tel, int id)
         {
+            comandos.Parameters.Clear();
             AbrirConexion();
             comandos.CommandText = "UPDATE `usuario` SET `Username` = '"+user+ "', `Contraseña` = AES_ENCRYPT(@Passwd, @key), `Denominacion` = '" + denom+"', `RUT` = '"+RUT+"', `Direccion` = '"+dir+"', `Telefono` = '"+tel+"' WHERE `usuario`.`ID.Usuario` = "+id.ToString()+";";
             comandos.Parameters.AddWithValue("@Passwd", pwrd);
@@ -346,6 +351,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
         }
         public int InsertarCostoProd(float cantidad, bool GenerarGasto, float valor)
         {
+            comandos.Parameters.Clear();
             AbrirConexion();
             comandos.CommandText = "UPDATE `producto_venta` SET `CostoUnitario` = @costo, `Stock` = `Stock` + @Cantidad WHERE `ID.Prod` = @idprod;";
             comandos.Parameters.Add("@costo", MySqlDbType.Float).Value = Producto.CostoUnitario;
@@ -355,6 +361,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
             comandos.Parameters.Clear();
             if (GenerarGasto)
             {
+                comandos.Parameters.Clear();
                 comandos.CommandText = "insert into gasto (IdUsuario, Valor, Concepto, Fecha, Tipo) values (@IdUsuario, @Valor, 'Produccion de "+Producto.Descripcion+ "', @Fecha, 'Generado automáticamente');";
                 comandos.Parameters.Add("@IdUsuario", MySqlDbType.Int32).Value = Usuario.Id;
                 comandos.Parameters.Add("@Valor", MySqlDbType.Float).Value = valor;
