@@ -66,8 +66,10 @@ namespace Ingenieros_Commerce_Manager_v2._0
                     dialog.DefaultExt = "pdf";
                     dialog.RestoreDirectory = true;
 
-
-                    sql.SetCliente(int.Parse(DTVentas.Rows[index]["ID.CLI"].ToString()));
+                    if (!DTVentas.Rows[index]["ID.CLI"].ToString().IsNullOrWhiteSpace())
+                    {
+                        sql.SetCliente(int.Parse(DTVentas.Rows[index]["ID.CLI"].ToString()));
+                    }
                     string txthtml = Properties.Resources.Plantilla.ToString();
                     txthtml = txthtml.Replace("@DENOMINACION", Usuario.Denominacion);
                     txthtml = txthtml.Replace("@DIRECCION", Usuario.Direccion);

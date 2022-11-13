@@ -158,10 +158,11 @@ namespace Ingenieros_Commerce_Manager_v2._0
                         FormPrincipal formPrincipal = new FormPrincipal();
                         if (btnRecordar.Checked)
                         {
-                            TextWriter archivo = new StreamWriter("UserInfo.txt");
+                            TextWriter archivo = File.CreateText("UserInfo.txt"); ;
                             archivo.WriteLine(txbUsuario.Texts);
                             archivo.WriteLine(txbPasswd.Texts);
                             archivo.Close();
+                            File.Encrypt("UserInfo.txt");
                         }
                         else
                         {
@@ -258,6 +259,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
             Usuario.ClearData();
             if(File.Exists("UserInfo.txt"))
             {
+                File.Decrypt("UserInfo.txt");
                 TextReader leer = new StreamReader("UserInfo.txt");
                 txbUsuario.RemovePlaceholder();
                 txbPasswd.RemovePlaceholder();
