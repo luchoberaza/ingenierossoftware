@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Text;
 using System.Windows.Forms;
 
 namespace Ingenieros_Commerce_Manager.CustomControls
@@ -69,10 +66,10 @@ namespace Ingenieros_Commerce_Manager.CustomControls
         public bool PasswordChar
         {
             get { return isPasswordChar; }
-            set 
+            set
             {
-                isPasswordChar = value; 
-                textBox1.UseSystemPasswordChar = value; 
+                isPasswordChar = value;
+                textBox1.UseSystemPasswordChar = value;
             }
         }
 
@@ -117,14 +114,16 @@ namespace Ingenieros_Commerce_Manager.CustomControls
                     UpdateControlHeight();
             }
         }
-        public int Maxlength 
-        { get 
-            { 
-                return textBox1.MaxLength; 
-            } set 
-            { 
+        public int Maxlength
+        {
+            get
+            {
+                return textBox1.MaxLength;
+            }
+            set
+            {
                 textBox1.MaxLength = value;
-            } 
+            }
         }
         public bool ReadOnly
         {
@@ -141,12 +140,12 @@ namespace Ingenieros_Commerce_Manager.CustomControls
         [Category(V)]
         public string Texts
         {
-            get 
+            get
             {
                 if (isPlaceholder) return "";
-                else return textBox1.Text; 
+                else return textBox1.Text;
             }
-            set 
+            set
             {
                 textBox1.Text = value;
                 SetPlaceHolder();
@@ -161,30 +160,31 @@ namespace Ingenieros_Commerce_Manager.CustomControls
         }
 
         [Category(V)]
-        public int BorderRadius 
+        public int BorderRadius
         {
-            get 
-            { 
-                return borderRadius; 
+            get
+            {
+                return borderRadius;
             }
             set
             {
-                if (value >= 0) 
-                { 
+                if (value >= 0)
+                {
                     borderRadius = value;
                     this.Invalidate();
-                }  
+                }
             }
 
         }
 
         [Category(V)]
-        public string PlaceholderText { 
-            get 
+        public string PlaceholderText
+        {
+            get
             {
                 return placeholderText;
-            }  
-            set 
+            }
+            set
             {
                 placeholderText = value;
                 textBox1.Text = "";
@@ -220,9 +220,9 @@ namespace Ingenieros_Commerce_Manager.CustomControls
         {
             get
             {
-                return placeholderColor; 
+                return placeholderColor;
             }
-            set 
+            set
             {
                 placeholderColor = value;
                 if (isPasswordChar) textBox1.ForeColor = value;
@@ -286,7 +286,7 @@ namespace Ingenieros_Commerce_Manager.CustomControls
                 }
             }
 
-            
+
         }
 
         private void SetTextBoxRoundedRegion()

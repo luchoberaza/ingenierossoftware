@@ -1,13 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using System.Windows.Forms;
+using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.ComponentModel;
+using System.Windows.Forms;
 
 namespace CustomControls.RJControls
 {
@@ -94,7 +89,7 @@ namespace CustomControls.RJControls
 
         protected override void OnPaint(PaintEventArgs pevent)
         {
-            base.OnPaint(pevent);           
+            base.OnPaint(pevent);
 
             Rectangle rectSurface = this.ClientRectangle;
             Rectangle rectBorder = Rectangle.Inflate(rectSurface, -borderSize, -borderSize);

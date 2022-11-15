@@ -1,19 +1,12 @@
-﻿using Microsoft.VisualStudio.Utilities.Internal;
-using Org.BouncyCastle.Math.EC.Multiplier;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.IO;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using iTextSharp.tool.xml;
+﻿using Ingenieros_Commerce_Manager_v2._0.Entities;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
-using Ingenieros_Commerce_Manager_v2._0.Entities;
+using iTextSharp.tool.xml;
+using Microsoft.VisualStudio.Utilities.Internal;
+using System;
+using System.Data;
+using System.IO;
+using System.Windows.Forms;
 
 namespace Ingenieros_Commerce_Manager_v2._0
 {
@@ -44,7 +37,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
                     dr["Envio"]
                 });
             }
-            foreach(DataGridViewColumn column in dgvVentas.Columns)
+            foreach (DataGridViewColumn column in dgvVentas.Columns)
             {
                 if (column.HeaderText != "Facturación")
                     cmbBusqueda.Items.Add(column.Name);
@@ -84,7 +77,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
 
                     string filas = string.Empty;
                     InfoVentas = sql.GetInfoVentas(int.Parse(dgvVentas.Rows[index].Cells["IdVentas"].Value.ToString()));
-                    foreach(DataRow row in InfoVentas.Rows)
+                    foreach (DataRow row in InfoVentas.Rows)
                     {
                         filas += "<tr>";
                         filas += "<td>" + row["Cantidad"].ToString() + "</td>";
@@ -95,7 +88,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
                     }
                     txthtml = txthtml.Replace("@FILAS", filas);
 
-                    
+
 
                     if (dialog.ShowDialog() == DialogResult.OK)
                     {
@@ -106,7 +99,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
                             pdf.Open();
                             pdf.Add(new Phrase(""));
 
-                            if(Usuario.Foto != null)
+                            if (Usuario.Foto != null)
                             {
                                 System.Drawing.Image img = System.Drawing.Image.FromStream(Usuario.ByteToImage(Usuario.Foto));
                                 var format = img.RawFormat;

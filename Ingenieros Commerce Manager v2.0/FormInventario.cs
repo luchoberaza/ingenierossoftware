@@ -1,15 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Data.SqlClient;
+﻿using Ingenieros_Commerce_Manager_v2._0.Entities;
 using Microsoft.VisualStudio.Utilities.Internal;
-using Ingenieros_Commerce_Manager_v2._0.Entities;
+using System;
+using System.Windows.Forms;
 
 namespace Ingenieros_Commerce_Manager_v2._0
 {
@@ -45,7 +37,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
             }
             foreach (DataGridViewColumn column in dgvMatPrim.Columns)
             {
-                if(column.HeaderText != "Descripcion" && column.HeaderText != "Stock")
+                if (column.HeaderText != "Descripcion" && column.HeaderText != "Stock")
                 {
                     cmbBusqueda.Items.Add(column.HeaderText);
                 }
@@ -60,7 +52,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
             dgvProductos.Refresh();
             dgvMatPrim.Refresh();
         }
-        
+
         private void RemovePlaceHolders()
         {
             txbDescrip.RemovePlaceholder();
@@ -332,7 +324,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
 
         private void dgvMatPrim_SelectionChanged(object sender, EventArgs e)
         {
-            if(dgvMatPrim.SelectedRows.Count == 1)
+            if (dgvMatPrim.SelectedRows.Count == 1)
             {
                 btnUsar.Visible = true;
             }
@@ -399,7 +391,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
             sql.SetProduct(int.Parse(dgvProductos.CurrentRow.Cells["ID.Prod"].Value.ToString()));
             FormCalcularCosto formCalcularCosto = new FormCalcularCosto();
             var respuesta = formCalcularCosto.ShowDialog();
-            if(respuesta == DialogResult.OK)
+            if (respuesta == DialogResult.OK)
             {
                 MessageBox.Show("Datos ingresados correctamente.", "Acción realizada", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -408,16 +400,16 @@ namespace Ingenieros_Commerce_Manager_v2._0
 
         private void dgvProductos_Click(object sender, EventArgs e)
         {
-            if(dgvProductos.SelectedRows.Count > 0)
+            if (dgvProductos.SelectedRows.Count > 0)
             {
                 dgvMatPrim.ClearSelection();
-                if(idprod == null)
+                if (idprod == null)
                 {
                     idprod = dgvProductos.CurrentRow.Cells["ID.Prod"].Value.ToString();
                 }
                 else if (!(idprod.Contains(dgvProductos.CurrentRow.Cells["ID.Prod"].Value.ToString())))
                 {
-                    idprod =idprod+", "+ dgvProductos.CurrentRow.Cells["ID.Prod"].Value.ToString();
+                    idprod = idprod + ", " + dgvProductos.CurrentRow.Cells["ID.Prod"].Value.ToString();
 
                 }
             }

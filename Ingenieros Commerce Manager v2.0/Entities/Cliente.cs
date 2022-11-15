@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Ingenieros_Commerce_Manager_v2._0.Entities
+﻿namespace Ingenieros_Commerce_Manager_v2._0.Entities
 {
     public class Cliente
     {

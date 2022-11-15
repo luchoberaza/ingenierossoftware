@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using Ingenieros_Commerce_Manager.CustomControls;
-using Ingenieros_Commerce_Manager_v2._0.Controls;
+﻿using System.Windows.Forms;
 
 namespace Ingenieros_Commerce_Manager_v2._0
 {

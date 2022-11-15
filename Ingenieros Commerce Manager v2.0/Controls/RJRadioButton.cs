@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using System.Windows.Forms;
-using System.Drawing;
+﻿using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Windows.Forms;
 
 namespace CustomControls.RJControls
 {
@@ -50,7 +44,7 @@ namespace CustomControls.RJControls
         {
             this.MinimumSize = new Size(0, 21);
             //Add a padding of 10 to the left to have a considerable distance between the text and the RadioButton.
-            this.Padding = new Padding(10,0,0,0);
+            this.Padding = new Padding(10, 0, 0, 0);
         }
 
         //Overridden methods

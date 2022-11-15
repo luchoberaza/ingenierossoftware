@@ -1,15 +1,7 @@
-﻿using System;
-using System.Data;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Ingenieros_Commerce_Manager_v2._0.Entities;
 using MySql.Data.MySqlClient;
-using MySql.Data;
-using Ingenieros_Commerce_Manager_v2._0.Entities;
-using Google.Protobuf.WellKnownTypes;
-using System.Windows.Documents;
-using System.IO;
+using System;
+using System.Data;
 using System.Windows;
 
 namespace Ingenieros_Commerce_Manager_v2._0
@@ -34,10 +26,10 @@ namespace Ingenieros_Commerce_Manager_v2._0
         #endregion
 
         #region Ventas
-        public void RestarStock(int id,  string cantidad)
+        public void RestarStock(int id, string cantidad)
         {
             AbrirConexion();
-            comandos.CommandText = "update `producto_venta` set Stock = Stock - '"+cantidad+"' where `ID.Prod` = '"+id+"' ;";
+            comandos.CommandText = "update `producto_venta` set Stock = Stock - '" + cantidad + "' where `ID.Prod` = '" + id + "' ;";
             comandos.ExecuteNonQuery();
 
         }
@@ -54,7 +46,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
             AbrirConexion();
             comandos.CommandText = @"SELECT `IdVenta`, `ID.CLI`, `Nombre` Cliente, TipoDocumento, CAST(DATE_FORMAT(Fecha, '%e/%c/%Y') as char) Fecha, Importe, IF(`Envio`=1, 'A domicilio', 'Venta en local') Envio 
                                     FROM `venta` left join `cliente` on `venta`.`IDCliente` = `cliente`.`ID.CLI`
-                                    WHERE `venta`.`IDUsuario` = '"+Usuario.Id+@"' ORDER BY IdVenta DESC;
+                                    WHERE `venta`.`IDUsuario` = '" + Usuario.Id + @"' ORDER BY IdVenta DESC;
                                     ";
             EjecutarReader();
             DTVentas.Rows.Clear();
@@ -65,7 +57,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
         {
             CerrarReader();
             AbrirConexion();
-            comandos.CommandText = "SELECT `Descripcion` Producto, `PrecioVenta` Precio, `Cantidad`, `SubTotal` FROM `detalleventa`, `producto_venta` WHERE `detalleventa`.`IdProd` = `producto_venta`.`ID.Prod` AND IdVenta = '"+idventa+"';";
+            comandos.CommandText = "SELECT `Descripcion` Producto, `PrecioVenta` Precio, `Cantidad`, `SubTotal` FROM `detalleventa`, `producto_venta` WHERE `detalleventa`.`IdProd` = `producto_venta`.`ID.Prod` AND IdVenta = '" + idventa + "';";
             EjecutarReader();
             InfoVentas.Rows.Clear();
             InfoVentas.Load(datos);
@@ -85,7 +77,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
                     comandos.Parameters.AddWithValue("@IdCliente", Cliente.IDCLI);
                     if (TipoDocumento.Contains("Crédito"))
                     {
-                        comandos.CommandText = "UPDATE `cliente` SET `Saldo` = `Saldo` + '"+Importe+"' WHERE `ID.CLI` = '"+ Cliente.IDCLI + "';";
+                        comandos.CommandText = "UPDATE `cliente` SET `Saldo` = `Saldo` + '" + Importe + "' WHERE `ID.CLI` = '" + Cliente.IDCLI + "';";
                         comandos.ExecuteNonQuery();
                     }
                 }
@@ -123,13 +115,13 @@ namespace Ingenieros_Commerce_Manager_v2._0
                     float precio = float.Parse(row["PrecioVenta"].ToString());
                     float Cantidad = float.Parse(row["Cantidad"].ToString());
                     float SubTotal = float.Parse(row["SubTotal"].ToString());
-                    comandos.CommandText = "INSERT into `detalleventa` (`IdVenta`, `IdProd`, `PrecioVenta`, `Cantidad`, `SubTotal`) VALUES ('" + idventa + "', '" + idprod + "', '" + precio + "', '"+Cantidad+"', '"+SubTotal+"')";
+                    comandos.CommandText = "INSERT into `detalleventa` (`IdVenta`, `IdProd`, `PrecioVenta`, `Cantidad`, `SubTotal`) VALUES ('" + idventa + "', '" + idprod + "', '" + precio + "', '" + Cantidad + "', '" + SubTotal + "')";
                     comandos.ExecuteNonQuery();
                 }
                 CerrarConexion();
                 return idventa;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return 0;
@@ -142,7 +134,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
         public int GetUserID(string username)
         {
             AbrirConexion();
-            comandos.CommandText = "SELECT `ID.Usuario` FROM `usuario` WHERE Username = '"+username+"';";
+            comandos.CommandText = "SELECT `ID.Usuario` FROM `usuario` WHERE Username = '" + username + "';";
             EjecutarReader();
             datos.Read();
             Usuario.Id = datos.GetInt32("ID.Usuario");
@@ -153,7 +145,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
         {
             AbrirConexion();
             CerrarReader();
-            adapter = new MySqlDataAdapter("select `ID.Usuario`, `Username`, CAST(AES_DECRYPT(`Contraseña`, '"+Usuario.key+"') AS CHAR), `Denominacion`, `RUT`, `Direccion`, `Telefono`, `Foto` from usuario where `usuario`.`ID.Usuario` = '" + id + "';", conexion);
+            adapter = new MySqlDataAdapter("select `ID.Usuario`, `Username`, CAST(AES_DECRYPT(`Contraseña`, '" + Usuario.key + "') AS CHAR), `Denominacion`, `RUT`, `Direccion`, `Telefono`, `Foto` from usuario where `usuario`.`ID.Usuario` = '" + id + "';", conexion);
             adapter.Fill(UserData);
             Usuario.Username = UserData.Rows[0][1].ToString();
             Usuario.Password = UserData.Rows[0][2].ToString();
@@ -170,7 +162,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
         public void SetUserImg(byte[] img, int id)
         {
             AbrirConexion();
-            string cadena = "UPDATE `usuario` SET Foto=@imagen WHERE `ID.Usuario`= '"+id.ToString()+"';";
+            string cadena = "UPDATE `usuario` SET Foto=@imagen WHERE `ID.Usuario`= '" + id.ToString() + "';";
             MySqlCommand comando = new MySqlCommand(cadena, conexion);
             comando.Parameters.AddWithValue("@imagen", img);
             comando.ExecuteNonQuery();
@@ -180,7 +172,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
         {
             comandos.Parameters.Clear();
             AbrirConexion();
-            comandos.CommandText = "UPDATE `usuario` SET `Username` = '"+user+ "', `Contraseña` = AES_ENCRYPT(@Passwd, @key), `Denominacion` = '" + denom+"', `RUT` = '"+RUT+"', `Direccion` = '"+dir+"', `Telefono` = '"+tel+"' WHERE `usuario`.`ID.Usuario` = "+id.ToString()+";";
+            comandos.CommandText = "UPDATE `usuario` SET `Username` = '" + user + "', `Contraseña` = AES_ENCRYPT(@Passwd, @key), `Denominacion` = '" + denom + "', `RUT` = '" + RUT + "', `Direccion` = '" + dir + "', `Telefono` = '" + tel + "' WHERE `usuario`.`ID.Usuario` = " + id.ToString() + ";";
             comandos.Parameters.AddWithValue("@Passwd", pwrd);
             comandos.Parameters.AddWithValue("@key", Usuario.key);
             comandos.ExecuteNonQuery();
@@ -192,7 +184,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
         public DataTable GetGastos()
         {
             AbrirConexion();
-            comandos.CommandText = "SELECT IdGasto, Valor, Concepto, Tipo, CAST(DATE_FORMAT(Fecha, '%e/%c/%Y') as char) Fecha from gasto where IdUsuario = '" + Usuario.Id+"';";
+            comandos.CommandText = "SELECT IdGasto, Valor, Concepto, Tipo, CAST(DATE_FORMAT(Fecha, '%e/%c/%Y') as char) Fecha from gasto where IdUsuario = '" + Usuario.Id + "';";
             EjecutarReader();
             DTGastos.Rows.Clear();
             DTGastos.Load(datos);
@@ -233,7 +225,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
         public void SetCliente(int idcli)
         {
             AbrirConexion();
-            comandos.CommandText = "SELECT `Nombre`, `Direccion`, `Telefono`, `Saldo` from cliente WHERE `ID.CLI`= '"+idcli+"' AND `IdUsuario` = '" + Usuario.Id + "';";
+            comandos.CommandText = "SELECT `Nombre`, `Direccion`, `Telefono`, `Saldo` from cliente WHERE `ID.CLI`= '" + idcli + "' AND `IdUsuario` = '" + Usuario.Id + "';";
             EjecutarReader();
             DTClientes.Rows.Clear();
             DTClientes.Load(datos);
@@ -245,7 +237,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
         public void InsertarCliente(string Nombre, string Direccion, string Telefono, float Saldo)
         {
             AbrirConexion();
-            comandos.CommandText = "INSERT INTO `cliente` (`ID.CLI`, `IdUsuario`, `Nombre`, `Direccion`, `Telefono`, `Saldo`) VALUES (NULL,'"+Usuario.Id+"', '" +Nombre+ "', '" +Direccion+ "', '" +Telefono+ "', '" +Saldo+ "');";
+            comandos.CommandText = "INSERT INTO `cliente` (`ID.CLI`, `IdUsuario`, `Nombre`, `Direccion`, `Telefono`, `Saldo`) VALUES (NULL,'" + Usuario.Id + "', '" + Nombre + "', '" + Direccion + "', '" + Telefono + "', '" + Saldo + "');";
             comandos.ExecuteNonQuery();
         }
         public void EliminarCliente(int id)
@@ -282,7 +274,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
             DataTable producto = new DataTable();
             producto.Load(datos);
             Producto.ClearProductData();
-            if(producto.Rows.Count > 0)
+            if (producto.Rows.Count > 0)
             {
                 Producto.IDPROD = int.Parse(producto.Rows[0][0].ToString());
                 Producto.Descripcion = producto.Rows[0][2].ToString();
@@ -298,7 +290,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
         public DataTable MostrarDTMatPrim()
         {
             AbrirConexion();
-            comandos.CommandText = "select `ID.Mat`, `Costo`, `Descripcion`, `Stock` from materia_prima WHERE `IdUsuario` = '"+Usuario.Id+"';";
+            comandos.CommandText = "select `ID.Mat`, `Costo`, `Descripcion`, `Stock` from materia_prima WHERE `IdUsuario` = '" + Usuario.Id + "';";
             EjecutarReader();
             DTMatPrim.Rows.Clear();
             DTMatPrim.Load(datos);
@@ -307,19 +299,19 @@ namespace Ingenieros_Commerce_Manager_v2._0
         public void InsertarProd(string stock, string descrip, string precio)
         {
             AbrirConexion();
-            comandos.CommandText = "INSERT INTO `producto_venta` (`ID.Prod`, `IdUsuario`, `Stock`, `Descripcion`, `PrecioUnitario`) VALUES (NULL, '"+Usuario.Id+"', '"+Double.Parse(stock)+ "', '" +descrip+ "', '" + Double.Parse(precio) + "');";
+            comandos.CommandText = "INSERT INTO `producto_venta` (`ID.Prod`, `IdUsuario`, `Stock`, `Descripcion`, `PrecioUnitario`) VALUES (NULL, '" + Usuario.Id + "', '" + Double.Parse(stock) + "', '" + descrip + "', '" + Double.Parse(precio) + "');";
             comandos.ExecuteNonQuery();
         }
         public void InsertarMatPrim(string stock, string descrip, string costo)
         {
             AbrirConexion();
-            comandos.CommandText = "INSERT INTO `materia_prima` (`ID.Mat`, `IdUsuario`, `Costo`, `Descripcion`, `Stock`) VALUES (NULL, '"+Usuario.Id+"', '" + Double.Parse(costo) + "', '" + descrip + "', '" + Double.Parse(stock) + "');";
+            comandos.CommandText = "INSERT INTO `materia_prima` (`ID.Mat`, `IdUsuario`, `Costo`, `Descripcion`, `Stock`) VALUES (NULL, '" + Usuario.Id + "', '" + Double.Parse(costo) + "', '" + descrip + "', '" + Double.Parse(stock) + "');";
             comandos.ExecuteNonQuery();
         }
         public void UpdateMatPrim(string stock, string descrip, string costo, string id)
         {
             AbrirConexion();
-            comandos.CommandText = "UPDATE `materia_prima` SET `Costo` = '"+double.Parse(costo)+"', `Descripcion` = '"+descrip+"', `Stock` = '"+double.Parse(stock)+"' WHERE `materia_prima`.`ID.Mat` IN ("+id+") ;";
+            comandos.CommandText = "UPDATE `materia_prima` SET `Costo` = '" + double.Parse(costo) + "', `Descripcion` = '" + descrip + "', `Stock` = '" + double.Parse(stock) + "' WHERE `materia_prima`.`ID.Mat` IN (" + id + ") ;";
             comandos.ExecuteNonQuery();
         }
         public void UpdateProd(string stock, string descrip, string precio, string id)
@@ -337,16 +329,16 @@ namespace Ingenieros_Commerce_Manager_v2._0
         public void EliminarMatPrim(string id)
         {
             AbrirConexion();
-            comandos.CommandText = "DELETE FROM `materia_prima` WHERE `materia_prima`.`ID.Mat` IN ("+id+") ;";
+            comandos.CommandText = "DELETE FROM `materia_prima` WHERE `materia_prima`.`ID.Mat` IN (" + id + ") ;";
             comandos.ExecuteNonQuery();
 
         }
         public void UsarMatPrim(int id, string fecha, float cantidad)
         {
             AbrirConexion();
-            comandos.CommandText = "INSERT INTO elaboracion VALUES (NULL, '"+id+"', STR_TO_DATE('"+fecha+"', '%e/%c/%Y'), '"+cantidad+"');";
+            comandos.CommandText = "INSERT INTO elaboracion VALUES (NULL, '" + id + "', STR_TO_DATE('" + fecha + "', '%e/%c/%Y'), '" + cantidad + "');";
             comandos.ExecuteNonQuery();
-            comandos.CommandText = "UPDATE `materia_prima` SET `Stock` = `Stock` - '"+cantidad+"' WHERE `ID.Mat` = '"+id+"' ";
+            comandos.CommandText = "UPDATE `materia_prima` SET `Stock` = `Stock` - '" + cantidad + "' WHERE `ID.Mat` = '" + id + "' ";
             comandos.ExecuteNonQuery();
         }
         public int InsertarCostoProd(float cantidad, bool GenerarGasto, float valor)
@@ -362,7 +354,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
             if (GenerarGasto)
             {
                 comandos.Parameters.Clear();
-                comandos.CommandText = "insert into gasto (IdUsuario, Valor, Concepto, Fecha, Tipo) values (@IdUsuario, @Valor, 'Produccion de "+Producto.Descripcion+ "', @Fecha, 'Generado automáticamente');";
+                comandos.CommandText = "insert into gasto (IdUsuario, Valor, Concepto, Fecha, Tipo) values (@IdUsuario, @Valor, 'Produccion de " + Producto.Descripcion + "', @Fecha, 'Generado automáticamente');";
                 comandos.Parameters.Add("@IdUsuario", MySqlDbType.Int32).Value = Usuario.Id;
                 comandos.Parameters.Add("@Valor", MySqlDbType.Float).Value = valor;
                 comandos.Parameters.Add("@Fecha", MySqlDbType.Date).Value = DateTime.Now.Date;
@@ -400,7 +392,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
         }
         public void CerrarConexion()
         {
-            if(conexion.State == ConnectionState.Open)
+            if (conexion.State == ConnectionState.Open)
             {
                 conexion.Dispose();
                 conexion.Close();

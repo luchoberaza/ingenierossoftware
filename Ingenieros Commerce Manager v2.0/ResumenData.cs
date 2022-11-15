@@ -103,10 +103,10 @@ namespace Ingenieros_Commerce_Manager_v2._0
                     cmd.Parameters.Clear();
 
                     TotalGanancias = TotalIngresos - TotalGastos;
-                    
-                    if(NroDias <= 30)
+
+                    if (NroDias <= 30)
                     {
-                        foreach(var item in ListaResultadosVentas)
+                        foreach (var item in ListaResultadosVentas)
                         {
                             IngresosBrutos.Add(new IngresosXFecha()
                             {
@@ -126,7 +126,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
                         }
 
                     }
-                    else if(NroDias <= 92)
+                    else if (NroDias <= 92)
                     {
                         IngresosBrutos = (from orderList in ListaResultadosVentas
                                           group orderList by CultureInfo.CurrentCulture.Calendar.GetWeekOfYear(
@@ -134,7 +134,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
                                           into order
                                           select new IngresosXFecha
                                           {
-                                              Fecha = "Semana "+ order.Key.ToString(),
+                                              Fecha = "Semana " + order.Key.ToString(),
                                               Monto = order.Sum(amount => amount.Value)
                                           }).ToList();
                         GastosXFecha = (from orderList in ListaResultadosGastos
@@ -147,7 +147,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
                                             Monto = order.Sum(amount => amount.Value)
                                         }).ToList();
                     }
-                    else if(NroDias <= (365 * 2))
+                    else if (NroDias <= (365 * 2))
                     {
                         IngresosBrutos = (from orderList in ListaResultadosVentas
                                           group orderList by orderList.Key.ToString("MMM yyyy")
@@ -155,7 +155,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
                                           select new IngresosXFecha
                                           {
                                               Fecha = order.Key,
-                                              Monto = order.Sum(amount=> amount.Value)
+                                              Monto = order.Sum(amount => amount.Value)
                                           }).ToList();
                         GastosXFecha = (from orderList in ListaResultadosGastos
                                         group orderList by orderList.Key.ToString("MMM yyyy")
@@ -185,7 +185,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
                                             Monto = order.Sum(amount => amount.Value)
                                         }).ToList();
                     }
-                    
+
                 }
             }
         }
@@ -206,7 +206,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
                                         from `detalleventa` dv
                                         inner join `producto_venta` p on p.`ID.Prod` = dv.`IdProd`
                                         inner join `venta` v on v.`IdVenta` = dv.`IdVenta`
-                                        where p.`IdUsuario` = '"+Usuario.Id+@"' AND
+                                        where p.`IdUsuario` = '" + Usuario.Id + @"' AND
                                         v.Fecha between @fromDate and @toDate
                                         group by p.Descripcion 
                                         order by 2 desc
@@ -250,7 +250,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
         public bool LoadData(DateTime FechaInicio, DateTime FechaFin)
         {
             FechaFin = new DateTime(FechaFin.Year, FechaFin.Month, FechaFin.Day, FechaFin.Hour, FechaFin.Minute, 59);
-            if(FechaInicio != this.FechaInicio || FechaFin != this.FechaFin)
+            if (FechaInicio != this.FechaInicio || FechaFin != this.FechaFin)
             {
                 this.FechaInicio = FechaInicio;
                 this.FechaFin = FechaFin;

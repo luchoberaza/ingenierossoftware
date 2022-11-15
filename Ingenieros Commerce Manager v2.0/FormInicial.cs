@@ -1,16 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+﻿using Ingenieros_Commerce_Manager_v2._0.Entities;
+using System;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Runtime.InteropServices;
-using MySql.Data.MySqlClient;
-using Ingenieros_Commerce_Manager_v2._0.Entities;
 using System.IO;
+using System.Runtime.InteropServices;
+using System.Windows.Forms;
 
 namespace Ingenieros_Commerce_Manager_v2._0
 {
@@ -144,7 +137,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
         {
             if (txbPasswd.Texts.Length == 0 | txbUsuario.Texts.Length == 0)
             {
-                MessageBox.Show("Campos de texto vacíos.", "Error",MessageBoxButtons.OK ,MessageBoxIcon.Warning);
+                MessageBox.Show("Campos de texto vacíos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
@@ -186,7 +179,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
                 }
             }
 
-        } 
+        }
         private void lblRegistrarse_Click(object sender, EventArgs e) //Muestra la interfaz de registro
         {
             lblRecordar.Visible = false;
@@ -194,17 +187,17 @@ namespace Ingenieros_Commerce_Manager_v2._0
             txbConfirm.Visible = true;
             btnRegistrarse.Visible = true;
             btnLogin.Visible = false;
-            lblRegistrarse.Visible= false;
+            lblRegistrarse.Visible = false;
             lblVolver.Visible = true;
         }
         private void btnRegistrarse_Click(object sender, EventArgs e) //Se registra en la base de datos
         {
             try
             {
-                
+
                 if (txbPasswd.Texts == txbConfirm.Texts)
                 {
-                    if(check.RegisterWEncrypt(txbUsuario.Texts, txbPasswd.Texts) > 0)
+                    if (check.RegisterWEncrypt(txbUsuario.Texts, txbPasswd.Texts) > 0)
                     {
                         MessageBox.Show("Usted fue registrado con éxito!", "Usuario registrado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         txbConfirm.Visible = false;
@@ -257,7 +250,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
         private void FormInicial_Load(object sender, EventArgs e)
         {
             Usuario.ClearData();
-            if(File.Exists("UserInfo.txt"))
+            if (File.Exists("UserInfo.txt"))
             {
                 File.Decrypt("UserInfo.txt");
                 TextReader leer = new StreamReader("UserInfo.txt");

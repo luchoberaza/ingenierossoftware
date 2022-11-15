@@ -1,16 +1,11 @@
-﻿using System;
-using System.Data;
-using System.Drawing;
-using System.Drawing.Text;
-using System.IO;
-using System.Reflection;
-using System.Runtime.Remoting.Messaging;
-using System.Windows.Forms;
-using Ingenieros_Commerce_Manager_v2._0.Entities;
-using iTextSharp.text.pdf;
+﻿using Ingenieros_Commerce_Manager_v2._0.Entities;
 using iTextSharp.text;
+using iTextSharp.text.pdf;
 using iTextSharp.tool.xml;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System;
+using System.Data;
+using System.IO;
+using System.Windows.Forms;
 
 namespace Ingenieros_Commerce_Manager_v2._0
 {
@@ -161,7 +156,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
+
             CalcularTotal();
             ClearProducts();
             txbIDProd.Select();
@@ -169,10 +164,10 @@ namespace Ingenieros_Commerce_Manager_v2._0
 
         private void CalcularTotal()
         {
-            if(dgvVenta.Rows.Count > 0)
+            if (dgvVenta.Rows.Count > 0)
             {
                 float total = 0;
-                foreach(DataGridViewRow row in dgvVenta.Rows)
+                foreach (DataGridViewRow row in dgvVenta.Rows)
                 {
                     total = total + float.Parse(row.Cells["SubTotal"].Value.ToString());
                 }
@@ -192,7 +187,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
         {
             if (e.RowIndex < 0)
                 return;
-            if(e.ColumnIndex == 5)
+            if (e.ColumnIndex == 5)
             {
                 e.Paint(e.CellBounds, DataGridViewPaintParts.All);
                 var w = Properties.Resources.trash24.Width;
@@ -221,11 +216,11 @@ namespace Ingenieros_Commerce_Manager_v2._0
                           dgvVenta.Rows[index].Cells["Cantidad"].Value.ToString().Replace(',', '.')
                           );
                     }
-                    catch(Exception ex) 
-                    { 
+                    catch (Exception ex)
+                    {
                         MessageBox.Show(ex.Message, "Error al conectar+", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-                    
+
                     dgvVenta.Rows.RemoveAt(index);
                     CalcularTotal();
                 }
@@ -233,7 +228,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
         }
         private void CalcularCambio()
         {
-            if(txbPaga.Texts.Length == 0)
+            if (txbPaga.Texts.Length == 0)
             {
                 txbCambio.Texts = "0";
                 return;
@@ -248,7 +243,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
                 MessageBox.Show("No existen productos en la venta.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
-            if(pago < float.Parse(txbTotal.Texts))
+            if (pago < float.Parse(txbTotal.Texts))
             {
                 return;
             }
@@ -268,19 +263,19 @@ namespace Ingenieros_Commerce_Manager_v2._0
         private void btnCrearVenta_Click(object sender, EventArgs e)
         {
             sql.CerrarReader();
-            if(dgvVenta.Rows.Count < 1)
+            if (dgvVenta.Rows.Count < 1)
             {
                 MessageBox.Show("Ingrese productos en la venta.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            
+
             DataTable detalle = new DataTable();
             detalle.Columns.Add("IDProducto", typeof(int));
             detalle.Columns.Add("PrecioVenta", typeof(float));
             detalle.Columns.Add("Cantidad", typeof(float));
             detalle.Columns.Add("SubTotal", typeof(float));
 
-            foreach(DataGridViewRow row in dgvVenta.Rows)
+            foreach (DataGridViewRow row in dgvVenta.Rows)
             {
                 detalle.Rows.Add(new object[]
                 {
@@ -295,9 +290,9 @@ namespace Ingenieros_Commerce_Manager_v2._0
             {
                 envio = true;
             }
-            else if(rbtnLocal.Checked == true && rbtnDomicilio.Checked == true)
+            else if (rbtnLocal.Checked == true && rbtnDomicilio.Checked == true)
             {
-                envio= false;
+                envio = false;
             }
             float cambio;
             if (float.TryParse(txbCambio.Texts, out cambio))
@@ -306,13 +301,13 @@ namespace Ingenieros_Commerce_Manager_v2._0
             }
             else
             {
-                cambio= 0;
+                cambio = 0;
             }
             int idventa = sql.RegistrarVenta(cmbTipoDoc.Texts, txbFecha.Texts, float.Parse(txbTotal.Texts), envio, cambio, detalle);
             if (idventa != 0)
             {
-                var respuesta = MessageBox.Show("Venta Nº:'"+idventa+"' generada \n ¿Desea generar el documento?", "Acción completada", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-                if(respuesta == DialogResult.Yes)
+                var respuesta = MessageBox.Show("Venta Nº:'" + idventa + "' generada \n ¿Desea generar el documento?", "Acción completada", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                if (respuesta == DialogResult.Yes)
                 {
                     SaveFileDialog dialog = new SaveFileDialog();
 

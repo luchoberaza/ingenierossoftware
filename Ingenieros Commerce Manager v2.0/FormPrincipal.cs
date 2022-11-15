@@ -1,14 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Runtime.InteropServices;
-using MySql.Data.MySqlClient;
+using System.Windows.Forms;
 
 namespace Ingenieros_Commerce_Manager_v2._0
 {
@@ -239,7 +233,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
                 panelPrincipal.Width += 30;
                 int x = panelPrincipal.Location.X;
                 int y = panelPrincipal.Location.Y;
-                panelPrincipal.Location = new Point(x-30, y);
+                panelPrincipal.Location = new Point(x - 30, y);
                 if (sideBarPanel.Width == sideBarPanel.MinimumSize.Width)
                 {
                     panelPrincipal.Location = new Point(71, y);
@@ -274,7 +268,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
             if (ventasClosed)
             {
                 VentasContainer.Height += 30;
-                if(VentasContainer.Height == VentasContainer.MaximumSize.Height)
+                if (VentasContainer.Height == VentasContainer.MaximumSize.Height)
                 {
                     ventasClosed = false;
                     TimerVentas.Stop();
@@ -283,7 +277,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
             else
             {
                 VentasContainer.Height -= 30;
-                if(VentasContainer.Height == VentasContainer.MinimumSize.Height)
+                if (VentasContainer.Height == VentasContainer.MinimumSize.Height)
                 {
                     ventasClosed = true;
                     TimerVentas.Stop();

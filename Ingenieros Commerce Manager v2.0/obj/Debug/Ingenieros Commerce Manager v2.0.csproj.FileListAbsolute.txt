@@ -876,3 +876,7 @@ Z:\Personal\Documentos\GitHub\ingenierossoftware\Ingenieros Commerce Manager v2.
 Z:\Personal\Documentos\GitHub\ingenierossoftware\Ingenieros Commerce Manager v2.0\bin\Debug\Ingenieros Commerce Manager.pdb
 Z:\Personal\Documentos\GitHub\ingenierossoftware\Ingenieros Commerce Manager v2.0\obj\Debug\Ingenieros Commerce Manager.exe
 Z:\Personal\Documentos\GitHub\ingenierossoftware\Ingenieros Commerce Manager v2.0\obj\Debug\Ingenieros Commerce Manager.pdb
+Z:\Personal\Documentos\GitHub\ingenierossoftware\Ingenieros Commerce Manager v2.0\obj\Debug\Ingenieros Commerce Manager.exe.manifest
+Z:\Personal\Documentos\GitHub\ingenierossoftware\Ingenieros Commerce Manager v2.0\bin\Debug\Ingenieros Commerce Manager.exe.manifest
+Z:\Personal\Documentos\GitHub\ingenierossoftware\Ingenieros Commerce Manager v2.0\bin\Debug\Ingenieros Commerce Manager.application
+Z:\Personal\Documentos\GitHub\ingenierossoftware\Ingenieros Commerce Manager v2.0\obj\Debug\Ingenieros Commerce Manager.application

@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using System.Windows.Forms;
+﻿using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.ComponentModel;
+using System.Windows.Forms;
 
 namespace CustomControls.RJControls
 {
@@ -91,7 +85,7 @@ namespace CustomControls.RJControls
 
             set
             {
-               
+
             }
         }
 
@@ -144,7 +138,7 @@ namespace CustomControls.RJControls
                 //Draw the control surface
                 if (solidStyle)
                     pevent.Graphics.FillPath(new SolidBrush(onBackColor), GetFigurePath());
-                else pevent.Graphics.DrawPath(new Pen(onBackColor,2), GetFigurePath());
+                else pevent.Graphics.DrawPath(new Pen(onBackColor, 2), GetFigurePath());
                 //Draw the toggle
                 pevent.Graphics.FillEllipse(new SolidBrush(onToggleColor),
                     new Rectangle(this.Width - this.Height + 1, 2, toggleSize, toggleSize));
@@ -152,8 +146,8 @@ namespace CustomControls.RJControls
             else //OFF
             {
                 //Draw the control surface
-                if(solidStyle)
-                pevent.Graphics.FillPath(new SolidBrush(offBackColor), GetFigurePath());
+                if (solidStyle)
+                    pevent.Graphics.FillPath(new SolidBrush(offBackColor), GetFigurePath());
                 else pevent.Graphics.DrawPath(new Pen(offBackColor, 2), GetFigurePath());
                 //Draw the toggle
                 pevent.Graphics.FillEllipse(new SolidBrush(offToggleColor),

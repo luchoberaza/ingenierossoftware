@@ -20,7 +20,9 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `proyecto`
 --
-
+DROP DATABASE IF EXISTS `proyecto`;
+CREATE DATABASE `proyecto`;
+USE `proyecto`;
 -- --------------------------------------------------------
 
 --
@@ -167,6 +169,11 @@ CREATE TABLE IF NOT EXISTS `venta` (
   KEY `ID.Usuario` (`IDUsuario`) USING BTREE,
   KEY `ID.CLI` (`IDCliente`) USING BTREE
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+
+DROP USER IF EXISTS 'usuario'@'%';
+CREATE USER 'usuario'@'%' IDENTIFIED WITH mysql_native_password BY 'user';
+GRANT SELECT, INSERT, UPDATE, DELETE ON `proyecto`.* TO 'usuario'@'%';
+
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

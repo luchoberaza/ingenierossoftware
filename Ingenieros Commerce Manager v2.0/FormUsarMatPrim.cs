@@ -1,12 +1,5 @@
 ﻿using Ingenieros_Commerce_Manager_v2._0.Entities;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Ingenieros_Commerce_Manager_v2._0
@@ -65,12 +58,12 @@ namespace Ingenieros_Commerce_Manager_v2._0
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            if(txbFecha.Texts.Trim() == "" | txbCantidad.Texts.Trim() == "")
+            if (txbFecha.Texts.Trim() == "" | txbCantidad.Texts.Trim() == "")
             {
                 MessageBox.Show("Complete TODOS los campos de texto.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if(txbCantidad.Texts.Trim() == "0" | float.Parse(txbCantidad.Texts) > MateriaPrima.Stock)
+            if (txbCantidad.Texts.Trim() == "0" | float.Parse(txbCantidad.Texts) > MateriaPrima.Stock)
             {
                 MessageBox.Show("Cantidad inválida.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -81,7 +74,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
                 MateriaPrima.ClearMatData();
                 this.Close();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }

@@ -1,15 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+﻿using Ingenieros_Commerce_Manager_v2._0.Entities;
+using System;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.IO;
-using System.Drawing.Imaging;
-using Ingenieros_Commerce_Manager_v2._0.Entities;
+using System.Windows.Forms;
 
 namespace Ingenieros_Commerce_Manager_v2._0
 {
@@ -82,7 +75,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
 
         private void btnPWDChar_Click(object sender, EventArgs e)
         {
-            if(txbClaveActual.PasswordChar == true && txbClaveNueva.PasswordChar == true)
+            if (txbClaveActual.PasswordChar == true && txbClaveNueva.PasswordChar == true)
             {
                 txbClaveActual.PasswordChar = false;
                 txbClaveNueva.PasswordChar = false;
@@ -176,7 +169,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
 
         private void lblSoporte_Click(object sender, EventArgs e)
         {
-            Form formsoporte = new FormSoporte(); 
+            Form formsoporte = new FormSoporte();
         }
 
         private void rjButton1_Click(object sender, EventArgs e)

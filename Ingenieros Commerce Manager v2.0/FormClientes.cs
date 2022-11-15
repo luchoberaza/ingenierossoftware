@@ -1,12 +1,5 @@
 ﻿using Microsoft.VisualStudio.Utilities.Internal;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Ingenieros_Commerce_Manager_v2._0
@@ -54,27 +47,27 @@ namespace Ingenieros_Commerce_Manager_v2._0
         {
             if (customTextBoxNombre.Texts.Trim() != "" && customTextBoxDireccion.Texts.Trim() != "" && customTextBoxTelefono.Texts.Trim() != "" && customTextBoxSaldo.Texts.Trim() != "")
             {
-               
-                    try
-                    {
-                        if (editar == true)
-                        {
-                            sql.ActualizarCliente(customTextBoxNombre.Texts, customTextBoxDireccion.Texts, customTextBoxTelefono.Texts, float.Parse(customTextBoxSaldo.Texts), id);
-                            editar = false;
-                        }
-                        else
-                        {
-                            sql.InsertarCliente(customTextBoxNombre.Texts, customTextBoxDireccion.Texts, customTextBoxTelefono.Texts, float.Parse(customTextBoxSaldo.Texts));
-                        }
-                        dgvClientes.DataSource = sql.GetClientes();
-                        MessageBox.Show("Datos ingresados correctamente", "Acción realizada", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        ClearTextBoxs();
 
-                    }
-                    catch (Exception ex)
+                try
+                {
+                    if (editar == true)
                     {
-                        MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        sql.ActualizarCliente(customTextBoxNombre.Texts, customTextBoxDireccion.Texts, customTextBoxTelefono.Texts, float.Parse(customTextBoxSaldo.Texts), id);
+                        editar = false;
                     }
+                    else
+                    {
+                        sql.InsertarCliente(customTextBoxNombre.Texts, customTextBoxDireccion.Texts, customTextBoxTelefono.Texts, float.Parse(customTextBoxSaldo.Texts));
+                    }
+                    dgvClientes.DataSource = sql.GetClientes();
+                    MessageBox.Show("Datos ingresados correctamente", "Acción realizada", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ClearTextBoxs();
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             else
             {

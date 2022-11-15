@@ -1,10 +1,5 @@
-﻿using MySql.Data.MySqlClient;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Ingenieros_Commerce_Manager_v2._0.Entities;
+﻿using Ingenieros_Commerce_Manager_v2._0.Entities;
+using MySql.Data.MySqlClient;
 
 namespace Ingenieros_Commerce_Manager_v2._0
 {
@@ -12,10 +7,10 @@ namespace Ingenieros_Commerce_Manager_v2._0
     {
         public bool CheckPasswd(string passwd)
         {
-            using(var conexion = GetMySqlConnection())
+            using (var conexion = GetMySqlConnection())
             {
                 conexion.Open();
-                using(var cmd = new MySqlCommand())
+                using (var cmd = new MySqlCommand())
                 {
                     cmd.Connection = conexion;
                     cmd.CommandText = "SELECT Contraseña from Usuario WHERE AES_DECRYPT(Contraseña, @key) = @Passwd AND `ID.Usuario` = @UserID;";
@@ -31,7 +26,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
 
         public bool LogWEncryptPasswd(string username, string passwd)
         {
-            using(var conexion = GetMySqlConnection())
+            using (var conexion = GetMySqlConnection())
             {
                 conexion.Open();
                 using (var cmd = new MySqlCommand())
@@ -45,7 +40,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
                     return reader.Read();
                 }
             }
-            
+
         }
         public int RegisterWEncrypt(string username, string passwd)
         {

@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using Ingenieros_Commerce_Manager_v2._0.Entities;
+﻿using Ingenieros_Commerce_Manager_v2._0.Entities;
 using Microsoft.VisualStudio.Utilities.Internal;
+using System;
+using System.Windows.Forms;
 
 namespace Ingenieros_Commerce_Manager_v2._0
 {
@@ -29,12 +22,12 @@ namespace Ingenieros_Commerce_Manager_v2._0
                 dgvCliente.DataSource = sql.GetClientes();
 
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error al conectar", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-            foreach(DataGridViewColumn column in dgvCliente.Columns)
+            foreach (DataGridViewColumn column in dgvCliente.Columns)
             {
                 cmbBusqueda.Items.Add(column.HeaderText);
             }
@@ -51,7 +44,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
 
         private void dgvCliente_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
             {
                 SetCliente();
                 this.Close();
@@ -64,7 +57,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
 
         private void btnSelect_Click(object sender, EventArgs e)
         {
-            if(dgvCliente.SelectedRows.Count > 0)
+            if (dgvCliente.SelectedRows.Count > 0)
             {
                 SetCliente();
                 this.Close();
