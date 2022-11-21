@@ -113,5 +113,10 @@ namespace Ingenieros_Commerce_Manager_v2._0
         {
             dgvBajoStock.ClearSelection();
         }
+
+        private void chartGananciasProds_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

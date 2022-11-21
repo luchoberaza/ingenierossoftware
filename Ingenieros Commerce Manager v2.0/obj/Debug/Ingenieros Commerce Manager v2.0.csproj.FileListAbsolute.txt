@@ -876,3 +876,4 @@ C:\Users\facun\OneDrive\Documentos\GitHub\ingenierossoftware\Ingenieros Commerce
 C:\Users\facun\OneDrive\Documentos\GitHub\ingenierossoftware\Ingenieros Commerce Manager v2.0\obj\Debug\Ingenieros Commerce Manager v2.0.csproj.CopyComplete
 C:\Users\facun\OneDrive\Documentos\GitHub\ingenierossoftware\Ingenieros Commerce Manager v2.0\obj\Debug\Ingenieros Commerce Manager v2.0.exe
 C:\Users\facun\OneDrive\Documentos\GitHub\ingenierossoftware\Ingenieros Commerce Manager v2.0\obj\Debug\Ingenieros Commerce Manager v2.0.pdb
+C:\Users\lbera\OneDrive\Documentos\GitHub\ingenierossoftware\Ingenieros Commerce Manager v2.0\obj\Debug\Ingenieros_Commerce_Manager_v2._0.FormCalcularCosto.resources

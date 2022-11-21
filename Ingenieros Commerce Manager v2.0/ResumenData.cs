@@ -234,7 +234,7 @@ namespace Ingenieros_Commerce_Manager_v2._0
                                         from `detalleventa` dv
                                         inner join `producto_venta` p on p.`ID.Prod` = dv.`IdProd`
                                         inner join `venta` v on v.`IdVenta` = dv.`IdVenta`
-                                        where p.`IdUsuario` = '1' AND
+                                        where p.`IdUsuario` = '"+Usuario.Id+@"' AND
                                         v.Fecha between @fromDate and @toDate
                                         group by p.Descripcion 
                                         order by 2 desc;";
