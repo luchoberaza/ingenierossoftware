@@ -50,6 +50,7 @@
             this.LogoPrincipal = new System.Windows.Forms.PictureBox();
             this.panelContenedor = new System.Windows.Forms.Panel();
             this.RedondeoForm = new Ingenieros_Commerce_Manager_v2._0.Components.EllipseComponent();
+            this.btnSoporte = new CustomControls.RJControls.RJButton();
             this.panelHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BotonHide)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BotonMinMax)).BeginInit();
@@ -152,6 +153,8 @@
             // 
             // lblRecordar
             // 
+            this.lblRecordar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblRecordar.AutoSize = true;
             this.lblRecordar.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRecordar.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
@@ -163,6 +166,8 @@
             // 
             // btnRecordar
             // 
+            this.btnRecordar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnRecordar.AutoSize = true;
             this.btnRecordar.Location = new System.Drawing.Point(157, 453);
             this.btnRecordar.MinimumSize = new System.Drawing.Size(45, 22);
@@ -353,6 +358,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelPrincipal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(254)))));
+            this.panelPrincipal.Controls.Add(this.btnSoporte);
             this.panelPrincipal.Controls.Add(this.LogoPrincipal);
             this.panelPrincipal.Location = new System.Drawing.Point(230, 40);
             this.panelPrincipal.Margin = new System.Windows.Forms.Padding(0);
@@ -387,6 +393,28 @@
             // 
             this.RedondeoForm.CornerRadius = 30;
             this.RedondeoForm.TargetControl = this;
+            // 
+            // btnSoporte
+            // 
+            this.btnSoporte.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnSoporte.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(254)))));
+            this.btnSoporte.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(254)))));
+            this.btnSoporte.BorderColor = System.Drawing.Color.Peru;
+            this.btnSoporte.BorderRadius = 0;
+            this.btnSoporte.BorderSize = 0;
+            this.btnSoporte.FlatAppearance.BorderSize = 0;
+            this.btnSoporte.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSoporte.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSoporte.ForeColor = System.Drawing.Color.MediumSlateBlue;
+            this.btnSoporte.Location = new System.Drawing.Point(2, 572);
+            this.btnSoporte.Margin = new System.Windows.Forms.Padding(2);
+            this.btnSoporte.Name = "btnSoporte";
+            this.btnSoporte.Size = new System.Drawing.Size(122, 36);
+            this.btnSoporte.TabIndex = 42;
+            this.btnSoporte.Text = "Soporte";
+            this.btnSoporte.TextColor = System.Drawing.Color.MediumSlateBlue;
+            this.btnSoporte.UseVisualStyleBackColor = false;
+            this.btnSoporte.Click += new System.EventHandler(this.btnSoporte_Click);
             // 
             // FormInicial
             // 
@@ -439,6 +467,7 @@
         private System.Windows.Forms.Panel panelContenedor;
         private System.Windows.Forms.Label lblRecordar;
         private CustomControls.RJControls.RJToggleButton btnRecordar;
+        private CustomControls.RJControls.RJButton btnSoporte;
     }
 }
 

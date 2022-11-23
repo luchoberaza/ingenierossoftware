@@ -267,5 +267,11 @@ namespace Ingenieros_Commerce_Manager_v2._0
                 leer.Close();
             }
         }
+
+        private void btnSoporte_Click(object sender, EventArgs e)
+        {
+            Form formsoporte = new FormSoporte();
+            formsoporte.Show();
+        }
     }
 }
